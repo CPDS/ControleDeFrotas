@@ -60,10 +60,10 @@ $(document).ready(function($) {
             columnDefs : [
               { targets : [2], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
-              { "width": "40%", "targets": 1 },//nome
-              { "width": "25%", "targets": 2 },//placa
-              { "width": "30%", "targets": 3 },//tipo_combustivel
-              { "width": "30%", "targets": 4 }//tipo_combustivel
+              { "width": "35%", "targets": 1 },//nome
+              { "width": "20%", "targets": 2 },//placa
+              { "width": "20%", "targets": 3 },//tipo_combustivel
+              { "width": "20%", "targets": 4 }//botoes
             ]
     });
 
@@ -73,6 +73,80 @@ $(document).ready(function($) {
         });
     }).draw();
     
+    //Ver
+    $(document).on('click', '.btnVer', function() {
+        alert('voce clicou');
+        /*$('#tombo-visualizar').text($(this).data('tombo'));
+        $('#tipo_equipamento-visualizar').text($(this).data('tipo_equipamento'));
+        $('#data-visualizar').text($(this).data('data'));
+        $('#usuario-visualizar').text($(this).data('usuario'));
+        $('#destino-visualizar').text($(this).data('destino'));
+        $('#status-visualizar').text($(this).data('status'));
+        $('#local-visualizar').text($(this).data('destino'));
+        $('#descricao-visualizar').text($(this).data('descricao'));
+*/
+        jQuery('#visualizar-modal').modal('show');
+    });
+
+    //Editar
+    $(document).on('click', '.btnEditar', function() {
+        //alert('voce clicou');
+        /*$('#tombo-visualizar').text($(this).data('tombo'));
+        $('#tipo_equipamento-visualizar').text($(this).data('tipo_equipamento'));
+        $('#data-visualizar').text($(this).data('data'));
+        $('#usuario-visualizar').text($(this).data('usuario'));
+        $('#destino-visualizar').text($(this).data('destino'));
+        $('#status-visualizar').text($(this).data('status'));
+        $('#local-visualizar').text($(this).data('destino'));
+        $('#descricao-visualizar').text($(this).data('descricao'));*/
+
+        $('.modal-footer .btn-action').removeClass('add');
+        $('.modal-footer .btn-action').addClass('edit');
+        $('.modal-title').text('Editar Cadastro de Veículo');
+        $('.callout').addClass("hidden"); //ocultar a div de aviso
+        $('.callout').find("p").text(""); //limpar a div de aviso
+
+        var btnEditar = $(this);
+
+        $('#form :input').each(function(index,input){
+            $('#'+input.id).val($(btnEditar).data(input.id));
+        });
+
+        
+        jQuery('#criar_editar-modal').modal('show'); //Abrir o modal
+        jQuery('#visualizar-modal').modal('show');
+    });
+
+    //Deletar
+    $(document).on('click', '.btnDeletar', function() {
+        alert('voce clicou');
+        /*$('#tombo-visualizar').text($(this).data('tombo'));
+        $('#tipo_equipamento-visualizar').text($(this).data('tipo_equipamento'));
+        $('#data-visualizar').text($(this).data('data'));
+        $('#usuario-visualizar').text($(this).data('usuario'));
+        $('#destino-visualizar').text($(this).data('destino'));
+        $('#status-visualizar').text($(this).data('status'));
+        $('#local-visualizar').text($(this).data('destino'));
+        $('#descricao-visualizar').text($(this).data('descricao'));
+*/
+        jQuery('#visualizar-modal').modal('show');
+    });
+
+    //Adicionar
+    $(document).on('click', '.btnAdicionar', function() {
+        $('.modal-footer .btn-action').removeClass('edit');
+        $('.modal-footer .btn-action').addClass('add');
+
+        $('.modal-title').text('Novo Cadastro de Veículo');
+        $('.callout').addClass("hidden"); 
+        $('.callout').find("p").text(""); 
+
+        $('#form')[0].reset();
+
+        jQuery('#criar_editar-modal').modal('show');
+        
+    });
+
 
 });
     

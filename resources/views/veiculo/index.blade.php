@@ -20,6 +20,13 @@
                 <div class="box box-success">
                     <div class="box-header with-border">
                         <h3 class="box-title">Example box</h3>
+                         <div class="col-md-12"> 
+                          <div class="pull-right">
+                        <span>
+                            <a class="btn btn-primary btnAdicionar btn-sm "><i class="fa fa-plus"></i>  Cadastrar veículo</a>
+                        </span>
+                        </div>
+                        </div>  
                         
                     </div>
                     <!-- /.box-header -->
@@ -42,4 +49,5 @@
             </div>
         </div>
     </div>
+@include('veiculo.modals.criar_editar_veiculo')
 @endsection
