@@ -18,7 +18,7 @@ $(document).ready(function($) {
             { data: 'acao', name: 'acao' }
             ],
             createdRow : function( row, data, index ) {
-                row.id = "item-" + data.id;   
+                row.id = "item-" + data.id;
             },
 
             paging: true,
@@ -72,7 +72,7 @@ $(document).ready(function($) {
             cell.innerHTML = tabela.page.info().page * tabela.page.info().length + i + 1;
         });
     }).draw();
-    
+
     //Ver
     $(document).on('click', '.btnVer', function() {
         $('#nome-visualizar').text($(this).data('nome')); // # pego no visualizar.blade.php e data pego no Controller(botao)
@@ -105,9 +105,9 @@ $(document).ready(function($) {
             $('#'+input.id).val($(btnEditar).data(input.id));
         });
 
-        
+
         jQuery('#criar_editar-modal').modal('show'); //Abrir o modal
-        jQuery('#visualizar-modal').modal('show');
+        //jQuery('#visualizar-modal').modal('show');
     });
 
     //Deletar
@@ -122,7 +122,7 @@ $(document).ready(function($) {
         $('#local-visualizar').text($(this).data('destino'));
         $('#descricao-visualizar').text($(this).data('descricao'));
 */
-        jQuery('#visualizar-modal').modal('show');
+        //jQuery('#visualizar-modal').modal('show');
     });
 
     //Adicionar
@@ -131,13 +131,13 @@ $(document).ready(function($) {
         $('.modal-footer .btn-action').addClass('add');
 
         $('.modal-title').text('Novo Cadastro de Veículo');
-        $('.callout').addClass("hidden"); 
-        $('.callout').find("p").text(""); 
+        $('.callout').addClass("hidden");
+        $('.callout').find("p").text("");
 
         $('#form')[0].reset();
 
         jQuery('#criar_editar-modal').modal('show');
-        
+
     });
 
     $('.modal-footer').on('click', '.add', function() {
@@ -198,4 +198,3 @@ $(document).ready(function($) {
 
 
 });
-    
