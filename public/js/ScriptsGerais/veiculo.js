@@ -18,7 +18,7 @@ $(document).ready(function($) {
             { data: 'acao', name: 'acao' }
             ],
             createdRow : function( row, data, index ) {
-                row.id = "item-" + data.id;   
+                row.id = "item-" + data.id;
             },
 
             paging: true,
@@ -72,19 +72,12 @@ $(document).ready(function($) {
             cell.innerHTML = tabela.page.info().page * tabela.page.info().length + i + 1;
         });
     }).draw();
-    
+
     //Ver
     $(document).on('click', '.btnVer', function() {
-        alert('voce clicou');
-        /*$('#tombo-visualizar').text($(this).data('tombo'));
-        $('#tipo_equipamento-visualizar').text($(this).data('tipo_equipamento'));
-        $('#data-visualizar').text($(this).data('data'));
-        $('#usuario-visualizar').text($(this).data('usuario'));
-        $('#destino-visualizar').text($(this).data('destino'));
-        $('#status-visualizar').text($(this).data('status'));
-        $('#local-visualizar').text($(this).data('destino'));
-        $('#descricao-visualizar').text($(this).data('descricao'));
-*/
+        $('#nome-visualizar').text($(this).data('nome')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#placa-visualizar').text($(this).data('placa'));
+        $('#tipo_combustivel-visualizar').text($(this).data('tipo_combustivel'));
         jQuery('#visualizar-modal').modal('show');
     });
 
@@ -112,9 +105,9 @@ $(document).ready(function($) {
             $('#'+input.id).val($(btnEditar).data(input.id));
         });
 
-        
+
         jQuery('#criar_editar-modal').modal('show'); //Abrir o modal
-        jQuery('#visualizar-modal').modal('show');
+        //jQuery('#visualizar-modal').modal('show');
     });
 
     //Deletar
@@ -129,7 +122,7 @@ $(document).ready(function($) {
         $('#local-visualizar').text($(this).data('destino'));
         $('#descricao-visualizar').text($(this).data('descricao'));
 */
-        jQuery('#visualizar-modal').modal('show');
+        //jQuery('#visualizar-modal').modal('show');
     });
 
     //Adicionar
@@ -138,15 +131,68 @@ $(document).ready(function($) {
         $('.modal-footer .btn-action').addClass('add');
 
         $('.modal-title').text('Novo Cadastro de Veículo');
-        $('.callout').addClass("hidden"); 
-        $('.callout').find("p").text(""); 
+        $('.callout').addClass("hidden");
+        $('.callout').find("p").text("");
 
         $('#form')[0].reset();
 
         jQuery('#criar_editar-modal').modal('show');
-        
+
     });
+
+    $('.modal-footer').on('click', '.add', function() {
+       var dados = new FormData($("#form")[0]); //pega os dados do form
+
+       $.ajax({ // criação da ~ação~ para o botão salvar no modal / adicionar
+           type: 'post',
+           url: "./veiculos/store",
+           data: dados,
+           processData: false,
+           contentType: false,
+           beforeSend: function(){
+               jQuery('.add').button('loading');
+           },
+           complete: function() {
+               jQuery('.add').button('reset');
+           },
+           success: function(data) {
+                //Verificar os erros de preenchimento
+               if ((data.errors)) {
+
+                   $('.callout').removeClass('hidden'); //exibe a div de erro
+                   $('.callout').find('p').text(""); //limpa a div para erros successivos
+
+                   $.each(data.errors, function(nome, mensagem) {
+                           $('.callout').find("p").append(mensagem + "</br>");
+                   });
+
+               } else {
+
+                   $('#veiculo').DataTable().draw(false);
+
+                   jQuery('#criar_editar-modal').modal('hide');
+
+                   $(function() {
+                       iziToast.success({
+                           title: 'OK',
+                           message: 'Veículo Adicionado com Sucesso!',
+                       });
+                   });
+
+               }
+           },
+
+           error: function() {
+               jQuery('#criar_editar-modal').modal('hide'); //fechar o modal
+
+               iziToast.error({
+                   title: 'Erro Interno',
+                   message: 'Operação Cancelada!',
+               });
+           },
+
+       });
+   });
 
 
 });
-    
