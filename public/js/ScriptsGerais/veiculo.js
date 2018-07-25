@@ -141,58 +141,60 @@ $(document).ready(function($) {
     });
 
     $('.modal-footer').on('click', '.add', function() {
-       var dados = new FormData($("#form")[0]); //pega os dados do form
 
-       $.ajax({ // criação da ~ação~ para o botão salvar no modal / adicionar
-           type: 'post',
-           url: "./veiculos/store",
-           data: dados,
-           processData: false,
-           contentType: false,
-           beforeSend: function(){
-               jQuery('.add').button('loading');
-           },
-           complete: function() {
-               jQuery('.add').button('reset');
-           },
-           success: function(data) {
-                //Verificar os erros de preenchimento
-               if ((data.errors)) {
+        var dados = new FormData($("#form")[0]); //pega os dados do form
+        console.log(dados);
 
-                   $('.callout').removeClass('hidden'); //exibe a div de erro
-                   $('.callout').find('p').text(""); //limpa a div para erros successivos
+        $.ajax({
+            type: 'post',
+            url: "./store",
+            data: dados,
+            processData: false,
+            contentType: false,
+            beforeSend: function(){
+                jQuery('.add').button('loading');
+            },
+            complete: function() {
+                jQuery('.add').button('reset');
+            },
+            success: function(data) {
+                 //Verificar os erros de preenchimento
+                if ((data.errors)) {
 
-                   $.each(data.errors, function(nome, mensagem) {
-                           $('.callout').find("p").append(mensagem + "</br>");
-                   });
+                    $('.callout').removeClass('hidden'); //exibe a div de erro
+                    $('.callout').find('p').text(""); //limpa a div para erros successivos
 
-               } else {
+                    $.each(data.errors, function(nome, mensagem) {
+                            $('.callout').find("p").append(mensagem + "</br>");
+                    });
 
-                   $('#veiculo').DataTable().draw(false);
+                } else {
+                    
+                    $('#tabela_veiculo').DataTable().draw(false);
 
-                   jQuery('#criar_editar-modal').modal('hide');
+                    jQuery('#criar_editar-modal').modal('hide');
 
-                   $(function() {
-                       iziToast.success({
-                           title: 'OK',
-                           message: 'Veículo Adicionado com Sucesso!',
-                       });
-                   });
+                    $(function() {
+                        iziToast.success({
+                            title: 'OK',
+                            message: 'Veículo Adicionado com Sucesso!',
+                        });
+                    });
 
-               }
-           },
+                }
+            },
 
-           error: function() {
-               jQuery('#criar_editar-modal').modal('hide'); //fechar o modal
+            error: function() {
+                jQuery('#criar_editar-modal').modal('hide'); //fechar o modal
 
-               iziToast.error({
-                   title: 'Erro Interno',
-                   message: 'Operação Cancelada!',
-               });
-           },
+                iziToast.error({
+                    title: 'Erro Interno',
+                    message: 'Operação Cancelada!',
+                });
+            },
 
-       });
-   });
+        });
+    });
 
 
 });
