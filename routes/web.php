@@ -27,8 +27,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('',['as'=>'veiculos.index', 'uses'=>'VeiculoController@index']);
     Route::get('/list',['as' => 'veiculos.list', 'uses' => 'VeiculoController@list']);
     Route::post('/store', ['as' => 'veiculos.store', 'uses' => 'VeiculoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
-    Route::post('/update', ['as' => 'veiculos.update', 'uses' => 'VeiculoController@update']);
-    Route::post('/delete', ['as' => 'veiculos.destroy', 'uses' => 'VeiculoController@delete']);
+    Route::post('/update', ['as' => 'veiculos.update', 'uses' => 'VeiculoController@update']); // uso para atualizações
+    Route::post('/delete', ['as' => 'veiculos.destroy', 'uses' => 'VeiculoController@delete']); // para deeletar
 
 	});
 });

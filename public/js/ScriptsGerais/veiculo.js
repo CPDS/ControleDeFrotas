@@ -5,7 +5,7 @@ $(document).ready(function($) {
         }
     });
 
-    var tabela = $('#veiculo').DataTable({
+    var tabela = $('#tabela_veiculo').DataTable({
             processing: true,
             serverSide: true,
             deferRender: true,
@@ -147,7 +147,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./store",
+            url: "./veiculos/store",
             data: dados,
             processData: false,
             contentType: false,
@@ -169,7 +169,7 @@ $(document).ready(function($) {
                     });
 
                 } else {
-                    
+
                     $('#tabela_veiculo').DataTable().draw(false);
 
                     jQuery('#criar_editar-modal').modal('hide');
