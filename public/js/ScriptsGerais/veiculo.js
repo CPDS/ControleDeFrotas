@@ -5,7 +5,7 @@ $(document).ready(function($) {
         }
     });
 
-    var tabela = $('#veiculo').DataTable({
+    var tabela = $('#tabela_veiculo').DataTable({
             processing: true,
             serverSide: true,
             deferRender: true,
@@ -75,16 +75,9 @@ $(document).ready(function($) {
     
     //Ver
     $(document).on('click', '.btnVer', function() {
-        alert('voce clicou');
-        /*$('#tombo-visualizar').text($(this).data('tombo'));
-        $('#tipo_equipamento-visualizar').text($(this).data('tipo_equipamento'));
-        $('#data-visualizar').text($(this).data('data'));
-        $('#usuario-visualizar').text($(this).data('usuario'));
-        $('#destino-visualizar').text($(this).data('destino'));
-        $('#status-visualizar').text($(this).data('status'));
-        $('#local-visualizar').text($(this).data('destino'));
-        $('#descricao-visualizar').text($(this).data('descricao'));
-*/
+        $('#nome-visualizar').text($(this).data('nome')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#placa-visualizar').text($(this).data('placa'));
+        $('#tipo_combustivel-visualizar').text($(this).data('tipo_combustivel'));
         jQuery('#visualizar-modal').modal('show');
     });
 
@@ -145,6 +138,62 @@ $(document).ready(function($) {
 
         jQuery('#criar_editar-modal').modal('show');
         
+    });
+
+    $('.modal-footer').on('click', '.add', function() {
+
+        var dados = new FormData($("#form")[0]); //pega os dados do form
+        console.log(dados);
+
+        $.ajax({
+            type: 'post',
+            url: "./store",
+            data: dados,
+            processData: false,
+            contentType: false,
+            beforeSend: function(){
+                jQuery('.add').button('loading');
+            },
+            complete: function() {
+                jQuery('.add').button('reset');
+            },
+            success: function(data) {
+                 //Verificar os erros de preenchimento
+                if ((data.errors)) {
+
+                    $('.callout').removeClass('hidden'); //exibe a div de erro
+                    $('.callout').find('p').text(""); //limpa a div para erros successivos
+
+                    $.each(data.errors, function(nome, mensagem) {
+                            $('.callout').find("p").append(mensagem + "</br>");
+                    });
+
+                } else {
+                    
+                    $('#tabela_veiculo').DataTable().draw(false);
+
+                    jQuery('#criar_editar-modal').modal('hide');
+
+                    $(function() {
+                        iziToast.success({
+                            title: 'OK',
+                            message: 'Veículo Adicionado com Sucesso!',
+                        });
+                    });
+
+                }
+            },
+
+            error: function() {
+                jQuery('#criar_editar-modal').modal('hide'); //fechar o modal
+
+                iziToast.error({
+                    title: 'Erro Interno',
+                    message: 'Operação Cancelada!',
+                });
+            },
+
+        });
     });
 
 

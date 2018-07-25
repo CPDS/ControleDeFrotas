@@ -31,7 +31,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <table class="table" id="veiculo">
+                        <table class="table" id="tabela_veiculo">
                             <thead>
                             <tr>
                                 <th>Nº</th>
@@ -50,4 +50,5 @@
         </div>
     </div>
 @include('veiculo.modals.criar_editar_veiculo')
+@include('veiculo.modals.visualizar')
 @endsection
