@@ -61,6 +61,7 @@ class VeiculoController extends Controller
             $Veiculo->nome = $request->nome;
             $Veiculo->placa = $request->placa;
             $Veiculo->tipo_combustivel = $request->tipo_combustivel;
+            $Veiculo->status = "Ativo";
             $Veiculo->save();
             //$Veiculo->setAttribute('titulo', $Veiculo->titulo);
             //$Veiculo->setAttribute('descricao', $Veiculo->descricao);
