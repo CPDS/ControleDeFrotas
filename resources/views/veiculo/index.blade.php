@@ -8,7 +8,7 @@
 <script src="{{ asset('js/iziToast.min.js') }}"></script>
 <script src="{{asset('js/ScriptsGerais/veiculo.js')}}"></script>
 @section('htmlheader_title')
-    Change Title here!
+    Veículos
 @endsection
 
 
