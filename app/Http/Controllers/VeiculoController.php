@@ -67,4 +67,27 @@ class VeiculoController extends Controller
             return response()->json($Veiculo);
         }
     }
+
+    public function update(Request $request)
+    {   
+        $rules = array(
+            'nome' => 'required',
+            'placa' => 'required',
+            'tipo_combustivel' => 'required'
+        );
+        
+        $validator = Validator::make(Input::all(), $rules);
+        if ($validator->fails())
+            return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
+        else {
+            
+            $Veiculo = Veiculo::find($request->id);
+            $Veiculo->nome = $request->nome;
+            $Veiculo->placa = $request->placa;
+            $Veiculo->tipo_combustivel = $request->tipo_combustivel;
+            $Veiculo->save();
+            //$equipamento->setAttribute('buttons', $this->setDataButtons($equipamento)); 
+            return response()->json($Veiculo);
+        }
+    }
 }

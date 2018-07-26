@@ -147,7 +147,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./store",
+            url: "./veiculos/store",
             data: dados,
             processData: false,
             contentType: false,
@@ -196,5 +196,67 @@ $(document).ready(function($) {
         });
     });
 
+    $('.modal-footer').on('click', '.edit', function() {
+        var dados = new FormData($("#form")[0]); //pega os dados do form
+        console.log(dados);
+
+        $.ajax({
+            type: 'post',
+            url: "./veiculos/update",
+            data: dados,
+            processData: false,
+            contentType: false,
+            beforeSend: function(){
+                jQuery('.edit').button('loading');
+            },
+            complete: function() {
+                jQuery('.edit').button('reset');
+            },
+            success: function(data) {
+                 //Verificar os erros de preenchimento
+                if ((data.errors)) {
+
+                    $('.callout').removeClass('hidden'); //exibe a div de erro
+                    $('.callout').find('p').text(""); //limpa a div para erros successivos
+
+                    $.each(data.errors, function(nome, mensagem) {
+                            $('.callout').find("p").append(mensagem + "</br>");
+                    });
+
+                } else {
+
+                   $('#tabela_veiculo').DataTable().draw(false);
+
+                    jQuery('#criar_editar-modal').modal('hide');
+
+                    $(function() {
+                        iziToast.success({
+                            title: 'OK',
+                            message: 'Veículo Atualizado com Sucesso!',
+                        });
+                    });
+
+                }
+            },
+
+            error: function() {
+                jQuery('#criar_editar-modal').modal('hide'); //fechar o modal
+
+                iziToast.error({
+                    title: 'Erro Interno',
+                    message: 'Operação Cancelada!',
+                });
+            },
+        });
+    });
+
+    $(document).on('click', '.ret', function() {
+        $('.callout').addClass("hidden"); //ocultar a div de aviso
+        $('.callout').find("p").text(""); //limpar a div de aviso
+        
+        $('#retirar_veiculo').text($(this).data('veiculos'));
+        $('.id_ret').val($(this).data('id')); 
+        jQuery('#retirar-modal').modal('show'); //Abrir o modal
+    });
 
 });
