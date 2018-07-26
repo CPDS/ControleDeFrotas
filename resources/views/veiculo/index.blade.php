@@ -51,4 +51,5 @@
     </div>
 @include('veiculo.modals.criar_editar_veiculo')
 @include('veiculo.modals.visualizar')
+@include('veiculo.modals.excluir')
 @endsection

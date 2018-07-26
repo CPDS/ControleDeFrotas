@@ -111,7 +111,7 @@ $(document).ready(function($) {
     });
 
     //Deletar
-    $(document).on('click', '.btnDeletar', function() {
+  /*  $(document).on('click', '.btnDeletar', function() {
         alert('voce clicou');
         /*$('#tombo-visualizar').text($(this).data('tombo'));
         $('#tipo_equipamento-visualizar').text($(this).data('tipo_equipamento'));
@@ -123,6 +123,13 @@ $(document).ready(function($) {
         $('#descricao-visualizar').text($(this).data('descricao'));
 */
         //jQuery('#visualizar-modal').modal('show');
+  //  });
+
+    //Excluir
+    $(document).on('click', '.btnDeletar', function() {
+        $('.modal-title').text('Excluir sala');
+        $('.id_del').val($(this).data('id'));
+        jQuery('#excluir-modal').modal('show'); //Abrir o modal
     });
 
     //Adicionar
@@ -194,8 +201,9 @@ $(document).ready(function($) {
             },
 
         });
-    });
+    }); // fim do adicionar
 
+    // Editar
     $('.modal-footer').on('click', '.edit', function() {
         var dados = new FormData($("#form")[0]); //pega os dados do form
         console.log(dados);
@@ -248,15 +256,59 @@ $(document).ready(function($) {
                 });
             },
         });
-    });
+    }); // Fim modal Editar
 
+    /*
     $(document).on('click', '.ret', function() {
         $('.callout').addClass("hidden"); //ocultar a div de aviso
         $('.callout').find("p").text(""); //limpar a div de aviso
-        
+
         $('#retirar_veiculo').text($(this).data('veiculos'));
-        $('.id_ret').val($(this).data('id')); 
+        $('.id_ret').val($(this).data('id'));
         jQuery('#retirar-modal').modal('show'); //Abrir o modal
+    }); */
+
+    //excluir
+
+    $('.modal-footer').on('click', '.del', function() {
+
+        $.ajax({
+            type: 'post',
+            url: './veiculos/delete',
+            data: {
+                'id': $(".id_del").val(),
+            },
+            beforeSend: function(){
+                jQuery('.del').button('loading');
+            },
+            complete: function() {
+                jQuery('.del').button('reset');
+            },
+            success: function(data) {
+                $('#tabela_veiculo').DataTable().row('#item-' + data.id).remove().draw(); //remove a linha e ordena
+                jQuery('#excluir-modal').modal('hide'); //fechar o modal
+
+                $(function() {
+
+                    iziToast.success({
+                        title: 'OK',
+                        message: 'Veículo Excluído com Sucesso!',
+                    });
+                });
+            },
+            error: function() {
+
+                jQuery('#excluir-modal').modal('hide'); //fechar o modal
+
+                iziToast.error({
+                    title: 'Erro Interno',
+                    message: 'Operação Cancelada!',
+                });
+            },
+
+        });
     });
+
+
 
 });
