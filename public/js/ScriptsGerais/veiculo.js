@@ -169,7 +169,7 @@ $(document).ready(function($) {
                     });
 
                 } else {
-                    
+
                     $('#tabela_veiculo').DataTable().draw(false);
 
                     jQuery('#criar_editar-modal').modal('hide');
