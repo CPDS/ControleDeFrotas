@@ -127,7 +127,7 @@ $(document).ready(function($) {
 
     //Excluir
     $(document).on('click', '.btnDeletar', function() {
-        $('.modal-title').text('Excluir sala');
+        $('.modal-title').text('Excluir Veículo');
         $('.id_del').val($(this).data('id'));
         jQuery('#excluir-modal').modal('show'); //Abrir o modal
     });
@@ -276,7 +276,7 @@ $(document).ready(function($) {
             type: 'post',
             url: './veiculos/delete',
             data: {
-                'id': $(".id_del").val(),
+                'id': $("#del").val(),
             },
             beforeSend: function(){
                 jQuery('.del').button('loading');

@@ -20,7 +20,7 @@
     <div class="modal-footer">
       <button type="button" class="btn btn-primary del" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> &nbsp Aguarde...">OK</button>
       <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-      <span class="hidden id_del"></span> <!-- Passar o ID para o Controlador -->
+      <span id="del" class="hidden id_del" name="id_del" hidden></span> <!-- Passar o ID para o Controlador -->
     </div>
 
   </div> <!-- Fim de ModaL Content -->

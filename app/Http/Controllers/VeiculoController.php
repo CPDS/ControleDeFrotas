@@ -95,7 +95,7 @@ class VeiculoController extends Controller
     // desabilitar veículo
 
     public function destroy(Request $request) {
-        $veiculo = Veiculo::find($request->id);
+        $Veiculo = Veiculo::find($request->id);
         $Veiculo->status = "Inativo";
         $Veiculo->save();
         return response()->json($Veiculo);
