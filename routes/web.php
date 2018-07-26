@@ -22,7 +22,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
-    Route::group(['prefix'=>'veiculos','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador(a)']], function(){
+    Route::group(['prefix'=>'veiculos','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
 
 	  Route::get('',['as'=>'veiculos.index', 'uses'=>'VeiculoController@index']);
     Route::get('/list',['as' => 'veiculos.list', 'uses' => 'VeiculoController@list']);
