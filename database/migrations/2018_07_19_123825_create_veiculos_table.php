@@ -18,6 +18,7 @@ class CreateVeiculosTable extends Migration
             $table->string('nome');
             $table->string('placa');
             $table->string('tipo_combustivel');
+            $table->string('status');
             $table->timestamps();
         });
     }
