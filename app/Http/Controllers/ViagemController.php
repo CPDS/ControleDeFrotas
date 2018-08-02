@@ -1,28 +1,21 @@
 <?php
-// Controlador referente a Viagem
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use Illuminate\Support\Facades\Input;
-use Validator;
-use Response;
-use DataTables;
-use DB;
-use Auth;
-use App\Viagem;
 
-
-class VeiculoController extends Controller
+class ViagemController extends Controller
 {
-    public function index(){
-        return view('veiculo.index');
-    }
+    //Editar para viagems
 
+    public function index(){
+        return view('viagem.index');
+    }
+    //TEM QUE TERMINAR DE EDITAR PARA VIAGEM
     public function list() {
         $Veiculo = Veiculo::orderBy('created_at', 'desc')->get();
 
-        return Datatables::of($Veiculo)->editColumn('acao', function ($veiculos){
+        return Datatables::of($Viagem)->editColumn('acao', function ($veiculos){
         	return $this->setBtns($veiculos);
         })->escapeColumns([0])->make(true);
     }
