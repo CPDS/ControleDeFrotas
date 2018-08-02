@@ -20,11 +20,11 @@ class CreateViagemsTable extends Migration
             $table->string('setor_nome');
             $table->integer('motorista_id');
             $table->integer('veiculo_id');
-            $table->timestamps('data_saida');
-            $table->timestamps('data_chegada');
+            $table->timestamp('data_saida');
+            $table->timestamp('data_chegada');
             $table->string('status');
-            $table->timestamps('criado_em');
-            $table->timestamps('atualizado_em');
+            $table->timestamp('criado_em');
+            $table->timestamp('atualizado_em');
             $table->string('cidade_saida');
             $table->string('cidade_chegada');
             $table->timestamps();
