@@ -31,13 +31,22 @@ Route::group(['middleware' => 'auth'], function () {
 
     });
     Route::group(['prefix'=>'passageiros','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
-        Route::get('',['as'=>'passageiros.index', 'uses'=>'PassageiroController@index']);
-        Route::get('/list',['as' => 'passageiros.list', 'uses' => 'PassageiroController@list']);
-        Route::post('/store', ['as' => 'passageiros.store', 'uses' => 'PassageiroController@store']); // relacionada ao create do botão para salvar cadastro de veículo
-        Route::post('/update', ['as' => 'passageiros.update', 'uses' => 'PassageiroController@update']); // uso para atualizações
-        Route::post('/delete', ['as' => 'passageiros.delete', 'uses' => 'PassageiroController@destroy']); // para deletar
+    Route::get('',['as'=>'passageiros.index', 'uses'=>'PassageiroController@index']);
+    Route::get('/list',['as' => 'passageiros.list', 'uses' => 'PassageiroController@list']);
+    Route::post('/store', ['as' => 'passageiros.store', 'uses' => 'PassageiroController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/update', ['as' => 'passageiros.update', 'uses' => 'PassageiroController@update']); // uso para atualizações
+    Route::post('/delete', ['as' => 'passageiros.delete', 'uses' => 'PassageiroController@destroy']); // para deletar
     
-        });
+    });
+
+    Route::group(['prefix'=>'viagems','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
+    Route::get('',['as'=>'viagems.index', 'uses'=>'ViagemController@index']);
+    Route::get('/list',['as' => 'viagems.list', 'uses' => 'ViagemController@list']);
+    Route::post('/store', ['as' => 'viagems.store', 'uses' => 'ViagemController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/update', ['as' => 'viagems.update', 'uses' => 'ViagemController@update']); // uso para atualizações
+    Route::post('/delete', ['as' => 'viagems.delete', 'uses' => 'ViagemController@destroy']); // para deletar
+    
+    });
 });
 
 Auth::routes();
