@@ -36,7 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/store', ['as' => 'passageiros.store', 'uses' => 'PassageiroController@store']); // relacionada ao create do botão para salvar cadastro de veículo
         Route::post('/update', ['as' => 'passageiros.update', 'uses' => 'PassageiroController@update']); // uso para atualizações
         Route::post('/delete', ['as' => 'passageiros.delete', 'uses' => 'PassageiroController@destroy']); // para deletar
-    
+
         });
 });
 

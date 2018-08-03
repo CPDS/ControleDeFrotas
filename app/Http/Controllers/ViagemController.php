@@ -27,7 +27,7 @@ class VeiculoController extends Controller
         })->escapeColumns([0])->make(true);
     }
 
-    private function setBtns(Veiculo $veiculos){
+    private function setBtns(Viagem $viagems){
     	$dados = "data-id='$viagems->id' data-numero_rv='$viagems->numero_rv' data-roteiro_id='$viagems->roteiro_id' data-setor_nome='$viagems->setor_nome'
       data-motorista_id='$viagems->motorista_id' data-veiculo_id='$viagems->veiculo_id' data-data_saida='$viagems->data_saida' data-data_chegada='$viagems->data_chegada'
       data-status='$viagems->status' data-criado_em='$viagems->criado_em' data-atualizado_em='$viagems->atualizado_em' data-cidade_saida='$viagems->cidade_chegada' ";
