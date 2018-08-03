@@ -13,7 +13,7 @@ use Auth;
 use App\Viagem;
 
 
-class VeiculoController extends Controller
+class ViagemController extends Controller
 {
     public function index(){
         return view('viagem.index');
