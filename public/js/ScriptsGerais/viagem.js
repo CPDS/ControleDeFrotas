@@ -24,7 +24,7 @@ $(document).ready(function($) {
             { data: 'atualizado_em', name: 'atualizado_em' },
             { data: 'cidade_saida', name: 'cidade_saida' },
             { data: 'cidade_chegada', name: 'cidade_chegada' },
-            { data: 'situacao', name: 'situacao' }
+            { data: 'situacao', name: 'situacao' },
             { data: 'acao', name: 'acao' }
             ],
             createdRow : function( row, data, index ) {
