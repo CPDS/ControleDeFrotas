@@ -31,7 +31,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <table class="table" id="tabela_viagem">
+                        <table class="table table-bordered" id="tabela_viagem">
                             <thead>
                             <tr>
                                 <th>Nº RV</th>
