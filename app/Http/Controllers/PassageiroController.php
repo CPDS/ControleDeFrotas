@@ -3,6 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
+use Validator;
+use Response;
+use DataTables;
+use DB;
+use Auth;
+use App\Passageiro;
 
 class PassageiroController extends Controller
 {
@@ -14,13 +22,14 @@ class PassageiroController extends Controller
         $Passageiro = Passageiro::orderBy('created_at', 'desc')->get();
 
         return Datatables::of($Passageiro)->editColumn('acao', function ($passageiros){
+
         	return $this->setBtns($passageiros);
         })->escapeColumns([0])->make(true);
     }
 
     private function setBtns(Passageiro $passageiros){
-    	$dados = "data-id='$passageiros->id' data-nome='$passageiros->nome' data-matricula='$passageiros->matricula'";
-        $dadosVisualizar = "data-nome='$passageiros->nome' data-matricula='$passageiros->matricula";
+    	$dados = "data-id='$passageiros->id' data-nome='$passageiros->nome' data-matricula='$passageiros->matricula' data-status='$passageiros->status'";
+        $dadosVisualizar = "data-nome='$passageiros->nome' data-matricula='$passageiros->matricula' data-status='$passageiros->status'";
     	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Passageiro' $dados ><i class='fa fa-eye'></i></a> ";
     	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Passageiro' $dados><i class ='fa fa-pencil'></i></a> ";
     	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Passageiro' data-id='$passageiros->id'><i class='fa fa-trash'></i></a>";
@@ -31,12 +40,13 @@ class PassageiroController extends Controller
     public function store(Request $request) {
         $rules = array(
               'nome' => 'required',
-              'matricula' => 'required'
+              'matricula' => 'required',
+              
         );
         $attributeNames = array(
             'nome' => 'Nome',
-            'matricula' => 'Matricula'
-
+            'matricula' => 'Matricula',
+            
         );
         $messages = array(
             'same' => 'Essas senhas não coincidem.'
@@ -49,10 +59,11 @@ class PassageiroController extends Controller
             $Passageiro = new Passageiro();
             $Passageiro->nome = $request->nome;
             $Passageiro->matricula = $request->matricula;
+            $Passageiro->status = "Ativo";
             $Passageiro->save();
             //$Veiculo->setAttribute('titulo', $Veiculo->titulo);
             //$Veiculo->setAttribute('descricao', $Veiculo->descricao);
-            return response()->json($Veiculo);
+            return response()->json($Passageiro);
         }
     }
 
@@ -68,7 +79,7 @@ class PassageiroController extends Controller
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         else {
 
-            $Passageiro = Veiculo::find($request->id);
+            $Passageiro = Passageiro::find($request->id);
             $Passageiro->nome = $request->nome;
             $Passageiro->matricula = $request->matricula;
             $Passageiro->save();

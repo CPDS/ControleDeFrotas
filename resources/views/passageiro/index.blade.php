@@ -6,9 +6,9 @@
 <link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('css/iziToast.min.css') }}">
 <script src="{{ asset('js/iziToast.min.js') }}"></script>
-<script src="{{asset('js/ScriptsGerais/veiculo.js')}}"></script>
+<script src="{{asset('js/ScriptsGerais/passageiro.js')}}"></script>
 @section('htmlheader_title')
-    Veículos
+    Passageiros
 @endsection
 
 
@@ -23,7 +23,7 @@
                          <div class="col-md-12">
                           <div class="pull-right">
                         <span>
-                            <a class="btn btn-primary btnAdicionar btn-sm "><i class="fa fa-plus"></i>  Cadastrar veículo</a>
+                            <a class="btn btn-primary btnAdicionar btn-sm "><i class="fa fa-plus"></i>  Cadastrar passageiro</a>
                         </span>
                         </div>
                         </div>
@@ -31,13 +31,13 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <table class="table" id="tabela_veiculo">
+                        <table class="table" id="tabela_passageiro">
                             <thead>
                             <tr>
                                 <th>Nº</th>
                                 <th>Nome</th>
-                                <th>Placa</th>
-                                <th>Tipo Combustível</th>
+                                <th>Matrícula</th>
+                                <th>Status</th>
                                 <th>Ações</th>
                             </tr>
                             </thead>
@@ -49,7 +49,7 @@
             </div>
         </div>
     </div>
-@include('veiculo.modals.criar_editar_veiculo')
-@include('veiculo.modals.visualizar')
-@include('veiculo.modals.excluir')
+@include('passageiro.modals.criar_editar_passageiro')
+@include('passageiro.modals.visualizar_passageiro')
+@include('passageiro.modals.excluir_passageiro')
 @endsection
