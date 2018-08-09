@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('css/iziToast.min.css') }}">
 <script src="{{ asset('js/iziToast.min.js') }}"></script>
-<script src="{{asset('js/ScriptsGerais/veiculo.js')}}"></script>
+<script src="{{asset('js/ScriptsGerais/viagem.js')}}"></script>
 @section('htmlheader_title')
     Veículos
 @endsection
@@ -42,11 +42,11 @@
                                 <th>Data de Saída</th>
                                 <th>Data de Chegada</th>
                                 <th>Status</th>
-                                <th>Motorista</th>
                                 <th>Criado em</th>
                                 <th>Atualizado em</th>
                                 <th>Cidade de Saída</th>
                                 <th>Cidade de Chegada</th>
+                                <th>Situação</th>
                             </tr>
                             </thead>
                         </table>
@@ -57,6 +57,7 @@
             </div>
         </div>
     </div>
-@include('viagem.modals.criar_editar') 
-
+@include('viagem.modals.criar_editar')
+@include('viagem.modals.visualizar')
+@include('veiculo.modals.excluir')
 @endsection

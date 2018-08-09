@@ -27,21 +27,39 @@ class ViagemController extends Controller
         })->escapeColumns([0])->make(true);
     }
 
-    private function setBtns(Veiculo $veiculos){
+    private function setBtns(Viagem $viagems){
+      $data_saida = substr($viagems->data_saida, 0, 10);
+      $data_hora = substr($viagems->data_saida, 11, 8);
+      $data_chegada = substr($viagems->data_chegada, 0, 10);
+      $data_criado_em = substr($viagems->criado_em, 0, 10);
+      $data_atualizado_em = substr($viagems->atualizado_em, 0, 10); // quebrar a string de hora e data
+
     	$dados = "data-id='$viagems->id' data-numero_rv='$viagems->numero_rv' data-roteiro_id='$viagems->roteiro_id' data-setor_nome='$viagems->setor_nome'
       data-motorista_id='$viagems->motorista_id' data-veiculo_id='$viagems->veiculo_id' data-data_saida='$viagems->data_saida' data-data_chegada='$viagems->data_chegada'
-      data-status='$viagems->status' data-criado_em='$viagems->criado_em' data-atualizado_em='$viagems->atualizado_em' data-cidade_saida='$viagems->cidade_chegada' ";
+      data-status='$viagems->status' data-criado_em='$viagems->criado_em' data-atualizado_em='$viagems->atualizado_em' data-cidade_saida='$viagems->cidade_saida'
+      data-cidade_chegada='$viagems->cidade_chegada' data-situacao='$viagems->situacao' ";
+
+      $dadosEditar = "data-id='$viagems->id' data-numero_rv='$viagems->numero_rv' data-roteiro_id='$viagems->roteiro_id' data-setor_nome='$viagems->setor_nome'
+      data-motorista_id='$viagems->motorista_id' data-veiculo_id='$viagems->veiculo_id' data-data_saida='$data_saida' data-data_chegada='$data_chegada'
+      data-status='$viagems->status' data-criado_em='$data_criado_em' data-atualizado_em='$data_atualizado_em' data-cidade_saida='$viagems->cidade_saida'
+      data-cidade_chegada='$viagems->cidade_chegada' data-situacao='$viagems->situacao' ";
+
       $dadosVisualizar = "data-numero_rv='$viagems->numero_rv' data-roteiro_id='$viagems->roteiro_id' data-setor_nome='$viagems->setor_nome'
       data-motorista_id='$viagems->motorista_id' data-veiculo_id='$viagems->veiculo_id' data-data_saida='$viagems->data_saida' data-data_chegada='$viagems->data_chegada'
-      data-status='$viagems->status' data-criado_em='$viagems->criado_em' data-atualizado_em='$viagems->atualizado_em' data-cidade_saida='$viagems->cidade_chegada' ";;
+      data-status='$viagems->status' data-criado_em='$viagems->criado_em' data-atualizado_em='$viagems->atualizado_em' data-cidade_saida='$viagems->cidade_saida'
+      data-cidade_chegada='$viagems->cidade_chegada' data-situacao='$viagems->situacao' ";
+
     	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Viagem' $dados ><i class='fa fa-eye'></i></a> ";
-    	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Viagem' $dados><i class ='fa fa-pencil'></i></a> ";
+
+    	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Viagem' $dadosEditar><i class ='fa fa-pencil'></i></a> ";
+
     	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Viagem' data-id='$viagems->id'><i class='fa fa-trash'></i></a>";
 
     	return $btnVer.$btnEditar.$btnDeletar;
     }
 
     public function store(Request $request) { // cadastro de viagem
+      //dd($request->all());
         $rules = array(
               'numero_rv' => 'required',
               'roteiro_id' => 'required',
@@ -50,7 +68,7 @@ class ViagemController extends Controller
               'veiculo_id' => 'required',
               'data_saida' => 'required',
               'data_chegada' => 'required',
-              'status' => 'required',
+              //'status' => 'required',
               'cidade_saida' => 'required',
               'cidade_chegada' => 'required'
         );
@@ -62,7 +80,7 @@ class ViagemController extends Controller
             'veiculo_id' => 'Veículo',
             'data_saida' => 'Data de Saída',
             'data_chegada' => 'Data de Chegada',
-            'status' => 'Status',
+            //'status' => 'Status',
             'criado_em' => 'Criado em',
             'atualizado_em' => 'Atualizado em',
             'cidade_saida' => 'Cidade de Saída',
@@ -85,7 +103,7 @@ class ViagemController extends Controller
             $Viagem->veiculo_id = $request->veiculo_id;
             $Viagem->data_saida = $request->data_saida;
             $Viagem->data_chegada = $request->data_chegada;
-            $Viagem->status = $request->status;
+            $Viagem->status = 'Ativo';
             $Viagem->criado_em = $request->criado_em;
             $Viagem->atualizado_em = $request->atualizado_em;
             $Viagem->cidade_saida = $request->cidade_saida;
@@ -108,7 +126,7 @@ class ViagemController extends Controller
           'veiculo_id' => 'required',
           'data_saida' => 'required',
           'data_chegada' => 'required',
-          'status' => 'required',
+          //'status' => 'required',
           'cidade_saida' => 'required',
           'cidade_chegada' => 'required'
         );
@@ -126,7 +144,7 @@ class ViagemController extends Controller
             $Viagem->veiculo_id = $request->veiculo_id;
             $Viagem->data_saida = $request->data_saida;
             $Viagem->data_chegada = $request->data_chegada;
-            $Viagem->status = $request->status;
+            //$Viagem->status = $request->status;
             $Viagem->criado_em = $request->criado_em;
             $Viagem->atualizado_em = $request->atualizado_em;
             $Viagem->cidade_saida = $request->cidade_saida;

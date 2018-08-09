@@ -27,6 +27,7 @@ class CreateViagemsTable extends Migration
             $table->timestamp('atualizado_em');
             $table->string('cidade_saida');
             $table->string('cidade_chegada');
+            $table->string('situacao');
             $table->timestamps();
             // adicionar os campos que teram no banco de dados
         });
