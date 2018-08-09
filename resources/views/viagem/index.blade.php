@@ -59,5 +59,5 @@
     </div>
 @include('viagem.modals.criar_editar')
 @include('viagem.modals.visualizar')
-@include('veiculo.modals.excluir')
+@include('viagem.modals.excluir')
 @endsection
