@@ -29,7 +29,7 @@ class PassageiroController extends Controller
 
     private function setBtns(Passageiro $passageiros){
     	$dados = "data-id='$passageiros->id' data-nome='$passageiros->nome' data-matricula='$passageiros->matricula' data-status='$passageiros->status'";
-        $dadosVisualizar = "data-nome='$passageiros->nome' data-matricula='$passageiros->matricula' data-status='$passageiros->status'";
+      $dadosVisualizar = "data-nome='$passageiros->nome' data-matricula='$passageiros->matricula' data-status='$passageiros->status'";
     	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Passageiro' $dados ><i class='fa fa-eye'></i></a> ";
     	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Passageiro' $dados><i class ='fa fa-pencil'></i></a> ";
     	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Passageiro' data-id='$passageiros->id'><i class='fa fa-trash'></i></a>";
@@ -41,12 +41,12 @@ class PassageiroController extends Controller
         $rules = array(
               'nome' => 'required',
               'matricula' => 'required',
-              
+
         );
         $attributeNames = array(
             'nome' => 'Nome',
             'matricula' => 'Matricula',
-            
+
         );
         $messages = array(
             'same' => 'Essas senhas não coincidem.'
