@@ -11,9 +11,15 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', 'HomeController@index');
+Route::auth();
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+/*Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
@@ -23,7 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
     Route::group(['prefix'=>'veiculos','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
-	Route::get('',['as'=>'veiculos.index', 'uses'=>'VeiculoController@index']);
+	  Route::get('',['as'=>'veiculos.index', 'uses'=>'VeiculoController@index']);
     Route::get('/list',['as' => 'veiculos.list', 'uses' => 'VeiculoController@list']);
     Route::post('/store', ['as' => 'veiculos.store', 'uses' => 'VeiculoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'veiculos.update', 'uses' => 'VeiculoController@update']); // uso para atualizações

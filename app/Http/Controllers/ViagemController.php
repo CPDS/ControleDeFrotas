@@ -70,7 +70,8 @@ class ViagemController extends Controller
               'data_chegada' => 'required',
               //'status' => 'required',
               'cidade_saida' => 'required',
-              'cidade_chegada' => 'required'
+              'cidade_chegada' => 'required',
+              'situacao' => 'required'
         );
         $attributeNames = array(
             'numero_rv' => 'Nº RV',
@@ -84,7 +85,8 @@ class ViagemController extends Controller
             'criado_em' => 'Criado em',
             'atualizado_em' => 'Atualizado em',
             'cidade_saida' => 'Cidade de Saída',
-            'cidade_chegada' => 'Cidade de Chegada'
+            'cidade_chegada' => 'Cidade de Chegada',
+            'situacao' => 'Situacao'
 
         );
         $messages = array(
@@ -108,6 +110,7 @@ class ViagemController extends Controller
             $Viagem->atualizado_em = $request->atualizado_em;
             $Viagem->cidade_saida = $request->cidade_saida;
             $Viagem->cidade_chegada = $request->cidade_chegada;
+            $Viagem->situacao = $request->situacao;
             $Viagem->status = "Ativo";
             $Viagem->save();
             //$Veiculo->setAttribute('titulo', $Veiculo->titulo);
@@ -128,7 +131,8 @@ class ViagemController extends Controller
           'data_chegada' => 'required',
           //'status' => 'required',
           'cidade_saida' => 'required',
-          'cidade_chegada' => 'required'
+          'cidade_chegada' => 'required',
+          'situacao' => 'required'
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -149,6 +153,7 @@ class ViagemController extends Controller
             $Viagem->atualizado_em = $request->atualizado_em;
             $Viagem->cidade_saida = $request->cidade_saida;
             $Viagem->cidade_chegada = $request->cidade_chegada;
+            $Viagem->situacao = $request->situacao;
             $Viagem->save();
             //$equipamento->setAttribute('buttons', $this->setDataButtons($equipamento));
             return response()->json($Viagem); // editar para viagem
