@@ -53,6 +53,19 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/delete', ['as' => 'viagems.delete', 'uses' => 'ViagemController@destroy']); // para deletar
 
     });
+
+    Route::get('events', 'EventsController@index')->name('events.index');
+    Route::post('events', 'EventsController@addEvent')->name('events.add');
+    /*Route::group(['prefix'=>'','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
+    Route::get('',['as'=>'events.index', 'uses'=>'EventsController@index']);
+    Route::get('/list',['as' => 'events.list', 'uses' => 'EventsController@list']);
+    Route::post('/store', ['as' => 'events.store', 'uses' => 'EventsController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/update', ['as' => 'events.update', 'uses' => 'EventsController@update']); // uso para atualizações
+    Route::post('/delete', ['as' => 'events.delete', 'uses' => 'EventsController@destroy']); // para deletar
+    */
+  //  });
+
+
 });
 
 Auth::routes();

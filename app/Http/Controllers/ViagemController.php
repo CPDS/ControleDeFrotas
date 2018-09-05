@@ -51,11 +51,13 @@ class ViagemController extends Controller
 
     	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Viagem' $dados ><i class='fa fa-eye'></i></a> ";
 
-    	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Viagem' $dadosEditar><i class ='fa fa-pencil'></i></a> ";
+    	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Viagem' $dados><i class ='fa fa-pencil'></i></a> ";
+
+      $btnVaga = "<a class='btn btn-primary btn-sm btnVaga' title='Solicitar Vaga' $dados><i class ='fa fa-plus'></i></a>";
 
     	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Viagem' data-id='$viagems->id'><i class='fa fa-trash'></i></a>";
 
-    	return $btnVer.$btnEditar.$btnDeletar;
+    	return $btnVer.$btnEditar.$btnVaga.$btnDeletar;
     }
 
     public function store(Request $request) { // cadastro de viagem

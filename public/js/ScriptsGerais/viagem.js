@@ -97,7 +97,7 @@ $(document).ready(function($) {
         $('#atualizado_em-visualizar').text($(this).data('Atualizado em'));
         $('#cidade_saida-visualizar').text($(this).data('Cidade de Saída'));
         $('#cidade_chegada-visualizar').text($(this).data('Cidade de Chegada'));
-        $('#situacao-visualizar').text($(this).data('Situação'))
+        $('#situacao-visualizar').text($(this).data('Situação'));
         jQuery('#visualizar-modal').modal('show');
     });
 

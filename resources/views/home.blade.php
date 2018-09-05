@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <!-- Editar o HOME do PROJETO -->
+                    <!-- Editar o HOME do PROJETO TELA PRINCIPAL-->
                     <div class="row">
                     	<br><br>
                     </div>

@@ -165,6 +165,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
 
+
         /*
          * Package Service Providers...
          */
@@ -180,6 +181,8 @@ return [
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
     ],
 
     /*
@@ -230,7 +233,10 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
-        
+        'Calendar' => MaddaHatter\LaravelFullcalendar\Facades\Calendar::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+
     ],
 
 ];

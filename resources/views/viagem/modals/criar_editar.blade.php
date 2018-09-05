@@ -14,130 +14,76 @@
         </div>
 
 
-       <form class="form-horizontal" role="form" id="form">
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <strong>Número RV:</strong>
-                            <div class="input-group">
-                                <span data-toggle="tooltip" title="numero_rv" class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                                <input type="text" maxlength="254" class="form-control" name="numero_rv"  id="numero_rv">
-                            </div>
-                        </div>
-                    </div>
+        <form id="form" role="form" method="post">
+          <div class="row" style="width: 100%">
 
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <strong>Roteiro:</strong>
-                            <div class="input-group">
-                                <span data-toggle="tooltip" title="roteiro_id" class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                                <input type="text" maxlength="254" class="form-control" name="roteiro_id"  id="roteiro_id">
-                              </div>
-                        </div>
-                    </div>
+             <div class="form-group col-md-12">
+               <strong>Nome Completo:</strong>
+               <div class="input-group">
+                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                 <input placeholder="Digite o nome completo do usuário" maxlength="254" id="nome" class="form-control" name="nome" type="text">
+               </div>
+             </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <strong>Setor:</strong>
-                            <div class="input-group">
-                                <span data-toggle="tooltip" title="setor_nome" class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                                <input type="text" maxlength="254" class="form-control" name="setor_nome"  id="setor_nome">
-                              </div>
-                        </div>
-                    </div>
+             <div class="form-group col-md-12">
+               <strong>Email:</strong>
+               <div class="input-group">
+                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                 <input placeholder="Digite um email" maxlength="254" class="form-control" id="email" name="email" type="text">
+               </div>
+             </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <strong>Motorista:</strong>
-                            <div class="input-group">
-                                <span data-toggle="tooltip" title="motorista_id" class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                                <input type="text" maxlength="254" class="form-control" name="motorista_id"  id="motorista_id">
-                              </div>
-                        </div>
-                    </div>
+             <div class="form-group col-md-6 senha">
+               <strong>Senha:</strong>
+               <input placeholder="Digite uma senha" id="senha" maxlength="32" class="form-control" name="senha" type="password">
+             </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <strong>Veículo:</strong>
-                            <div class="input-group">
-                                <span data-toggle="tooltip" title="veiculo_id" class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                                <input type="text" maxlength="254" class="form-control" name="veiculo_id"  id="veiculo_id">
-                              </div>
-                        </div>
-                    </div>
+             <div class="form-group col-md-6 senha ">
+               <strong>Confirmar Senha:</strong>
+               <input placeholder="Digite a senha novamente" maxlength="32" id="confirmarsenha" class="form-control"  name="confirmarsenha" type="password">
+             </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <strong>Data de Saída:</strong>
-                            <div class="input-group">
-                                <span data-toggle="tooltip" title="data_saida" class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                                <input type="date" maxlength="254" class="form-control" name="data_saida"  id="data_saida">
-                              </div>
-                        </div>
-                    </div>
+             <div class="form-group col-md-6">
+               <strong>Telefone:</strong>
+               <div class="input-group">
+                 <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                 <input placeholder="Digite o telefone" id="telefone" maxlength="254" class="form-control" name="telefone" type="text">
+               </div>
+             </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <strong>Data de Chegada:</strong>
-                            <div class="input-group">
-                                <span data-toggle="tooltip" title="data_chegada" class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                                <input type="date" maxlength="254" class="form-control" name="data_chegada"  id="data_chegada">
-                              </div>
-                        </div>
-                    </div>
+             <div class="form-group col-md-6">
+              <strong>Função:</strong>
+                 <select name="funcao" id="funcao" class="form-control">
+                   <option value='' selected disabled>Selecione ...</option>
+                   <option value="Administrador">Administrador</option>
+                   <option value="Funcionário">Funcionário</option>
+                   <option value="Professor">Professor</option>
+                 </select>
+             </div>
 
+             <div class="form-group col-md-12">
+               <strong>Endereço:</strong>
+               <div class="input-group">
+                 <span class="input-group-addon"><i class="material-icons md-18">add_location</i></span>
+                 <input placeholder="Digite o endereço" maxlength="254" id="endereco" class="form-control" name="endereco" type="text">
+               </div>
+             </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <strong>Criado em:</strong>
-                            <div class="input-group">
-                                <span data-toggle="tooltip" title="criado_em" class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                                <input type="date" maxlength="254" class="form-control" name="criado_em"  id="criado_em">
-                              </div>
-                        </div>
-                    </div>
+             <div class="form-group col-md-6">
+                     <strong>Cidade</strong>
+                     <input placeholder="Cidade" maxlength="254" id="cidade" class="form-control" name="cidade" type="text">
+             </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <strong>Atualizado em:</strong>
-                            <div class="input-group">
-                                <span data-toggle="tooltip" title="atualizado_em" class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                                <input type="date" maxlength="254" class="form-control" name="atualizado_em"  id="atualizado_em">
-                              </div>
-                        </div>
-                    </div>
+             <div class="form-group col-md-6">
+                     <strong>Estado</strong>
+                     <input placeholder="Estado" maxlength="254" id="estado" class="form-control" name="estado" type="text">
+             </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <strong>Cidade de Saída:</strong>
-                            <div class="input-group">
-                                <span data-toggle="tooltip" title="cidade_saida" class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                                <input type="text" maxlength="254" class="form-control" name="cidade_saida"  id="cidade_saida">
-                              </div>
-                        </div>
-                    </div>
+             <input type="hidden" id="id" name="id">
 
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <strong>Cidade de Chegada:</strong>
-                            <div class="input-group">
-                                <span data-toggle="tooltip" title="cidade_chegada" class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                                <input type="text" maxlength="254" class="form-control" name="cidade_chegada"  id="cidade_chegada">
-                              </div>
-                        </div>
-                    </div>
+         </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <strong>Situação:</strong>
-                            <div class="input-group">
-                                <span data-toggle="tooltip" title="situacao" class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                                <input type="text" maxlength="254" class="form-control" name="situacao"  id="situacao">
-                              </div>
-                        </div>
-                    </div>
-
-                      <input type="hidden" id="id" name="id">
-                </form>
+       </form>
 
       </div> <!-- Fim de ModaL Body-->
 
