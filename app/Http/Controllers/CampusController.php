@@ -3,50 +3,38 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use Illuminate\Support\Facades\Input;
-use Validator;
-use Response;
-use DataTables;
-use DB;
-use Auth;
-use App\Passageiro;
 
-class PassageiroController extends Controller
+class CampusController extends Controller
 {
     public function index(){
-        return view('passageiro.index');
+        return view('campus.index');
     }
 
     public function list() {
-        $Passageiro = Passageiro::orderBy('created_at', 'desc')->get();
+        $Campus = Campus::orderBy('created_at', 'desc')->get();
 
-        return Datatables::of($Passageiro)->editColumn('acao', function ($passageiros){
+        return Datatables::of($Campus)->editColumn('acao', function ($campus){
 
-        	return $this->setBtns($passageiros);
+        	return $this->setBtns($campus);
         })->escapeColumns([0])->make(true);
     }
 
-    private function setBtns(Passageiro $passageiros){
-    	$dados = "data-id='$passageiros->id' data-nome='$passageiros->nome' data-matricula='$passageiros->matricula' data-status='$passageiros->status'";
-      $dadosVisualizar = "data-nome='$passageiros->nome' data-matricula='$passageiros->matricula' data-status='$passageiros->status'";
-    	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Passageiro' $dados ><i class='fa fa-eye'></i></a> ";
-    	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Passageiro' $dados><i class ='fa fa-pencil'></i></a> ";
-    	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Passageiro' data-id='$passageiros->id'><i class='fa fa-trash'></i></a>";
+    private function setBtns(Campus $campus){
+    	$dados = "data-id='$campus->id' data-nome='$campus->nome' data-status='$campus->status'";
+        $dadosVisualizar = "data-nome='$campus->nome' data-status='$campus->status'";
+    	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Campus' $dados ><i class='fa fa-eye'></i></a> ";
+    	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Campus' $dados><i class ='fa fa-pencil'></i></a> ";
+    	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Campus' data-id='$campus->id'><i class='fa fa-trash'></i></a>";
 
     	return $btnVer.$btnEditar.$btnDeletar;
     }
 
     public function store(Request $request) {
         $rules = array(
-              'nome' => 'required',
-              'matricula' => 'required',
-
+            'nome' => 'required',
         );
         $attributeNames = array(
             'nome' => 'Nome',
-            'matricula' => 'Matricula',
-
         );
         $messages = array(
             'same' => 'Essas senhas não coincidem.'
@@ -61,14 +49,13 @@ class PassageiroController extends Controller
         if ($validator->fails()){
                 return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         }else {
-            $Passageiro = new Passageiro();
-            $Passageiro->nome = $request->nome;
-            $Passageiro->matricula = $request->matricula;
-            $Passageiro->status = "Ativo";
-            $Passageiro->save();
+            $Campus = new Campus();
+            $Campus->nome = $request->nome;
+            $Campus->status = "Ativo";
+            $Campus->save();
             //$Veiculo->setAttribute('titulo', $Veiculo->titulo);
             //$Veiculo->setAttribute('descricao', $Veiculo->descricao);
-            return response()->json($Passageiro);
+            return response()->json($Campus);
         }
     }
 
@@ -76,7 +63,6 @@ class PassageiroController extends Controller
     {
         $rules = array(
             'nome' => 'required',
-            'matricula' => 'required'
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -84,22 +70,21 @@ class PassageiroController extends Controller
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         else {
 
-            $Passageiro = Passageiro::find($request->id);
-            $Passageiro->nome = $request->nome;
-            $Passageiro->matricula = $request->matricula;
-            $Passageiro->save();
+            $Campus = Campus::find($request->id);
+            $Campus->nome = $request->nome;
+            $Campus->save();
             //$equipamento->setAttribute('buttons', $this->setDataButtons($equipamento));
-            return response()->json($Passageiro);
+            return response()->json($Campus);
         }
     }
 
     // desabilitar veículo
 
     public function destroy(Request $request) {
-        $Passageiro = Passageiro::find($request->id);
-        $Passageiro->status = "Inativo";
-        $Passageiro->save();
-        return response()->json($Passageiro);
+        $Campus = Campus::find($request->id);
+        $Campus->status = "Inativo";
+        $Campus->save();
+        return response()->json($Campus);
     }
     /*
     public function move()
