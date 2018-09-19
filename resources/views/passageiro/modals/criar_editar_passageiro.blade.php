@@ -13,6 +13,7 @@
                 <p></p>
         </div>
 
+<<<<<<< HEAD
         <form id="form" role="form" method="post">
           <div class="row" style="width: 100%">
 
@@ -157,6 +158,32 @@
           <input type="hidden" id="id" name="id">
 
         </form> -->
+=======
+       
+       <form class="form-horizontal" role="form" id="form">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <strong>Nome:</strong>
+                            <div class="input-group">
+                                <span data-toggle="tooltip" title="Nome" class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                                <input type="text" maxlength="254" class="form-control" name="nome"  id="nome">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <strong>Matricula:</strong>
+                            <div class="input-group">
+                                <span data-toggle="tooltip" title="Matricula" class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                                <input type="text" maxlength="254" class="form-control" name="matricula"  id="matricula">
+                              </div>
+                        </div>
+                    </div>
+
+                      <input type="hidden" id="id" name="id">
+                </form>
+>>>>>>> d5bac5a529f9b8b624dfd53b588fc458c962a531
 
       </div> <!-- Fim de ModaL Body-->
 

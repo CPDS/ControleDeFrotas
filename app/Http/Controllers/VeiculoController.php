@@ -11,12 +11,14 @@ use DataTables;
 use DB;
 use Auth;
 use App\Veiculo;
+use App\Campus;
 
 
 class VeiculoController extends Controller
 {
     public function index(){
-        return view('veiculo.index');
+        //$testecampus = Campus::where('status','Ativo')->get();
+        //return view('veiculo.index', compact('testecampus'));
     }
 
     public function list() {
@@ -28,8 +30,8 @@ class VeiculoController extends Controller
     }
 
     private function setBtns(Veiculo $veiculos){
-    	$dados = "data-id='$veiculos->id' data-nome='$veiculos->nome' data-placa='$veiculos->placa' data-tipo_combustivel='$veiculos->tipo_combustivel' ";
-      $dadosVisualizar = "data-nome='$veiculos->nome' data-placa='$veiculos->placa 'data-tipo_combustivel='$veiculos->tipo_combustivel' ";
+    	$dados = "data-id='$veiculos->id' data-nome='$veiculos->nome' data-placa='$veiculos->placa' data-tipo_combustivel='$veiculos->tipo_combustivel' data-fk_campus='$veiculos->fk_campus' data-qtd_total_lugares='$veiculos->qtd_total_lugares' data-ano_fabricacao='$veiculos->ano_fabricacao' data-minimo_passageiros='$veiculos->minimo_passageiros' data-maximo_passageiros='$veiculos->maximo_passageiros' data-rendimento='$veiculos->rendimento' data-marca='$veiculos->marca' data-tem_arcondicionado='$veiculos->tem_arcondicionado' data-tipo_bagageiro='$veiculos->tipo_bagageiro'";
+        $dadosVisualizar = "data-nome='$veiculos->nome' data-placa='$veiculos->placa 'data-tipo_combustivel='$veiculos->tipo_combustivel' data-fk_campus='$veiculos->fk_campus' data-qtd_total_lugares='$veiculos->qtd_total_lugares' data-ano_fabricacao='$veiculos->ano_fabricacao' data-minimo_passageiros='$veiculos->minimo_passageiros' data-maximo_passageiros='$veiculos->maximo_passageiros' data-rendimento='$veiculos->rendimento' data-marca='$veiculos->marca' data-tem_arcondicionado='$veiculos->tem_arcondicionado' data-tipo_bagageiro='$veiculos->tipo_bagageiro'";
     	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Veículo' $dados ><i class='fa fa-eye'></i></a> ";
     	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Veículo' $dados><i class ='fa fa-pencil'></i></a> ";
     	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Veículo' data-id='$veiculos->id'><i class='fa fa-trash'></i></a>";
@@ -41,12 +43,30 @@ class VeiculoController extends Controller
         $rules = array(
               'nome' => 'required',
               'placa' => 'required',
-              'tipo_combustivel' => 'required'
+              'tipo_combustivel' => 'required',
+              'fk_campus' => 'required',
+              'qtd_total_lugares' => 'required',
+              'ano_fabricacao' => 'required',
+              'minimo_passageiros' => 'required',
+              'maximo_passageiros' => 'required',
+              'rendimento' => 'required',
+              'marca' => 'required',
+              'tem_arcondicionado' => 'required',
+              'tipo_bagageiro' => 'required',
         );
         $attributeNames = array(
             'nome' => 'Nome',
             'placa' => 'Placa',
-            'tipo_combustivel' => 'Tipo de Combustível'
+            'tipo_combustivel' => 'Tipo de Combustível',
+            'fk_campus' => 'Campus',
+            'qtd_total_lugares' => 'Qtd lugares',
+            'ano_fabricacao' => 'Ano fabr.',
+            'minimo_passageiros' => 'Min Passageiros',
+            'maximo_passageiros' => 'Max Passageiros',
+            'rendimento' => 'Rendimento',
+            'marca' => 'Marca',
+            'tem_arcondicionado' => 'Tem AR?',
+            'tipo_bagageiro' => 'Bagageiro',
 
         );
         $messages = array(
@@ -61,6 +81,15 @@ class VeiculoController extends Controller
             $Veiculo->nome = $request->nome;
             $Veiculo->placa = $request->placa;
             $Veiculo->tipo_combustivel = $request->tipo_combustivel;
+            $Veiculo->fk_campus = $request->fk_campus;
+            $Veiculo->qtd_total_lugares = $request->qtd_total_lugares;
+            $Veiculo->ano_fabricacao = $request->ano_fabricacao;
+            $Veiculo->minimo_passageiros = $request->minimo_passageiros;
+            $Veiculo->maximo_passageiros = $request->maximo_passageiros;
+            $Veiculo->rendimento = $request->rendimento;
+            $Veiculo->marca = $request->marca;
+            $Veiculo->tem_arcondicionado = $request->tem_arcondicionado;
+            $Veiculo->tipo_bagageiro = $request->tipo_bagageiro;
             $Veiculo->status = "Ativo";
             $Veiculo->save();
             //$Veiculo->setAttribute('titulo', $Veiculo->titulo);
@@ -74,7 +103,16 @@ class VeiculoController extends Controller
         $rules = array(
             'nome' => 'required',
             'placa' => 'required',
-            'tipo_combustivel' => 'required'
+            'tipo_combustivel' => 'required',
+            'fk_campus' => 'required',
+            'qtd_total_lugares' => 'required',
+            'ano_fabricacao' => 'required',
+            'minimo_passageiros' => 'required',
+            'maximo_passageiros' => 'required',
+            'rendimento' => 'required',
+            'marca' => 'required',
+            'tem_arcondicionado' => 'required',
+            'tipo_bagageiro' => 'required',
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -86,6 +124,15 @@ class VeiculoController extends Controller
             $Veiculo->nome = $request->nome;
             $Veiculo->placa = $request->placa;
             $Veiculo->tipo_combustivel = $request->tipo_combustivel;
+            $Veiculo->fk_campus = $request->fk_campus;
+            $Veiculo->qtd_total_lugares = $request->qtd_total_lugares;
+            $Veiculo->ano_fabricacao = $request->ano_fabricacao;
+            $Veiculo->minimo_passageiros = $request->minimo_passageiros;
+            $Veiculo->maximo_passageiros = $request->maximo_passageiros;
+            $Veiculo->rendimento = $request->rendimento;
+            $Veiculo->marca = $request->marca;
+            $Veiculo->tem_arcondicionado = $request->tem_arcondicionado;
+            $Veiculo->tipo_bagageiro = $request->tipo_bagageiro;
             $Veiculo->save();
             //$equipamento->setAttribute('buttons', $this->setDataButtons($equipamento));
             return response()->json($Veiculo);
