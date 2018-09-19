@@ -12,10 +12,15 @@ $(document).ready(function($) {
             ajax: '/passageiros/list',
             columns: [
             { data: null, name: 'order' },
-            { data: 'nome', name: 'nome' },
+            { data: 'nome_passageiro', name: 'nome_passageiro' },
+            { data: 'fk_solicitacao', name: 'fk_solicitacao' },
+            { data: 'rg', name: 'rg' },
             { data: 'matricula', name: 'matricula' },
-            { data: 'status', name: 'status' },
-            { data: 'acao', name: 'acao' }
+            { data: 'telefone', name: 'telefone' },
+            { data: 'categoria', name: 'categoria' },
+            { data: 'email', name: 'email' },
+            { data: 'instituicao', name: 'instituicao' },
+            { data: 'observacoes', name: 'observacoes' }
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -60,10 +65,15 @@ $(document).ready(function($) {
             columnDefs : [
               { targets : [2], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
-              { "width": "40%", "targets": 1 },//nome
-              { "width": "25%", "targets": 2 },//matricula
+              { "width": "15%", "targets": 1 },//nome
+              { "width": "15%", "targets": 2 },//matricula
               { "width": "15%", "targets": 3 },//status
-              { "width": "15%", "targets": 4 }//botoes
+              { "width": "15%", "targets": 4 },
+              { "width": "15%", "targets": 5 },
+              { "width": "15%", "targets": 6 },
+              { "width": "15%", "targets": 7 },
+              { "width": "15%", "targets": 8 },
+              { "width": "15%", "targets": 9 }//botoes
             ]
     });
 
@@ -75,8 +85,15 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#nome-visualizar').text($(this).data('nome')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#matricula-visualizar').text($(this).data('matricula'));
+        $('#nome_passageiro-visualizar').text($(this).data('Nome do Passageiro')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#fk_solicitacao-visualizar').text($(this).data('Solicitação'));
+        $('#rg-visualizar').text($(this).data('RG'));
+        $('#matricula-visualizar').text($(this).data('Matrícula'));
+        $('#telefone-visualizar').text($(this).data('Telefone'));
+        $('#categoria-visualizar').text($(this).data('Categoria'));
+        $('#email-visualizar').text($(this).data('Email'));
+        $('#instituicao-visualizar').text($(this).data('Instituição'));
+        $('#observacoes-visualizar').text($(this).data('Observações'));
         jQuery('#visualizar-modal').modal('show');
     });
 

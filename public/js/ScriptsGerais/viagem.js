@@ -13,19 +13,25 @@ $(document).ready(function($) {
             columns: [
             { data: null, name: 'order' },
             { data: 'numero_rv', name: 'numero_rv' },
-            { data: 'roteiro_id', name: 'roteiro_id' },
-            { data: 'setor_nome', name: 'setor_nome' },
-            { data: 'motorista_id', name: 'motorista_id' },
-            { data: 'veiculo_id', name: 'veiculo_id' },
-            { data: 'data_saida', name: 'data_saida' },
-            { data: 'data_chegada', name: 'data_chegada' },
-            { data: 'status', name: 'status' },
-            { data: 'criado_em', name: 'criado_em' },
-            { data: 'atualizado_em', name: 'atualizado_em' },
-            { data: 'cidade_saida', name: 'cidade_saida' },
-            { data: 'cidade_chegada', name: 'cidade_chegada' },
-            { data: 'situacao', name: 'situacao' },
-            { data: 'acao', name: 'acao' }
+            { data: 'funcao', name: 'funcao' },
+            { data: 'fk_veiculo', name: 'fk_veiculo' },
+            { data: 'datahora_saida', name: 'datahora_saida' },
+            { data: 'datahora_chegada', name: 'datahora_chegada' },
+            { data: 'fk_cidade_saida', name: 'fk_cidade_saida' },
+            { data: 'fk_cidade_chegada', name: 'fk_cidade_chegada' },
+            { data: 'estimativa_km', name: 'estimativa_km' },
+            { data: 'estado', name: 'estado' },
+            { data: 'nome_responsavel', name: 'nome_responsavel' },
+            { data: 'telefone_responsavel', name: 'telefone_responsavel' },
+            { data: 'local_saida', name: 'local_saida' },
+            { data: 'setor_autoriza_viagem', name: 'setor_autoriza_viagem' },
+            { data: 'numero_passageiros', name: 'numero_passageiros' },
+            { data: 'tipo_solicitacao', name: 'tipo_solicitacao' },
+            { data: 'natureza_servico', name: 'natureza_servico' },
+            { data: 'custo_viagem', name: 'custo_viagem' },
+            { data: 'codigo_cp_rv', name: 'codigo_cp_rv' },
+            { data: 'descricao_bagagem', name: 'descricao_bagagem' },
+            { data: 'codigo_acp_rv', name: 'codigo_acp_rv' }
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -70,10 +76,26 @@ $(document).ready(function($) {
             columnDefs : [ // quantidade de campos maior que o exemplo, tenho que mudar?
               { targets : [2], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
-              { "width": "35%", "targets": 1 },//nome
+              { "width": "20%", "targets": 1 },//nome
               { "width": "20%", "targets": 2 },//placa
               { "width": "20%", "targets": 3 },//tipo_combustivel
-              { "width": "20%", "targets": 4 }//botoes
+              { "width": "20%", "targets": 4 },
+              { "width": "20%", "targets": 5 },
+              { "width": "20%", "targets": 6 },
+              { "width": "20%", "targets": 7 },
+              { "width": "20%", "targets": 8 },
+              { "width": "20%", "targets": 9 },
+              { "width": "20%", "targets": 10 },
+              { "width": "20%", "targets": 11 },
+              { "width": "20%", "targets": 12 },
+              { "width": "20%", "targets": 13 },
+              { "width": "20%", "targets": 14 },
+              { "width": "20%", "targets": 15 },
+              { "width": "20%", "targets": 16 },
+              { "width": "20%", "targets": 17 },
+              { "width": "20%", "targets": 18 },
+              { "width": "20%", "targets": 19 },
+              { "width": "20%", "targets": 20 }
             ]
     });
 
@@ -86,18 +108,25 @@ $(document).ready(function($) {
     //Ver
     $(document).on('click', '.btnVer', function() {
         $('#numero_rv-visualizar').text($(this).data('Nº RV')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#roteiro_id-visualizar').text($(this).data('Roteiro'));
-        $('#setor_nome-visualizar').text($(this).data('Setor'));
-        $('#motorista_id-visualizar').text($(this).data('Motorista'));
-        $('#veiculo_id-visualizar').text($(this).data('Veículo'));
-        $('#data_saida-visualizar').text($(this).data('Data de Saída'));
-        $('#data_chegada-visualizar').text($(this).data('Data de Chegada'));
-        $('#status-visualizar').text($(this).data('Status'));
-        $('#criado_em-visualizar').text($(this).data('Criado em'));
-        $('#atualizado_em-visualizar').text($(this).data('Atualizado em'));
-        $('#cidade_saida-visualizar').text($(this).data('Cidade de Saída'));
-        $('#cidade_chegada-visualizar').text($(this).data('Cidade de Chegada'));
-        $('#situacao-visualizar').text($(this).data('Situação'));
+        $('#funcao-visualizar').text($(this).data('Roteiro'));
+        $('#fk_veiculo-visualizar').text($(this).data('Veículo'));
+        $('#datahora_saida-visualizar').text($(this).data('Horário de Saída'));
+        $('#datahora_chegada-visualizar').text($(this).data('Horário de Chegada'));
+        $('#fk_cidade_saida-visualizar').text($(this).data('Cidade de Saída'));
+        $('#fk_cidade_chegada-visualizar').text($(this).data('Cidade de Chegada'));
+        $('#estimativa_km-visualizar').text($(this).data('Estimativa de KM'));
+        $('#estado-visualizar').text($(this).data('Estado'));
+        $('#nome_responsavel-visualizar').text($(this).data('Nome Responsável'));
+        $('#telefone_responsavel-visualizar').text($(this).data('Telefone'));
+        $('#local_saida-visualizar').text($(this).data('Local de Saída'));
+        $('#setor_autoriza_viagem-visualizar').text($(this).data('Autorização'));
+        $('#numero_passageiros-visualizar').text($(this).data('Nº Passageiros'));
+        $('#tipo_solicitacao-visualizar').text($(this).data('Tipo de Solicitação'));
+        $('#natureza_servico-visualizar').text($(this).data('Natureza da Viagem'));
+        $('#custo_viagem-visualizar').text($(this).data('Custo da Viagem'));
+        $('#codigo_cp_rv-visualizar').text($(this).data('Código CP'));
+        $('#descricao_bagagem-visualizar').text($(this).data('Bagagem'));
+        $('#codigo_acp_rv-visualizar').text($(this).data('Código ACP'));
         jQuery('#visualizar-modal').modal('show');
     });
 
@@ -153,11 +182,11 @@ $(document).ready(function($) {
     });
 
     //Adicionar
-    $(document).on('click', '.btnAdicionar', function() {
+    $(document).on('click', '.btnAdicionarViagems', function() {
     $('.modal-footer .btn-action').removeClass('edit');
         $('.modal-footer .btn-action').addClass('add');
 
-        $('.modal-title').text('Novo Cadastro de Viagem');
+        $('.modal-title').text('Nova Solicitação de Viagem');
         $('.callout').addClass("hidden");
         $('.callout').find("p").text("");
 

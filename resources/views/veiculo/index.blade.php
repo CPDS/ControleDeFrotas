@@ -23,7 +23,7 @@
                          <div class="col-md-12">
                           <div class="pull-right">
                         <span>
-                            <a class="btn btn-primary btnAdicionar btn-sm "><i class="fa fa-plus"></i>  Cadastrar veículo</a>
+                            <a class="btn btn-primary btnAdicionar btn-sm "><i class="fa fa-plus"></i> Cadastrar Veículo</a>
                         </span>
                         </div>
                         </div>
@@ -34,11 +34,18 @@
                         <table class="table table-bordered" id="tabela_veiculo">
                             <thead>
                             <tr>
-                                <th>Nº</th>
-                                <th>Nome</th>
+                                <th>Nome do Veículo</th>
                                 <th>Placa</th>
-                                <th>Tipo Combustível</th>
-                                <th>Ações</th>
+                                <th>Tipo de Combustível</th>
+                                <th>Campus</th>
+                                <th>Quantidade Total de Lugares</th>
+                                <th>Ano de Fabricação</th>
+                                <th>QTD Mínima de Passageiros</th>
+                                <th>QTD Máxima de Passageiros</th>
+                                <th>Rendimento</th>
+                                <th>Marca</th>
+                                <th>Ar Condicionado</th>
+                                <th>Bagageiro</th>
                             </tr>
                             </thead>
                         </table>

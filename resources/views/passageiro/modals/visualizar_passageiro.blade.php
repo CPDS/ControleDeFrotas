@@ -26,12 +26,47 @@
 
           <div class="form-group">
               <strong>Nome do Passageiro:</strong>
-              <span id="nome-visualizar"></span>
+              <span id="nome_passageiro-visualizar"></span>
           </div>
 
           <div class="form-group">
-              <strong>Matricula:</strong>
+              <strong>Solicitação:</strong>
+              <span id="fk_solicitacao-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>RG:</strong>
+              <span id="rg-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Matrícula:</strong>
               <span id="matricula-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Telefone:</strong>
+              <span id="telefone-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Categoria:</strong>
+              <span id="categoria-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Email:</strong>
+              <span id="email-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Instituição:</strong>
+              <span id="instituicao-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Observações:</strong>
+              <span id="observacoes-visualizar"></span>
           </div>
 
         </div>

@@ -39,6 +39,51 @@
               <span id="tipo_combustivel-visualizar"></span>
           </div>
 
+          <div class="form-group">
+              <strong>Campus:</strong>
+              <span id="fk_campus-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Quantidade Total de Lugares:</strong>
+              <span id="qtd_total_lugares-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Ano de Fabricação:</strong>
+              <span id="ano_fabricacao-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>QTD Mínima de Passageiros:</strong>
+              <span id="minimo_passageiros-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>QTD Máxima de Passageiros:</strong>
+              <span id="maximo_passageiros-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Rendimento:</strong>
+              <span id="rendimento-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Marca:</strong>
+              <span id="marca-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Ar Condicionado:</strong>
+              <span id="tem_arcondicionado-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Bagageiro:</strong>
+              <span id="tipo_bagageiro-visualizar"></span>
+          </div>
+
         </div>
 
       </div>

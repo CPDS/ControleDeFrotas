@@ -1,4 +1,4 @@
-<div id="criar_editar-modal" class="modal fade bs-example" role="dialog" data-backdrop="static">
+ <div id="criar_editar-modal" class="modal fade bs-example" role="dialog" data-backdrop="static">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -13,30 +13,150 @@
                 <p></p>
         </div>
 
+        <form id="form" role="form" method="post">
+          <div class="row" style="width: 100%">
 
-       <form class="form-horizontal" role="form" id="form">
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <strong>Nome:</strong>
-                            <div class="input-group">
-                                <span data-toggle="tooltip" title="Nome" class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                                <input type="text" maxlength="254" class="form-control" name="nome"  id="nome">
-                            </div>
-                        </div>
-                    </div>
+            <div class="form-group col-md-12">
+              <strong>Nome do Passageiro:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input placeholder="Digite o nome do Passageiro" maxlength="250" id="nome_passageiro" class="form-control" name="nome_passageiro" type="text">
+              </div>
+            </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <strong>Matricula:</strong>
-                            <div class="input-group">
-                                <span data-toggle="tooltip" title="Matricula" class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                                <input type="text" maxlength="254" class="form-control" name="matricula"  id="matricula">
-                              </div>
-                        </div>
-                    </div>
+            <div class="form-group col-md-12">
+             <strong>Solicitação:</strong>
+                <select name="fk_solicitacao" id="fk_solicitacao" class="form-control">
+                  <option value='' selected disabled>Selecione ...</option>
+                  <option value="Solicitação X">Solicitação X</option>
+                  <option value="Solicitação Y">Solicitação Y</option>
+                  <option value="Solicitação Z">Solicitação Z</option>
+                </select>
+            </div>
 
-                      <input type="hidden" id="id" name="id">
-                </form>
+            <div class="form-group col-md-6">
+              <strong>RG:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input placeholder="Digite seu RG" id="rg" maxlength="254" class="form-control" name="rg" type="text">
+              </div>
+            </div>
+
+            <div class="form-group col-md-6">
+              <strong>Matrícula:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input maxlength="150" id="matricula" class="form-control" name="matricula" type="text">
+              </div>
+            </div>
+
+            <div class="form-group col-md-6">
+              <strong>Telefone:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                <input placeholder="Digite o telefone" id="telefone" maxlength="254" class="form-control" name="telefone" type="text">
+              </div>
+            </div>
+
+            <div class="form-group col-md-6">
+             <strong>Categoria:</strong>
+                <select name="categoria" id="categoria" class="form-control">
+                  <option value='' selected disabled>Selecione ...</option>
+                  <option value="Categoria X">Categoria X</option>
+                  <option value="Categoria Y">Categoria Y</option>
+                  <option value="Categoria Z">Categoria Z</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-12">
+              <strong>Email:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input placeholder="Digite um email" maxlength="254" class="form-control" id="email" name="email" type="text">
+              </div>
+            </div>
+
+             <div class="form-group col-md-12">
+               <strong>Instituição:</strong>
+               <div class="input-group">
+                 <span class="input-group-addon"><i class="fa fa-university"></i></span>
+                 <input placeholder="Digite a Instituição" id="instituicao" maxlength="254" class="form-control" name="instituicao" type="text">
+               </div>
+             </div>
+
+             <div class="form-group col-md-12">
+               <strong>Observações:</strong>
+               <div class="input-group">
+                 <span class="input-group-addon"><i class="fa fa-commenting"></i></span>
+                 <input placeholder="Digite a Observação" id="observacoes" maxlength="600" class="form-control" name="observacoes" type="text">
+               </div>
+             </div>
+
+             <input type="hidden" id="id" name="id">
+
+         </div>
+
+       </form>
+
+      <!-- <form class="form-horizontal" role="form" id="form">
+
+          <div class="form-group col-md-12">
+            <strong>Nome do Passageiro:</strong>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input placeholder="Digite o nome do Passageiro" maxlength="250" id="nome_passageiro" class="form-control" name="nome_passageiro" type="text">
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+           <strong>Viagem:</strong>
+           <div class="input-group">
+           <span class="input-group-addon"><i class="fa fa-globe"></i></span>
+              <select name="funcao" id="fk_viagem" class="form-control">
+                <option value='' selected disabled>Selecione ...</option>
+                <option value="Viagem X">Viagem X</option>
+                <option value="Viagem Y">Viagem Y</option>
+                <option value="Viagem Z">Viagem Z</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <strong>Matrícula:</strong>
+            <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-graduation-cap"></i></span>
+            <input id="matricula" class="form-control"  name="matricula" type="text">
+            </div>
+          </div>
+
+          <div class="form-group col-md-12">
+            <strong>Email:</strong>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+              <input placeholder="Digite um email" maxlength="254" class="form-control" id="email" name="email" type="text">
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <strong>Telefone:</strong>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+              <input placeholder="Digite o telefone" id="telefone" maxlength="254" class="form-control" name="telefone" type="text">
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <strong>RG:</strong>
+            <div class="input-group">
+            <span class="input-group-addon"><i class="far fa-id-card"></i></span>
+            <input id="rg" class="form-control"  name="rg" type="text">
+            </div>
+          </div>
+
+
+          <input type="hidden" id="id" name="id">
+
+        </form> -->
 
       </div> <!-- Fim de ModaL Body-->
 

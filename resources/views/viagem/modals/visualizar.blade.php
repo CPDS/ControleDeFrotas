@@ -24,74 +24,104 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
 
 
-        <!--  <div class="form-group"> ACHO QUE NÃO PRECISA DESSA DIV
-              <strong>Nome da Viagem:</strong>
-              <span id="nome-visualizar"></span>
-          </div>  -->
-
           <div class="form-group">
               <strong>Número RV:</strong>
               <span id="numero_rv-visualizar"></span>
           </div>
 
           <div class="form-group">
-              <strong>Roteiro da Viagem:</strong>
-              <span id="roteiro_id-visualizar"></span>
-          </div>
-
-          <div class="form-group">
-              <strong>Nome do Setor:</strong>
-              <span id="setor_nome-visualizar"></span>
-          </div>
-
-          <div class="form-group">
-              <strong>Nome do Morotista:</strong>
-              <span id="motorista_id-visualizar"></span>
+              <strong>Roteiro:</strong>
+              <span id="funcao-visualizar"></span>
           </div>
 
           <div class="form-group">
               <strong>Veículo:</strong>
-              <span id="veiculo_id-visualizar"></span>
+              <span id="fk_veiculo-visualizar"></span>
           </div>
 
           <div class="form-group">
-              <strong>Data de Saída:</strong>
-              <span id="data_saida-visualizar"></span>
+              <strong>Horário de Saída:</strong>
+              <span id="datahora_saida"></span>
           </div>
 
           <div class="form-group">
-              <strong>Data de Chegada:</strong>
-              <span id="data_chegada-visualizar"></span>
-          </div>
-
-          <div class="form-group">
-              <strong>Status:</strong>
-              <span id="status-visualizar"></span>
-          </div>
-
-          <div class="form-group">
-              <strong>Criado em:</strong>
-              <span id="criado_em-visualizar"></span>
-          </div>
-
-          <div class="form-group">
-              <strong>Atualizado em:</strong>
-              <span id="atualizado_em-visualizar"></span>
+              <strong>Horário de Chegada:</strong>
+              <span id="datahora_chegada-visualizar"></span>
           </div>
 
           <div class="form-group">
               <strong>Cidade de Saída:</strong>
-              <span id="cidade_saida-visualizar"></span>
+              <span id="fk_cidade_saida-visualizar"></span>
           </div>
 
           <div class="form-group">
               <strong>Cidade de Chegada:</strong>
-              <span id="cidade_chegada-visualizar"></span>
+              <span id="fk_cidade_chegada-visualizar"></span>
           </div>
 
           <div class="form-group">
-              <strong>Situação:</strong>
-              <span id="situacao-visualizar"></span>
+              <strong>Estimativa de KM:</strong>
+              <span id="estimativa_km-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Estado:</strong>
+              <span id="estado-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Nome Responsável:</strong>
+              <span id="nome_responsavel-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Telefone:</strong>
+              <span id="telefone_responsavel-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Local de Saída:</strong>
+              <span id="local_saida-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Autorização:</strong>
+              <span id="setor_autoriza_viagem-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Nº Passageiros:</strong>
+              <span id="numero_passageiros-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Tipo de Solicitação:</strong>
+              <span id="tipo_solicitacao-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Natureza da Viagem:</strong>
+              <span id="natureza_servico-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Custo da Viagem:</strong>
+              <span id="custo_viagem-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Código CP:</strong>
+              <span id="codigo_cp_rv-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Bagagem:</strong>
+              <span id="descricao_bagagem-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Código ACP:</strong>
+              <span id="codigo_acp_rv-visualizar"></span>
           </div>
 
         </div>

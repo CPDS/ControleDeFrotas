@@ -23,7 +23,7 @@
                          <div class="col-md-12">
                           <div class="pull-right">
                         <span>
-                            <a class="btn btn-primary btnAdicionar btn-sm "><i class="fa fa-plus"></i>  Cadastrar passageiro</a>
+                            <a class="btn btn-primary btnAdicionar btn-sm "><i class="fa fa-plus"></i>Cadastrar passageiro</a>
                         </span>
                         </div>
                         </div>
@@ -34,11 +34,15 @@
                         <table class="table" id="tabela_passageiro">
                             <thead>
                             <tr>
-                                <th>Nº</th>
-                                <th>Nome</th>
+                                <th>Nome do Passageiro</th>
+                                <th>Solicitação</th>
+                                <th>RG</th>
                                 <th>Matrícula</th>
-                                <th>Status</th>
-                                <th>Ações</th>
+                                <th>Telefone</th>
+                                <th>Categoria</th>
+                                <th>Email</th>
+                                <th>instituição</th>
+                                <th>Observações</th>
                             </tr>
                             </thead>
                         </table>

@@ -35,18 +35,25 @@
                             <thead>
                             <tr>
                                 <th>Nº RV</th>
-                                <th>Roteiro</th>
-                                <th>Setor</th>
-                                <th>Motorista</th>
+                                <th>Setor Emissor da RV</th>
                                 <th>Veículo</th>
-                                <th>Data de Saída</th>
-                                <th>Data de Chegada</th>
-                                <th>Status</th>
-                                <th>Criado em</th>
-                                <th>Atualizado em</th>
+                                <th>Horário de Saída</th>
+                                <th>Horário de Chegada</th>
                                 <th>Cidade de Saída</th>
                                 <th>Cidade de Chegada</th>
-                                <th>Situação</th>
+                                <th>Estimativa de KM</th>
+                                <th>Estado</th>
+                                <th>Nome Responsável</th>
+                                <th>Telefone</th>
+                                <th>Local de Saída</th>
+                                <th>Autorização</th>
+                                <th>Nº Passageiros</th>
+                                <th>Tipo de Solicitação</th>
+                                <th>Natureza da Viagem</th>
+                                <th>Custo da Viagem</th>
+                                <th>Código CP</th>
+                                <th>Bagagem</th>
+                                <th>Código ACP</th>
                             </tr>
                             </thead>
                         </table>
