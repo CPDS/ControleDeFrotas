@@ -68,18 +68,17 @@ $(document).ready(function($) {
             columnDefs : [
               { targets : [2], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
-              { "width": "20%", "targets": 1 },//nome
-              { "width": "20%", "targets": 2 },//placa
-              { "width": "20%", "targets": 3 },//tipo_combustivel
-              { "width": "20%", "targets": 4 },//botoes
-              { "width": "20%", "targets": 5 },
-              { "width": "20%", "targets": 6 },
-              { "width": "20%", "targets": 7 },
-              { "width": "20%", "targets": 8 },
-              { "width": "20%", "targets": 9 },
-              { "width": "20%", "targets": 10 },
-              { "width": "20%", "targets": 11 },
-              { "width": "20%", "targets": 12 }
+              { "width": "5%", "targets": 1 },//nome
+              { "width": "10%", "targets": 2 },//placa
+              { "width": "10%", "targets": 3 },//tipo_combustivel
+              { "width": "10%", "targets": 4 },//botoes
+              { "width": "10%", "targets": 5 },
+              { "width": "10%", "targets": 6 },
+              { "width": "10%", "targets": 7 },
+              { "width": "10%", "targets": 8 },
+              { "width": "10%", "targets": 9 },
+              { "width": "5%", "targets": 10 },
+              { "width": "5%", "targets": 11 }
             ]
     });
 
