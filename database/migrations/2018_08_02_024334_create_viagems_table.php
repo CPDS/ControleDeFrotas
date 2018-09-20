@@ -15,19 +15,35 @@ class CreateViagemsTable extends Migration
     {
         Schema::create('viagems', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('numero_rv');
-            $table->integer('roteiro_id');
-            $table->string('setor_nome');
-            $table->integer('motorista_id');
-            $table->integer('veiculo_id');
-            $table->timestamp('data_saida');
-            $table->timestamp('data_chegada');
+            $table->string('numero_rv');
+            $table->string('setor_emissor_rv');
+            $table->timestamp('datahora_saida');
+            $table->timestamp('datahora_chegada');
             $table->string('status');
-            $table->timestamp('criado_em');
-            $table->timestamp('atualizado_em');
-            $table->string('cidade_saida');
-            $table->string('cidade_chegada');
+            $table->string('estimativa_km');
+            $table->string('nome_responsavel');
+            $table->string('telefone_responsavel');
+            $table->string('local_saida');
+            $table->string('setor_autoriza_viagem');
+            $table->integer('numero_passageiros');
+            $table->string('tipo_solicitacao');
+            $table->string('natureza_servico');
+            $table->decimal('custo_viagem', 8,2);
+            $table->string('descricao_bagagem');
+            $table->string('codigo_acp_rv');
             $table->string('situacao');
+            $table->integer('fk_veiculo')->unsigned();
+            $table->foreign('fk_veiculo')->references('id')->on('veiculos');
+            $table->integer('fk_cidade_saida')->unsigned();
+            $table->foreign('fk_cidade_saida')->references('id')->on('cidades');
+            $table->integer('fk_cidade_chegada')->unsigned();
+            $table->foreign('fk_cidade_chegada')->references('id')->on('cidades');
+            $table->integer('fk_tipo_servico')->unsigned();
+            $table->foreign('fk_tipo_servico')->references('id')->on('servicos');
+            $table->integer('fk_id_solicitante')->unsigned();
+            $table->foreign('fk_id_solicitante')->references('id')->on('users');
+            $table->integer('veiculo_id');
+
             $table->timestamps();
             // adicionar os campos que teram no banco de dados
         });

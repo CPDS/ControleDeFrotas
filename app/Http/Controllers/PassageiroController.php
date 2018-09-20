@@ -29,7 +29,7 @@ class PassageiroController extends Controller
 
     private function setBtns(Passageiro $passageiros){
     	$dados = "data-id='$passageiros->id' data-nome='$passageiros->nome' data-matricula='$passageiros->matricula' data-status='$passageiros->status'";
-      $dadosVisualizar = "data-nome='$passageiros->nome' data-matricula='$passageiros->matricula' data-status='$passageiros->status'";
+        $dadosVisualizar = "data-nome='$passageiros->nome' data-matricula='$passageiros->matricula' data-status='$passageiros->status'";
     	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Passageiro' $dados ><i class='fa fa-eye'></i></a> ";
     	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Passageiro' $dados><i class ='fa fa-pencil'></i></a> ";
     	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Passageiro' data-id='$passageiros->id'><i class='fa fa-trash'></i></a>";
@@ -41,12 +41,24 @@ class PassageiroController extends Controller
         $rules = array(
               'nome' => 'required',
               'matricula' => 'required',
-
+              'email' => 'required',
+              'telefone' => 'required',
+              'rg' => 'required',
+              'categoria' => 'required',
+              'instituicao' => 'required',
+              'observacoes' => 'required',
+              'fk_solicitacao' => 'required',
+              
         );
         $attributeNames = array(
             'nome' => 'Nome',
             'matricula' => 'Matricula',
-
+            'email' => 'Email',
+            'telefone' => 'Telefone',
+            'rg' => 'RG',
+            'categoria' => 'Categoria',
+            'instituicao' => 'Instituição',
+            'observacoes' => 'Observações',
         );
         $messages = array(
             'same' => 'Essas senhas não coincidem.'
@@ -64,6 +76,13 @@ class PassageiroController extends Controller
             $Passageiro = new Passageiro();
             $Passageiro->nome = $request->nome;
             $Passageiro->matricula = $request->matricula;
+            $Passageiro->email = $request->email;
+            $Passageiro->telefone = $request->telefone;
+            $Passageiro->rg = $request->rg;
+            $Passageiro->categoria = $request->categoria;
+            $Passageiro->instituicao = $request->instituicao;
+            $Passageiro->observacoes = $request->observacoes;
+            $Passageiro->fk_solicitacao = $request->fk_solicitacao;            
             $Passageiro->status = "Ativo";
             $Passageiro->save();
             //$Veiculo->setAttribute('titulo', $Veiculo->titulo);
@@ -76,7 +95,14 @@ class PassageiroController extends Controller
     {
         $rules = array(
             'nome' => 'required',
-            'matricula' => 'required'
+            'matricula' => 'required',
+            'email' => 'required',
+            'telefone' => 'required',
+            'rg' => 'required',
+            'categoria' => 'required',
+            'instituicao' => 'required',
+            'observacoes' => 'required',
+            'fk_solicitacao' => 'required',
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -87,6 +113,13 @@ class PassageiroController extends Controller
             $Passageiro = Passageiro::find($request->id);
             $Passageiro->nome = $request->nome;
             $Passageiro->matricula = $request->matricula;
+            $Passageiro->email = $request->email;
+            $Passageiro->telefone = $request->telefone;
+            $Passageiro->rg = $request->rg;
+            $Passageiro->categoria = $request->categoria;
+            $Passageiro->instituicao = $request->instituicao;
+            $Passageiro->observacoes = $request->observacoes;
+            $Passageiro->fk_solicitacao = $request->fk_solicitacao;
             $Passageiro->save();
             //$equipamento->setAttribute('buttons', $this->setDataButtons($equipamento));
             return response()->json($Passageiro);

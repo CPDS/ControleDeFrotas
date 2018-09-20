@@ -17,8 +17,8 @@ use App\Campus;
 class VeiculoController extends Controller
 {
     public function index(){
-        //$testecampus = Campus::where('status','Ativo')->get();
-        //return view('veiculo.index', compact('testecampus'));
+        $testecampus = Campus::where('status','Ativo')->get();
+        return view('veiculo.index', compact('testecampus'));
     }
 
     public function list() {

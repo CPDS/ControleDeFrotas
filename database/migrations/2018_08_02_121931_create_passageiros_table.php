@@ -17,7 +17,15 @@ class CreatePassageirosTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('matricula');
+            $table->string('email');
+            $table->string('telefone');
+            $table->string('rg');
+            $table->string('categoria');
+            $table->string('instituicao');
+            $table->string('observacoes');
             $table->string('status');
+            $table->integer('fk_solicitacao')->unsigned();
+            $table->foreign('fk_solicitacao')->references('id')->on('viagems');
             $table->timestamps();
         });
     }

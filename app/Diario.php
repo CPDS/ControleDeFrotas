@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Campus extends Model
+class Diario extends Model
 {
     protected $fillable=[
-    	'nome','status',
+        'ocorrencias',
     ];
 }
