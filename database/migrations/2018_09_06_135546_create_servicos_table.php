@@ -30,8 +30,15 @@ class CreateServicosTable extends Migration
             $table->string('numero_nf');
             $table->timestamp('data_pg_nob');
             $table->string('numero_nob');
-            $table->string('tipo_servico_manutencao');
-            $table->string('tipo_servico_manutencao');
+            $table->decimal('valor_emprenho',8,2);
+            $table->decimal('valor_pago',8,2);
+            $table->text('descricao_geral_servico');
+            $table->integer('fk_veiculo')->unsigned();
+            $table->foreign('fk_veiculo')->references('id')->on('veiculos');
+            $table->integer('fk_contrato')->unsigned();
+            $table->foreign('fk_contrato')->references('id')->on('contratos');
+            $table->integer('fk_motorista')->unsigned();
+            $table->foreign('fk_motorista')->references('id')->on('users');
             $table->timestamps();
 
             //$table->timestamp('data_inicio_contrato');

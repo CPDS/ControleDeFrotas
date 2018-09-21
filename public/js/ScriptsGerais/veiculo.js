@@ -66,7 +66,7 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [2], sortable : false },
+              { targets : [12], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
               { "width": "5%", "targets": 1 },//nome
               { "width": "10%", "targets": 2 },//placa

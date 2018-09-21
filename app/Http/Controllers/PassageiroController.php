@@ -28,8 +28,8 @@ class PassageiroController extends Controller
     }
 
     private function setBtns(Passageiro $passageiros){
-    	$dados = "data-id='$passageiros->id' data-nome='$passageiros->nome' data-matricula='$passageiros->matricula' data-status='$passageiros->status'";
-        $dadosVisualizar = "data-nome='$passageiros->nome' data-matricula='$passageiros->matricula' data-status='$passageiros->status'";
+    	$dados = "data-id='$passageiros->id' data-nome_passageiro='$passageiros->nome_passageiro' data-matricula='$passageiros->matricula' data-status='$passageiros->status'";
+        $dadosVisualizar = "data-nome_passageiro='$passageiros->nome_passageiro' data-matricula='$passageiros->matricula' data-status='$passageiros->status'";
     	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Passageiro' $dados ><i class='fa fa-eye'></i></a> ";
     	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Passageiro' $dados><i class ='fa fa-pencil'></i></a> ";
     	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Passageiro' data-id='$passageiros->id'><i class='fa fa-trash'></i></a>";
@@ -39,7 +39,7 @@ class PassageiroController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-              'nome' => 'required',
+              'nome_passageiro' => 'required',
               'matricula' => 'required',
               'email' => 'required',
               'telefone' => 'required',
@@ -51,7 +51,7 @@ class PassageiroController extends Controller
               
         );
         $attributeNames = array(
-            'nome' => 'Nome',
+            'nome_passageiro' => 'Nome',
             'matricula' => 'Matricula',
             'email' => 'Email',
             'telefone' => 'Telefone',
@@ -74,7 +74,7 @@ class PassageiroController extends Controller
                 return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         }else {
             $Passageiro = new Passageiro();
-            $Passageiro->nome = $request->nome;
+            $Passageiro->nome_passageiro = $request->nome_passageiro;
             $Passageiro->matricula = $request->matricula;
             $Passageiro->email = $request->email;
             $Passageiro->telefone = $request->telefone;
@@ -94,7 +94,7 @@ class PassageiroController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'nome' => 'required',
+            'nome_passageiro' => 'required',
             'matricula' => 'required',
             'email' => 'required',
             'telefone' => 'required',
@@ -111,7 +111,7 @@ class PassageiroController extends Controller
         else {
 
             $Passageiro = Passageiro::find($request->id);
-            $Passageiro->nome = $request->nome;
+            $Passageiro->nome_passageiro = $request->nome_passageiro;
             $Passageiro->matricula = $request->matricula;
             $Passageiro->email = $request->email;
             $Passageiro->telefone = $request->telefone;

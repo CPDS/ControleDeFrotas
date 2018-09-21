@@ -39,7 +39,7 @@ class CreateViagemsTable extends Migration
             $table->integer('fk_cidade_chegada')->unsigned();
             $table->foreign('fk_cidade_chegada')->references('id')->on('cidades');
             $table->integer('fk_tipo_servico')->unsigned();
-            $table->foreign('fk_tipo_servico')->references('id')->on('servicos');
+            $table->foreign('fk_tipo_servico')->references('id')->on('tipo_servicos');
             $table->integer('fk_id_solicitante')->unsigned();
             $table->foreign('fk_id_solicitante')->references('id')->on('users');
             $table->integer('veiculo_id');

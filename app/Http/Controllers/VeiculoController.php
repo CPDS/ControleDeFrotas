@@ -17,8 +17,9 @@ use App\Campus;
 class VeiculoController extends Controller
 {
     public function index(){
-        $testecampus = Campus::where('status','Ativo')->get();
-        return view('veiculo.index', compact('testecampus'));
+        //$testecampus = Campus::where('status','Ativo')->get();
+        //return view('veiculo.index', compact('testecampus'));
+        return view('veiculo.index');
     }
 
     public function list() {
@@ -30,8 +31,8 @@ class VeiculoController extends Controller
     }
 
     private function setBtns(Veiculo $veiculos){
-    	$dados = "data-id='$veiculos->id' data-nome='$veiculos->nome' data-placa='$veiculos->placa' data-tipo_combustivel='$veiculos->tipo_combustivel' data-fk_campus='$veiculos->fk_campus' data-qtd_total_lugares='$veiculos->qtd_total_lugares' data-ano_fabricacao='$veiculos->ano_fabricacao' data-minimo_passageiros='$veiculos->minimo_passageiros' data-maximo_passageiros='$veiculos->maximo_passageiros' data-rendimento='$veiculos->rendimento' data-marca='$veiculos->marca' data-tem_arcondicionado='$veiculos->tem_arcondicionado' data-tipo_bagageiro='$veiculos->tipo_bagageiro'";
-        $dadosVisualizar = "data-nome='$veiculos->nome' data-placa='$veiculos->placa 'data-tipo_combustivel='$veiculos->tipo_combustivel' data-fk_campus='$veiculos->fk_campus' data-qtd_total_lugares='$veiculos->qtd_total_lugares' data-ano_fabricacao='$veiculos->ano_fabricacao' data-minimo_passageiros='$veiculos->minimo_passageiros' data-maximo_passageiros='$veiculos->maximo_passageiros' data-rendimento='$veiculos->rendimento' data-marca='$veiculos->marca' data-tem_arcondicionado='$veiculos->tem_arcondicionado' data-tipo_bagageiro='$veiculos->tipo_bagageiro'";
+    	$dados = "data-id='$veiculos->id' data-nome_veiculo='$veiculos->nome_veiculo' data-placa='$veiculos->placa' data-tipo_combustivel='$veiculos->tipo_combustivel' data-fk_campus='$veiculos->fk_campus' data-qtd_total_lugares='$veiculos->qtd_total_lugares' data-ano_fabricacao='$veiculos->ano_fabricacao' data-minimo_passageiros='$veiculos->minimo_passageiros' data-maximo_passageiros='$veiculos->maximo_passageiros' data-rendimento='$veiculos->rendimento' data-marca='$veiculos->marca' data-tem_arcondicionado='$veiculos->tem_arcondicionado' data-tipo_bagageiro='$veiculos->tipo_bagageiro'";
+        $dadosVisualizar = "data-nome_veiculo='$veiculos->nome_veiculo' data-placa='$veiculos->placa 'data-tipo_combustivel='$veiculos->tipo_combustivel' data-fk_campus='$veiculos->fk_campus' data-qtd_total_lugares='$veiculos->qtd_total_lugares' data-ano_fabricacao='$veiculos->ano_fabricacao' data-minimo_passageiros='$veiculos->minimo_passageiros' data-maximo_passageiros='$veiculos->maximo_passageiros' data-rendimento='$veiculos->rendimento' data-marca='$veiculos->marca' data-tem_arcondicionado='$veiculos->tem_arcondicionado' data-tipo_bagageiro='$veiculos->tipo_bagageiro'";
     	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Veículo' $dados ><i class='fa fa-eye'></i></a> ";
     	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Veículo' $dados><i class ='fa fa-pencil'></i></a> ";
     	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Veículo' data-id='$veiculos->id'><i class='fa fa-trash'></i></a>";
@@ -41,7 +42,7 @@ class VeiculoController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-              'nome' => 'required',
+              'nome_veiculo' => 'required',
               'placa' => 'required',
               'tipo_combustivel' => 'required',
               'fk_campus' => 'required',
@@ -55,7 +56,7 @@ class VeiculoController extends Controller
               'tipo_bagageiro' => 'required',
         );
         $attributeNames = array(
-            'nome' => 'Nome',
+            'nome_veiculo' => 'Nome',
             'placa' => 'Placa',
             'tipo_combustivel' => 'Tipo de Combustível',
             'fk_campus' => 'Campus',
@@ -78,7 +79,7 @@ class VeiculoController extends Controller
                 return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         }else {
             $Veiculo = new Veiculo();
-            $Veiculo->nome = $request->nome;
+            $Veiculo->nome_veiculo = $request->nome_veiculo;
             $Veiculo->placa = $request->placa;
             $Veiculo->tipo_combustivel = $request->tipo_combustivel;
             $Veiculo->fk_campus = $request->fk_campus;
@@ -101,7 +102,7 @@ class VeiculoController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'nome' => 'required',
+            'nome_veiculo' => 'required',
             'placa' => 'required',
             'tipo_combustivel' => 'required',
             'fk_campus' => 'required',
@@ -121,7 +122,7 @@ class VeiculoController extends Controller
         else {
 
             $Veiculo = Veiculo::find($request->id);
-            $Veiculo->nome = $request->nome;
+            $Veiculo->nome_veiculo = $request->nome_veiculo;
             $Veiculo->placa = $request->placa;
             $Veiculo->tipo_combustivel = $request->tipo_combustivel;
             $Veiculo->fk_campus = $request->fk_campus;
