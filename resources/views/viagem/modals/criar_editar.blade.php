@@ -21,7 +21,7 @@
                <strong>Nº RV:</strong>
                <div class="input-group">
                  <span class="input-group-addon"><i class="fa fa-file"></i></span>
-                 <input placeholder="Digite o número da RV" maxlength="150" id="numero_rv" class="form-control" name="nome" type="text">
+                 <input placeholder="Digite o número da RV" maxlength="150" id="numero_rv" class="form-control" name="numero_rv" type="text">
                </div>
              </div>
 
@@ -29,7 +29,7 @@
                <strong>Setor Emissor da RV:</strong>
                <div class="input-group">
                <span class="input-group-addon"><i class="fa fa-university"></i></span>
-               <select name="funcao" id="funcao" class="form-control">
+               <select name="setor_emissor_rv" id="setor_emissor_rv" class="form-control">
                  <option value='' selected disabled>Selecione ...</option>
                  <option value="Setor X">Setor X</option>
                  <option value="Setor Y">Setor Y</option>
@@ -51,11 +51,27 @@
              </div>
              </div>
 
+          <!--   <div class="form-group col-md-6">
+               <strong>Data de Chegada:</strong>
+               <div class="input-group">
+               <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
+               <input id="data_chegada" class="form-control"  name="data_chegada" type="time">
+             </div>
+             </div>
+
+             <div class="form-group col-md-6">
+               <strong>Data de Saída:</strong>
+               <div class="input-group">
+               <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
+               <input id="data_saida" class="form-control"  name="data_saida" type="time">
+             </div>
+           </div> -->
+
              <div class="form-group col-md-6">
                <strong>Horário de Saída:</strong>
                <div class="input-group">
                <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-               <input id="datahora_saida" class="form-control"  name="datahora_saida" type="timestamps"> <!-- Campo nào pega hora ainda -->
+               <input id="datahora_saida" class="form-control"  name="datahora_saida" type="time"> <!-- Campo nào pega hora ainda -->
              </div>
              </div>
 
@@ -63,7 +79,7 @@
                <strong>Horário de Chegada:</strong>
                <div class="input-group">
                <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-               <input id="datahora_chegada" class="form-control"  name="datahora_chegada" type="timestamps"> <!-- Campo nào pega hora ainda -->
+               <input id="datahora_chegada" class="form-control"  name="datahora_chegada" type="time"> <!-- Campo nào pega hora ainda -->
              </div>
              </div>
 
@@ -90,6 +106,27 @@
                    <option value="Cidade Y">Cidade Y</option>
                    <option value="Cidade Z">Cidade Z</option>
                  </select> <!-- Tem que selecionar da tabela com as cidades -->
+               </div>
+             </div>
+
+             <div class="form-group col-md-12">
+              <strong>Tipo de Serviço:</strong>
+              <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-gear"></i></span>
+                 <select name="fk_tipo_servico" id="fk_tipo_servico" class="form-control">
+                   <option value='' selected disabled>Selecione ...</option>
+                   <option value="Serviço X">Serviço X</option>
+                   <option value="Serviço Y">Serviço Y</option>
+                   <option value="Serviço Z">Serviço Z</option>
+                 </select> <!-- Tem que selecionar da tabela com as cidades -->
+               </div>
+             </div>
+
+             <div class="form-group col-md-12">
+               <strong>Solicitante:</strong>
+               <div class="input-group">
+                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                 <input maxlength="250" id="fk_id_solicitante" class="form-control" name="fk_id_solicitante" type="text">
                </div>
              </div>
 
@@ -186,26 +223,18 @@
              </div>
 
              <div class="form-group col-md-6">
-               <strong>Código CP:</strong>
-               <div class="input-group">
-                 <span class="input-group-addon"><i class="fa fa-file-code-o"></i></span>
-                 <input placeholder="Digite o Código CP" id="codigo_cp_rv" maxlength="254" class="form-control" name="codigo_cp_rv" type="text">
-               </div>
-             </div>
-
-             <div class="form-group col-md-6">
-               <strong>Bagagem:</strong>
-               <div class="input-group">
-                 <span class="input-group-addon"><i class="fa fa-suitcase"></i></span>
-                 <input placeholder="Descreva a Bagaguem" maxlength="150" id="descricao_bagagem" class="form-control" name="descricao_bagagem" type="text">
-               </div>
-             </div>
-
-             <div class="form-group col-md-6">
                <strong>Código ACP:</strong>
                <div class="input-group">
                  <span class="input-group-addon"><i class="fa fa-file-code-o"></i></span>
                  <input id="codigo_acp_rv" maxlength="254" class="form-control" name="codigo_acp_rv" type="text">
+               </div>
+             </div>
+
+             <div class="form-group col-md-12">
+               <strong>Bagagem:</strong>
+               <div class="input-group">
+                 <span class="input-group-addon"><i class="fa fa-suitcase"></i></span>
+                 <input placeholder="Descreva a Bagaguem" maxlength="150" id="descricao_bagagem" class="form-control" name="descricao_bagagem" type="text">
                </div>
              </div>
 
@@ -254,15 +283,6 @@
               </div>
             </div>
 
-            <div class="form-group col-md-6">
-             <strong>Função:</strong>
-                <select name="funcao" id="funcao" class="form-control">
-                  <option value='' selected disabled>Selecione ...</option>
-                  <option value="Administrador">Administrador</option>
-                  <option value="Funcionário">Funcionário</option>
-                  <option value="Professor">Professor</option>
-                </select>
-            </div>
 
             <div class="form-group col-md-12">
               <strong>Endereço:</strong>

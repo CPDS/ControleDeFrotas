@@ -13,12 +13,14 @@ $(document).ready(function($) {
             columns: [
             { data: null, name: 'order' },
             { data: 'numero_rv', name: 'numero_rv' },
-            { data: 'funcao', name: 'funcao' },
+            { data: 'setor_emissor_rv', name: 'setor_emissor_rv' },
             { data: 'fk_veiculo', name: 'fk_veiculo' },
             { data: 'datahora_saida', name: 'datahora_saida' },
             { data: 'datahora_chegada', name: 'datahora_chegada' },
             { data: 'fk_cidade_saida', name: 'fk_cidade_saida' },
             { data: 'fk_cidade_chegada', name: 'fk_cidade_chegada' },
+            { data: 'fk_tipo_servico', name: 'fk_tipo_servico' },
+            { data: 'fk_id_solicitante', name: 'fk_id_solicitante' },
             { data: 'estimativa_km', name: 'estimativa_km' },
             { data: 'estado', name: 'estado' },
             { data: 'nome_responsavel', name: 'nome_responsavel' },
@@ -29,7 +31,6 @@ $(document).ready(function($) {
             { data: 'tipo_solicitacao', name: 'tipo_solicitacao' },
             { data: 'natureza_servico', name: 'natureza_servico' },
             { data: 'custo_viagem', name: 'custo_viagem' },
-            { data: 'codigo_cp_rv', name: 'codigo_cp_rv' },
             { data: 'descricao_bagagem', name: 'descricao_bagagem' },
             { data: 'codigo_acp_rv', name: 'codigo_acp_rv' }
             ],
@@ -95,7 +96,8 @@ $(document).ready(function($) {
               { "width": "20%", "targets": 17 },
               { "width": "20%", "targets": 18 },
               { "width": "20%", "targets": 19 },
-              { "width": "20%", "targets": 20 }
+              { "width": "20%", "targets": 20 },
+              { "width": "20%", "targets": 21 }
             ]
     });
 
@@ -108,12 +110,14 @@ $(document).ready(function($) {
     //Ver
     $(document).on('click', '.btnVer', function() {
         $('#numero_rv-visualizar').text($(this).data('Nº RV')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#funcao-visualizar').text($(this).data('Roteiro'));
+        $('#setor_emissor_rv-visualizar').text($(this).data('Setor Emissor da RV'));
         $('#fk_veiculo-visualizar').text($(this).data('Veículo'));
         $('#datahora_saida-visualizar').text($(this).data('Horário de Saída'));
         $('#datahora_chegada-visualizar').text($(this).data('Horário de Chegada'));
         $('#fk_cidade_saida-visualizar').text($(this).data('Cidade de Saída'));
         $('#fk_cidade_chegada-visualizar').text($(this).data('Cidade de Chegada'));
+        $('#fk_tipo_servico-visualizar').text($(this).data('Tipo de Serviço'));
+        $('#fk_id_solicitante-visualizar').text($(this).data('Solicitante'));
         $('#estimativa_km-visualizar').text($(this).data('Estimativa de KM'));
         $('#estado-visualizar').text($(this).data('Estado'));
         $('#nome_responsavel-visualizar').text($(this).data('Nome Responsável'));
@@ -124,7 +128,6 @@ $(document).ready(function($) {
         $('#tipo_solicitacao-visualizar').text($(this).data('Tipo de Solicitação'));
         $('#natureza_servico-visualizar').text($(this).data('Natureza da Viagem'));
         $('#custo_viagem-visualizar').text($(this).data('Custo da Viagem'));
-        $('#codigo_cp_rv-visualizar').text($(this).data('Código CP'));
         $('#descricao_bagagem-visualizar').text($(this).data('Bagagem'));
         $('#codigo_acp_rv-visualizar').text($(this).data('Código ACP'));
         jQuery('#visualizar-modal').modal('show');

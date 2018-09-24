@@ -36,17 +36,28 @@
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-home'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
           <!--  <li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li> -->
             <ul class="sidebar-menu">
-            <li class="active"><a href="{{ url('viagems') }}"><i class='fa fa-globe'></i> <span>{{ trans('Viagem') }}</span></a></li>
+
+          <!--  <li class="active"><a href="{{ url('viagems') }}"><i class='fa fa-globe'></i> <span>{{ trans('Viagem') }}</span></a></li> -->
             <li class="treeview"> <!-- cria o menuzinho que abre para cadastrar a viagem -->
-               <a href="{{ url('viagems') }}"><i class='fa fa-location-arrow'></i> <span>{{ trans('Cadastro de Viagem') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+               <a href="{{ url('viagems') }}"><i class='fa fa-globe'></i> <span>{{ trans('Gerenciar Viagem') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <!-- <li><a href="#">{{ trans('Solicitação de Vaga') }}</a></li> -->
+                     <li><a href="{{ url('viagems') }}">{{ trans('Viagems Solicitadas') }}</a></li>
                     <li><a class="btnAdicionarViagems">{{ trans('Solicitação de Viagem') }}</a></li>
                 </ul>
 
             </li>
-            <li class="active"><a href="{{ url('passageiros') }}"><i class='fa fa-globe'></i> <span>{{ trans('Passageiros') }}</span></a></li>
-            <li class="active"><a href="{{ url('veiculos') }}"><i class='fa fa-car'></i> <span>{{ trans('Veículos') }}</span></a></li>
+            <li class="active"><a href="{{ url('passageiros') }}"><i class='fa fa-users'></i> <span>{{ trans(' Gerenciar Passageiros') }}</span></a></li>
+
+            <li class="treeview"> <!-- cria o menuzinho que abre para cadastrar veículos -->
+               <a href="#"><i class='fa fa-car'></i> <span>{{ trans('Gerenciar Veículos') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                     <li><a href="{{ url('veiculos') }}">{{ trans('Veículos Cadastrados') }}</a></li>
+                     <li><a class="btnAdicionar">{{ trans('Cadastrar Veículos') }}</a></li>
+                    <li><a class="btnAdicionarViagems">{{ trans('Contrato') }}</a></li>
+                </ul>
+
+            </li>
+          <!--  <li class="active"><a href="{{ url('veiculos') }}"><i class='fa fa-car'></i> <span>{{ trans('Veículos') }}</span></a></li> -->
             <li class="active"><a href="{{ url('contato') }}"><i class='fa fa-phone'></i> <span>{{ trans('Contato') }}</span></a></li>
         </ul><!-- /.sidebar-menu -->
       <!--  <ul class="sidebar-menu">

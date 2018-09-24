@@ -19,11 +19,11 @@
 
                 <div class="box box-success">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Passageiro</h3>
+                        <h3 class="box-title">Passageiros Cadastrados</h3>
                          <div class="col-md-12">
                           <div class="pull-right">
                         <span>
-                            <a class="btn btn-primary btnAdicionar btn-sm "><i class="fa fa-plus"></i>Cadastrar passageiro</a>
+                            <a class="btn btn-primary btnAdicionar btn-sm "><i class="fa fa-plus"></i> Cadastrar passageiro</a>
                         </span>
                         </div>
                         </div>
