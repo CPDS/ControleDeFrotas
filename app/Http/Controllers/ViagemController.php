@@ -215,4 +215,52 @@ class ViagemController extends Controller
         $Viagem->save();
         return response()->json($Viagem);
     }
+
+    //Select Cidade
+    public function selectCidade(Request $request){
+        //consulta no banco
+        $dados_cidades = Cidade::where('fk_estado',$request->estado)
+        ->select('id','nome')
+        ->orderBy('nome')
+        ->get();
+        //Array de cidade
+        $cidades = array();
+        foreach($dados_cidades as $dados_cidade){
+            array_push($cidades,[
+                'id' => $dados_cidade->id,
+                'nome' => $dados_cidade->nome
+            ]);
+        }
+        //retornando para o javascript
+        return response()->json(['cidades' => $cidades]);
+        
+    }
+
+    public static function equipamento_reservado($data_retirada, $data_entrega){
+        //convertendo para formato americano
+        $data_retirada = date('Y-m-d H:i:s',strtotime($data_retirada));
+        $data_entrega = date('Y-m-d H:i:s',strtotime($data_entrega));
+         
+        //Todos os equipamentos ocupados no dia escolhido + hora inicial + hora final das reservas
+        $consulta = 'select equipamento_reservas.id_equipamento,
+        reservas.data_retirada,reservas.data_entrega,
+        equipamento_reservas.status from equipamentos join equipamento_reservas
+        on equipamento_reservas.id_equipamento = equipamentos.id
+        join reservas on equipamento_reservas.id_reserva = reservas.id
+        where ? between data_retirada and data_entrega or ? between data_retirada and data_entrega
+        or data_retirada >= ? and data_entrega <= ? and reservas.status = ?
+        and equipamento_reservas.status = ? or reservas.status = ?';
+        
+        //Associando atributos e executando a consulta sql  
+        $Reservados = DB::select($consulta,[
+            $data_retirada,
+            $data_entrega,
+            $data_retirada,
+            $data_entrega,
+            'Reservado',
+            'Ativo',
+            'Retirada'
+        ]);
+        return $Reservados;
+    }
 }

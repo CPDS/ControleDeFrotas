@@ -37,12 +37,10 @@ class ViagemVeiculoController extends Controller
         $rules = array(
               'fk_solicitacao' => 'required',
               'fk_veiculo' => 'required',
-              'fk_contrato' => 'required',
         );
         $attributeNames = array(
             'fk_solicitacao' => 'Início',
             'fk_veiculo' => 'Término',
-            'fk_contrato' => 'Contrato',
         );
         $messages = array(
             'same' => 'Essas senhas não coincidem.'
@@ -55,7 +53,6 @@ class ViagemVeiculoController extends Controller
             $ViagemVeiculo = new ViagemVeiculo();
             $ViagemVeiculo->fk_solicitacao = $request->fk_solicitacao;
             $ViagemVeiculo->fk_veiculo = $request->fk_veiculo;
-            $ViagemVeiculo->fk_contrato = $request->fk_contrato;
             $ViagemVeiculo->status = "Ativo";
             $ViagemVeiculo->save();
             //$ViagemVeiculo->setAttribute('titulo', $ViagemVeiculo->titulo);
@@ -69,7 +66,6 @@ class ViagemVeiculoController extends Controller
         $rules = array(
             'fk_solicitacao' => 'required',
             'fk_veiculo' => 'required',
-            'fk_contrato' => 'required',
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -80,7 +76,6 @@ class ViagemVeiculoController extends Controller
             $ViagemVeiculo = ViagemVeiculo::find($request->id);
             $ViagemVeiculo->fk_solicitacao = $request->fk_solicitacao;
             $ViagemVeiculo->fk_veiculo = $request->fk_veiculo;
-            $ViagemVeiculo->fk_contrato = $request->fk_contrato;
             $ViagemVeiculo->save();
             //$equipamento->setAttribute('buttons', $this->setDataButtons($equipamento));
             return response()->json($ViagemVeiculo);

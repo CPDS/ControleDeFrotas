@@ -22,6 +22,7 @@ class CreateServicosTable extends Migration
             $table->string('numero_ordem_servico');
             $table->timestamp('data_servico');
             $table->string('km_entrada_oficina');
+            $table->string('tipo_servico_manutencao');
             $table->string('numero_smv');
             $table->string('numero_lupus');
             $table->string('numero_sei');
