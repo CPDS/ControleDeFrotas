@@ -1,7 +1,6 @@
 <?php
 // Controlador referente a Viagem
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
@@ -12,34 +11,29 @@ use DB;
 use Auth;
 use App\Veiculo;
 use App\Campus;
-
-
 class VeiculoController extends Controller
 {
     public function index(){
         //$testecampus = Campus::where('status','Ativo')->get();
         //return view('veiculo.index', compact('testecampus'));
-        return view('veiculo.index');
-    }
+        $campuss = Campus::where('status','Ativo')->get();
 
+        return view('veiculo.index',compact('campuss'));
+    }
     public function list() {
         $Veiculo = Veiculo::orderBy('created_at', 'desc')->get();
-
         return Datatables::of($Veiculo)->editColumn('acao', function ($veiculos){
         	return $this->setBtns($veiculos);
         })->escapeColumns([0])->make(true);
     }
-
     private function setBtns(Veiculo $veiculos){
     	$dados = "data-id='$veiculos->id' data-nome_veiculo='$veiculos->nome_veiculo' data-placa='$veiculos->placa' data-tipo_combustivel='$veiculos->tipo_combustivel' data-fk_campus='$veiculos->fk_campus' data-qtd_total_lugares='$veiculos->qtd_total_lugares' data-ano_fabricacao='$veiculos->ano_fabricacao' data-minimo_passageiros='$veiculos->minimo_passageiros' data-maximo_passageiros='$veiculos->maximo_passageiros' data-rendimento='$veiculos->rendimento' data-marca='$veiculos->marca' data-tem_arcondicionado='$veiculos->tem_arcondicionado' data-tipo_bagageiro='$veiculos->tipo_bagageiro'";
         $dadosVisualizar = "data-nome_veiculo='$veiculos->nome_veiculo' data-placa='$veiculos->placa 'data-tipo_combustivel='$veiculos->tipo_combustivel' data-fk_campus='$veiculos->fk_campus' data-qtd_total_lugares='$veiculos->qtd_total_lugares' data-ano_fabricacao='$veiculos->ano_fabricacao' data-minimo_passageiros='$veiculos->minimo_passageiros' data-maximo_passageiros='$veiculos->maximo_passageiros' data-rendimento='$veiculos->rendimento' data-marca='$veiculos->marca' data-tem_arcondicionado='$veiculos->tem_arcondicionado' data-tipo_bagageiro='$veiculos->tipo_bagageiro'";
     	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Veículo' $dados ><i class='fa fa-eye'></i></a> ";
     	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Veículo' $dados><i class ='fa fa-pencil'></i></a> ";
     	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Veículo' data-id='$veiculos->id'><i class='fa fa-trash'></i></a>";
-
     	return $btnVer.$btnEditar.$btnDeletar;
     }
-
     public function store(Request $request) {
         $rules = array(
               'nome_veiculo' => 'required',
@@ -68,7 +62,6 @@ class VeiculoController extends Controller
             'marca' => 'Marca',
             'tem_arcondicionado' => 'Tem AR?',
             'tipo_bagageiro' => 'Bagageiro',
-
         );
         $messages = array(
             'same' => 'Essas senhas não coincidem.'
@@ -78,6 +71,11 @@ class VeiculoController extends Controller
         if ($validator->fails()){
                 return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         }else {
+          if($request->tem_arcondicionado == "Sim")
+              $ar = true;
+          else
+              $ar = false;
+
             $Veiculo = new Veiculo();
             $Veiculo->nome_veiculo = $request->nome_veiculo;
             $Veiculo->placa = $request->placa;
@@ -89,7 +87,7 @@ class VeiculoController extends Controller
             $Veiculo->maximo_passageiros = $request->maximo_passageiros;
             $Veiculo->rendimento = $request->rendimento;
             $Veiculo->marca = $request->marca;
-            $Veiculo->tem_arcondicionado = $request->tem_arcondicionado;
+            $Veiculo->tem_arcondicionado = $ar;
             $Veiculo->tipo_bagageiro = $request->tipo_bagageiro;
             $Veiculo->status = "Ativo";
             $Veiculo->save();
@@ -98,7 +96,6 @@ class VeiculoController extends Controller
             return response()->json($Veiculo);
         }
     }
-
     public function update(Request $request)
     {
         $rules = array(
@@ -115,12 +112,10 @@ class VeiculoController extends Controller
             'tem_arcondicionado' => 'required',
             'tipo_bagageiro' => 'required',
         );
-
         $validator = Validator::make(Input::all(), $rules);
         if ($validator->fails())
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         else {
-
             $Veiculo = Veiculo::find($request->id);
             $Veiculo->nome_veiculo = $request->nome_veiculo;
             $Veiculo->placa = $request->placa;
@@ -139,9 +134,7 @@ class VeiculoController extends Controller
             return response()->json($Veiculo);
         }
     }
-
     // desabilitar veículo
-
     public function destroy(Request $request) {
         $Veiculo = Veiculo::find($request->id);
         $Veiculo->status = "Inativo";

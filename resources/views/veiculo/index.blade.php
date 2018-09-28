@@ -19,12 +19,12 @@
 
                 <div class="box box-success">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Example box</h3>
+                        <h3 class="box-title">Veículos Cadastrados</h3>
                          <div class="col-md-12">
                           <div class="pull-right">
-                        <span>
+                <!--        <span>    Botão para cadastrar
                             <a class="btn btn-primary btnAdicionar btn-sm "><i class="fa fa-plus"></i> Cadastrar Veículo</a>
-                        </span>
+                        </span> -->
                         </div>
                         </div>
 

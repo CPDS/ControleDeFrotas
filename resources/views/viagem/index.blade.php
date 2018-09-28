@@ -19,7 +19,7 @@
 
                 <div class="box box-success">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Example box</h3>
+                        <h3 class="box-title">Viagems Solicitadas</h3>
                          <div class="col-md-12">
                           <div class="pull-right">
                         <span>
@@ -41,6 +41,8 @@
                                 <th>Horário de Chegada</th>
                                 <th>Cidade de Saída</th>
                                 <th>Cidade de Chegada</th>
+                                <th>Tipo de Serviço</th>
+                                <th>Solicitante</th>
                                 <th>Estimativa de KM</th>
                                 <th>Estado</th>
                                 <th>Nome Responsável</th>
@@ -51,9 +53,8 @@
                                 <th>Tipo de Solicitação</th>
                                 <th>Natureza da Viagem</th>
                                 <th>Custo da Viagem</th>
-                                <th>Código CP</th>
-                                <th>Bagagem</th>
                                 <th>Código ACP</th>
+                                <th>Bagagem</th>
                             </tr>
                             </thead>
                         </table>

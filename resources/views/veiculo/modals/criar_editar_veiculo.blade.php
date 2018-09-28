@@ -43,10 +43,18 @@
             </div>
 
             <div class="form-group col-md-12">
-              <strong>Campus:</strong>
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-university"></i></span>
-                <input maxlength="150" id="fk_campus" class="form-control" name="fk_campus" type="text">
+             <strong>Campus:</strong>
+             <div class="input-group">
+               <span class="input-group-addon"><i class="fa fa-university"></i>
+               </span>
+                <select name="fk_campus" id="fk_campus" class="form-control">
+                  <option value='' selected disabled>Selecione ...</option>
+                  @foreach($campuss as $campus)
+                    <option value="{{$campus->id}}">{{$campus->nome}}</option>
+                  @endforeach
+                  <!--<option value="2">Vitória da Conquista</option>
+                  <option value="3">Itapetinga</option>-->
+                </select>
               </div>
             </div>
 
@@ -100,7 +108,7 @@
 
              <div class="form-group col-md-6">
               <strong>Ar Condicionado:</strong>
-                 <select name="tipo_combustivel" id="tem_arcondicionado" class="form-control">
+                 <select name="tem_arcondicionado" id="tem_arcondicionado" class="form-control">
                    <option value='' selected disabled>Selecione ...</option>
                    <option value="Sim">Sim</option>
                    <option value="Não">Não</option>

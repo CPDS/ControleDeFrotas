@@ -30,8 +30,8 @@
           </div>
 
           <div class="form-group">
-              <strong>Roteiro:</strong>
-              <span id="funcao-visualizar"></span>
+              <strong>Setor Emissor da RV:</strong>
+              <span id="setor_emissor_rv-visualizar"></span>
           </div>
 
           <div class="form-group">
@@ -57,6 +57,16 @@
           <div class="form-group">
               <strong>Cidade de Chegada:</strong>
               <span id="fk_cidade_chegada-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Tipo de Serviço:</strong>
+              <span id="fk_tipo_servico-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Solicitante:</strong>
+              <span id="fk_id_solicitante-visualizar"></span>
           </div>
 
           <div class="form-group">
@@ -110,18 +120,13 @@
           </div>
 
           <div class="form-group">
-              <strong>Código CP:</strong>
-              <span id="codigo_cp_rv-visualizar"></span>
+              <strong>Código ACP:</strong>
+              <span id="codigo_acp_rv-visualizar"></span>
           </div>
 
           <div class="form-group">
               <strong>Bagagem:</strong>
               <span id="descricao_bagagem-visualizar"></span>
-          </div>
-
-          <div class="form-group">
-              <strong>Código ACP:</strong>
-              <span id="codigo_acp_rv-visualizar"></span>
           </div>
 
         </div>
