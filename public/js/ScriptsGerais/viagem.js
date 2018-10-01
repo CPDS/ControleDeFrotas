@@ -21,18 +21,7 @@ $(document).ready(function($) {
             { data: 'fk_cidade_chegada', name: 'fk_cidade_chegada' },
             { data: 'fk_tipo_servico', name: 'fk_tipo_servico' },
             { data: 'fk_id_solicitante', name: 'fk_id_solicitante' },
-            { data: 'estimativa_km', name: 'estimativa_km' },
-            { data: 'estado', name: 'estado' },
-            { data: 'nome_responsavel', name: 'nome_responsavel' },
-            { data: 'telefone_responsavel', name: 'telefone_responsavel' },
-            { data: 'local_saida', name: 'local_saida' },
-            { data: 'setor_autoriza_viagem', name: 'setor_autoriza_viagem' },
-            { data: 'numero_passageiros', name: 'numero_passageiros' },
-            { data: 'tipo_solicitacao', name: 'tipo_solicitacao' },
-            { data: 'natureza_servico', name: 'natureza_servico' },
-            { data: 'custo_viagem', name: 'custo_viagem' },
-            { data: 'descricao_bagagem', name: 'descricao_bagagem' },
-            { data: 'codigo_acp_rv', name: 'codigo_acp_rv' }
+            { data: 'acao', name: 'acao' }
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -80,24 +69,12 @@ $(document).ready(function($) {
               { "width": "20%", "targets": 1 },//nome
               { "width": "20%", "targets": 2 },//placa
               { "width": "20%", "targets": 3 },//tipo_combustivel
-              { "width": "20%", "targets": 4 },
+              { "width": "20%", "targets": 4 },//
               { "width": "20%", "targets": 5 },
               { "width": "20%", "targets": 6 },
               { "width": "20%", "targets": 7 },
               { "width": "20%", "targets": 8 },
-              { "width": "20%", "targets": 9 },
-              { "width": "20%", "targets": 10 },
-              { "width": "20%", "targets": 11 },
-              { "width": "20%", "targets": 12 },
-              { "width": "20%", "targets": 13 },
-              { "width": "20%", "targets": 14 },
-              { "width": "20%", "targets": 15 },
-              { "width": "20%", "targets": 16 },
-              { "width": "20%", "targets": 17 },
-              { "width": "20%", "targets": 18 },
-              { "width": "20%", "targets": 19 },
-              { "width": "20%", "targets": 20 },
-              { "width": "20%", "targets": 21 }
+              { "width": "20%", "targets": 9 }
             ]
     });
 

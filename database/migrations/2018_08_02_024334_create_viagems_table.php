@@ -42,7 +42,7 @@ class CreateViagemsTable extends Migration
             $table->foreign('fk_tipo_servico')->references('id')->on('tipo_servicos');
             $table->integer('fk_id_solicitante')->unsigned();
             $table->foreign('fk_id_solicitante')->references('id')->on('users');
-            $table->integer('veiculo_id');
+            
 
             $table->timestamps();
             // adicionar os campos que teram no banco de dados

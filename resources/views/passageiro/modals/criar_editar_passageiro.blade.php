@@ -1,5 +1,5 @@
  <div id="criar_editar-modal" class="modal fade bs-example" role="dialog" data-backdrop="static">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
       <div class="modal-header">
@@ -13,7 +13,7 @@
                 <p></p>
         </div>
 
-<<<<<<< HEAD
+
         <form id="form" role="form" method="post">
           <div class="row" style="width: 100%">
 
@@ -158,9 +158,9 @@
           <input type="hidden" id="id" name="id">
 
         </form> -->
-=======
-       
-       <form class="form-horizontal" role="form" id="form">
+
+
+  <!--     <form class="form-horizontal" role="form" id="form">
                     <div class="form-group">
                         <div class="col-sm-12">
                             <strong>Nome:</strong>
@@ -183,7 +183,7 @@
 
                       <input type="hidden" id="id" name="id">
                 </form>
->>>>>>> d5bac5a529f9b8b624dfd53b588fc458c962a531
+-->
 
       </div> <!-- Fim de ModaL Body-->
 

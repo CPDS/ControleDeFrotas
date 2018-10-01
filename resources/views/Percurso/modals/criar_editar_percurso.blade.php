@@ -17,32 +17,70 @@
           <div class="row" style="width: 100%">
 
             <div class="form-group col-md-12">
-              <strong>Nome de Veículo:</strong>
+              <strong>Hora de Saída:</strong>
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-bus"></i></span>
-                <input maxlength="250" id="nome_veiculo" class="form-control" name="nome_veiculo" type="text">
+                <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                <input maxlength="250" id="hora_saida" class="form-control" name="hora_saida" type="date">
               </div>
             </div>
 
             <div class="form-group col-md-6">
-              <strong>Placa:</strong>
+              <strong>Local de Saída:</strong>
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-cc-jcb"></i></span>
-                <input id="placa" maxlength="10" class="form-control" name="placa" type="text">
+                <span class="input-group-addon"><i class="fa  fa-genderless"></i></span>
+                <input id="local_saida" maxlength="250" class="form-control" name="local_saida" type="text">
               </div>
             </div>
 
             <div class="form-group col-md-6">
-             <strong>Tipo de Combustível:</strong>
-                <select name="tipo_combustivel" id="tipo_combustivel" class="form-control">
-                  <option value='' selected disabled>Selecione ...</option>
-                  <option value="Combustível X">Combustível X</option>
-                  <option value="Combustível Y">Combustível Y</option>
-                  <option value="Combustível Z">Combustível Z</option>
-                </select>
+              <strong>KM de Saída:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-dashboard"></i></span>
+                <input id="km_saida" maxlength="250" class="form-control" name="km_saida" type="text">
+              </div>
             </div>
 
             <div class="form-group col-md-12">
+              <strong>Roteiro:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-dashboard"></i></span>
+                <textarea id="roteiro" maxlength="250" class="form-control" name="roteiro" type="text"></textarea>
+              </div> <!-- Verificar tamanho após rota ser configurado -->
+            </div>
+
+            <div class="form-group col-md-6">
+              <strong>Hora de Chegada:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                <input id="hora_chegada" maxlength="250" class="form-control" name="hora_chegada" type="date">
+              </div>
+            </div>
+
+            <div class="form-group col-md-6">
+              <strong>Local de Chegada:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                <input id="local_chegada" maxlength="250" class="form-control" name="local_chegada" type="text">
+              </div>
+            </div>
+
+            <div class="form-group col-md-6">
+              <strong>KM de Chegada:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                <input id="km_chegada" maxlength="250" class="form-control" name="km_chegada" type="text">
+              </div>
+            </div>
+
+            <div class="form-group col-md-6">
+              <strong>Diário de Bordo:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                <textarea id="fk_diario" maxlength="250" class="form-control" name="fk_diario" type="text"></textarea>
+              </div>
+            </div>
+
+          <!--  <div class="form-group col-md-12">
              <strong>Campus:</strong>
              <div class="input-group">
                <span class="input-group-addon"><i class="fa fa-university"></i>
@@ -54,10 +92,10 @@
                   @endforeach
                   <!--<option value="2">Vitória da Conquista</option>
                   <option value="3">Itapetinga</option>-->
-                </select>
+            <!--    </select>
               </div>
-            </div>
-
+            </div> -->
+<!--
             <div class="form-group col-md-6">
               <strong>Total de Lugares:</strong>
               <div class="input-group">
@@ -121,7 +159,7 @@
                  <span class="input-group-addon"><i class="fa fa-suitcase"></i></span>
                  <input id="tipo_bagageiro" maxlength="254" class="form-control" name="tipo_bagageiro" type="text">
                </div>
-             </div>
+             </div> -->
 
              <input type="hidden" id="id" name="id">
 

@@ -6,9 +6,9 @@
 <link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('css/iziToast.min.css') }}">
 <script src="{{ asset('js/iziToast.min.js') }}"></script>
-<script src="{{asset('js/ScriptsGerais/viagem.js')}}"></script>
+<script src="{{asset('js/ScriptsGerais/veiculo.js')}}"></script>
 @section('htmlheader_title')
-    Veículos
+    Contrato
 @endsection
 
 
@@ -19,11 +19,11 @@
 
                 <div class="box box-success">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Viagems Solicitadas</h3>
+                        <h3 class="box-title">Contrato Cadastrados</h3>
                          <div class="col-md-12">
                           <div class="pull-right">
-                        <span>
-                          <!--  <a class="btn btn-primary btnAdicionar btn-sm"><i class="fa fa-plus"></i>  Cadastrar Viagem</a> -->
+                       <span>   <!-- Botão para cadastrar -->
+                            <a class="btn btn-primary btnAdicionar btn-sm "><i class="fa fa-plus"></i> Cadastrar Contrato</a>
                         </span>
                         </div>
                         </div>
@@ -31,19 +31,16 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <table class="table table-bordered" id="tabela_viagem">
-                            <thead> <!-- campos que mostra depois de cadastrado, mais detalhes clicar em visualizar -->
+                        <table class="table table-bordered" id="tabela_contrato">
+                            <thead>
                             <tr>
-                              <th>ID</th>
-                              <th>Nº RV</th>
-                              <th>Setor Emissor da RV</th>
-                              <th>Veículo</th>
-                              <th>Horário de Saída</th>
-                              <th>Horário de Chegada</th>
-                              <th>Cidade de Saída</th>
-                              <th>Cidade de Chegada</th>
-                              <th>Solicitante</th>
-                              <th>acao</th>
+                                <th>Nome da Empresa</th>
+                                <th>CNPJ</th>
+                                <th>Nº do Contrato</th>
+                                <th>Ínicio do Contrato</th>
+                                <th>Vencimento do Contrato</th>
+                                <th>Valor do Contrato</th>
+                                <th>Tipo de Contrato</th>
                             </tr>
                             </thead>
                         </table>
@@ -54,7 +51,7 @@
             </div>
         </div>
     </div>
-@include('viagem.modals.criar_editar')
-@include('viagem.modals.visualizar')
-@include('viagem.modals.excluir')
+@include('contrato.modals.criar_editar_veiculo')
+@include('contrato.modals.visualizar')
+@include('contrato.modals.excluir')
 @endsection

@@ -24,7 +24,9 @@ class ViagemController extends Controller
 
         return Datatables::of($Viagem)->editColumn('acao', function ($viagems){
         	return $this->setBtns($viagems);
-        })->escapeColumns([0])->make(true);
+        })
+        ->escapeColumns([0])
+        ->make(true);
     }
 
     private function setBtns(Viagem $viagems){
@@ -68,7 +70,7 @@ class ViagemController extends Controller
               'fk_veiculo' => 'required',
               'datahora_saida' => 'required',
               'datahora_chegada' => 'required',
-              'status' => 'required',
+              //'status' => 'required',
               'fk_cidade_saida' => 'required',
               //'status' => 'required',
               'fk_cidade_chegada' => 'required',
@@ -92,7 +94,7 @@ class ViagemController extends Controller
             'fk_veiculo' => 'Veículo',
             'datahora_saida' => 'Saída',
             'datahora_chegada' => 'Chegada',
-            'status' => 'Status',
+            //'status' => 'Status',
             'fk_cidade_saida' => 'Cidade Saída',
             //'status' => 'Status',
             'fk_cidade_chegada' => 'Cidade Chegada',
@@ -118,14 +120,17 @@ class ViagemController extends Controller
         if ($validator->fails()){
                 return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         }else {
+          //dd($request->all());
+            $data_hora_saida = $request->data_saida.' '.$request->datahora_saida.':00';
+            $data_hora_chegada = $request->data_chegada.' '.$request->datahora_chegada.':00';
             $Viagem = new Viagem();
             $Viagem->numero_rv = $request->numero_rv; // banco = html ~tag~ | mudar conforma tá o banco de viagem
             $Viagem->setor_emissor_rv = $request->setor_emissor_rv;
             $Viagem->fk_veiculo = $request->fk_veiculo;
-            $Viagem->datahora_saida = $request->datahora_saida;
-            $Viagem->datahora_chegada = $request->datahora_chegada;
+            $Viagem->datahora_saida = $data_hora_saida;
+            $Viagem->datahora_chegada = $data_hora_chegada;
             $Viagem->fk_cidade_saida = $request->fk_cidade_saida;
-            $Viagem->status = 'Ativo';
+            //$Viagem->status = 'Ativo';
             $Viagem->fk_cidade_chegada = $request->fk_cidade_chegada;
             $Viagem->fk_tipo_servico = $request->fk_tipo_servico;
             $Viagem->fk_id_solicitante = $request->fk_id_solicitante;
@@ -140,6 +145,7 @@ class ViagemController extends Controller
             $Viagem->custo_viagem = $request->custo_viagem;
             $Viagem->descricao_bagagem = $request->descricao_bagagem;
             $Viagem->codigo_acp_rv = $request->codigo_acp_rv;
+            $viagem->status = 'Ativo';
             $Viagem->save();
             //$Veiculo->setAttribute('titulo', $Veiculo->titulo);
             //$Veiculo->setAttribute('descricao', $Veiculo->descricao);
@@ -155,7 +161,7 @@ class ViagemController extends Controller
             'fk_veiculo' => 'required',
             'datahora_saida' => 'required',
             'datahora_chegada' => 'required',
-            'status' => 'required',
+            //'status' => 'required',
             'fk_cidade_saida' => 'required',
             //'status' => 'required',
             'fk_cidade_chegada' => 'required',
@@ -233,14 +239,14 @@ class ViagemController extends Controller
         }
         //retornando para o javascript
         return response()->json(['cidades' => $cidades]);
-        
+
     }
 
     public static function equipamento_reservado($data_retirada, $data_entrega){
         //convertendo para formato americano
         $data_retirada = date('Y-m-d H:i:s',strtotime($data_retirada));
         $data_entrega = date('Y-m-d H:i:s',strtotime($data_entrega));
-         
+
         //Todos os equipamentos ocupados no dia escolhido + hora inicial + hora final das reservas
         $consulta = 'select equipamento_reservas.id_equipamento,
         reservas.data_retirada,reservas.data_entrega,
@@ -250,8 +256,8 @@ class ViagemController extends Controller
         where ? between data_retirada and data_entrega or ? between data_retirada and data_entrega
         or data_retirada >= ? and data_entrega <= ? and reservas.status = ?
         and equipamento_reservas.status = ? or reservas.status = ?';
-        
-        //Associando atributos e executando a consulta sql  
+
+        //Associando atributos e executando a consulta sql
         $Reservados = DB::select($consulta,[
             $data_retirada,
             $data_entrega,

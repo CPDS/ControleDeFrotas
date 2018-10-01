@@ -1,5 +1,5 @@
 <div id="criar_editar-modal" class="modal fade bs-example" role="dialog" data-backdrop="static">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
       <div class="modal-header">
@@ -66,6 +66,21 @@
                <input id="data_saida" class="form-control"  name="data_saida" type="time">
              </div>
            </div> -->
+           <div class="form-group col-md-6">
+             <strong>Data de Saída:</strong>
+             <div class="input-group">
+             <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
+             <input id="data_saida" class="form-control"  name="data_saida" type="date"> <!-- Campo nào pega hora ainda -->
+           </div>
+           </div>
+
+           <div class="form-group col-md-6">
+             <strong>Data de Chegada:</strong>
+             <div class="input-group">
+             <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
+             <input id="data_chegada" class="form-control"  name="data_chegada" type="date"> <!-- Campo nào pega hora ainda -->
+           </div>
+           </div>
 
              <div class="form-group col-md-6">
                <strong>Horário de Saída:</strong>

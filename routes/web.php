@@ -29,7 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
     Route::group(['prefix'=>'veiculos','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
-	Route::get('',['as'=>'veiculos.index', 'uses'=>'VeiculoController@index']);
+	  Route::get('',['as'=>'veiculos.index', 'uses'=>'VeiculoController@index']);
     Route::get('/list',['as' => 'veiculos.list', 'uses' => 'VeiculoController@list']);
     Route::post('/store', ['as' => 'veiculos.store', 'uses' => 'VeiculoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'veiculos.update', 'uses' => 'VeiculoController@update']); // uso para atualizações
@@ -73,6 +73,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/delete', ['as' => 'motoristas.delete', 'uses' => 'UsuarioController@destroy']); // para deletar
 
     });
+
+    Route::group(['prefix'=>'contrato','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
+    Route::get('',['as'=>'contrato.index', 'uses'=>'ContratoController@index']);
+    Route::get('/list',['as' => 'contrato.list', 'uses' => 'ContratoController@list']);
+    Route::post('/store', ['as' => 'contrato.store', 'uses' => 'ContratoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/update', ['as' => 'contrato.update', 'uses' => 'ContratoController@update']); // uso para atualizações
+    Route::post('/delete', ['as' => 'contrato.delete', 'uses' => 'ContratoController@destroy']); // para deletar
+
+    });
+
 
 });
 

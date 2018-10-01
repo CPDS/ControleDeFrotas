@@ -3,24 +3,23 @@ $(document).ready(function($) {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    });
+    }); // EDITAR DE ACORDO COM VARIAVEIS DE PERCURSO NO BANCO DE DADOS
 
-    var tabela = $('#tabela_passageiro').DataTable({
+    var tabela = $('#tabela_percurso').DataTable({
             processing: true,
             serverSide: true,
             deferRender: true,
-            ajax: '/passageiros/list',
+            ajax: '/percurso/list',
             columns: [
             { data: null, name: 'order' },
-            { data: 'nome_passageiro', name: 'nome_passageiro' },
-            { data: 'fk_solicitacao', name: 'fk_solicitacao' },
-            { data: 'rg', name: 'rg' },
-            { data: 'matricula', name: 'matricula' },
-            { data: 'telefone', name: 'telefone' },
-            { data: 'categoria', name: 'categoria' },
-            { data: 'email', name: 'email' },
-            { data: 'instituicao', name: 'instituicao' },
-            { data: 'observacoes', name: 'observacoes' }
+            { data: 'hora_saida', name: 'hora_saida' },
+            { data: 'local_saida', name: 'local_saida' },
+            { data: 'km_saida', name: 'km_saida' },
+            { data: 'roteiro', name: 'roteiro' },
+            { data: 'hora_chegada', name: 'hora_chegada' },
+            { data: 'local_chegada', name: 'local_chegada' },
+            { data: 'km_chegada', name: 'km_chegada' },
+            { data: 'fk_diario', name: 'fk_diario' }
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -71,8 +70,7 @@ $(document).ready(function($) {
               { "width": "15%", "targets": 4 },
               { "width": "15%", "targets": 5 },
               { "width": "15%", "targets": 6 },
-              { "width": "15%", "targets": 7 },
-              { "width": "15%", "targets": 8 }
+              { "width": "15%", "targets": 7 }
             ]
     });
 
@@ -84,15 +82,14 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#nome_passageiro-visualizar').text($(this).data('Nome do Passageiro')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#fk_solicitacao-visualizar').text($(this).data('Solicitação'));
-        $('#rg-visualizar').text($(this).data('RG'));
-        $('#matricula-visualizar').text($(this).data('Matrícula'));
-        $('#telefone-visualizar').text($(this).data('Telefone'));
-        $('#categoria-visualizar').text($(this).data('Categoria'));
-        $('#email-visualizar').text($(this).data('Email'));
-        $('#instituicao-visualizar').text($(this).data('Instituição'));
-        $('#observacoes-visualizar').text($(this).data('Observações'));
+        $('#hora_saivda-visualizar').text($(this).data('Hora de Saída')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#local_saida-visualizar').text($(this).data('Local de Saída'));
+        $('#km_saida-visualizar').text($(this).data('KM de Saída'));
+        $('#roteiro-visualizar').text($(this).data('Roteiro'));
+        $('#hora_chegada-visualizar').text($(this).data('Hora de Chegada'));
+        $('#local_chegada-visualizar').text($(this).data('Local de Chegada'));
+        $('#km_chegada-visualizar').text($(this).data('KM de Chegada'));
+        $('#fk_diario-visualizar').text($(this).data('Diário de Bordo'));
         jQuery('#visualizar-modal').modal('show');
     });
 
@@ -110,7 +107,7 @@ $(document).ready(function($) {
 
         $('.modal-footer .btn-action').removeClass('add');
         $('.modal-footer .btn-action').addClass('edit');
-        $('.modal-title').text('Editar Cadastro de Passageiro');
+        $('.modal-title').text('Editar Cadastro de Percurso');
         $('.callout').addClass("hidden"); //ocultar a div de aviso
         $('.callout').find("p").text(""); //limpar a div de aviso
 
@@ -142,7 +139,7 @@ $(document).ready(function($) {
 
     //Excluir
     $(document).on('click', '.btnDeletar', function() {
-        $('.modal-title').text('Excluir Passageiro');
+        $('.modal-title').text('Excluir Percurso');
         $('.id_del').val($(this).data('id'));
         jQuery('#excluir-modal').modal('show'); //Abrir o modal
     });
@@ -152,7 +149,7 @@ $(document).ready(function($) {
         $('.modal-footer .btn-action').removeClass('edit');
         $('.modal-footer .btn-action').addClass('add');
 
-        $('.modal-title').text('Novo Cadastro de Passageiro');
+        $('.modal-title').text('Novo Cadastro de Percurso');
         $('.callout').addClass("hidden");
         $('.callout').find("p").text("");
 
@@ -169,7 +166,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./passageiros/store",
+            url: "./percurso/store",
             data: dados,
             processData: false,
             contentType: false,
@@ -192,14 +189,14 @@ $(document).ready(function($) {
 
                 } else {
 
-                    $('#tabela_passageiro').DataTable().draw(false);
+                    $('#tabela_percurso').DataTable().draw(false);
 
                     jQuery('#criar_editar-modal').modal('hide');
 
                     $(function() {
                         iziToast.success({
                             title: 'OK',
-                            message: 'Passageiro Adicionado com Sucesso!',
+                            message: 'Percurso Adicionado com Sucesso!',
                         });
                     });
 
@@ -225,7 +222,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./passageiros/update",
+            url: "./percurso/update",
             data: dados,
             processData: false,
             contentType: false,
@@ -248,14 +245,14 @@ $(document).ready(function($) {
 
                 } else {
 
-                   $('#tabela_passageiro').DataTable().draw(false);
+                   $('#tabela_percurso').DataTable().draw(false);
 
                     jQuery('#criar_editar-modal').modal('hide');
 
                     $(function() {
                         iziToast.success({
                             title: 'OK',
-                            message: 'Passageiro Atualizado com Sucesso!',
+                            message: 'Percurso Atualizado com Sucesso!',
                         });
                     });
 
@@ -289,7 +286,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: './passageiros/delete',
+            url: './percurso/delete',
             data: {
                 'id': $("#del").val(),
             },
@@ -300,14 +297,14 @@ $(document).ready(function($) {
                 jQuery('.del').button('reset');
             },
             success: function(data) {
-                $('#tabela_passageiro').DataTable().row('#item-' + data.id).remove().draw(); //remove a linha e ordena
+                $('#tabela_percurso').DataTable().row('#item-' + data.id).remove().draw(); //remove a linha e ordena
                 jQuery('#excluir-modal').modal('hide'); //fechar o modal
 
                 $(function() {
 
                     iziToast.success({
                         title: 'OK',
-                        message: 'Passageiro Excluído com Sucesso!',
+                        message: 'Percurso Excluído com Sucesso!',
                     });
                 });
             },
