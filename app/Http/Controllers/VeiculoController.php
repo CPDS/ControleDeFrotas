@@ -17,7 +17,6 @@ class VeiculoController extends Controller
         //$testecampus = Campus::where('status','Ativo')->get();
         //return view('veiculo.index', compact('testecampus'));
         $campuss = Campus::where('status','Ativo')->get();
-
         return view('veiculo.index',compact('campuss'));
     }
     public function list() {
@@ -141,4 +140,23 @@ class VeiculoController extends Controller
         $Veiculo->save();
         return response()->json($Veiculo);
     }
+
+    //Select Campus
+    /*
+    public function selectCampus(Request $request){
+        //consulta no banco
+        $dados_campuses = Campus::where('status','Ativo')->get();
+        //Array de campus
+        $campus = array();
+        foreach($dados_campuses as $dados_campus){
+            array_push($campus,[
+                'id' => $dados_campus->id,
+                'nome' => $dados_campus->nome
+            ]);
+        }
+        //retornando para o javascript
+        return response()->json(['cidades' => $campus]);
+        
+    }
+    */
 }
