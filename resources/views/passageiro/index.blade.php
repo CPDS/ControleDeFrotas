@@ -55,5 +55,5 @@
     </div>
 @include('passageiro.modals.criar_editar_passageiro')
 @include('passageiro.modals.visualizar_passageiro')
-@include('passageiro.modals.excluir_passageiro')
+@include('passageiro.modals.retirar_passageiro')
 @endsection

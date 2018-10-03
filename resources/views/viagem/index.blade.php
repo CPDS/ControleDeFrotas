@@ -54,7 +54,7 @@
             </div>
         </div>
     </div>
-@include('viagem.modals.criar_editar')
-@include('viagem.modals.visualizar')
-@include('viagem.modals.excluir')
+@include('viagem.modals.criar_editar_viagem')
+@include('viagem.modals.visualizar_viagem')
+@include('viagem.modals.retirar_viagem')
 @endsection

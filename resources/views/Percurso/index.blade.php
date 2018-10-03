@@ -52,7 +52,7 @@
             </div>
         </div>
     </div>
-@include('percurso.modals.criar_editar_veiculo')
-@include('percurso.modals.visualizar')
-@include('percurso.modals.excluir')
+@include('percurso.modals.criar_editar_percurso')
+@include('percurso.modals.visualizar_percurso')
+@include('percurso.modals.retirar_percurso')
 @endsection

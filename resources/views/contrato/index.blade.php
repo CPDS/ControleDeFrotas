@@ -51,7 +51,7 @@
             </div>
         </div>
     </div>
-@include('contrato.modals.criar_editar_veiculo')
-@include('contrato.modals.visualizar')
-@include('contrato.modals.excluir')
+@include('contrato.modals.criar_editar_contrato')
+@include('contrato.modals.visualizar_contrato')
+@include('contrato.modals.retirar_contrato')
 @endsection

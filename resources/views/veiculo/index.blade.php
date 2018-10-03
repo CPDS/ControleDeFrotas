@@ -52,11 +52,11 @@
                     </div>
                     <!-- /.box-body -->
                 </div>
-                
+
             </div>
         </div>
     </div>
 @include('veiculo.modals.criar_editar_veiculo')
-@include('veiculo.modals.visualizar')
-@include('veiculo.modals.excluir')
+@include('veiculo.modals.visualizar_veiculo')
+@include('veiculo.modals.retirar_veiculo')
 @endsection
