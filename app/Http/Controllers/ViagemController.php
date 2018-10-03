@@ -16,7 +16,9 @@ use App\Viagem;
 class ViagemController extends Controller
 {
     public function index(){
-        return view('viagem.index');
+        $estados = Estado::select('nome','id')->get();
+        $tipo_servico = TipoServico::select('nome_servico','id')->get();
+        return view('viagem.index',compact('estados','tipo_servico'));
     }
 
     public function list() {
