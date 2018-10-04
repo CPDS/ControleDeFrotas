@@ -82,7 +82,7 @@ class PassageiroController extends Controller
             $Passageiro->categoria = $request->categoria;
             $Passageiro->instituicao = $request->instituicao;
             $Passageiro->observacoes = $request->observacoes;
-            $Passageiro->fk_solicitacao = $request->fk_solicitacao;            
+            $Passageiro->fk_solicitacao = $request->fk_solicitacao;
             $Passageiro->status = "Ativo";
             $Passageiro->save();
             //$Veiculo->setAttribute('titulo', $Veiculo->titulo);

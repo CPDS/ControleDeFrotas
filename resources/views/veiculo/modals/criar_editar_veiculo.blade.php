@@ -50,8 +50,9 @@
                 <select name="fk_campus" id="fk_campus" class="form-control">
                   <option value='' selected disabled>Selecione ...</option>
                   @foreach($campuss as $campus)
-                    <option value="{{$campus->id}}">{{$campus->nome}}</option>
+                    <option value="{{$campus->id}}">{{$campus->nome_campus}}</option>
                   @endforeach
+                  
                   <!--<option value="2">Vitória da Conquista</option>
                   <option value="3">Itapetinga</option>-->
                 </select>

@@ -11,12 +11,14 @@ use DB;
 use Auth;
 use App\Veiculo;
 use App\Campus;
+
 class VeiculoController extends Controller
 {
     public function index(){
         //$testecampus = Campus::where('status','Ativo')->get();
         //return view('veiculo.index', compact('testecampus'));
         $campuss = Campus::where('status','Ativo')->get();
+        //dd($campuss);
         return view('veiculo.index',compact('campuss'));
     }
     public function list() {

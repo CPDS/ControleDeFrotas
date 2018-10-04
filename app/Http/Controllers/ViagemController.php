@@ -11,7 +11,8 @@ use DataTables;
 use DB;
 use Auth;
 use App\Viagem;
-
+use App\Estado;
+use App\TipoServico;
 
 class ViagemController extends Controller
 {
