@@ -16,11 +16,27 @@
         <form id="form" role="form" method="post">
           <div class="row" style="width: 100%">
 
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-6">
               <strong>Hora de Saída:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
                 <input maxlength="250" id="hora_saida" class="form-control" name="hora_saida" type="date">
+              </div>
+            </div>
+
+            <div class="form-group col-md-6">
+              <strong>Hora de Chegada:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                <input id="hora_chegada" maxlength="250" class="form-control" name="hora_chegada" type="date">
+              </div>
+            </div>
+
+            <div class="form-group col-md-6">
+              <strong>Estado de Saída:</strong> <!-- mudar id e name -->
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa  fa-genderless"></i></span>
+                <input id="local_saida" maxlength="250" class="form-control" name="local_saida" type="text">
               </div>
             </div>
 
@@ -33,26 +49,10 @@
             </div>
 
             <div class="form-group col-md-6">
-              <strong>KM de Saída:</strong>
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-dashboard"></i></span>
-                <input id="km_saida" maxlength="250" class="form-control" name="km_saida" type="text">
-              </div>
-            </div>
-
-            <div class="form-group col-md-12">
-              <strong>Roteiro:</strong>
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-dashboard"></i></span>
-                <textarea id="roteiro" maxlength="250" class="form-control" name="roteiro" type="text"></textarea>
-              </div> <!-- Verificar tamanho após rota ser configurado -->
-            </div>
-
-            <div class="form-group col-md-6">
-              <strong>Hora de Chegada:</strong>
+              <strong>Estado de Chegada:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                <input id="hora_chegada" maxlength="250" class="form-control" name="hora_chegada" type="date">
+                <input id="local_chegada" maxlength="250" class="form-control" name="local_chegada" type="text">
               </div>
             </div>
 
@@ -65,6 +65,14 @@
             </div>
 
             <div class="form-group col-md-6">
+              <strong>KM de Saída:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-dashboard"></i></span>
+                <input id="km_saida" maxlength="250" class="form-control" name="km_saida" type="text">
+              </div>
+            </div>
+
+            <div class="form-group col-md-6">
               <strong>KM de Chegada:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
@@ -72,27 +80,23 @@
               </div>
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
+              <strong>Roteiro:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-dashboard"></i></span>
+                <textarea rows="5" id="roteiro" maxlength="250" class="form-control" name="roteiro" type="text"></textarea>
+              </div> <!-- Verificar tamanho após rota ser configurado -->
+            </div>
+
+            <div class="form-group col-md-12">
               <strong>Diário de Bordo:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                <textarea id="fk_diario" maxlength="250" class="form-control" name="fk_diario" type="text"></textarea>
+                <textarea rows="5" id="fk_diario" maxlength="250" class="form-control" name="fk_diario" type="text"></textarea>
               </div>
             </div>
 
-          <!--  <div class="form-group col-md-12">
-             <strong>Campus:</strong>
-             <div class="input-group">
-               <span class="input-group-addon"><i class="fa fa-university"></i>
-               </span>
-                <select name="fk_campus" id="fk_campus" class="form-control">
-                  <option value='' selected disabled>Selecione ...</option>
-                  @foreach($campuss as $campus)
-                    <option value="{{$campus->id}}">{{$campus->nome}}</option>
-                  @endforeach
-                  <!--<option value="2">Vitória da Conquista</option>
-                  <option value="3">Itapetinga</option>-->
-            <!--    </select>
+          <!--
               </div>
             </div> -->
 <!--

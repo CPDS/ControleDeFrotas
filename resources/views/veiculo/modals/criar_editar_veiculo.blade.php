@@ -36,9 +36,10 @@
              <strong>Tipo de Combustível:</strong>
                 <select name="tipo_combustivel" id="tipo_combustivel" class="form-control">
                   <option value='' selected disabled>Selecione ...</option>
-                  <option value="Combustível X">Combustível X</option>
-                  <option value="Combustível Y">Combustível Y</option>
-                  <option value="Combustível Z">Combustível Z</option>
+                  <option value="Gasolina">Gasolina</option>
+                  <option value="Etanol">Etanol</option>
+                  <option value="Diesel">Diesel</option>
+                  <option value="Flex">Flex</option>
                 </select>
             </div>
 
@@ -52,7 +53,7 @@
                   @foreach($campuss as $campus)
                     <option value="{{$campus->id}}">{{$campus->nome_campus}}</option>
                   @endforeach
-                  
+
                   <!--<option value="2">Vitória da Conquista</option>
                   <option value="3">Itapetinga</option>-->
                 </select>

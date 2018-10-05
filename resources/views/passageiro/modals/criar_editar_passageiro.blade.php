@@ -29,9 +29,9 @@
              <strong>Solicitação:</strong>
                 <select name="fk_solicitacao" id="fk_solicitacao" class="form-control">
                   <option value='' selected disabled>Selecione ...</option>
-                  <option value="Solicitação X">Solicitação X</option>
-                  <option value="Solicitação Y">Solicitação Y</option>
-                  <option value="Solicitação Z">Solicitação Z</option>
+                  @foreach($Viagems as $Viagem)
+                    <option value="{{$Viagem->id}}">{{$Viagem->numero_rv}}</option>
+                    @endforeach
                 </select>
             </div>
 
@@ -60,13 +60,11 @@
             </div>
 
             <div class="form-group col-md-6">
-             <strong>Categoria:</strong>
-                <select name="categoria" id="categoria" class="form-control">
-                  <option value='' selected disabled>Selecione ...</option>
-                  <option value="Categoria X">Categoria X</option>
-                  <option value="Categoria Y">Categoria Y</option>
-                  <option value="Categoria Z">Categoria Z</option>
-                </select>
+              <strong>Categoria:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                <input maxlength="254" class="form-control" id="categoria" name="categoria" type="text">
+              </div>
             </div>
 
             <div class="form-group col-md-12">

@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Percurso;
+use DataTables;
+use App\Diario;
 
 class PercursoController extends Controller
 {
     public function index(){
-        $testediario = Diario::where('status','Ativo')->get();
-        return view('percurso.index', compact('testediario'));
+      //  $testediario = Diario::where('status','Ativo')->get();
+        return view('percurso.index');
     }
 
     public function list() {
@@ -39,7 +42,7 @@ class PercursoController extends Controller
               'local_chegada' => 'required',
               'km_chegada' => 'required',
               'fk_diario' => 'required',
-              
+
         );
         $attributeNames = array(
             'hora_saida' => 'Hr Saída',
@@ -50,7 +53,7 @@ class PercursoController extends Controller
             'local_chegada' => 'Local Chegada',
             'km_chegada' => 'Km Chegada',
             'fk_diario' => 'Diário',
-            
+
 
         );
         $messages = array(
@@ -70,7 +73,7 @@ class PercursoController extends Controller
             $Percurso->local_chegada = $request->local_chegada;
             $Percurso->km_chegada = $request->km_chegada;
             $Percurso->fk_diario = $request->fk_diario;
-            
+
             $Percurso->status = "Ativo";
             $Percurso->save();
             //$Percurso->setAttribute('titulo', $Percurso->titulo);
@@ -91,7 +94,7 @@ class PercursoController extends Controller
             'local_chegada' => 'required',
             'km_chegada' => 'required',
             'fk_diario' => 'required',
-        
+
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -109,7 +112,7 @@ class PercursoController extends Controller
             $Percurso->local_chegada = $request->local_chegada;
             $Percurso->km_chegada = $request->km_chegada;
             $Percurso->fk_diario = $request->fk_diario;
-            
+
             $Percurso->save();
             //$equipamento->setAttribute('buttons', $this->setDataButtons($equipamento));
             return response()->json($Percurso);

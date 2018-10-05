@@ -24,6 +24,7 @@ class CreatePercursosTable extends Migration
             $table->string('km_chegada');
             $table->integer('fk_diario')->unsigned();
             $table->foreign('fk_diario')->references('id')->on('diarios');
+            $table->timestamps();
         });
     }
 

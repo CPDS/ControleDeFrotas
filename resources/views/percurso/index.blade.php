@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('css/iziToast.min.css') }}">
 <script src="{{ asset('js/iziToast.min.js') }}"></script>
-<script src="{{asset('js/ScriptsGerais/veiculo.js')}}"></script>
+<script src="{{asset('js/ScriptsGerais/percurso.js')}}"></script>
 @section('htmlheader_title')
     Percurso
 @endsection

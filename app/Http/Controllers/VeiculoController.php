@@ -158,7 +158,7 @@ class VeiculoController extends Controller
         }
         //retornando para o javascript
         return response()->json(['cidades' => $campus]);
-        
+
     }
     */
 }

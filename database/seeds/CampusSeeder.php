@@ -11,19 +11,19 @@ class CampusSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('campuses')->insert([
-            'nome_campus' => 'Vitória da Conquista',
-            'status' => 'Ativo'
-        ]);
+      DB::table('campuses')->insert([
+          'nome_campus' => 'Vitória da Conquista',
+          'status' => 'Ativo'
+      ]);
 
-        DB::table('campuses')->insert([
-            'nome_campus' => 'Jequié',
-            'status' => 'Ativo'
-        ]);
+      DB::table('campuses')->insert([
+          'nome_campus' => 'Jequié',
+          'status' => 'Ativo'
+      ]);
 
-        DB::table('campuses')->insert([
-            'nome_campus' => 'Itapetinga',
-            'status' => 'Ativo'
-        ]);
+      DB::table('campuses')->insert([
+          'nome_campus' => 'Itapetinga',
+          'status' => 'Ativo'
+      ]);
     }
 }

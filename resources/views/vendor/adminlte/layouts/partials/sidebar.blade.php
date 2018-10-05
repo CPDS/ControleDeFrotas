@@ -52,7 +52,7 @@
                <a href="#"><i class='fa fa-car'></i> <span>{{ trans('Gerenciar Veículos') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                      <li><a href="{{ url('veiculos') }}">{{ trans('Veículos Cadastrados') }}</a></li>
-                     <li><a class="btnAdicionar">{{ trans('Cadastrar Veículos') }}</a></li>
+                     <li><a class="btnAdicionarVeiculos">{{ trans('Cadastrar Veículos') }}</a></li>
                     <li><a class="btnAdicionarViagems">{{ trans('Contrato') }}</a></li>
                 </ul>
 

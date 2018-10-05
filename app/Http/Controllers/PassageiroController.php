@@ -11,11 +11,13 @@ use DataTables;
 use DB;
 use Auth;
 use App\Passageiro;
+use App\Viagem;
 
 class PassageiroController extends Controller
 {
     public function index(){
-        return view('passageiro.index');
+        $Viagems = Viagem::select('numero_rv', 'id')->get();
+        return view('passageiro.index', compact('Viagems'));
     }
 
     public function list() {
@@ -48,7 +50,7 @@ class PassageiroController extends Controller
               'instituicao' => 'required',
               'observacoes' => 'required',
               'fk_solicitacao' => 'required',
-              
+
         );
         $attributeNames = array(
             'nome_passageiro' => 'Nome',
