@@ -92,7 +92,14 @@ Route::group(['middleware' => 'auth'], function () {
 
     });
 
+    Route::group(['prefix'=>'usuario','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
+    Route::get('',['as'=>'usuario.index', 'uses'=>'UsuarioController@index']);
+    Route::get('/list',['as' => 'usuario.list', 'uses' => 'UsuarioController@list']);
+    Route::post('/store', ['as' => 'usuario.store', 'uses' => 'UsuarioController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/update', ['as' => 'usuario.update', 'uses' => 'UsuarioController@update']); // uso para atualizações
+    Route::post('/delete', ['as' => 'usuario.delete', 'uses' => 'UsuarioController@destroy']); // para deletar
 
+    });
 });
 
 Auth::routes();

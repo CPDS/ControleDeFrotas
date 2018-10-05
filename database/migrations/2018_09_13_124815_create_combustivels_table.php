@@ -17,6 +17,7 @@ class CreateCombustivelsTable extends Migration
             $table->increments('id');
             $table->decimal('valor_litro', 2,2);
             $table->string('nome');
+            $table->string('status');
             $table->timestamps();
         });
     }

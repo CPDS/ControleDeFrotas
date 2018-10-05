@@ -10,7 +10,7 @@ use DataTables;
 use DB;
 use Auth;
 use App\Veiculo;
-use App\Campus;
+
 
 class VeiculoController extends Controller
 {
@@ -23,6 +23,7 @@ class VeiculoController extends Controller
     }
     public function list() {
         $Veiculo = Veiculo::orderBy('created_at', 'desc')->get();
+        
         return Datatables::of($Veiculo)->editColumn('acao', function ($veiculos){
         	return $this->setBtns($veiculos);
         })->escapeColumns([0])->make(true);
@@ -158,7 +159,7 @@ class VeiculoController extends Controller
         }
         //retornando para o javascript
         return response()->json(['cidades' => $campus]);
-
+        
     }
     */
 }

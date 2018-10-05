@@ -34,6 +34,7 @@ class CreateServicosTable extends Migration
             $table->decimal('valor_emprenho',8,2);
             $table->decimal('valor_pago',8,2);
             $table->text('descricao_geral_servico');
+            $table->string('status');
             $table->integer('fk_veiculo')->unsigned();
             $table->foreign('fk_veiculo')->references('id')->on('veiculos');
             $table->integer('fk_contrato')->unsigned();

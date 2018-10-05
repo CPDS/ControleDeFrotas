@@ -20,6 +20,7 @@ class CreateCustosTable extends Migration
             $table->decimal('custo_total_diaria', 8,2);
             $table->decimal('valor_manutencao', 8,2);
             $table->decimal('custo_total_viagem', 8,2);
+            $table->string('status');
             $table->integer('fk_diario_bordo')->unsigned();
             $table->foreign('fk_diario_bordo')->references('id')->on('diarios');
             $table->integer('fk_combustivel')->unsigned();

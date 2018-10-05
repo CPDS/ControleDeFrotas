@@ -22,8 +22,8 @@ class RoleSeeder extends Seeder
         ]);
 
         DB::table('roles')->insert([
-          'name' => 'Morotista',
-          'guard_name' => 'Morotista',
+          'name' => 'Motorista',
+          'guard_name' => 'Motorista',
         ]);
 
         DB::table('roles')->insert([

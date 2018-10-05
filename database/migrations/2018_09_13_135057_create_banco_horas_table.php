@@ -18,6 +18,7 @@ class CreateBancoHorasTable extends Migration
             $table->timestamp('hora_inicio');
             $table->timestamp('hora_termino');
             $table->timestamp('hora_intervalo');
+            $table->string('status');
             $table->integer('fk_motorista')->unsigned();
             $table->foreign('fk_motorista')->references('id')->on('users');
             $table->timestamps();

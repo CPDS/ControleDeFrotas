@@ -15,7 +15,7 @@ use App\Usuario;
 class UsuarioController extends Controller
 {
     public function index(){
-        return view('motorista.index');
+        return view('usuario.index');
     }
 
     public function list() {
@@ -28,8 +28,8 @@ class UsuarioController extends Controller
     }
 
     private function setBtns(Usuario $usuarios){
-    	$dados = "data-id='$usuarios->id' data-nome='$usuarios->nome' data-email='$usuarios->email' data-papel='$usuarios->papel' data-status='$usuarios->status'";
-        $dadosVisualizar = "data-nome='$usuarios->nome' data-email='$usuarios->email' data-papel='$usuarios->papel' data-status='$usuarios->status'";
+    	$dados = "data-id='$usuarios->id' data-nome_usuario='$usuarios->nome_usuario' data-email='$usuarios->email' data-papel='$usuarios->papel' data-status='$usuarios->status'";
+        $dadosVisualizar = "data-nome_usuario='$usuarios->nome_usuario' data-email='$usuarios->email' data-papel='$usuarios->papel' data-status='$usuarios->status'";
     	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Usuario' $dados ><i class='fa fa-eye'></i></a> ";
     	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Usuario' $dados><i class ='fa fa-pencil'></i></a> ";
     	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Usuario' data-id='$usuarios->id'><i class='fa fa-trash'></i></a>";
@@ -39,14 +39,14 @@ class UsuarioController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-              'nome' => 'required',
+              'nome_usuario' => 'required',
               'email' => 'required',
               'papel' => 'required',
               'status' => 'required'
 
         );
         $attributeNames = array(
-            'nome' => 'Nome',
+            'nome_usuario' => 'Nome',
             'email' => 'Email',
             'papel' => 'Função',
             'status' => 'Status'
@@ -66,7 +66,7 @@ class UsuarioController extends Controller
                 return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         }else {
             $Usuario = new Usuario();
-            $Usuario->nome = $request->nome;
+            $Usuario->nome_usuario = $request->nome_usuario;
             $Usuario->email = $request->email;
             $Usuario->papel = $request->papel;
             $Usuario->password = bcrypt($request->password);
@@ -81,7 +81,7 @@ class UsuarioController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'nome' => 'required',
+            'nome_usuario' => 'required',
             'email' => 'required',
             'papel' => 'required',
             'status' => 'required'
@@ -93,7 +93,7 @@ class UsuarioController extends Controller
         else {
 
             $Usuario = Usuario::find($request->id);
-            $Usuario->nome = $request->nome;
+            $Usuario->nome_usuario = $request->nome_usuario;
             $Usuario->email = $request->email;
             $Usuario->papel = $request->papel;
             $Usuario->save();

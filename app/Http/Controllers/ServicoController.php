@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 class ServicoController extends Controller
 {
     public function index(){
-        return view('servico.index');
+        $veiculos = Veiculo::select('nome_veiculo','id')->get();
+        $contratos = Contrato::select('empresa_contratada_nome','id')->get();
+        $motoristas = User::role('Motorista')->get();
+        return view('servico.index',compact('veiculos','contratos','motoristas'));
     }
 
     public function list() {

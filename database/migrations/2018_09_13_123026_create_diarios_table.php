@@ -16,6 +16,7 @@ class CreateDiariosTable extends Migration
         Schema::create('diarios', function (Blueprint $table) {
             $table->increments('id');
             $table->text('ocorrencias');
+            $table->string('status');
             $table->timestamps();
         });
     }

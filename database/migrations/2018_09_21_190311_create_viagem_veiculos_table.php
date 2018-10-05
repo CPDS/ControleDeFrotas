@@ -15,6 +15,7 @@ class CreateViagemVeiculosTable extends Migration
     {
         Schema::create('viagem_veiculos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('status');
             $table->timestamps();
         });
     }

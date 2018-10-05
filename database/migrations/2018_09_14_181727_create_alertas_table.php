@@ -17,6 +17,7 @@ class CreateAlertasTable extends Migration
             $table->increments('id');
             $table->timestamp('datahora_alerta');
             $table->text('descricao_alerta');
+            $table->string('status');
             $table->timestamps();
         });
     }

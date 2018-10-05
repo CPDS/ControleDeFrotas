@@ -22,6 +22,7 @@ class CreateContratosTable extends Migration
             $table->date('data_vencimento_contrato');
             $table->string('valor_contratado');
             $table->string('tipo');
+            $table->string('status');
             $table->timestamps();
         });
     }
