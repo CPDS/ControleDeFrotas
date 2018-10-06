@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="{{ asset('css/iziToast.min.css') }}">
 <script src="{{ asset('js/iziToast.min.js') }}"></script>
 <script src="{{ asset('js/jquery.maskedinput.js') }}"></script>
-<script src=" {{ asset('js/Usuario/usuarios.js') }} "> </script>
+<script src=" {{ asset('js/ScriptsGerais/usuario.js') }} "> </script>
 
 @section('main-content')
 
@@ -21,8 +21,8 @@
 
 			<br>
 
-			<div class="pull-right">
-				<a class="btn btn-primary btnAdicionar" title="Novo Usuário" data-toggle="tooltip"><span class="fa fa- fa-user-plus"></span> Novo Usuário</a>
+		<div class="pull-right">
+				<a class="btn btn-primary btnAdicionarUsuario" title="Novo Usuário" data-toggle="tooltip"><span class="fa fa- fa-user-plus"></span> Novo Usuário</a>
 			</div>
 		</div>
 	</div>
@@ -34,9 +34,8 @@
 			   <thead>
 					<tr>
 						 <th>ID</th>
-						 <th>Nome do Usuário</th>
+						 <th>Nome</th>
 						 <th>E-mail</th>
-						 <th>Senha</th>
 						 <th>Status</th>
 						 <th>Ação</th>
 					</tr>

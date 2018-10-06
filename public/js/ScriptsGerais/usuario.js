@@ -10,12 +10,12 @@ $(document).ready(function($) {
             processing: true,
             serverSide: true,
             deferRender: true,
-            ajax: './users/list',
+            ajax: './usuario/list',
             columns: [
             { data: null, name: 'order' },
             { data: 'nome_usuario', name: 'nome_usuario' },
             { data: 'email', name: 'email'},
-            { data: 'funcao', name: 'funcao' },
+            { data: 'status', name: 'status' },
             { data: 'acao', name: 'acao' }
             ],
 
@@ -60,11 +60,12 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [0,6], sortable : false },
+              { targets : [0,5], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
-              { "width": "10%", "targets": 1 },//nome
-              { "width": "10%", "targets": 2 },//email
-              { "width": "10%", "targets": 3 },//função
+              { "width": "15%", "targets": 1 },//nome
+              { "width": "15%", "targets": 2 },//email
+              { "width": "15%", "targets": 3 },//status
+              { "width": "15%", "targets": 4 },//acao
             ]
     });
 
@@ -105,7 +106,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./users/edit",
+            url: "./usuario/edit",
             data: dados,
             processData: false,
             contentType: false,
@@ -167,7 +168,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: './users/delete',
+            url: './usuario/delete',
             data: {
                 'id': $(".id_del").val(),
             },
@@ -211,7 +212,7 @@ $(document).ready(function($) {
     $('.modal-footer').on('click', '.ativ', function() {
         $.ajax({
             type: 'post',
-            url: './users/ativar',
+            url: './usuario/ativar',
             data: {
                 'id': $(".id_ativ").val(),
             },
@@ -247,7 +248,7 @@ $(document).ready(function($) {
     });
 
     //Adicionar
-    $(document).on('click', '.btnAdicionar', function() {
+    $(document).on('click', '.btnAdicionarUsuario', function() {
 
         $('.modal-footer .btn-action').removeClass('edit');
         $('.modal-footer .btn-action').addClass('add');
@@ -269,7 +270,7 @@ $(document).ready(function($) {
         console.log(dados);
         $.ajax({
             type: 'post',
-            url: "./users/create",
+            url: "./usuario/create",
             data: dados,
             processData: false,
             contentType: false,
@@ -319,6 +320,6 @@ $(document).ready(function($) {
         });
     });
 
-    
+
 
 });

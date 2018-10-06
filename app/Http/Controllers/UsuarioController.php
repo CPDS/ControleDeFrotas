@@ -10,7 +10,7 @@ use Response;
 use DataTables;
 use DB;
 use Auth;
-use App\Usuario;
+
 
 class UsuarioController extends Controller
 {
