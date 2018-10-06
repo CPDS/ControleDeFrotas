@@ -28,8 +28,8 @@ class UsuarioController extends Controller
     }
 
     private function setBtns(Usuario $usuarios){
-    	$dados = "data-id='$usuarios->id' data-nome_usuario='$usuarios->nome_usuario' data-email='$usuarios->email' data-papel='$usuarios->papel' data-status='$usuarios->status'";
-        $dadosVisualizar = "data-nome_usuario='$usuarios->nome_usuario' data-email='$usuarios->email' data-papel='$usuarios->papel' data-status='$usuarios->status'";
+    	$dados = "data-id='$usuarios->id' data-nome_usuario='$usuarios->nome_usuario' data-email='$usuarios->email' data-funcao='$usuarios->funcao' data-status='$usuarios->status'";
+        $dadosVisualizar = "data-nome_usuario='$usuarios->nome_usuario' data-email='$usuarios->email' data-funcao='$usuarios->funcao' data-status='$usuarios->status'";
     	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Usuario' $dados ><i class='fa fa-eye'></i></a> ";
     	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Usuario' $dados><i class ='fa fa-pencil'></i></a> ";
     	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Usuario' data-id='$usuarios->id'><i class='fa fa-trash'></i></a>";
@@ -41,15 +41,13 @@ class UsuarioController extends Controller
         $rules = array(
               'nome_usuario' => 'required',
               'email' => 'required',
-              'papel' => 'required',
-              'status' => 'required'
+              'funcao' => 'required',
 
         );
         $attributeNames = array(
             'nome_usuario' => 'Nome',
             'email' => 'Email',
-            'papel' => 'Função',
-            'status' => 'Status'
+            'funcao' => 'Função',
 
         );
         $messages = array(
@@ -68,10 +66,10 @@ class UsuarioController extends Controller
             $Usuario = new Usuario();
             $Usuario->nome_usuario = $request->nome_usuario;
             $Usuario->email = $request->email;
-            $Usuario->papel = $request->papel;
             $Usuario->password = bcrypt($request->password);
             $Usuario->status = "Ativo";
             $Usuario->save();
+            $usuario->assignRole($request->funcao);
             //$Veiculo->setAttribute('titulo', $Veiculo->titulo);
             //$Veiculo->setAttribute('descricao', $Veiculo->descricao);
             return response()->json($Usuario);
@@ -83,8 +81,7 @@ class UsuarioController extends Controller
         $rules = array(
             'nome_usuario' => 'required',
             'email' => 'required',
-            'papel' => 'required',
-            'status' => 'required'
+            'funcao' => 'required',
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -95,7 +92,6 @@ class UsuarioController extends Controller
             $Usuario = Usuario::find($request->id);
             $Usuario->nome_usuario = $request->nome_usuario;
             $Usuario->email = $request->email;
-            $Usuario->papel = $request->papel;
             $Usuario->save();
             //$equipamento->setAttribute('buttons', $this->setDataButtons($equipamento));
             return response()->json($Usuario);
