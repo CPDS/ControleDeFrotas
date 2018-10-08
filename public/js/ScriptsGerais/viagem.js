@@ -350,12 +350,11 @@ $(document).ready(function($) {
                 option += '<option value="'+cidade.id+'">'+cidade.nome+'</option>';
             });
             //passando para o select de cidades
-            $('#fk_cidade_chegada').html(option).show();
+            $('#fk_cidade_saida').html(option).show();
         });
 
     });
 
-    $("#telefone").mask("(99) 99999-9999");
 
     //Select de Estado e Cidade
     $(document).on('change','.selectEstado2', function(){
@@ -373,8 +372,6 @@ $(document).ready(function($) {
         });
 
     });
-
-    $("#telefone").mask("(99) 99999-9999");
 
 
 });
