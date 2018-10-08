@@ -10,7 +10,7 @@ use DataTables;
 use DB;
 use Auth;
 use App\Veiculo;
-
+use App\Campus;
 
 class VeiculoController extends Controller
 {

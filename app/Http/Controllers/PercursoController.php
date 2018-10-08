@@ -10,8 +10,8 @@ use App\Diario;
 class PercursoController extends Controller
 {
     public function index(){
-      //  $testediario = Diario::where('status','Ativo')->get();
-        return view('percurso.index');
+        $diarios = Diario::where('status','Ativo')->get();
+        return view('percurso.index',compact('diarios'));
     }
 
     public function list() {
