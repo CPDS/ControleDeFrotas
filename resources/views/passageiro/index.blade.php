@@ -17,16 +17,19 @@
         <div class="row">
             <div class="col-md-12">
 
-                <div class="box box-success">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Passageiros Cadastrados</h3>
-                         <div class="col-md-12">
-                          <div class="pull-right">
-                        <span>
-                            <a class="btn btn-primary btnAdicionar btn-sm "><i class="fa fa-plus"></i> Cadastrar passageiro</a>
-                        </span>
-                        </div>
-                        </div>
+              <div class="box box-success">
+                <div class="pull-left">
+                  <h2> <i class="fa fa-users"></i>  @yield('contentheader_title', 'Passageiros')</h2>
+                </div>
+                  <div class="box-header with-border">
+                    <!--  <h3 class="box-title fa fa-road">Percursos Cadastrados</h3> -->
+                       <div class="col-md-12">
+                        <div class="pull-right">
+                     <span>   <!-- Botão para cadastrar -->
+                          <a class="btn btn-primary btnAdicionar btn-sm "><i class="fa fa-plus"></i> Cadastrar Passageiro</a>
+                      </span>
+                      </div>
+                      </div>
 
                     </div>
                     <!-- /.box-header -->

@@ -98,30 +98,34 @@
              </div>
              </div>
 
-             <div class="form-group col-md-6">
-              <strong>Cidade de Saída:</strong>
-              <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                 <select name="fk_cidade_saida" id="fk_cidade_saida" class="form-control">
-                   <option value='' selected disabled>Selecione ...</option>
-                   <option value="Cidade X">Cidade X</option>
-                   <option value="Cidade Y">Cidade Y</option>
-                   <option value="Cidade Z">Cidade Z</option>
-                 </select> <!-- Tem que selecionar da tabela com as cidades -->
-               </div>
+             <div class="form-group col-md-6 senha">
+               <strong>Estado de Saída:</strong>
+               <select name="estado" id="estado" class="form-control selectEstado">
+                 @foreach($estados as $estado)
+                   <option value='{{$estado->id}}'>{{$estado->nome}}</option>
+                 @endforeach
+               </select>
              </div>
 
-             <div class="form-group col-md-6">
-              <strong>Cidade de Chegada:</strong>
-              <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                 <select name="fk_cidade_chegada" id="fk_cidade_chegada" class="form-control">
-                   <option value='' selected disabled>Selecione ...</option>
-                   <option value="Cidade X">Cidade X</option>
-                   <option value="Cidade Y">Cidade Y</option>
-                   <option value="Cidade Z">Cidade Z</option>
-                 </select> <!-- Tem que selecionar da tabela com as cidades -->
-               </div>
+             <div class="form-group col-md-6 senha">
+               <strong>Estado de Chegada:</strong>
+               <select name="estado" id="estado" class="form-control selectEstado">
+                 @foreach($estados as $estado)
+                   <option value='{{$estado->id}}'>{{$estado->nome}}</option>
+                 @endforeach
+               </select>
+             </div>
+
+             <div class="form-group col-md-6 senha ">
+               <strong>Cidade de Saída:</strong>
+               <select name="fk_cidade_saida" id="fk_cidade_saida" class="form-control">
+               </select>
+             </div>
+
+             <div class="form-group col-md-6 senha ">
+               <strong>Cidade de Chegada:</strong>
+               <select name="fk_cidade_chegada" id="fk_cidade_chegada" class="form-control">
+               </select>
              </div>
 
              <div class="form-group col-md-12">
@@ -154,8 +158,16 @@
              </div>
 
              <div class="form-group col-md-6">
-                     <strong>Estado</strong>
-                     <input placeholder="Estado" maxlength="2" id="estado" class="form-control" name="estado" type="text">
+              <strong>Situação:</strong>
+              <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-question"></i></span>
+                 <select name="situacao" id="situacao" class="form-control">
+                   <option value='' selected disabled>Selecione ...</option>
+                   <option value="Situação X">Situação X</option>
+                   <option value="Situação Y">Situação Y</option>
+                   <option value="Situação Z">Situação Z</option>
+                 </select> <!-- Tem que selecionar da tabela com as cidades -->
+               </div>
              </div>
 
              <div class="form-group col-md-12">
@@ -247,9 +259,10 @@
 
              <div class="form-group col-md-12">
                <strong>Bagagem:</strong>
-               <div class="input-group">
-                 <span class="input-group-addon"><i class="fa fa-suitcase"></i></span>
-                 <input placeholder="Descreva a Bagaguem" maxlength="150" id="descricao_bagagem" class="form-control" name="descricao_bagagem" type="text">
+              <!-- <span class="input-group-addon"><i class="fa fa-suitcase"></i></span> -->
+               <div class="input-group col-md-12">
+                <span></span>
+                 <textarea rows="5" id="descricao_bagagem" maxlength="250" class="form-control" name="descricao_bagagem" type="text"></textarea>
                </div>
              </div>
 

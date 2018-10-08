@@ -80,6 +80,15 @@
               </div>
             </div>
 
+            <div class="form-group col-md-12 senha">
+              <strong>Diário de Bordo:</strong>
+              <select name="diario" id="diario" class="form-control selectEstado">
+                @foreach($diarios as $diario)
+                  <option value='{{$diario->id}}'>{{$diario->nome}}</option>
+                @endforeach
+              </select>
+            </div>
+
             <div class="form-group col-md-12">
               <strong>Roteiro:</strong>
               <div class="input-group col-md-12">
@@ -88,12 +97,7 @@
               </div> <!-- Verificar tamanho após rota ser configurado -->
             </div>
 
-            <div class="form-group col-md-12">
-              <strong>Diário de Bordo:</strong>
-              <div class="input-group col-md-12">
-                <textarea rows="5" id="fk_diario" maxlength="250" class="form-control" name="fk_diario" type="text"></textarea>
-              </div>
-            </div>
+
 
           <!--
               </div>
