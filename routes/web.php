@@ -89,6 +89,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/store', ['as' => 'percursos.store', 'uses' => 'PercursoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'percursos.update', 'uses' => 'PercursoController@update']); // uso para atualizações
     Route::post('/delete', ['as' => 'percursos.delete', 'uses' => 'PercursoController@destroy']); // para deletar
+    Route::get('/cidade/{estado}',['as' => 'percursos.cidade','uses' => 'PercursoController@selectCidade']);
 
     });
 

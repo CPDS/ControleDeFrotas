@@ -16,8 +16,8 @@ use App\Viagem;
 class PassageiroController extends Controller
 {
     public function index(){
-        $Viagems = Viagem::select('numero_rv', 'id')->get();
-        return view('passageiro.index', compact('Viagems'));
+        $viagems = Viagem::select('numero_rv', 'id')->get();
+        return view('passageiro.index', compact('viagems'));
     }
 
     public function list() {
