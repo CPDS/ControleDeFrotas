@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
-
+use App\Cidade;
 
 class User extends Authenticatable
 {
@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    protected $guard_name = 'web';
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -30,6 +31,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
+    public function cidade(){
+        return $this->belongsTo(Cidade::class,'fk_cidade');
+    }
 
 }

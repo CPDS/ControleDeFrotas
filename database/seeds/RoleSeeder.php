@@ -13,22 +13,22 @@ class RoleSeeder extends Seeder
     {
         DB::table('roles')->insert([
           'name' => 'Administrador',
-          'guard_name' => 'Administrador',
+          'guard_name' => 'web',
         ]);
 
         DB::table('roles')->insert([
           'name' => 'Secretario',
-          'guard_name' => 'Secretario',
+          'guard_name' => 'web',
         ]);
 
         DB::table('roles')->insert([
           'name' => 'Motorista',
-          'guard_name' => 'Motorista',
+          'guard_name' => 'web',
         ]);
 
         DB::table('roles')->insert([
           'name' => 'Professor',
-          'guard_name' => 'Professor',
+          'guard_name' => 'web',
         ]);
     }
 }

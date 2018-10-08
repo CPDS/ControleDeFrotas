@@ -18,8 +18,11 @@
             <div class="col-md-12">
 
                 <div class="box box-success">
+                  <div class="pull-left">
+            				<h2><i class="fa fa-road"></i> @yield('contentheader_title', 'Percursos')</h2>
+            			</div>
                     <div class="box-header with-border">
-                        <h3 class="box-title">Percursos Cadastrados</h3>
+                      <!--  <h3 class="box-title fa fa-road">Percursos Cadastrados</h3> -->
                          <div class="col-md-12">
                           <div class="pull-right">
                        <span>   <!-- Botão para cadastrar -->
@@ -31,7 +34,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <table class="table table-bordered" id="tabela_percurso">
+                        <table class="table table-bordered" id="tabela_percursos">
                             <thead>
                             <tr>
                                 <th>Hora de Saída</th>

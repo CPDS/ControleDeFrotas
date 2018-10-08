@@ -5,11 +5,11 @@ $(document).ready(function($) {
         }
     }); // EDITAR DE ACORDO COM VARIAVEIS DE PERCURSO NO BANCO DE DADOS
 
-    var tabela = $('#tabela_percurso').DataTable({
+    var tabela = $('#tabela_percursos').DataTable({
             processing: true,
             serverSide: true,
             deferRender: true,
-            ajax: '/percurso/list',
+            ajax: '/percursos/list',
             columns: [
             { data: null, name: 'order' },
             { data: 'hora_saida', name: 'hora_saida' },
@@ -166,7 +166,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./percurso/store",
+            url: "./percursos/store",
             data: dados,
             processData: false,
             contentType: false,
@@ -189,7 +189,7 @@ $(document).ready(function($) {
 
                 } else {
 
-                    $('#tabela_percurso').DataTable().draw(false);
+                    $('#tabela_percursos').DataTable().draw(false);
 
                     jQuery('#criar_editar-modal').modal('hide');
 
@@ -222,7 +222,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./percurso/update",
+            url: "./percursos/update",
             data: dados,
             processData: false,
             contentType: false,
@@ -245,7 +245,7 @@ $(document).ready(function($) {
 
                 } else {
 
-                   $('#tabela_percurso').DataTable().draw(false);
+                   $('#tabela_percursos').DataTable().draw(false);
 
                     jQuery('#criar_editar-modal').modal('hide');
 
@@ -286,7 +286,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: './percurso/delete',
+            url: './percursos/delete',
             data: {
                 'id': $("#del").val(),
             },
@@ -297,7 +297,7 @@ $(document).ready(function($) {
                 jQuery('.del').button('reset');
             },
             success: function(data) {
-                $('#tabela_percurso').DataTable().row('#item-' + data.id).remove().draw(); //remove a linha e ordena
+                $('#tabela_percursos').DataTable().row('#item-' + data.id).remove().draw(); //remove a linha e ordena
                 jQuery('#excluir-modal').modal('hide'); //fechar o modal
 
                 $(function() {

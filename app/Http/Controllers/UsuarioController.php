@@ -10,44 +10,89 @@ use Response;
 use DataTables;
 use DB;
 use Auth;
+use App\User;
+use App\Estado;
+use App\Cidade;
 
 
 class UsuarioController extends Controller
 {
     public function index(){
-        return view('usuario.index');
+        //Selecionando os Estados
+        $estados = Estado::select('nome','id')->get();
+        return view('usuario.index',compact('estados'));
     }
 
     public function list() {
-        $Usuario = Usuario::orderBy('created_at', 'desc')->get();
+        $usuarios = User::orderBy('created_at', 'desc')->get();
 
-        return Datatables::of($Usuario)->editColumn('acao', function ($usuarios){
-
+        return Datatables::of($usuarios)
+        ->editColumn('acao', function ($usuarios){
         	return $this->setBtns($usuarios);
-        })->escapeColumns([0])->make(true);
+        })
+        ->editColumn('status',function($usuarios){
+          if($usuarios->status)
+            return " <span class='label label-success' style='font-size:14px'>Ativo</span>";
+          else
+            return " <span class='label label-default' style='font-size:14px'>Inativo</span>";
+        })
+        ->editColumn('funcao', function($usuarios){
+            foreach($usuarios->getRoleNames() as $tipoFuncao){
+                $funcao = $tipoFuncao;
+            }
+            return $funcao;
+        })
+        ->escapeColumns([0])
+        ->make(true);
     }
 
-    private function setBtns(Usuario $usuarios){
-    	$dados = "data-id='$usuarios->id' data-nome_usuario='$usuarios->nome_usuario' data-email='$usuarios->email' data-funcao='$usuarios->funcao' data-status='$usuarios->status'";
-        $dadosVisualizar = "data-nome_usuario='$usuarios->nome_usuario' data-email='$usuarios->email' data-funcao='$usuarios->funcao' data-status='$usuarios->status'";
-    	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Usuario' $dados ><i class='fa fa-eye'></i></a> ";
-    	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Usuario' $dados><i class ='fa fa-pencil'></i></a> ";
-    	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Usuario' data-id='$usuarios->id'><i class='fa fa-trash'></i></a>";
+    private function setBtns(User $usuarios){
 
-    	return $btnVer.$btnEditar.$btnDeletar;
+      //Variável de status
+        if($usuarios->status)
+            $status = 'Ativo';
+        else
+            $status = 'Inativo';
+        //Buscando a funçao do usuario
+        foreach($usuarios->getRoleNames() as $tipoFuncao)
+            $funcao = $tipoFuncao;
+
+
+      $dados = 'data-nome="'.$usuarios->name.'" data-email="'.$usuarios->email.'" data-telefone="'.$usuarios->telefone.'" data-funcao="'.$funcao.'"
+      data-endereco="'.$usuarios->endereco.'" data-cidade="'.$usuarios->cidade->id .'" data-estado="'.$usuarios->cidade->estado->id.'"
+      data-status="'.$status.'"';
+      $dados_visualizar = 'data-nome="'.$usuarios->name.'" data-email="'.$usuarios->email.'" data-telefone="'.$usuarios->telefone.'" data-funcao="'.$funcao.'"
+      data-endereco="'.$usuarios->endereco.'" data-cidade="'.$usuarios->cidade->nome .'" data-estado="'.$usuarios->cidade->estado->nome.'"
+      data-status="'.$status.'"';
+
+    	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Usuario' $dados_visualizar ><i class='fa fa-eye'></i></a> ";
+      $btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Usuario' $dados><i class ='fa fa-pencil'></i></a> ";
+
+      if(Auth::user()->id == $usuarios->id)
+          $btnDeletar= "";
+      else
+        $btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Usuario' data-id='$usuarios->id'><i class='fa fa-trash'></i></a>";
+
+      if(!$usuarios->status){
+          $btnAtivar = ' <a data-id="'.$usuarios->id.'" class="btn btn-warning btnAtivar" '. $dados .' title="Ativar Usúário" data-toggle="tooltip" ><i class="fa fa-user-plus"> </i></a>';
+          return $btnVer.$btnEditar.$btnAtivar;
+      }else{
+          return $btnVer.$btnEditar.$btnDeletar;
+      }
     }
 
     public function store(Request $request) {
         $rules = array(
-              'nome_usuario' => 'required',
-              'email' => 'required',
-              'funcao' => 'required',
-
+            'nome_usuario' => 'required',
+            'email' => 'required',
+            'funcao' => 'required',
+            'telefone' => 'required',
         );
         $attributeNames = array(
-            'nome_usuario' => 'Nome',
+            'name' => 'Nome',
             'email' => 'Email',
             'funcao' => 'Função',
+            'telefone' => 'Telefone',
 
         );
         $messages = array(
@@ -63,15 +108,20 @@ class UsuarioController extends Controller
         if ($validator->fails()){
                 return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         }else {
-            $Usuario = new Usuario();
-            $Usuario->nome_usuario = $request->nome_usuario;
+            //dd($request->all());
+            $Usuario = new User();
+            $Usuario->name = $request->nome_usuario;
             $Usuario->email = $request->email;
-            $Usuario->password = bcrypt($request->password);
-            $Usuario->status = "Ativo";
+            $Usuario->password = bcrypt($request->senha);
+            $Usuario->telefone = $request->telefone;
+            $Usuario->fk_cidade = $request->cidade;
+            $Usuario->endereco = $request->endereco;
+            $Usuario->status = true;
             $Usuario->save();
-            $usuario->assignRole($request->funcao);
+            $Usuario->assignRole($request->funcao);
             //$Veiculo->setAttribute('titulo', $Veiculo->titulo);
             //$Veiculo->setAttribute('descricao', $Veiculo->descricao);
+            $Usuario->setAttribute('buttons', $this->setBtns($Usuario));
             return response()->json($Usuario);
         }
     }
@@ -90,7 +140,7 @@ class UsuarioController extends Controller
         else {
 
             $Usuario = Usuario::find($request->id);
-            $Usuario->nome_usuario = $request->nome_usuario;
+            $Usuario->name = $request->nome_usuario;
             $Usuario->email = $request->email;
             $Usuario->save();
             //$equipamento->setAttribute('buttons', $this->setDataButtons($equipamento));
@@ -105,6 +155,26 @@ class UsuarioController extends Controller
         $Usuario->status = "Inativo";
         $Usuario->save();
         return response()->json($Usuario);
+    }
+
+    //Select Cidade
+    public function selectCidade(Request $request){
+        //consulta no banco
+        $dados_cidades = Cidade::where('fk_estado',$request->estado)
+        ->select('id','nome')
+        ->orderBy('nome')
+        ->get();
+        //Array de cidade
+        $cidades = array();
+        foreach($dados_cidades as $dados_cidade){
+            array_push($cidades,[
+                'id' => $dados_cidade->id,
+                'nome' => $dados_cidade->nome
+            ]);
+        }
+        //retornando para o javascript
+        return response()->json(['cidades' => $cidades]);
+
     }
     /*
     public function move()

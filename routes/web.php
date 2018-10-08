@@ -83,21 +83,22 @@ Route::group(['middleware' => 'auth'], function () {
 
     });
 
-    Route::group(['prefix'=>'percurso','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
-    Route::get('',['as'=>'percurso.index', 'uses'=>'PercursoController@index']);
-    Route::get('/list',['as' => 'percurso.list', 'uses' => 'PercursoController@list']);
-    Route::post('/store', ['as' => 'percurso.store', 'uses' => 'PercursoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
-    Route::post('/update', ['as' => 'percurso.update', 'uses' => 'PercursoController@update']); // uso para atualizações
-    Route::post('/delete', ['as' => 'percurso.delete', 'uses' => 'PercursoController@destroy']); // para deletar
+    Route::group(['prefix'=>'percursos','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
+    Route::get('',['as'=>'percursos.index', 'uses'=>'PercursoController@index']);
+    Route::get('/list',['as' => 'percursos.list', 'uses' => 'PercursoController@list']);
+    Route::post('/store', ['as' => 'percursos.store', 'uses' => 'PercursoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/update', ['as' => 'percursos.update', 'uses' => 'PercursoController@update']); // uso para atualizações
+    Route::post('/delete', ['as' => 'percursos.delete', 'uses' => 'PercursoController@destroy']); // para deletar
 
     });
 
-    Route::group(['prefix'=>'usuario','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
-    Route::get('',['as'=>'usuario.index', 'uses'=>'UsuarioController@index']);
-    Route::get('/list',['as' => 'usuario.list', 'uses' => 'UsuarioController@list']);
-    Route::post('/store', ['as' => 'usuario.store', 'uses' => 'UsuarioController@store']); // relacionada ao create do botão para salvar cadastro de veículo
-    Route::post('/update', ['as' => 'usuario.update', 'uses' => 'UsuarioController@update']); // uso para atualizações
-    Route::post('/delete', ['as' => 'usuario.delete', 'uses' => 'UsuarioController@destroy']); // para deletar
+    Route::group(['prefix'=>'usuarios','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
+    Route::get('',['as'=>'usuarios.index', 'uses'=>'UsuarioController@index']);
+    Route::get('/list',['as' => 'usuarios.list', 'uses' => 'UsuarioController@list']);
+    Route::post('/create', ['as' => 'usuarios.store', 'uses' => 'UsuarioController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/update', ['as' => 'usuarios.update', 'uses' => 'UsuarioController@update']); // uso para atualizações
+    Route::post('/delete', ['as' => 'usuarios.delete', 'uses' => 'UsuarioController@destroy']); // para deletar
+    Route::get('/cidade/{estado}',['as' => 'usuarios.cidade','uses' => 'UsuarioController@selectCidade']);
 
     });
 });

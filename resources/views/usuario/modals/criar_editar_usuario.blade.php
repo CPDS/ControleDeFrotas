@@ -1,5 +1,5 @@
 <div id="criar_editar-modal" class="modal fade" role="dialog" data-backdrop="static">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog ">
     <div class="modal-content">
 
       <div class="modal-header">
@@ -31,6 +31,37 @@
                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                 <input placeholder="Digite um email" maxlength="254" class="form-control" id="email" name="email" type="text">
               </div>
+            </div>
+
+            <div class="form-group col-md-12">
+              <strong>Endereço:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input placeholder="Digite o Endereço" maxlength="254" class="form-control" id="endereco" name="endereco" type="text">
+              </div>
+            </div>
+
+            <div class="form-group col-md-12">
+              <strong>Telefone:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input placeholder="Digite o Telefone" maxlength="254" class="form-control" id="telefone" name="telefone" type="text">
+              </div>
+            </div>
+
+            <div class="form-group col-md-6 senha">
+              <strong>Estado:</strong>
+              <select name="estado" id="estado" class="form-control selectEstado">
+                @foreach($estados as $estado)
+                  <option value='{{$estado->id}}'>{{$estado->nome}}</option>
+                @endforeach
+              </select>
+            </div>
+
+            <div class="form-group col-md-6 senha ">
+              <strong>Cidade</strong>
+              <select name="cidade" id="cidade" class="form-control">
+              </select>
             </div>
 
             <div class="form-group col-md-6 senha">

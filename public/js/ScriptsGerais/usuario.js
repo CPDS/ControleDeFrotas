@@ -10,11 +10,12 @@ $(document).ready(function($) {
             processing: true,
             serverSide: true,
             deferRender: true,
-            ajax: './usuario/list',
+            ajax: './usuarios/list',
             columns: [
             { data: null, name: 'order' },
-            { data: 'nome_usuario', name: 'nome_usuario' },
+            { data: 'name', name: 'name' },
             { data: 'email', name: 'email'},
+            { data: 'funcao', name: 'funcao'},
             { data: 'status', name: 'status' },
             { data: 'acao', name: 'acao' }
             ],
@@ -64,8 +65,9 @@ $(document).ready(function($) {
               { "width": "5%", "targets": 0 }, //nº
               { "width": "15%", "targets": 1 },//nome
               { "width": "15%", "targets": 2 },//email
-              { "width": "15%", "targets": 3 },//status
-              { "width": "15%", "targets": 4 },//acao
+              { "width": "15%", "targets": 3 },//funcao
+              { "width": "15%", "targets": 4 },//status
+              { "width": "15%", "targets": 5 },//acao
             ]
     });
 
@@ -80,7 +82,7 @@ $(document).ready(function($) {
 
         $('#nome_usuario-visualizar').text($(this).data('Nome do Usuário'));
         $('#email-visualizar').text($(this).data('Email'));
-        $('#funcao-visualizar').text($(this).data('Função'));
+        //$('#funcao-visualizar').text($(this).data('Função'));
         jQuery('#visualizar-modal').modal('show');
     });
 
@@ -106,7 +108,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./usuario/edit",
+            url: "./usuarios/edit",
             data: dados,
             processData: false,
             contentType: false,
@@ -168,7 +170,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: './usuario/delete',
+            url: './usuarios/delete',
             data: {
                 'id': $(".id_del").val(),
             },
@@ -212,7 +214,7 @@ $(document).ready(function($) {
     $('.modal-footer').on('click', '.ativ', function() {
         $.ajax({
             type: 'post',
-            url: './usuario/ativar',
+            url: './usuarios/ativar',
             data: {
                 'id': $(".id_ativ").val(),
             },
@@ -270,7 +272,7 @@ $(document).ready(function($) {
         console.log(dados);
         $.ajax({
             type: 'post',
-            url: "./usuario/create",
+            url: "./usuarios/create",
             data: dados,
             processData: false,
             contentType: false,
@@ -320,6 +322,24 @@ $(document).ready(function($) {
         });
     });
 
+    //Select de Estado e Cidade
+        $(document).on('change','.selectEstado', function(){
+            //recuperando id do select de estado
+            var id = $("#estado option:selected").val();
+            //variavel que adiciona as opções
+            var option = '';
+            $.getJSON('./usuarios/cidade/'+id, function(dados){
+                //Atibuindo valores à variavel com os dados da consulta
+                $.each(dados.cidades, function(i,cidade){
+                    option += '<option value="'+cidade.id+'">'+cidade.nome+'</option>';
+                });
+                //passando para o select de cidades
+                $('#cidade').html(option).show();
+            });
+
+        });
+
+    $("#telefone").mask("(99) 99999-9999");
 
 
 });
