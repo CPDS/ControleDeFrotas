@@ -109,7 +109,7 @@
 
              <div class="form-group col-md-6 senha">
                <strong>Estado de Chegada:</strong>
-               <select name="estado" id="estado" class="form-control selectEstado">
+               <select name="estado2" id="estado2" class="form-control selectEstado2">
                  @foreach($estados as $estado)
                    <option value='{{$estado->id}}'>{{$estado->nome}}</option>
                  @endforeach
