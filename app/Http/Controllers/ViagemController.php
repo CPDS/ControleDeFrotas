@@ -13,6 +13,7 @@ use Auth;
 use App\Viagem;
 use App\Estado;
 use App\Cidade;
+use App\Veiculo;
 use App\TipoServico;
 
 class ViagemController extends Controller
@@ -20,7 +21,8 @@ class ViagemController extends Controller
     public function index(){
         $estados = Estado::select('nome','id')->get();
         $tipo_servico = TipoServico::select('nome_servico','id')->get();
-        return view('viagem.index',compact('estados','tipo_servico'));
+        $veiculos = Veiculo::select('nome_veiculo','id')->get();
+        return view('viagem.index',compact('estados','tipo_servico','veiculos'));
     }
 
     public function list() {

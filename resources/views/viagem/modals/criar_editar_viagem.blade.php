@@ -44,7 +44,7 @@
                <span class="input-group-addon"><i class="fa fa-bus"></i></span>
                <select name="fk_veiculo" id="fk_veiculo" class="form-control selectVeiculo">
                  @foreach($veiculos as $veiculo)
-                   <option value='{{$veiculo->id}}'>{{$estado->nome_veiculo}}</option>
+                   <option value='{{$veiculo->id}}'>{{$veiculo->nome_veiculo}}</option>
                  @endforeach
                </select>
              </div>
