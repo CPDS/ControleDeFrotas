@@ -344,7 +344,8 @@ $(document).ready(function($) {
         var id = $("#estado option:selected").val();
         //variavel que adiciona as opções
         var option = '';
-        $.getJSON('./percursos/cidade/'+id, function(dados){
+        $.getJSON('./viagems/cidade/'+id, function(dados){
+            console.log(dados);
             //Atibuindo valores à variavel com os dados da consulta
             $.each(dados.cidades, function(i,cidade){
                 option += '<option value="'+cidade.id+'">'+cidade.nome+'</option>';
@@ -352,6 +353,7 @@ $(document).ready(function($) {
             //passando para o select de cidades
             $('#fk_cidade_saida').html(option).show();
         });
+
 
     });
 
@@ -362,13 +364,13 @@ $(document).ready(function($) {
         var id = $("#estado2 option:selected").val();
         //variavel que adiciona as opções
         var option = '';
-        $.getJSON('./percursos/cidade/'+id, function(dados){
+        $.getJSON('./viagems/cidade/'+id, function(dados){
             //Atibuindo valores à variavel com os dados da consulta
             $.each(dados.cidades, function(i,cidade){
                 option += '<option value="'+cidade.id+'">'+cidade.nome+'</option>';
             });
             //passando para o select de cidades
-            $('#fk_cidade_chegada2').html(option).show();
+            $('#fk_cidade_chegada').html(option).show();
         });
 
     });
