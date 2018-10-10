@@ -34,6 +34,7 @@
                         <table class="table table-bordered" id="tabela_veiculo">
                             <thead>
                             <tr>
+                                <th>Nº</th>
                                 <th>Nome do Veículo</th>
                                 <th>Placa</th>
                                 <th>Tipo de Combustível</th>
