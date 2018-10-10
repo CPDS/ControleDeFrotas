@@ -38,15 +38,14 @@
              </div>
              </div>
 
-             <div class="form-group col-md-6">
+             <div class="form-group col-md-6 senha">
                <strong>Veículo:</strong>
                <div class="input-group">
                <span class="input-group-addon"><i class="fa fa-bus"></i></span>
-               <select name="fk_veiculo" id="fk_veiculo" class="form-control">
-                 <option value='' selected disabled>Selecione ...</option>
-                 <option value="Carro X">Carro X</option>
-                 <option value="Carro Y">Carro Y</option>
-                 <option value="Carro Z">Setor Z</option>
+               <select name="fk_veiculo" id="fk_veiculo" class="form-control selectVeiculo">
+                 @foreach($veiculos as $veiculo)
+                   <option value='{{$veiculo->id}}'>{{$estado->nome_veiculo}}</option>
+                 @endforeach
                </select>
              </div>
              </div>
@@ -187,15 +186,10 @@
              </div>
 
              <div class="form-group col-md-6">
-              <strong>Local de Saída:</strong>
-              <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                 <select name="local_saida" id="local_saida" class="form-control">
-                   <option value='' selected disabled>Selecione ...</option>
-                   <option value="Cidade X">Cidade X</option>
-                   <option value="Cidade Y">Cidade Y</option>
-                   <option value="Cidade Z">Cidade Z</option>
-                 </select> <!-- Tem que selecionar da tabela com as cidades -->
+               <strong>Local de Saída:</strong>
+               <div class="input-group">
+                 <span class="input-group-addon"><i class="fa fa-globe"></i></span>
+                 <input placeholder="Digite a cidade de saída" id="local_saida" maxlength="254" class="form-control" name="local_saida" type="text">
                </div>
              </div>
 
