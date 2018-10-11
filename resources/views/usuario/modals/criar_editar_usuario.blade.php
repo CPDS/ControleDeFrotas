@@ -21,7 +21,7 @@
               <strong>Nome Completo:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input placeholder="Digite o nome completo do usuário" maxlength="254" id="nome_usuario" class="form-control" name="nome_usuario" type="text">
+                <input placeholder="Digite o nome completo do usuário" maxlength="254" id="name" class="form-control" name="name" type="text">
               </div>
             </div>
 

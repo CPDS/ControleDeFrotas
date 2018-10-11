@@ -10,6 +10,7 @@ use Response;
 use DataTables;
 use DB;
 use Auth;
+use Hash;
 use App\User;
 use App\Estado;
 use App\Cidade;
@@ -58,11 +59,11 @@ class UsuarioController extends Controller
             $funcao = $tipoFuncao;
 
 
-      $dados = 'data-nome="'.$usuarios->name.'" data-email="'.$usuarios->email.'" data-telefone="'.$usuarios->telefone.'" data-funcao="'.$funcao.'"
+      $dados = 'data-name="'.$usuarios->name.'" data-email="'.$usuarios->email.'" data-telefone="'.$usuarios->telefone.'" data-funcao="'.$funcao.'"
       data-endereco="'.$usuarios->endereco.'" data-cidade="'.$usuarios->cidade->id .'" data-estado="'.$usuarios->cidade->estado->id.'"
       data-status="'.$status.'"';
-      $dados_visualizar = 'data-nome="'.$usuarios->name.'" data-email="'.$usuarios->email.'" data-telefone="'.$usuarios->telefone.'" data-funcao="'.$funcao.'"
-      data-endereco="'.$usuarios->endereco.'" data-cidade="'.$usuarios->cidade->nome .'" data-estado="'.$usuarios->cidade->estado->nome.'"
+      $dados_visualizar = 'data-name="'.$usuarios->name.'" data-email="'.$usuarios->email.'" data-telefone="'.$usuarios->telefone.'" data-funcao="'.$funcao.'"
+      data-endereco="'.$usuarios->endereco.'" data-cidade="'.$usuarios->cidade->name .'" data-estado="'.$usuarios->cidade->estado->name.'"
       data-status="'.$status.'"';
 
     	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Usuario' $dados_visualizar ><i class='fa fa-eye'></i></a> ";
@@ -85,7 +86,7 @@ class UsuarioController extends Controller
         $rules = array(
             'name' => 'required',
             'email' => 'required',
-            'senha' => 'required|min:8|same:confirmarsenha',
+            'senha' => 'required|same:confirmarsenha',
             'endereco' => 'required',
             'telefone' => 'required',
             'cidade' => 'required',
@@ -112,7 +113,7 @@ class UsuarioController extends Controller
         }else {
             //dd($request->all());
             $Usuario = new User();
-            $Usuario->name = $request->nome_usuario;
+            $Usuario->name = $request->name;
             $Usuario->email = $request->email;
             $Usuario->password = Hash::make($request->senha);
             $Usuario->telefone = $request->telefone;
@@ -131,7 +132,7 @@ class UsuarioController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'nome' => 'required',
+            'name' => 'required',
             'telefone' => 'required',
             'endereco' => 'required',
             'cidade' => 'required',
@@ -144,7 +145,7 @@ class UsuarioController extends Controller
         else {
 
             $Usuario = Usuario::find($request->id);
-            $Usuario->name = $request->nome_usuario;
+            $Usuario->name = $request->name;
             $Usuario->email = $request->email;
             $usuario->telefone = $request->telefone;
             $usuario->endereco = $request->endereco;
