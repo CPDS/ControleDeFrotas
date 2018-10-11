@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('css/iziToast.min.css') }}">
 <script src="{{ asset('js/iziToast.min.js') }}"></script>
-<script src="{{asset('js/ScriptsGerais/veiculo.js')}}"></script>
+<script src="{{asset('js/ScriptsGerais/contrato.js')}}"></script>
 @section('htmlheader_title')
     Contrato
 @endsection
@@ -20,13 +20,13 @@
                 <div class="box box-success">
                     <div class="box-header with-border">
                         <h3 class="box-title">Contrato Cadastrados</h3>
-                         <div class="col-md-12">
-                          <div class="pull-right">
-                       <span>   <!-- Botão para cadastrar -->
-                            <a class="btn btn-primary btnAdicionar btn-sm "><i class="fa fa-plus"></i> Cadastrar Contrato</a>
-                        </span>
-                        </div>
-                        </div>
+                        <div class="col-md-12">
+                         <div class="pull-right">
+                      <span>   <!-- Botão para cadastrar -->
+                           <a class="btn btn-primary btnAdicionarContratos btn-sm "><i class="fa fa-plus"></i> Cadastrar Contrato</a>
+                       </span>
+                       </div>
+                       </div>
 
                     </div>
                     <!-- /.box-header -->

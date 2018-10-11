@@ -43,6 +43,7 @@
                 <ul class="treeview-menu">
                      <li><a href="{{ url('viagems') }}">{{ trans('Viagems Solicitadas') }}</a></li>
                     <li><a class="btnAdicionarViagems">{{ trans('Solicitação de Viagem') }}</a></li>
+                    <li><a href="{{ url('percursos') }}" class="btnAdicionarPercursos">{{ trans('Percursos') }}</a></li>
                 </ul>
 
             </li>
@@ -53,7 +54,7 @@
                 <ul class="treeview-menu">
                      <li><a href="{{ url('veiculos') }}">{{ trans('Veículos Cadastrados') }}</a></li>
                      <li><a class="btnAdicionarVeiculos">{{ trans('Cadastrar Veículos') }}</a></li>
-                    <li><a class="btnAdicionarViagems">{{ trans('Contrato') }}</a></li>
+                    <li><a href="{{ url('contrato') }}" class="btnAdicionarContratos">{{ trans('Contrato') }}</a></li>
                 </ul>
 
             </li>

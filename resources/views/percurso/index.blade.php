@@ -26,7 +26,7 @@
                          <div class="col-md-12">
                           <div class="pull-right">
                        <span>   <!-- Botão para cadastrar -->
-                            <a class="btn btn-primary btnAdicionar btn-sm "><i class="fa fa-plus"></i> Cadastrar Percurso</a>
+                            <a class="btn btn-primary btnAdicionarPercursos btn-sm "><i class="fa fa-plus"></i> Cadastrar Percurso</a>
                         </span>
                         </div>
                         </div>

@@ -144,7 +144,7 @@ $(document).ready(function($) {
     });
 
     //Adicionar
-    $(document).on('click', '.btnAdicionar', function() {
+    $(document).on('click', '.btnAdicionarContratos', function() {
         $('.modal-footer .btn-action').removeClass('edit');
         $('.modal-footer .btn-action').addClass('add');
 

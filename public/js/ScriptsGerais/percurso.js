@@ -145,7 +145,7 @@ $(document).ready(function($) {
     });
 
     //Adicionar
-    $(document).on('click', '.btnAdicionar', function() {
+    $(document).on('click', '.btnAdicionarPercursos', function() {
         $('.modal-footer .btn-action').removeClass('edit');
         $('.modal-footer .btn-action').addClass('add');
 
@@ -321,5 +321,5 @@ $(document).ready(function($) {
         });
     });
 
-    
+
 });
