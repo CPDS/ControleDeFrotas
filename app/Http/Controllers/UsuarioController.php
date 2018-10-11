@@ -83,16 +83,18 @@ class UsuarioController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-            'nome_usuario' => 'required',
+            'name' => 'required',
             'email' => 'required',
-            'funcao' => 'required',
+            'senha' => 'required|min:8|same:confirmarsenha',
+            'endereco' => 'required',
             'telefone' => 'required',
+            'cidade' => 'required',
+            'estado' => 'required',
+            'funcao' => 'required',
         );
         $attributeNames = array(
-            'name' => 'Nome',
-            'email' => 'Email',
-            'funcao' => 'Função',
-            'telefone' => 'Telefone',
+            'confirmarsenha' => 'confirmar senha',
+            'funcao' => 'função',
 
         );
         $messages = array(
@@ -112,7 +114,7 @@ class UsuarioController extends Controller
             $Usuario = new User();
             $Usuario->name = $request->nome_usuario;
             $Usuario->email = $request->email;
-            $Usuario->password = bcrypt($request->senha);
+            $Usuario->password = Hash::make($request->senha);
             $Usuario->telefone = $request->telefone;
             $Usuario->fk_cidade = $request->cidade;
             $Usuario->endereco = $request->endereco;
@@ -129,9 +131,11 @@ class UsuarioController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'nome_usuario' => 'required',
-            'email' => 'required',
-            'funcao' => 'required',
+            'nome' => 'required',
+            'telefone' => 'required',
+            'endereco' => 'required',
+            'cidade' => 'required',
+            'estado' => 'required'
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -142,7 +146,11 @@ class UsuarioController extends Controller
             $Usuario = Usuario::find($request->id);
             $Usuario->name = $request->nome_usuario;
             $Usuario->email = $request->email;
-            $Usuario->save();
+            $usuario->telefone = $request->telefone;
+            $usuario->endereco = $request->endereco;
+            $usuario->fk_cidade = $request->cidade;
+            $usuario->assignRole($request->funcao);
+            $usuario->save();
             //$equipamento->setAttribute('buttons', $this->setDataButtons($equipamento));
             return response()->json($Usuario);
         }

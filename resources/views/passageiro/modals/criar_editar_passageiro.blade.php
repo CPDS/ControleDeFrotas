@@ -29,8 +29,8 @@
              <strong>Solicitação:</strong>
                 <select name="fk_solicitacao" id="fk_solicitacao" class="form-control">
                   <option value='' selected disabled>Selecione ...</option>
-                  @foreach($Viagems as $Viagem)
-                    <option value="{{$Viagem->id}}">{{$Viagem->numero_rv}}</option>
+                  @foreach($viagems as $viagem)
+                    <option value="{{$viagem->id}}">{{$viagem->numero_rv}}</option>
                     @endforeach
                 </select>
             </div>

@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('telefone');
             $table->string('endereco');
             $table->integer('fk_cidade');
-            $table->boolean('status');
+            $table->string('status');
             $table->foreign('fk_cidade')->references('id')->on('cidades');
             $table->rememberToken();
             $table->timestamps();
