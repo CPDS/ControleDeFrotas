@@ -123,7 +123,7 @@
 
              <div class="form-group col-md-6 senha ">
                <strong>Cidade de Chegada:</strong>
-               <select name="fk_cidade_chegada2" id="fk_cidade_chegada2" class="form-control">
+               <select name="fk_cidade_chegada" id="fk_cidade_chegada" class="form-control">
                </select>
              </div>
 

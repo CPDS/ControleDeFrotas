@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
         'password' => Hash::make('123456'),
         'telefone' => '(73) 3526-7504',
         'endereco' => 'Av. José Moreira Sobrinho numero 12',
-        'fk_cidade' => 3387,
+        'fk_cidade' => 337,
         'status' => 'Ativo'
         ]);
 
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456'),
             'telefone' => '(73) 3526-7504',
             'endereco' => 'Av. José Moreira Sobrinho numero 12',
-            'fk_cidade' => 3387,
+            'fk_cidade' => 337,
             'status' => 'Ativo'
         ]);
     }

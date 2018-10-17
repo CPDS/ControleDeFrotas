@@ -16,8 +16,7 @@ class VeiculoSeeder extends Seeder
             'placa' => 'TYX-2385',
             'tipo_combustivel' => 'Diesel',
             'status' => 'Ativo',
-            'fk_campus' => 1,
-            'qtd_total_lugares' => 'Ativo',
+            'qtd_total_lugares' => '40',
             'ano_fabricacao' => '2016',
             'minimo_passageiros' => 10,
             'maximo_passageiros' => 40,
@@ -25,6 +24,7 @@ class VeiculoSeeder extends Seeder
             'marca' => 'Mercedes Benz',
             'tem_arcondicionado' => true,
             'tipo_bagageiro' => 'Grande',
+            'fk_campus' => 1,
         ]);
     }
 }
