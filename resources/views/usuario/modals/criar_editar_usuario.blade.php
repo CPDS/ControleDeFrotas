@@ -36,7 +36,7 @@
             <div class="form-group col-md-12">
               <strong>Endereço:</strong>
               <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <span class="input-group-addon"><i class="fa fa-home"></i></span>
                 <input placeholder="Digite o Endereço" maxlength="254" class="form-control" id="endereco" name="endereco" type="text">
               </div>
             </div>
@@ -44,7 +44,7 @@
             <div class="form-group col-md-12">
               <strong>Telefone:</strong>
               <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
                 <input placeholder="Digite o Telefone" maxlength="254" class="form-control" id="telefone" name="telefone" type="text">
               </div>
             </div>
@@ -80,7 +80,7 @@
                 <select name="funcao" id="funcao" class="form-control">
                   <option value='' selected disabled>Selecione ...</option>
                   <option value="Administrador">Administrador</option>
-                  <option value="Secretária">Secretária</option>
+                  <option value="Secretaria">Secretária</option>
                   <option value="Motorista">Motorista</option>
                   <option value="Professor">Professor</option>
                 </select>
