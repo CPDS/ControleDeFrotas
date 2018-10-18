@@ -54,7 +54,7 @@
                 <ul class="treeview-menu">
                      <li><a href="{{ url('veiculos') }}">{{ trans('Veículos Cadastrados') }}</a></li>
                      <li><a class="btnAdicionarVeiculos">{{ trans('Cadastrar Veículos') }}</a></li>
-                    <li><a href="{{ url('contrato') }}" class="btnAdicionarContratos">{{ trans('Contrato') }}</a></li>
+                    <li><a href="{{ url('contratos') }}" class="btnAdicionarContratos">{{ trans('Contrato') }}</a></li>
                 </ul>
 
             </li>

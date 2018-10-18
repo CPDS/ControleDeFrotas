@@ -74,12 +74,12 @@ Route::group(['middleware' => 'auth'], function () {
 
     });
 
-    Route::group(['prefix'=>'contrato','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
-    Route::get('',['as'=>'contrato.index', 'uses'=>'ContratoController@index']);
-    Route::get('/list',['as' => 'contrato.list', 'uses' => 'ContratoController@list']);
-    Route::post('/store', ['as' => 'contrato.store', 'uses' => 'ContratoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
-    Route::post('/update', ['as' => 'contrato.update', 'uses' => 'ContratoController@update']); // uso para atualizações
-    Route::post('/delete', ['as' => 'contrato.delete', 'uses' => 'ContratoController@destroy']); // para deletar
+    Route::group(['prefix'=>'contratos','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
+    Route::get('',['as'=>'contratos.index', 'uses'=>'ContratoController@index']);
+    Route::get('/list',['as' => 'contratos.list', 'uses' => 'ContratoController@list']);
+    Route::post('/store', ['as' => 'contratos.store', 'uses' => 'ContratoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/update', ['as' => 'contratos.update', 'uses' => 'ContratoController@update']); // uso para atualizações
+    Route::post('/delete', ['as' => 'contratos.delete', 'uses' => 'ContratoController@destroy']); // para deletar
 
     });
 
@@ -100,6 +100,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/update', ['as' => 'usuarios.update', 'uses' => 'UsuarioController@update']); // uso para atualizações
     Route::post('/delete', ['as' => 'usuarios.delete', 'uses' => 'UsuarioController@destroy']); // para deletar
     Route::get('/cidade/{estado}',['as' => 'usuarios.cidade','uses' => 'UsuarioController@selectCidade']);
+
+    });
+
+    Route::group(['prefix'=>'diarios','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
+    Route::get('',['as'=>'diarios.index', 'uses'=>'DiarioController@index']);
+    Route::get('/list',['as' => 'diarios.list', 'uses' => 'DiarioController@list']);
+    Route::post('/create', ['as' => 'diarios.store', 'uses' => 'DiarioController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/update', ['as' => 'diarios.update', 'uses' => 'DiarioController@update']); // uso para atualizações
+    Route::post('/delete', ['as' => 'diarios.delete', 'uses' => 'DiarioController@destroy']); // para deletar
 
     });
 });

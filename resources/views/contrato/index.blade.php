@@ -35,7 +35,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <table class="table table-bordered" id="tabela_contrato">
+                        <table class="table table-bordered" id="tabela_contratos">
                             <thead>
                             <tr>
                                 <th>Nome da Empresa</th>

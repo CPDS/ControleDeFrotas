@@ -3,23 +3,17 @@ $(document).ready(function($) {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    });
+    }); // EDITAR DE ACORDO COM VARIAVEIS DE PERCURSO NO BANCO DE DADOS
 
-    var tabela = $('#tabela_contratos').DataTable({
+    var tabela = $('#tabela_diarios').DataTable({
             processing: true,
             serverSide: true,
             deferRender: true,
-            ajax: '/contratos/list',
+            ajax: '/diarios/list',
             columns: [
             { data: null, name: 'order' },
-            { data: 'empresa_contratada_nome', name: 'empresa_contratada_nome' },
-            { data: 'empresa_contratada_cnpj', name: 'empresa_contratada_cnpj' },
-            { data: 'numero_contrato', name: 'numero_contrato' },
-            { data: 'data_inicio_contrato', name: 'data_inicio_contrato' },
-            { data: 'data_vencimento_contrato', name: 'data_vencimento_contrato' },
-            { data: 'valor_contratado', name: 'valor_contratado' },
-            { data: 'tipo', name: 'tipo' }
-
+            { data: 'nome_diario', name: 'nome_diario' },
+            { data: 'ocorrencias', name: 'ocorrencias' }
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -63,14 +57,9 @@ $(document).ready(function($) {
             },
             columnDefs : [
               { targets : [2], sortable : false },
-              { "width": "5%", "targets": 0 }, //nome
-              { "width": "15%", "targets": 1 },//cnpj
-              { "width": "15%", "targets": 2 },//número do contrato
-              { "width": "15%", "targets": 3 },//vencimento do contrato
-              { "width": "15%", "targets": 4 },
-              { "width": "15%", "targets": 5 },
-              { "width": "15%", "targets": 6 },
-              { "width": "15%", "targets": 7 }
+              { "width": "5%", "targets": 0 }, //nº
+              { "width": "15%", "targets": 1 }//nome
+
             ]
     });
 
@@ -82,13 +71,8 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#empresa_contratada_nome-visualizar').text($(this).data('Nome da Empresa')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#empresa_contratada_cnpj-visualizar').text($(this).data('CNPJ'));
-        $('#numero_contrato-visualizar').text($(this).data('Nº do Contrato'));
-        $('#data_inicio_contrato-visualizar').text($(this).data('Ínicio do Contrato'));
-        $('#data_vencimento_contrato-visualizar').text($(this).data('Vencimento do Contrato'));
-        $('#valor_contratado-visualizar').text($(this).data('Valor do Contrato'));
-        $('#tipo-visualizar').text($(this).data('Tipo de Contrato'));
+        $('#nome_diario-visualizar').text($(this).data('Nome do Diário')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#ocorrencias-visualizar').text($(this).data('Ocorrências'));
         jQuery('#visualizar-modal').modal('show');
     });
 
@@ -106,7 +90,7 @@ $(document).ready(function($) {
 
         $('.modal-footer .btn-action').removeClass('add');
         $('.modal-footer .btn-action').addClass('edit');
-        $('.modal-title').text('Editar Cadastro de Contrato');
+        $('.modal-title').text('Editar Cadastro de Diário');
         $('.callout').addClass("hidden"); //ocultar a div de aviso
         $('.callout').find("p").text(""); //limpar a div de aviso
 
@@ -138,17 +122,17 @@ $(document).ready(function($) {
 
     //Excluir
     $(document).on('click', '.btnDeletar', function() {
-        $('.modal-title').text('Excluir Contrato');
+        $('.modal-title').text('Excluir Diário');
         $('.id_del').val($(this).data('id'));
         jQuery('#excluir-modal').modal('show'); //Abrir o modal
     });
 
     //Adicionar
-    $(document).on('click', '.btnAdicionarContratos', function() {
+    $(document).on('click', '.btnAdicionarDiarios', function() {
         $('.modal-footer .btn-action').removeClass('edit');
         $('.modal-footer .btn-action').addClass('add');
 
-        $('.modal-title').text('Novo Cadastro de Contrato');
+        $('.modal-title').text('Novo Cadastro de Diário');
         $('.callout').addClass("hidden");
         $('.callout').find("p").text("");
 
@@ -165,7 +149,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./contratos/store",
+            url: "./diarios/store",
             data: dados,
             processData: false,
             contentType: false,
@@ -188,14 +172,14 @@ $(document).ready(function($) {
 
                 } else {
 
-                    $('#tabela_contratos').DataTable().draw(false);
+                    $('#tabela_diarios').DataTable().draw(false);
 
                     jQuery('#criar_editar-modal').modal('hide');
 
                     $(function() {
                         iziToast.success({
                             title: 'OK',
-                            message: 'Contrato Adicionado com Sucesso!',
+                            message: 'Diário Adicionado com Sucesso!',
                         });
                     });
 
@@ -221,7 +205,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./contratos/update",
+            url: "./diarios/update",
             data: dados,
             processData: false,
             contentType: false,
@@ -244,14 +228,14 @@ $(document).ready(function($) {
 
                 } else {
 
-                   $('#tabela_contratos').DataTable().draw(false);
+                   $('#tabela_diarios').DataTable().draw(false);
 
                     jQuery('#criar_editar-modal').modal('hide');
 
                     $(function() {
                         iziToast.success({
                             title: 'OK',
-                            message: 'Contrato Atualizado com Sucesso!',
+                            message: 'Diário Atualizado com Sucesso!',
                         });
                     });
 
@@ -285,7 +269,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: './contratos/delete',
+            url: './diarios/delete',
             data: {
                 'id': $("#del").val(),
             },
@@ -296,14 +280,14 @@ $(document).ready(function($) {
                 jQuery('.del').button('reset');
             },
             success: function(data) {
-                $('#tabela_contratos').DataTable().row('#item-' + data.id).remove().draw(); //remove a linha e ordena
+                $('#tabela_diarios').DataTable().row('#item-' + data.id).remove().draw(); //remove a linha e ordena
                 jQuery('#excluir-modal').modal('hide'); //fechar o modal
 
                 $(function() {
 
                     iziToast.success({
                         title: 'OK',
-                        message: 'Contrato Excluído com Sucesso!',
+                        message: 'Diário Excluído com Sucesso!',
                     });
                 });
             },
@@ -319,7 +303,6 @@ $(document).ready(function($) {
 
         });
     });
-
 
 
 });
