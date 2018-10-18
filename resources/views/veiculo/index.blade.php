@@ -18,8 +18,11 @@
             <div class="col-md-12">
 
                 <div class="box box-success">
+                  <div class="pull-left">
+                    <h2> &nbsp <i class="fa fa-car"></i>  @yield('contentheader_title', 'Veículos Cadastrados')</h2>
+                  </div>
                     <div class="box-header with-border">
-                        <h3 class="box-title">Veículos Cadastrados</h3>
+
                          <div class="col-md-12">
                           <div class="pull-right">
                 <!--        <span>    Botão para cadastrar
@@ -53,7 +56,7 @@
                     </div>
                     <!-- /.box-body -->
                 </div>
-                
+
             </div>
         </div>
     </div>

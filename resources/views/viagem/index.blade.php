@@ -19,7 +19,10 @@
 
                 <div class="box box-success">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Viagems Solicitadas</h3>
+                      <div class="pull-left">
+                        <h2> &nbsp <i class="fa fa-road"></i>  @yield('contentheader_title', 'Viagems Cadastradas')</h2>
+                      </div>
+
                          <div class="col-md-12">
                           <div class="pull-right">
                         <span>

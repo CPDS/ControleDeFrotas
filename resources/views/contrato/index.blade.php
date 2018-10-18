@@ -18,8 +18,12 @@
             <div class="col-md-12">
 
                 <div class="box box-success">
+                  <div class="pull-left">
+                    <h2> &nbsp<i class="fa fa-file-o"></i>  @yield('contentheader_title', 'Contratos Cadastrados')</h2>
+                  </div>
                     <div class="box-header with-border">
-                        <h3 class="box-title">Contrato Cadastrados</h3>
+
+
                         <div class="col-md-12">
                          <div class="pull-right">
                       <span>   <!-- Botão para cadastrar -->

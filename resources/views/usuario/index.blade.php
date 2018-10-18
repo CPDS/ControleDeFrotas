@@ -16,7 +16,7 @@
 	<div class="row">
 		<div class="col-lg-12 margin-tb">
 			<div class="pull-left">
-				<h2><i class="fa fa-users"></i> @yield('contentheader_title', 'Usuários')</h2>
+				<h2> &nbsp <i class="fa fa-users"></i> @yield('contentheader_title', 'Usuários')</h2>
 			</div>
 
 			<br>

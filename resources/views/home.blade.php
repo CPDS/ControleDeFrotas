@@ -19,17 +19,51 @@
                     </div>
 
                     <div class="row">
+                      <div class="col-lg-4 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-green">
+                          <div class="inner">
+                            <h3>Painel Usuários</h3>
+                            <br>
+                            <strong><p>usuário(s) cadastrado(s)<br> no sistema</p></strong>
+                          </div>
+                          <div class="icon">
+                            <i class="fa fa-user"></i>
+
+                          <a href="{{ url('usuarios') }}" class="small-box-footer">Exibir usuário(s) <i class="fa fa-arrow-circle-right"></i></a>
+                          </div>
+                        </div>
+                      </div>
+
+                          <!-- ./col -->
                           <div class="col-lg-4 col-xs-6">
                             <!-- small box -->
-                            <div class="small-box bg-yellow">
+                            <div class="small-box bg-green">
                               <div class="inner">
-                                <h3>Geral</h3>
+                                <h3>Painel Viagems</h3>
                                 <br>
-                                <strong><p>testando edição</p></strong>
+                                <strong><p>viagem(s) cadastrada(s)<br> no sistema</p></strong>
                               </div>
-
                               <div class="icon">
-                                <i class="glyphicon glyphicon-eye-open"></i>
+                                <i class="fa fa-road"></i>
+
+                              <a href="{{ url('viagems') }}" class="small-box-footer">Exibir viagem(s) <i class="fa fa-arrow-circle-right"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- ./col -->
+                          <div class="col-lg-4 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-green">
+                              <div class="inner">
+                                <h3>Painel Veículos</h3>
+                                <br>
+                                <strong><p>veículo(s) cadastrado(s)<br> no sistema</p></strong>
+                              </div>
+                              <div class="icon">
+                                <i class="fa fa-car"></i>
+
+                              <a href="{{ url('veiculos') }}" class="small-box-footer">Exibir veículo(s) <i class="fa fa-arrow-circle-right"></i></a>
                               </div>
                             </div>
                           </div>
@@ -39,78 +73,49 @@
                             <!-- small box -->
                             <div class="small-box bg-green">
                               <div class="inner">
-                                <h3>X</h3>
-
-                                <strong><p>Reserva(s) de laboratório(s)<br> agendadas para hoje</p></strong>
-                              </div>
-                              <div class="icon">
-                              	<i class="fa fa-calendar-check-o"></i>
-                              </div>
-                              <a href="#" class="small-box-footer">Exibir Viagem(s) <i class="fa fa-arrow-circle-right"></i></a>
-                            </div>
-                          </div>
-                          <!-- ./col -->
-                          <div class="col-lg-4 col-xs-6">
-                            <!-- small box -->
-                            <div class="small-box bg-aqua">
-                              <div class="inner">
-                                <h3>X</h3>
-
-                                <strong><p>Reserva(s) de equipamento(s)<br> aguardando retirada hoje</p></strong>
-                              </div>
-                              <div class="icon">
-                                <i class="fa fa-calendar-check-o "></i>
-                              </div>
-                              <a href="#" class="small-box-footer">Exibir reserva(s) <i class="fa fa-arrow-circle-right"></i></a>
-                            </div>
-                          </div>
-
-                          <!-- ./col -->
-                          <div class="col-lg-4 col-xs-6">
-                            <!-- small box -->
-                            <div class="small-box bg-red">
-                              <div class="inner">
-                                <h3>X</h3>
+                                <h3>Painel Passageiros</h3>
                                 <br>
-                                <strong><p>Equipamento(s) com defeito</p></strong>
+                                <strong><p>passageiro(s) cadastrado(s)<br> no sistema</p></strong>
                               </div>
                               <div class="icon">
-                                <i class="glyphicon glyphicon-thumbs-down"></i>
+                                <i class="fa fa-users"></i>
+
+                              <a href="{{ url('passageiros') }}" class="small-box-footer">Exibir passageiro(s) <i class="fa fa-arrow-circle-right"></i></a>
                               </div>
-                              <a href="#" class="small-box-footer">Exibir <i class="fa fa-arrow-circle-right"></i></a>
                             </div>
                           </div>
 
                           <div class="col-lg-4 col-xs-6">
                             <!-- small box -->
-                           	<div class="small-box bg-aqua">
-                  	            <div class="inner">
-                  	              <h3>X</h3>
-                  	              <br>
-                  	              <strong><p>Retirada(s) de equipamento em andamento</p></strong>
-                  	            </div>
-                  	            <div class="icon">
-                  	              <i class="glyphicon glyphicon-check"></i>
-                  	            </div>
-                  	            <a href="#" class="small-box-footer">Exibir Retirada(s) <i class="fa fa-arrow-circle-right"></i></a>
-                            	</div>
+                            <div class="small-box bg-green">
+                              <div class="inner">
+                                <h3>Painel Contratos</h3>
+                                <br>
+                                <strong><p>contrato(s) cadastrado(s)<br> no sistema</p></strong>
+                              </div>
+                              <div class="icon">
+                                <i class="fa fa-file"></i>
+
+                              <a href="{{ url('contratos') }}" class="small-box-footer">Exibir contrato(s) <i class="fa fa-arrow-circle-right"></i></a>
+                              </div>
+                            </div>
                           </div>
 
-                      	<div class="col-lg-4 col-xs-6">
-                            	<!-- small box -->
-                            	<div class="small-box bg-green">
-                              	<div class="inner">
-                                		<h3>X</h3>
-                                		<br>
-                                		<strong><p>Laboratório(s) em uso</p></strong>
-                              	</div>
+                          <div class="col-lg-4 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-green">
+                              <div class="inner">
+                                <h3>Painel Percursos</h3>
+                                <br>
+                                <strong><p>percurso(s) cadastrado(s)<br> no sistema</p></strong>
+                              </div>
+                              <div class="icon">
+                                <i class="fa fa-road"></i>
 
-                              	<div class="icon">
-                                		<i class="glyphicon glyphicon-ok"></i>
-                              	</div>
-                              	<a href="#" class="small-box-footer">Exibir <i class="fa fa-arrow-circle-right"></i></a>
-                            	</div>
-                      	</div>
+                              <a href="{{ url('percursos') }}" class="small-box-footer">Exibir percurso(s) <i class="fa fa-arrow-circle-right"></i></a>
+                              </div>
+                            </div>
+                          </div>
                   	</div>
                 </div>
             </div>

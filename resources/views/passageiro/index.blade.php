@@ -19,7 +19,7 @@
 
               <div class="box box-success">
                 <div class="pull-left">
-                  <h2> <i class="fa fa-users"></i>  @yield('contentheader_title', 'Passageiros')</h2>
+                  <h2> &nbsp <i class="fa fa-users"></i>  @yield('contentheader_title', 'Passageiros Cadastrados')</h2>
                 </div>
                   <div class="box-header with-border">
                     <!--  <h3 class="box-title fa fa-road">Percursos Cadastrados</h3> -->
