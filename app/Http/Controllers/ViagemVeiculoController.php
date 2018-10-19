@@ -8,10 +8,10 @@ class ViagemVeiculoController extends Controller
 {
     public function index(){
         //$testecampus = Campus::where('status','Ativo')->get();
-        $testesolicitacao = Viagem::where('status','Ativo')->get();
+        //$testesolicitacao = Viagem::where('status','Ativo')->get();
         //return view('termo.index', compact('testesolicitacao'));
-        $testeveiculo = Veiculo::where('status','Ativo')->get();
-        return view('termo.index', compact('testeveiculo','testesolicitacao'));
+        //$testeveiculo = Veiculo::where('status','Ativo')->get();
+        //return view('termo.index', compact('testeveiculo','testesolicitacao'));
         //return view('termo.index');
     }
 
@@ -39,8 +39,8 @@ class ViagemVeiculoController extends Controller
               'fk_veiculo' => 'required',
         );
         $attributeNames = array(
-            'fk_solicitacao' => 'Início',
-            'fk_veiculo' => 'Término',
+            'fk_solicitacao' => 'FK Viagem',
+            'fk_veiculo' => 'FK Veiculo',
         );
         $messages = array(
             'same' => 'Essas senhas não coincidem.'

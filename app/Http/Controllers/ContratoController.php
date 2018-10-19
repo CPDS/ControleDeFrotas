@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+use Response;
+use DataTables;
+use DB;
+use Auth;
+use App\Contrato;
 
 class ContratoController extends Controller
 {
