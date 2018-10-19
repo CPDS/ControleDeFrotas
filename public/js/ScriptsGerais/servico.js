@@ -3,17 +3,37 @@ $(document).ready(function($) {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    }); // EDITAR DE ACORDO COM VARIAVEIS DE DIARIO NO BANCO DE DADOS
+    }); // EDITAR DE ACORDO COM VARIAVEIS DE PERCURSO NO BANCO DE DADOS
 
-    var tabela = $('#tabela_diarios').DataTable({
+    var tabela = $('#tabela_servicos').DataTable({
             processing: true,
             serverSide: true,
             deferRender: true,
-            ajax: '/diarios/list',
+            ajax: '/servicos/list',
             columns: [
             { data: null, name: 'order' },
-            { data: 'nome_diario', name: 'nome_diario' },
-            { data: 'ocorrencias', name: 'ocorrencias' }
+            { data: 'valor_derivados', name: 'valor_derivados' },
+            { data: 'valor_pecas', name: 'valor_pecas' },
+            { data: 'valor_servico', name: 'valor_servico' },
+            { data: 'valor_smv', name: 'valor_smv' },
+            { data: 'numero_ordem_servico', name: 'numero_ordem_servico' },
+            { data: 'data_servico', name: 'data_servico' },
+            { data: 'km_entrada_oficina', name: 'km_entrada_oficina' },
+            { data: 'tipo_servico_manutencao', name: 'tipo_servico_manutencao' },
+            { data: 'numero_smv', name: 'numero_smv' },
+            { data: 'numero_lupus', name: 'numero_lupus' },
+            { data: 'numero_sei', name: 'numero_sei' },
+            { data: 'numero_empenho', name: 'numero_empenho' },
+            { data: 'data_envio_pedido_empenho', name: 'data_envio_pedido_empenho' },
+            { data: 'numero_nf', name: 'numero_nf' }, // nota fiscal
+            { data: 'data_pg_nob', name: 'data_pg_nob' },
+            { data: 'numero_nob', name: 'numero_nob' },
+            { data: 'valor_emprenho', name: 'valor_emprenho' },
+            { data: 'valor_pago', name: 'valor_pago' },
+            { data: 'descricao_geral_servico', name: 'descricao_geral_servico' },
+            { data: 'fk_veiculo', name: 'fk_veiculo' },
+            { data: 'fk_contrato', name: 'fk_contrato' },
+            { data: 'fk_motorista', name: 'fk_motorista' }
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -58,8 +78,27 @@ $(document).ready(function($) {
             columnDefs : [
               { targets : [2], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
-              { "width": "15%", "targets": 1 }//nome
-
+              { "width": "15%", "targets": 1 },//nome
+              { "width": "15%", "targets": 2 },//matricula
+              { "width": "15%", "targets": 3 },//status
+              { "width": "15%", "targets": 4 },
+              { "width": "15%", "targets": 5 },
+              { "width": "15%", "targets": 6 },
+              { "width": "15%", "targets": 7 },
+              { "width": "15%", "targets": 8 },
+              { "width": "15%", "targets": 9 },
+              { "width": "15%", "targets": 10 },
+              { "width": "15%", "targets": 11 },
+              { "width": "15%", "targets": 12 },
+              { "width": "15%", "targets": 13 },
+              { "width": "15%", "targets": 14 },
+              { "width": "15%", "targets": 15 },
+              { "width": "15%", "targets": 16 },
+              { "width": "15%", "targets": 17 },
+              { "width": "15%", "targets": 18 },
+              { "width": "15%", "targets": 19 },
+              { "width": "15%", "targets": 20 },
+              { "width": "15%", "targets": 21 }
             ]
     });
 
@@ -71,8 +110,8 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#nome_diario-visualizar').text($(this).data('Nome do Diário')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#ocorrencias-visualizar').text($(this).data('Ocorrências'));
+        $('#hora_saivda-visualizar').text($(this).data('Hora de Saída')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+
         jQuery('#visualizar-modal').modal('show');
     });
 
@@ -90,7 +129,7 @@ $(document).ready(function($) {
 
         $('.modal-footer .btn-action').removeClass('add');
         $('.modal-footer .btn-action').addClass('edit');
-        $('.modal-title').text('Editar Cadastro de Diário');
+        $('.modal-title').text('Editar Cadastro de Serviço');
         $('.callout').addClass("hidden"); //ocultar a div de aviso
         $('.callout').find("p").text(""); //limpar a div de aviso
 
@@ -122,17 +161,17 @@ $(document).ready(function($) {
 
     //Excluir
     $(document).on('click', '.btnDeletar', function() {
-        $('.modal-title').text('Excluir Diário');
+        $('.modal-title').text('Excluir Serviço');
         $('.id_del').val($(this).data('id'));
         jQuery('#excluir-modal').modal('show'); //Abrir o modal
     });
 
     //Adicionar
-    $(document).on('click', '.btnAdicionarDiarios', function() {
+    $(document).on('click', '.btnAdicionarServicos', function() {
         $('.modal-footer .btn-action').removeClass('edit');
         $('.modal-footer .btn-action').addClass('add');
 
-        $('.modal-title').text('Novo Cadastro de Diário');
+        $('.modal-title').text('Novo Cadastro de Servico');
         $('.callout').addClass("hidden");
         $('.callout').find("p").text("");
 
@@ -149,7 +188,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./diarios/store",
+            url: "./servicos/store",
             data: dados,
             processData: false,
             contentType: false,
@@ -172,14 +211,14 @@ $(document).ready(function($) {
 
                 } else {
 
-                    $('#tabela_diarios').DataTable().draw(false);
+                    $('#tabela_servicos').DataTable().draw(false);
 
                     jQuery('#criar_editar-modal').modal('hide');
 
                     $(function() {
                         iziToast.success({
                             title: 'OK',
-                            message: 'Diário Adicionado com Sucesso!',
+                            message: 'Serviço Adicionado com Sucesso!',
                         });
                     });
 
@@ -205,7 +244,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./diarios/update",
+            url: "./servicos/update",
             data: dados,
             processData: false,
             contentType: false,
@@ -228,14 +267,14 @@ $(document).ready(function($) {
 
                 } else {
 
-                   $('#tabela_diarios').DataTable().draw(false);
+                   $('#tabela_servicos').DataTable().draw(false);
 
                     jQuery('#criar_editar-modal').modal('hide');
 
                     $(function() {
                         iziToast.success({
                             title: 'OK',
-                            message: 'Diário Atualizado com Sucesso!',
+                            message: 'Serviço Atualizado com Sucesso!',
                         });
                     });
 
@@ -269,7 +308,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: './diarios/delete',
+            url: './servicos/delete',
             data: {
                 'id': $("#del").val(),
             },
@@ -280,14 +319,14 @@ $(document).ready(function($) {
                 jQuery('.del').button('reset');
             },
             success: function(data) {
-                $('#tabela_diarios').DataTable().row('#item-' + data.id).remove().draw(); //remove a linha e ordena
+                $('#tabela_servicos').DataTable().row('#item-' + data.id).remove().draw(); //remove a linha e ordena
                 jQuery('#excluir-modal').modal('hide'); //fechar o modal
 
                 $(function() {
 
                     iziToast.success({
                         title: 'OK',
-                        message: 'Diário Excluído com Sucesso!',
+                        message: 'Serviço Excluído com Sucesso!',
                     });
                 });
             },

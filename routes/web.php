@@ -111,6 +111,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/delete', ['as' => 'diarios.delete', 'uses' => 'DiarioController@destroy']); // para deletar
 
     });
+
+    Route::group(['prefix'=>'servicos','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
+    Route::get('',['as'=>'servicos.index', 'uses'=>'ServicoController@index']);
+    Route::get('/list',['as' => 'servicos.list', 'uses' => 'ServicoController@list']);
+    Route::post('/create', ['as' => 'servicos.store', 'uses' => 'ServicoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/update', ['as' => 'servicos.update', 'uses' => 'ServicoController@update']); // uso para atualizações
+    Route::post('/delete', ['as' => 'servicos.delete', 'uses' => 'ServicoController@destroy']); // para deletar
+
+    });
 });
 
 Auth::routes();

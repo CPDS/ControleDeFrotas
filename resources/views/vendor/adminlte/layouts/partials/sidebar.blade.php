@@ -44,6 +44,7 @@
                      <li><a href="{{ url('viagems') }}">{{ trans('Viagems Solicitadas') }}</a></li>
                     <li><a class="btnAdicionarViagems">{{ trans('Solicitação de Viagem') }}</a></li>
                     <li><a href="{{ url('percursos') }}" class="btnAdicionarPercursos">{{ trans('Percursos') }}</a></li>
+                    <li><a href="{{ url('diarios') }}" class="btnAdicionarDiarios">{{ trans('Diários de Bordo') }}</a></li>
                 </ul>
 
             </li>
