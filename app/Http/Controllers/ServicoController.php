@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Veiculo;
+use App\Contrato;
+use App\User;
 
 class ServicoController extends Controller
 {

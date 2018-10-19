@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Diario;
 class DiarioController extends Controller
 {
     public function index(){
@@ -20,8 +20,8 @@ class DiarioController extends Controller
     }
 
     private function setBtns(Diario $diarios){
-        $dados = "data-id='$diarios->id' data-ocorrencias='$diarios->ocorrencias'";
-        $dadosVisualizar = "data-ocorrencias='$diarios->ocorrencias'";
+        $dados = "data-id='$diarios->id' data-ocorrencias='$diarios->ocorrencias' data-nome_diario='$diarios->nome_diario'";
+        $dadosVisualizar = "data-ocorrencias='$diarios->ocorrencias' data-nome_diario='$diarios->nome_diario'";
         $btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Diario' $dados ><i class='fa fa-eye'></i></a> ";
         $btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Diario' $dados><i class ='fa fa-pencil'></i></a> ";
         $btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Diario' data-id='$diarios->id'><i class='fa fa-trash'></i></a>";
@@ -31,6 +31,7 @@ class DiarioController extends Controller
 
     public function store(Request $request) {
         $rules = array(
+              'nome_diario' => 'required',
               'ocorrencias' => 'required',
         );
         $attributeNames = array(
@@ -45,6 +46,7 @@ class DiarioController extends Controller
                 return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         }else {
             $Diario = new Diario();
+            $Diario->nome_diario = $request->nome_diario;
             $Diario->ocorrencias = $request->ocorrencias;
             $Diario->status = "Ativo";
             $Diario->save();
@@ -66,6 +68,7 @@ class DiarioController extends Controller
         else {
 
             $Diario = Diario::find($request->id);
+            $Diario->nome_diario = $request->nome_diario;
             $Diario->ocorrencias = $request->ocorrencias;
             $Diario->save();
             //$equipamento->setAttribute('buttons', $this->setDataButtons($equipamento));
