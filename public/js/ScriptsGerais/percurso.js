@@ -82,7 +82,7 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#hora_saivda-visualizar').text($(this).data('Hora de Saída')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#hora_saida-visualizar').text($(this).data('Hora de Saída')); // # pego no visualizar.blade.php e data pego no Controller(botao)
         $('#local_saida-visualizar').text($(this).data('Local de Saída'));
         $('#km_saida-visualizar').text($(this).data('KM de Saída'));
         $('#roteiro-visualizar').text($(this).data('Roteiro'));
