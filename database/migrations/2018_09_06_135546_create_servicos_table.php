@@ -31,7 +31,7 @@ class CreateServicosTable extends Migration
             $table->string('numero_nf');
             $table->timestamp('data_pg_nob');
             $table->string('numero_nob');
-            $table->decimal('valor_emprenho',8,2);
+            $table->decimal('valor_empenho',8,2);
             $table->decimal('valor_pago',8,2);
             $table->text('descricao_geral_servico');
             $table->string('status');
