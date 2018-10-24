@@ -22,6 +22,7 @@ class ViagemController extends Controller
         $estados = Estado::select('nome','id')->get();
         $tipo_servico = TipoServico::select('nome_servico','id')->get();
         $veiculos = Veiculo::select('nome_veiculo','id')->get();
+        $motoristas = User::select('nome_veiculo','id')->where('status','Ativo')->get();
         return view('viagem.index',compact('estados','tipo_servico','veiculos'));
     }
 
@@ -126,6 +127,24 @@ class ViagemController extends Controller
         if ($validator->fails()){
                 return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         }else {
+            /*conversoes data e hora
+             //data e hora de  saida
+             $data_saida = $request->data_saida.' '.$request->datahora_saida.':00';
+             //Data de reserva convertida
+             $data_saida_str = date('Y-m-d H:i:s',strtotime($data_saida));
+
+             //Data e hora de  Entrega
+             $data_entrega = $request->data_final.' '.$request->hora_final.':00';
+             //Data da entrega convertida
+             $data_entrega_str = date('Y-m-d H:i:s',strtotime($data_retirada));
+             //data da reserva menos uma semana
+             $data_reserva_7dias = date('Y-m-d H:i:s',strtotime($data_retirada.'- 1 week'));
+             if($data_retirada_str < $data_reserva_7dias)
+                 return Response::json(array('errors' => ['A data do agendamento deve ter antecedência superior a 7 dias']));
+             if($data_entrega_str < $data_retirada_str)
+                 return Response::json(array('errors' => ['A data do agendamento deve superior a data de retirada do ambiente']));
+            */
+
           //dd($request->all());
             $data_hora_saida = $request->data_saida.' '.$request->datahora_saida.':00';
             $data_hora_chegada = $request->data_chegada.' '.$request->datahora_chegada.':00';

@@ -32,6 +32,8 @@ class CreateViagemsTable extends Migration
             $table->string('descricao_bagagem');
             $table->string('codigo_acp_rv');
             $table->string('situacao');
+            $table->integer('fk_motorista')->unsigned();
+            $table->foreign('fk_motorista')->references('id')->on('users');
             $table->integer('fk_veiculo')->unsigned();
             $table->foreign('fk_veiculo')->references('id')->on('veiculos');
             $table->integer('fk_cidade_saida')->unsigned();
