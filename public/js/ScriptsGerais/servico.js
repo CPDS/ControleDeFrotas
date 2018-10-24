@@ -110,8 +110,25 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#hora_saivda-visualizar').text($(this).data('Hora de Saída')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-
+        $('#fk_veiculo-visualizar').text($(this).data('Veículo')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#fk_contrato-visualizar').text($(this).data('Contrato'));
+        $('#fk_motorista-visualizar').text($(this).data('Motorista'));
+        $('#valor_derivados-visualizar').text($(this).data('Valor dos Derivados'));
+        $('#valor_smv-visualizar').text($(this).data('Valor dos SMV'));
+        $('#numero_ordem_servico-visualizar').text($(this).data('Nº Ordem de Serviço'));
+        $('#data_servico-visualizar').text($(this).data('Data do Serviço'));
+        $('#km_entrada_oficina-visualizar').text($(this).data('KM Entrada Oficina'));
+        $('#numero_smv-visualizar').text($(this).data('Número SMV'));
+        $('#numero_lupus-visualizar').text($(this).data('Número Lupus'));
+        $('#numero_sei-visualizar').text($(this).data('Número SEI'));
+        $('#numero_empenho-visualizar').text($(this).data('Número Empenho'));
+        $('#data_envio_pedido_empenho-visualizar').text($(this).data('Data Envio Pedido Empenho'));
+        $('#numero_nf-visualizar').text($(this).data('Número Nota Fiscal'));
+        $('#data_pg_nob-visualizar').text($(this).data('Data PG NOB'));
+        $('#numero_nob-visualizar').text($(this).data('Número NOB'));
+        $('#valor_empenho-visualizar').text($(this).data('Valor Empenho'));
+        $('#valor_pago-visualizar').text($(this).data('Valor Pago'));
+        $('#descricao_geral_servico-visualizar').text($(this).data('Descrição Geral do Serviço'));
         jQuery('#visualizar-modal').modal('show');
     });
 

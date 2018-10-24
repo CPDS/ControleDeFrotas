@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use App\Veiculo;
 use App\Contrato;
 use App\User;
+use App\Servico;
+use Validator;
+use Response;
+use DataTables;
+use DB;
+use Auth;
 
 class ServicoController extends Controller
 {
