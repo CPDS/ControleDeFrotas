@@ -23,7 +23,7 @@ class ViagemController extends Controller
         $estados = Estado::select('nome','id')->get();
         $tipo_servico = TipoServico::select('nome_servico','id')->get();
         $veiculos = Veiculo::select('nome_veiculo','id')->get();
-        $motoristas = User::select('nome_veiculo','id')->where('status','Ativo')->get();
+        //$motoristas = User::select('nome_veiculo','id')->where('status','Ativo')->get();
         return view('viagem.index',compact('estados','tipo_servico','veiculos'));
     }
 
