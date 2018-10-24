@@ -15,6 +15,7 @@ use App\Estado;
 use App\Cidade;
 use App\Veiculo;
 use App\TipoServico;
+use App\User;
 
 class ViagemController extends Controller
 {
