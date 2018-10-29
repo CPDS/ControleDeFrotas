@@ -120,6 +120,25 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/delete', ['as' => 'servicos.delete', 'uses' => 'ServicoController@destroy']); // para deletar
 
     });
+
+    Route::group(['prefix'=>'horas','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
+    Route::get('',['as'=>'horas.index', 'uses'=>'BancoHorasController@index']);
+    Route::get('/list',['as' => 'banco_horas.list', 'uses' => 'BancoHorasController@list']);
+    Route::post('/create', ['as' => 'banco_horas.store', 'uses' => 'BancoHorasController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/update', ['as' => 'banco_horas.update', 'uses' => 'BancoHorasController@update']); // uso para atualizações
+    Route::post('/delete', ['as' => 'banco_horas.delete', 'uses' => 'BancoHorasController@destroy']); // para deletar
+
+    });
+
+    Route::group(['prefix'=>'setor','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
+    Route::get('',['as'=>'setor.index', 'uses'=>'SetorController@index']);
+    Route::get('/list',['as' => 'setor.list', 'uses' => 'SetorController@list']);
+    Route::post('/create', ['as' => 'setor.store', 'uses' => 'SetorController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/update', ['as' => 'setor.update', 'uses' => 'SetorController@update']); // uso para atualizações
+    Route::post('/delete', ['as' => 'setor.delete', 'uses' => 'SetorController@destroy']); // para deletar
+
+    });
+
 });
 
 Auth::routes();

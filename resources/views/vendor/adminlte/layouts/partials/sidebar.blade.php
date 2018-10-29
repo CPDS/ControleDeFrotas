@@ -60,7 +60,17 @@
                 </ul>
 
             </li>
-          <!--  <li class="active"><a href="{{ url('veiculos') }}"><i class='fa fa-car'></i> <span>{{ trans('Veículos') }}</span></a></li> -->
+            <!--Gerenciar demais opções -->
+            <li class="treeview"> <!-- cria o menuzinho que abre para cadastrar a viagem -->
+               <a href="{{ url('Gerenciar') }}"><i class='fa fa-globe'></i> <span>{{ trans('Gerenciar') }}</span> <i class="fa fa-wrench pull-right"></i></a>
+                <ul class="treeview-menu">
+                     <li><a href="{{ url('horas') }}">{{ trans('Banco de Horas') }}</a></li>
+                    <li><a href="{{ url('setor') }}">{{ trans('Setores') }}</a></li>
+                    <li><a href="{{ url('percursos') }}" class="btnAdicionarPercursos">{{ trans('Percursos') }}</a></li>
+                    <li><a href="{{ url('diarios') }}" class="btnAdicionarDiarios">{{ trans('Diários de Bordo') }}</a></li>
+                </ul>
+
+            </li>
             <li class="active"><a href="{{ url('contato') }}"><i class='fa fa-phone'></i> <span>{{ trans('Contato') }}</span></a></li>
         </ul><!-- /.sidebar-menu -->
       <!--  <ul class="sidebar-menu">

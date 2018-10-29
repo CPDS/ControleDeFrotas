@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::layouts.app')
 
 @section('content')
 <div class="container">
@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <!-- Editar o HOME do PROJETO TELA PRINCIPAL-->
+                    <!--  HOME do PROJETO TELA PRINCIPAL-->
                     <div class="row">
                     	<br><br>
                     </div>

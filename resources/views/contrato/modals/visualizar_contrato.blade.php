@@ -76,7 +76,7 @@
     </div>
 
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary" data-dismiss="modal" id="id_passageiro">Fechar</button>
+      <button type="button" class="btn btn-primary" data-dismiss="modal" id="tabela_contratos">Fechar</button>
     </div>
 
   </div> <!-- Fim de ModaL Content -->

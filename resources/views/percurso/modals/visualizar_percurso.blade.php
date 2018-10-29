@@ -26,7 +26,7 @@
 
           <div class="form-group">
               <strong>Hora de Saída:</strong>
-              <span id="hora_saivda-visualizar"></span>
+              <span id="hora_saida-visualizar"></span>
           </div>
 
           <div class="form-group">
@@ -71,7 +71,7 @@
     </div>
 
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary" data-dismiss="modal" id="id_tipo_equipamento">Fechar</button>
+      <button type="button" class="btn btn-primary" data-dismiss="modal" id="tabela_percursos">Fechar</button>
     </div>
 
   </div> <!-- Fim de ModaL Content -->

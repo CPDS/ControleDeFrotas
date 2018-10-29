@@ -17,6 +17,14 @@
         <form id="form" role="form" method="post">
           <div class="row" style="width: 100%">
 
+            <div class="form-group col-md-12">
+              <strong>Consultar:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-file"></i></span>
+                <input maxlength="150" id="numero_rv" class="form-control" name="numero_rv" type="text">
+              </div>
+            </div>
+
              <div class="form-group col-md-12">
                <strong>Nº RV:</strong>
                <div class="input-group">
@@ -50,21 +58,6 @@
              </div>
              </div>
 
-          <!--   <div class="form-group col-md-6">
-               <strong>Data de Chegada:</strong>
-               <div class="input-group">
-               <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-               <input id="data_chegada" class="form-control"  name="data_chegada" type="time">
-             </div>
-             </div>
-
-             <div class="form-group col-md-6">
-               <strong>Data de Saída:</strong>
-               <div class="input-group">
-               <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-               <input id="data_saida" class="form-control"  name="data_saida" type="time">
-             </div>
-           </div> -->
            <div class="form-group col-md-6">
              <strong>Data de Saída:</strong>
              <div class="input-group">

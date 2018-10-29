@@ -11,8 +11,8 @@
       <span aria-hidden="true">&times;</span>
       </button>
 
-      <h4>
-        <strong><span id="nome_usuario-visualizar"></span></strong>
+      <h4> <!-- EDITAR CONFORME setor !!!!!!!!!! -->
+        <strong><span >Informações do Veículo</span></strong>
       </h4>
 
     </div>
@@ -23,14 +23,15 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
 
+
           <div class="form-group">
-              <strong>Email:</strong>
-              <span id="email-visualizar"></span>
+              <strong>Nome do Setor:</strong>
+              <span id="nome_setor-visualizar"></span>
           </div>
 
           <div class="form-group">
-              <strong>Função:</strong>
-              <span id="funcao-visualizar"></span>
+              <strong>Nome do Campus:</strong>
+              <span id="fk_campus-visualizar"></span>
           </div>
 
 
@@ -41,10 +42,11 @@
     </div>
 
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary" data-dismiss="modal" id="table">Fechar</button>
+      <button type="button" class="btn btn-primary" data-dismiss="modal" id="tabela_setor">Fechar</button>
     </div>
 
   </div> <!-- Fim de ModaL Content -->
 
   </div> <!-- Fim de ModaL Dialog -->
-</div> <!-- Fim de ModaL  -->
+
+</div> <!-- Fim de ModaL Visualizar Usuario-->

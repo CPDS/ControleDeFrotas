@@ -41,7 +41,7 @@
     </div>
 
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary" data-dismiss="modal" id="id_tipo_equipamento">Fechar</button>
+      <button type="button" class="btn btn-primary" data-dismiss="modal" id="tabela_diarios">Fechar</button>
     </div>
 
   </div> <!-- Fim de ModaL Content -->

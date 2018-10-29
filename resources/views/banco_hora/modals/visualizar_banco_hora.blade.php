@@ -12,7 +12,7 @@
       </button>
 
       <h4>
-        <strong><span id="nome_usuario-visualizar"></span></strong>
+        <strong><span >Informações da Viagem</span></strong>
       </h4>
 
     </div>
@@ -23,14 +23,25 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
 
+
           <div class="form-group">
-              <strong>Email:</strong>
-              <span id="email-visualizar"></span>
+              <strong>Hora de Ínicio:</strong>
+              <span id="hora_inicio-visualizar"></span>
           </div>
 
           <div class="form-group">
-              <strong>Função:</strong>
-              <span id="funcao-visualizar"></span>
+              <strong>Hora de Término:</strong>
+              <span id="hora_termino-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Hora de Intervalo:</strong>
+              <span id="hora_intervalo-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Motorista:</strong>
+              <span id="fk_motorista-visualizar"></span>
           </div>
 
 
@@ -41,10 +52,11 @@
     </div>
 
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary" data-dismiss="modal" id="table">Fechar</button>
+      <button type="button" class="btn btn-primary" data-dismiss="modal" id="tabela_banco_horas">Fechar</button>
     </div>
 
   </div> <!-- Fim de ModaL Content -->
 
   </div> <!-- Fim de ModaL Dialog -->
-</div> <!-- Fim de ModaL  -->
+
+</div> <!-- Fim de ModaL Visualizar Usuario-->
