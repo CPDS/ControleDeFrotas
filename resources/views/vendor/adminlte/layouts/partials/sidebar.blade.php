@@ -66,7 +66,7 @@
                 <ul class="treeview-menu">
                      <li><a href="{{ url('horas') }}">{{ trans('Banco de Horas') }}</a></li>
                     <li><a href="{{ url('setor') }}">{{ trans('Setores') }}</a></li>
-                    <li><a href="{{ url('percursos') }}" class="btnAdicionarPercursos">{{ trans('Percursos') }}</a></li>
+                    <li><a href="{{ url('tiposervico') }}">{{ trans('Tipo de Serviços') }}</a></li>
                     <li><a href="{{ url('diarios') }}" class="btnAdicionarDiarios">{{ trans('Diários de Bordo') }}</a></li>
                 </ul>
 

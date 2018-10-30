@@ -86,7 +86,7 @@
 	            <div class="inner">
 	              <h3>Painel Contratos</h3>
 
-	              <strong><p>contrato(s) cadastrado(s)<br> no sistema</p></strong>
+	              <strong><p>Contrato(s) cadastrado(s)<br> no sistema</p></strong>
 	            </div>
 	            <div class="icon">
 	              <i class="fa fa-file"></i>
@@ -101,7 +101,7 @@
             	<div class="inner">
               		<h3>Painel Percursos</h3>
 
-              		<strong><p>percurso(s) cadastrado(s)<br> no sistema</p></strong>
+              		<strong><p>Percurso(s) cadastrado(s)<br> no sistema</p></strong>
             	</div>
 
             	<div class="icon">

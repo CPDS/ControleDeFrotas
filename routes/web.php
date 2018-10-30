@@ -139,6 +139,15 @@ Route::group(['middleware' => 'auth'], function () {
 
     });
 
+    Route::group(['prefix'=>'tiposervico','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
+    Route::get('',['as'=>'tiposervico.index', 'uses'=>'TipoServicoController@index']);
+    Route::get('/list',['as' => 'tiposervico.list', 'uses' => 'TipoServicoController@list']);
+    Route::post('/create', ['as' => 'tiposervico.store', 'uses' => 'TipoServicoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/update', ['as' => 'tiposervico.update', 'uses' => 'TipoServicoController@update']); // uso para atualizações
+    Route::post('/delete', ['as' => 'tiposervico.delete', 'uses' => 'TipoServicoController@destroy']); // para deletar
+
+    });
+
 });
 
 Auth::routes();
