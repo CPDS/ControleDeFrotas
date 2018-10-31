@@ -200,17 +200,13 @@
              </div>
 
              <div class="form-group col-md-6">
-              <strong>Autorização:</strong>
-              <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-check-square"></i></span>
-                 <select name="setor_autoriza_viagem" id="setor_autoriza_viagem" class="form-control">
-                   <option value='' selected disabled>Selecione ...</option>
-                   <option value="Setor X">Setor X</option>
-                   <option value="Setor Y">Setor Y</option>
-                   <option value="Setor Z">Setor Z</option>
-                 </select> <!-- Tem que selecionar da tabela com as cidades -->
+               <strong>Autorização:</strong>
+               <div class="input-group">
+                 <span class="input-group-addon"><i class="fa fa-check-square"></i></span>
+                 <input id="setor_autoriza_viagem" maxlength="254" class="form-control" name="setor_autoriza_viagem" type="text">
                </div>
              </div>
+
 
              <div class="form-group col-md-6">
                <strong>Nº Passageiros:</strong>
@@ -221,17 +217,13 @@
              </div>
 
              <div class="form-group col-md-6">
-              <strong>Tipo de Solicitação:</strong>
-              <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-sticky-note-o"></i></span>
-                 <select name="tipo_solicitacao" id="tipo_solicitacao" class="form-control">
-                   <option value='' selected disabled>Selecione ...</option>
-                   <option value="Tipo X">Tipo X</option>
-                   <option value="Tipo Y">Tipo Y</option>
-                   <option value="Tipo Z">Tipo Z</option>
-                 </select> <!-- Tem que selecionar da tabela com as cidades -->
+               <strong>Tipo de Autorização:</strong>
+               <div class="input-group">
+                 <span class="input-group-addon"><i class="fa fa-check-square"></i></span>
+                 <input id="tipo_solicitacao" maxlength="254" class="form-control" name="tipo_solicitacao" type="text">
                </div>
              </div>
+
 
              <div class="form-group col-md-6">
                <strong>Natureza da Viagem:</strong>
