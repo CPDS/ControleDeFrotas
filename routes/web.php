@@ -155,7 +155,25 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/update', ['as' => 'campus.update', 'uses' => 'CampusController@update']); // uso para atualizações
     Route::post('/delete', ['as' => 'campus.delete', 'uses' => 'CampusController@destroy']); // para deletar
     
-        });
+    });
+
+    Route::group(['prefix'=>'termos','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
+    Route::get('',['as'=>'termos.index', 'uses'=>'TermoController@index']);
+    Route::get('/list',['as' => 'termos.list', 'uses' => 'TermoController@list']);
+    Route::post('/create', ['as' => 'termos.store', 'uses' => 'TermoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/update', ['as' => 'termos.update', 'uses' => 'TermoController@update']); // uso para atualizações
+    Route::post('/delete', ['as' => 'termos.delete', 'uses' => 'TermoController@destroy']); // para deletar
+    
+    });
+
+    Route::group(['prefix'=>'custos','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
+    Route::get('',['as'=>'custos.index', 'uses'=>'CustoController@index']);
+    Route::get('/list',['as' => 'custos.list', 'uses' => 'CustoController@list']);
+    Route::post('/create', ['as' => 'custos.store', 'uses' => 'CustoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/update', ['as' => 'custos.update', 'uses' => 'CustoController@update']); // uso para atualizações
+    Route::post('/delete', ['as' => 'custos.delete', 'uses' => 'CustoController@destroy']); // para deletar
+    
+    });
 
 });
 

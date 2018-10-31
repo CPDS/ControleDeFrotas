@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DataTables;
+use App\Diario;
+use App\Combustivel;
 
 class CustoController extends Controller
 {
