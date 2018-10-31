@@ -3,37 +3,17 @@ $(document).ready(function($) {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    }); // EDITAR DE ACORDO COM VARIAVEIS DE PERCURSO NO BANCO DE DADOS
+    }); // EDITAR DE ACORDO COM VARIAVEIS DE campus NO BANCO DE DADOS
 
-    var tabela = $('#tabela_servicos').DataTable({
+    var tabela = $('#tabela_campus').DataTable({
             processing: true,
             serverSide: true,
             deferRender: true,
-            ajax: '/servicos/list',
+            ajax: '/campus/list',
             columns: [
             { data: null, name: 'order' },
-            { data: 'valor_derivados', name: 'valor_derivados' },
-            { data: 'valor_pecas', name: 'valor_pecas' },
-            { data: 'valor_servico', name: 'valor_servico' },
-            { data: 'valor_smv', name: 'valor_smv' },
-            { data: 'numero_ordem_servico', name: 'numero_ordem_servico' },
-            { data: 'data_servico', name: 'data_servico' },
-            { data: 'km_entrada_oficina', name: 'km_entrada_oficina' },
-            { data: 'tipo_servico_manutencao', name: 'tipo_servico_manutencao' },
-            { data: 'numero_smv', name: 'numero_smv' },
-            { data: 'numero_lupus', name: 'numero_lupus' },
-            { data: 'numero_sei', name: 'numero_sei' },
-            { data: 'numero_empenho', name: 'numero_empenho' },
-            { data: 'data_envio_pedido_empenho', name: 'data_envio_pedido_empenho' },
-            { data: 'numero_nf', name: 'numero_nf' }, // nota fiscal
-            { data: 'data_pg_nob', name: 'data_pg_nob' },
-            { data: 'numero_nob', name: 'numero_nob' },
-            { data: 'valor_emprenho', name: 'valor_emprenho' },
-            { data: 'valor_pago', name: 'valor_pago' },
-            { data: 'descricao_geral_servico', name: 'descricao_geral_servico' },
-            { data: 'fk_veiculo', name: 'fk_veiculo' },
-            { data: 'fk_contrato', name: 'fk_contrato' },
-            { data: 'fk_motorista', name: 'fk_motorista' }
+            { data: 'nome_campus', name: 'nome_campus' },
+            { data: 'status', name: 'status' }
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -78,27 +58,7 @@ $(document).ready(function($) {
             columnDefs : [
               { targets : [2], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
-              { "width": "15%", "targets": 1 },//nome
-              { "width": "15%", "targets": 2 },//matricula
-              { "width": "15%", "targets": 3 },//status
-              { "width": "15%", "targets": 4 },
-              { "width": "15%", "targets": 5 },
-              { "width": "15%", "targets": 6 },
-              { "width": "15%", "targets": 7 },
-              { "width": "15%", "targets": 8 },
-              { "width": "15%", "targets": 9 },
-              { "width": "15%", "targets": 10 },
-              { "width": "15%", "targets": 11 },
-              { "width": "15%", "targets": 12 },
-              { "width": "15%", "targets": 13 },
-              { "width": "15%", "targets": 14 },
-              { "width": "15%", "targets": 15 },
-              { "width": "15%", "targets": 16 },
-              { "width": "15%", "targets": 17 },
-              { "width": "15%", "targets": 18 },
-              { "width": "15%", "targets": 19 },
-              { "width": "15%", "targets": 20 },
-              { "width": "15%", "targets": 21 }
+              { "width": "15%", "targets": 1 }
             ]
     });
 
@@ -110,25 +70,9 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#fk_veiculo-visualizar').text($(this).data('Veículo')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#fk_contrato-visualizar').text($(this).data('Contrato'));
-        $('#fk_motorista-visualizar').text($(this).data('Motorista'));
-        $('#valor_derivados-visualizar').text($(this).data('Valor dos Derivados'));
-        $('#valor_smv-visualizar').text($(this).data('Valor dos SMV'));
-        $('#numero_ordem_servico-visualizar').text($(this).data('Nº Ordem de Serviço'));
-        $('#data_servico-visualizar').text($(this).data('Data do Serviço'));
-        $('#km_entrada_oficina-visualizar').text($(this).data('KM Entrada Oficina'));
-        $('#numero_smv-visualizar').text($(this).data('Número SMV'));
-        $('#numero_lupus-visualizar').text($(this).data('Número Lupus'));
-        $('#numero_sei-visualizar').text($(this).data('Número SEI'));
-        $('#numero_empenho-visualizar').text($(this).data('Número Empenho'));
-        $('#data_envio_pedido_empenho-visualizar').text($(this).data('Data Envio Pedido Empenho'));
-        $('#numero_nf-visualizar').text($(this).data('Número Nota Fiscal'));
-        $('#data_pg_nob-visualizar').text($(this).data('Data PG NOB'));
-        $('#numero_nob-visualizar').text($(this).data('Número NOB'));
-        $('#valor_empenho-visualizar').text($(this).data('Valor Empenho'));
-        $('#valor_pago-visualizar').text($(this).data('Valor Pago'));
-        $('#descricao_geral_servico-visualizar').text($(this).data('Descrição Geral do Serviço'));
+        $('#nome_campus-visualizar').text($(this).data('Nome do Campus'));
+        $('#status-visualizar').text($(this).data('Status')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+
         jQuery('#visualizar-modal').modal('show');
     });
 
@@ -146,7 +90,7 @@ $(document).ready(function($) {
 
         $('.modal-footer .btn-action').removeClass('add');
         $('.modal-footer .btn-action').addClass('edit');
-        $('.modal-title').text('Editar Cadastro de Serviço');
+        $('.modal-title').text('Editar Cadastro de Campus');
         $('.callout').addClass("hidden"); //ocultar a div de aviso
         $('.callout').find("p").text(""); //limpar a div de aviso
 
@@ -178,17 +122,17 @@ $(document).ready(function($) {
 
     //Excluir
     $(document).on('click', '.btnDeletar', function() {
-        $('.modal-title').text('Excluir Serviço');
+        $('.modal-title').text('Excluir Campus');
         $('.id_del').val($(this).data('id'));
         jQuery('#excluir-modal').modal('show'); //Abrir o modal
     });
 
     //Adicionar
-    $(document).on('click', '.btnAdicionarServicos', function() {
+    $(document).on('click', '.btnAdicionarCampus', function() {
         $('.modal-footer .btn-action').removeClass('edit');
         $('.modal-footer .btn-action').addClass('add');
 
-        $('.modal-title').text('Novo Cadastro de Serviço');
+        $('.modal-title').text('Novo Cadastro de Campus');
         $('.callout').addClass("hidden");
         $('.callout').find("p").text("");
 
@@ -205,7 +149,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./servicos/store",
+            url: "./campus/store",
             data: dados,
             processData: false,
             contentType: false,
@@ -228,14 +172,14 @@ $(document).ready(function($) {
 
                 } else {
 
-                    $('#tabela_servicos').DataTable().draw(false);
+                    $('#tabela_campus').DataTable().draw(false);
 
                     jQuery('#criar_editar-modal').modal('hide');
 
                     $(function() {
                         iziToast.success({
                             title: 'OK',
-                            message: 'Serviço Adicionado com Sucesso!',
+                            message: 'Campus Adicionado com Sucesso!',
                         });
                     });
 
@@ -261,7 +205,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./servicos/update",
+            url: "./campus/update",
             data: dados,
             processData: false,
             contentType: false,
@@ -284,14 +228,14 @@ $(document).ready(function($) {
 
                 } else {
 
-                   $('#tabela_servicos').DataTable().draw(false);
+                   $('#tabela_campus').DataTable().draw(false);
 
                     jQuery('#criar_editar-modal').modal('hide');
 
                     $(function() {
                         iziToast.success({
                             title: 'OK',
-                            message: 'Serviço Atualizado com Sucesso!',
+                            message: 'Campus Atualizado com Sucesso!',
                         });
                     });
 
@@ -325,7 +269,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: './servicos/delete',
+            url: './campus/delete',
             data: {
                 'id': $("#del").val(),
             },
@@ -336,14 +280,14 @@ $(document).ready(function($) {
                 jQuery('.del').button('reset');
             },
             success: function(data) {
-                $('#tabela_servicos').DataTable().row('#item-' + data.id).remove().draw(); //remove a linha e ordena
+                $('#tabela_campus').DataTable().row('#item-' + data.id).remove().draw(); //remove a linha e ordena
                 jQuery('#excluir-modal').modal('hide'); //fechar o modal
 
                 $(function() {
 
                     iziToast.success({
                         title: 'OK',
-                        message: 'Serviço Excluído com Sucesso!',
+                        message: 'Campus Excluído com Sucesso!',
                     });
                 });
             },

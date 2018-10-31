@@ -11,8 +11,8 @@
       <span aria-hidden="true">&times;</span>
       </button>
 
-      <h4> <!-- EDITAR CONFORME setor !!!!!!!!!! -->
-        <strong><span >Informações do Setor</span></strong>
+      <h4> <!-- EDITAR CONFORME campus !!!!!!!!!! -->
+        <strong><span >Informações do Campus</span></strong>
       </h4>
 
     </div>
@@ -25,13 +25,13 @@
 
 
           <div class="form-group">
-              <strong>Nome do Setor:</strong>
-              <span id="nome_setor-visualizar"></span>
+              <strong>Nome do Campus:</strong>
+              <span id="nome_campus-visualizar"></span>
           </div>
 
           <div class="form-group">
-              <strong>Nome do Campus:</strong>
-              <span id="fk_campus-visualizar"></span>
+              <strong>Status:</strong>
+              <span id="status-visualizar"></span>
           </div>
 
 
@@ -42,7 +42,7 @@
     </div>
 
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary" data-dismiss="modal" id="tabela_setor">Fechar</button>
+      <button type="button" class="btn btn-primary" data-dismiss="modal" id="tabela_campus">Fechar</button>
     </div>
 
   </div> <!-- Fim de ModaL Content -->
