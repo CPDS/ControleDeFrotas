@@ -17,6 +17,46 @@
         <form id="form" role="form" method="post">
           <div class="row" style="width: 100%">
 
+            <div class="form-group col-md-6">
+              <strong>Data de Saída:</strong>
+              <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
+              <input id="data_saida" class="form-control"  name="data_saida" type="date"> <!-- Campo nào pega hora ainda -->
+            </div>
+            </div>
+
+            <div class="form-group col-md-6">
+              <strong>Data de Chegada:</strong>
+              <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
+              <input id="data_chegada" class="form-control"  name="data_chegada" type="date"> <!-- Campo nào pega hora ainda -->
+            </div>
+            </div>
+
+            <div class="form-group col-md-6 senha">
+              <strong>Motorista:</strong>
+              <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-bus"></i></span>
+              <select name="fk_motorista" id="fk_motorista" class="form-control selectMotorista">
+                @foreach($users as $motorista)
+                  <option value='{{$motorista->id}}'>{{$motorista->name}}</option>
+                @endforeach
+              </select>
+            </div>
+            </div>
+
+            <div class="form-group col-md-6 senha">
+              <strong>Veículo:</strong>
+              <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-bus"></i></span>
+              <select name="fk_veiculo" id="fk_veiculo" class="form-control selectVeiculo">
+                @foreach($veiculos as $veiculo)
+                  <option value='{{$veiculo->id}}'>{{$veiculo->nome_veiculo}}</option>
+                @endforeach
+              </select>
+            </div>
+            </div>
+
             <div class="form-group col-md-12">
               <strong>Consultar:</strong>
               <div class="input-group">
@@ -46,33 +86,6 @@
              </div>
              </div>
 
-             <div class="form-group col-md-6 senha">
-               <strong>Veículo:</strong>
-               <div class="input-group">
-               <span class="input-group-addon"><i class="fa fa-bus"></i></span>
-               <select name="fk_veiculo" id="fk_veiculo" class="form-control selectVeiculo">
-                 @foreach($veiculos as $veiculo)
-                   <option value='{{$veiculo->id}}'>{{$veiculo->nome_veiculo}}</option>
-                 @endforeach
-               </select>
-             </div>
-             </div>
-
-           <div class="form-group col-md-6">
-             <strong>Data de Saída:</strong>
-             <div class="input-group">
-             <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-             <input id="data_saida" class="form-control"  name="data_saida" type="date"> <!-- Campo nào pega hora ainda -->
-           </div>
-           </div>
-
-           <div class="form-group col-md-6">
-             <strong>Data de Chegada:</strong>
-             <div class="input-group">
-             <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-             <input id="data_chegada" class="form-control"  name="data_chegada" type="date"> <!-- Campo nào pega hora ainda -->
-           </div>
-           </div>
 
              <div class="form-group col-md-6">
                <strong>Horário de Saída:</strong>
