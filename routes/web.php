@@ -148,6 +148,15 @@ Route::group(['middleware' => 'auth'], function () {
 
     });
 
+    Route::group(['prefix'=>'campus','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
+    Route::get('',['as'=>'campus.index', 'uses'=>'CampusController@index']);
+    Route::get('/list',['as' => 'campus.list', 'uses' => 'CampusController@list']);
+    Route::post('/create', ['as' => 'campus.store', 'uses' => 'CampusController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/update', ['as' => 'campus.update', 'uses' => 'CampusController@update']); // uso para atualizações
+    Route::post('/delete', ['as' => 'campus.delete', 'uses' => 'CampusController@destroy']); // para deletar
+    
+        });
+
 });
 
 Auth::routes();

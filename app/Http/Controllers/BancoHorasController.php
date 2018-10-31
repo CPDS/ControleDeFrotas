@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class BancoHorasController extends Controller
 {
     public function index(){
         //$testecampus = Campus::where('status','Ativo')->get();
-        $testemotorista = User::where('status','Ativo')->get();
-        return view('horas.index', compact('testemotorista'));
+        $users = User::role('Motorista')->where('status','Ativo')->get();
+        return view('banco_hora.index', compact('users'));
         //return view('termo.index');
     }
 

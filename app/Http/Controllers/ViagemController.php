@@ -16,15 +16,17 @@ use App\Cidade;
 use App\Veiculo;
 use App\TipoServico;
 use App\User;
+use App\ViagemVeiculo;
 
 class ViagemController extends Controller
 {
     public function index(){
         $estados = Estado::select('nome','id')->get();
         $tipo_servico = TipoServico::select('nome_servico','id')->get();
-        $veiculos = Veiculo::select('nome_veiculo','id')->get();
-        //$motoristas = User::select('nome_veiculo','id')->where('status','Ativo')->get();
-        return view('viagem.index',compact('estados','tipo_servico','veiculos'));
+        $veiculos = Veiculo::select('nome_veiculo','id')->where('status','Ativo')->get();
+        $motoristas = User::role('Motorista')->where('status','Ativo')->get();
+        //dd($motoristas);
+        return view('viagem.index',compact('estados','tipo_servico','veiculos','motoristas'));
     }
 
     public function list() {
@@ -173,6 +175,10 @@ class ViagemController extends Controller
             $Viagem->codigo_acp_rv = $request->codigo_acp_rv;
             $viagem->status = 'Ativo';
             $Viagem->save();
+
+            $ViagemVeiculo = new ViagemVeiculo();
+            $ViagemVeiculo->fk_solicitacao = $Viagem->id;
+            $ViagemVeiculo->fk_veiculo = $request->fk_veiculo;
             //$Veiculo->setAttribute('titulo', $Veiculo->titulo);
             //$Veiculo->setAttribute('descricao', $Veiculo->descricao);
             return response()->json($Viagem); // mudar para viagem
