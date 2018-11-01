@@ -3,20 +3,19 @@ $(document).ready(function($) {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    }); // EDITAR DE ACORDO COM VARIAVEIS DE banco_hora NO BANCO DE DADOS
+    });
 
-    var tabela = $('#tabela_banco_horas').DataTable({
+    var tabela = $('#tabela_termo_aditivo').DataTable({
             processing: true,
             serverSide: true,
             deferRender: true,
-            ajax: '/banco_horas/list',
+            ajax: '/termos/list',
             columns: [
             { data: null, name: 'order' },
-            { data: 'hora_inicio', name: 'hora_inicio' },
-            { data: 'hora_termino', name: 'hora_termino' },
-            { data: 'hora_intervalo', name: 'hora_intervalo' },
-            { data: 'fk_motorista', name: 'fk_motorista' },
-            { data: 'acao', name: 'acao' }
+            { data: 'data_inicio', name: 'data_inicio' },
+            { data: 'data_termino', name: 'data_termino' },
+            { data: 'valor', name: 'valor' },
+            { data: 'fk_contrato', name: 'fk_contrato' }
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -59,13 +58,11 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [0,5], sortable : false },
-              { "width": "5%", "targets": 0 }, //order
-              { "width": "15%", "targets": 1 },//horas
-              { "width": "15%", "targets": 2 },//hora termino
-              { "width": "15%", "targets": 3 },// intervalo
-              { "width": "15%", "targets": 4 },// intervalo
-              { "width": "15%", "targets": 5 }// intervalo
+              { targets : [12], sortable : false },
+              { "width": "5%", "targets": 0 }, //nº
+              { "width": "5%", "targets": 1 },//data inicio
+              { "width": "10%", "targets": 2 },// data termino
+              { "width": "10%", "targets": 3 } // contrato
             ]
     });
 
@@ -77,10 +74,10 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#hora_inicio-visualizar').text($(this).data('hora_inicio')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#hora_termino-visualizar').text($(this).data('hora_termino'));
-        $('#hora_intervalo-visualizar').text($(this).data('hora_intervalo'));
-        $('#fk_motorista-visualizar').text($(this).data('fk_motorista'));
+        $('#data_inicio-visualizar').text($(this).data('Data de Ínicio')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#data_termino-visualizar').text($(this).data('Data de Término'));
+        $('#valor-visualizar').text($(this).data('Valor'));
+        $('#fk_contrato-visualizar').text($(this).data('Contrato'));
         jQuery('#visualizar-modal').modal('show');
     });
 
@@ -98,7 +95,7 @@ $(document).ready(function($) {
 
         $('.modal-footer .btn-action').removeClass('add');
         $('.modal-footer .btn-action').addClass('edit');
-        $('.modal-title').text('Editar Cadastro de Horas');
+        $('.modal-title').text('Editar Cadastro de Termo');
         $('.callout').addClass("hidden"); //ocultar a div de aviso
         $('.callout').find("p").text(""); //limpar a div de aviso
 
@@ -130,17 +127,17 @@ $(document).ready(function($) {
 
     //Excluir
     $(document).on('click', '.btnDeletar', function() {
-        $('.modal-title').text('Excluir Horas');
+        $('.modal-title').text('Excluir Veículo');
         $('.id_del').val($(this).data('id'));
         jQuery('#excluir-modal').modal('show'); //Abrir o modal
     });
 
     //Adicionar
-    $(document).on('click', '.btnAdicionarHoras', function() {
+    $(document).on('click', '.btnAdicionarTermos', function() {
         $('.modal-footer .btn-action').removeClass('edit');
         $('.modal-footer .btn-action').addClass('add');
 
-        $('.modal-title').text('Novo Cadastro de Horas');
+        $('.modal-title').text('Novo Cadastro de Termo');
         $('.callout').addClass("hidden");
         $('.callout').find("p").text("");
 
@@ -157,7 +154,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./banco_horas/store",
+            url: "./termos/store",
             data: dados,
             processData: false,
             contentType: false,
@@ -180,14 +177,14 @@ $(document).ready(function($) {
 
                 } else {
 
-                    $('#tabela_banco_horas').DataTable().draw(false);
+                    $('#tabela_termo_aditivo').DataTable().draw(false);
 
                     jQuery('#criar_editar-modal').modal('hide');
 
                     $(function() {
                         iziToast.success({
                             title: 'OK',
-                            message: 'Horas Adicionado com Sucesso!',
+                            message: 'Termo Adicionado com Sucesso!',
                         });
                     });
 
@@ -213,7 +210,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./banco_horas/update",
+            url: "./termos/update",
             data: dados,
             processData: false,
             contentType: false,
@@ -236,14 +233,14 @@ $(document).ready(function($) {
 
                 } else {
 
-                   $('#tabela_banco_horas').DataTable().draw(false);
+                   $('#tabela_termo_aditivo').DataTable().draw(false);
 
                     jQuery('#criar_editar-modal').modal('hide');
 
                     $(function() {
                         iziToast.success({
                             title: 'OK',
-                            message: 'Horas Atualizado com Sucesso!',
+                            message: 'Termo Atualizado com Sucesso!',
                         });
                     });
 
@@ -266,7 +263,7 @@ $(document).ready(function($) {
         $('.callout').addClass("hidden"); //ocultar a div de aviso
         $('.callout').find("p").text(""); //limpar a div de aviso
 
-        $('#retirar_veiculo').text($(this).data('veiculos'));
+        $('#retirar_veiculo').text($(this).data('termo'));
         $('.id_ret').val($(this).data('id'));
         jQuery('#retirar-modal').modal('show'); //Abrir o modal
     }); */
@@ -277,7 +274,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: './banco_horas/delete',
+            url: './termos/delete',
             data: {
                 'id': $("#del").val(),
             },
@@ -288,14 +285,14 @@ $(document).ready(function($) {
                 jQuery('.del').button('reset');
             },
             success: function(data) {
-                $('#tabela_banco_horas').DataTable().row('#item-' + data.id).remove().draw(); //remove a linha e ordena
+                $('#tabela_termo_aditivo').DataTable().row('#item-' + data.id).remove().draw(); //remove a linha e ordena
                 jQuery('#excluir-modal').modal('hide'); //fechar o modal
 
                 $(function() {
 
                     iziToast.success({
                         title: 'OK',
-                        message: 'Horas Excluído com Sucesso!',
+                        message: 'Termo Excluído com Sucesso!',
                     });
                 });
             },
@@ -311,6 +308,7 @@ $(document).ready(function($) {
 
         });
     });
+
 
 
 });

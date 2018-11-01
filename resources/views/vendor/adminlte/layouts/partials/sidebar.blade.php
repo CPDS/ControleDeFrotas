@@ -64,10 +64,11 @@
             <li class="treeview"> <!-- cria o menuzinho que abre para gerenciar demais opções -->
                <a href="{{ url('Gerenciar') }}"><i class='fa fa-globe'></i> <span>{{ trans('Gerenciar') }}</span> <i class="fa fa-wrench pull-right"></i></a>
                 <ul class="treeview-menu">
-                     <li><a href="{{ url('horas') }}">{{ trans('Banco de Horas') }}</a></li>
+                     <li><a href="{{ url('banco_horas') }}">{{ trans('Banco de Horas') }}</a></li>
                     <li><a href="{{ url('setor') }}">{{ trans('Setores') }}</a></li>
                     <li><a href="{{ url('tiposervico') }}">{{ trans('Tipo de Serviços') }}</a></li>
                     <li><a href="{{ url('campus') }}">{{ trans('Campus') }}</a></li>
+                    <li><a href="{{ url('termos') }}">{{ trans('Termo Aditivo') }}</a></li>
                 </ul>
 
             </li>

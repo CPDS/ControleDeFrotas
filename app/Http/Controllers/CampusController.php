@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DataTables;
+use App\Campus;
+
 class CampusController extends Controller
 {
     public function index(){
@@ -13,10 +15,13 @@ class CampusController extends Controller
     public function list() {
         $Campus = Campus::orderBy('created_at', 'desc')->get();
 
-        return Datatables::of($Campus)->editColumn('acao', function ($campus){
+        return Datatables::of($Campus)
+        ->editColumn('acao', function ($campus){
 
         	return $this->setBtns($campus);
-        })->escapeColumns([0])->make(true);
+        })
+        ->escapeColumns([0])
+        ->make(true);
     }
 
     private function setBtns(Campus $campus){

@@ -15,9 +15,9 @@ class CreateBancoHorasTable extends Migration
     {
         Schema::create('banco_horas', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamp('hora_inicio');
-            $table->timestamp('hora_termino');
-            $table->timestamp('hora_intervalo');
+            $table->time('hora_inicio');
+            $table->time('hora_termino');
+            $table->time('hora_intervalo');
             $table->string('status');
             $table->integer('fk_motorista')->unsigned();
             $table->foreign('fk_motorista')->references('id')->on('users');

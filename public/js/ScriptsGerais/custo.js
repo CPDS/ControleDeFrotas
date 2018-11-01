@@ -3,20 +3,23 @@ $(document).ready(function($) {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    }); // EDITAR DE ACORDO COM VARIAVEIS DE banco_hora NO BANCO DE DADOS
+    });
 
-    var tabela = $('#tabela_banco_horas').DataTable({
+    var tabela = $('#tabela_custos').DataTable({
             processing: true,
             serverSide: true,
             deferRender: true,
-            ajax: '/banco_horas/list',
+            ajax: '/custos/list',
             columns: [
             { data: null, name: 'order' },
-            { data: 'hora_inicio', name: 'hora_inicio' },
-            { data: 'hora_termino', name: 'hora_termino' },
-            { data: 'hora_intervalo', name: 'hora_intervalo' },
-            { data: 'fk_motorista', name: 'fk_motorista' },
-            { data: 'acao', name: 'acao' }
+            { data: 'qtd_diaria', name: 'qtd_diaria' },
+            { data: 'valor_diaria', name: 'valor_diaria' },
+            { data: 'custo_total_diaria', name: 'custo_total_diaria' },
+            { data: 'valor_manutencao', name: 'valor_manutencao' },
+            { data: 'custo_total_viagem', name: 'custo_total_viagem' },
+            { data: 'fk_diario_bordo', name: 'fk_diario_bordo' },
+            { data: 'fk_combustivel', name: 'fk_combustivel' }
+
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -59,13 +62,14 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [0,5], sortable : false },
-              { "width": "5%", "targets": 0 }, //order
-              { "width": "15%", "targets": 1 },//horas
-              { "width": "15%", "targets": 2 },//hora termino
-              { "width": "15%", "targets": 3 },// intervalo
-              { "width": "15%", "targets": 4 },// intervalo
-              { "width": "15%", "targets": 5 }// intervalo
+              { targets : [2], sortable : false },
+              { "width": "5%", "targets": 0 }, //nome
+              { "width": "15%", "targets": 1 },//cnpj
+              { "width": "15%", "targets": 2 },//número do contrato
+              { "width": "15%", "targets": 3 },//vencimento do contrato
+              { "width": "15%", "targets": 4 },
+              { "width": "15%", "targets": 5 },
+              { "width": "15%", "targets": 6 }
             ]
     });
 
@@ -77,10 +81,13 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#hora_inicio-visualizar').text($(this).data('hora_inicio')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#hora_termino-visualizar').text($(this).data('hora_termino'));
-        $('#hora_intervalo-visualizar').text($(this).data('hora_intervalo'));
-        $('#fk_motorista-visualizar').text($(this).data('fk_motorista'));
+        $('#qtd_diaria-visualizar').text($(this).data('Quantidade da Diária')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#valor_diaria-visualizar').text($(this).data('Valor da Diária'));
+        $('#custo_total_diaria-visualizar').text($(this).data('Custo Total da Diária'));
+        $('#valor_manutencao-visualizar').text($(this).data('Tipo de Contrato'));
+        $('#custo_total_viagem-visualizar').text($(this).data('Custo Total da Viagem'));
+        $('#fk_diario_bordo-visualizar').text($(this).data('Diário de Bordo'));
+        $('#fk_combustivel-visualizar').text($(this).data('Combustível'));
         jQuery('#visualizar-modal').modal('show');
     });
 
@@ -98,7 +105,7 @@ $(document).ready(function($) {
 
         $('.modal-footer .btn-action').removeClass('add');
         $('.modal-footer .btn-action').addClass('edit');
-        $('.modal-title').text('Editar Cadastro de Horas');
+        $('.modal-title').text('Editar Cadastro de Contrato');
         $('.callout').addClass("hidden"); //ocultar a div de aviso
         $('.callout').find("p").text(""); //limpar a div de aviso
 
@@ -130,17 +137,17 @@ $(document).ready(function($) {
 
     //Excluir
     $(document).on('click', '.btnDeletar', function() {
-        $('.modal-title').text('Excluir Horas');
+        $('.modal-title').text('Excluir Custos');
         $('.id_del').val($(this).data('id'));
         jQuery('#excluir-modal').modal('show'); //Abrir o modal
     });
 
     //Adicionar
-    $(document).on('click', '.btnAdicionarHoras', function() {
+    $(document).on('click', '.btnAdicionarCustos', function() {
         $('.modal-footer .btn-action').removeClass('edit');
         $('.modal-footer .btn-action').addClass('add');
 
-        $('.modal-title').text('Novo Cadastro de Horas');
+        $('.modal-title').text('Novo Cadastro de Custo');
         $('.callout').addClass("hidden");
         $('.callout').find("p").text("");
 
@@ -157,7 +164,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./banco_horas/store",
+            url: "./custos/store",
             data: dados,
             processData: false,
             contentType: false,
@@ -180,14 +187,14 @@ $(document).ready(function($) {
 
                 } else {
 
-                    $('#tabela_banco_horas').DataTable().draw(false);
+                    $('#tabela_custos').DataTable().draw(false);
 
                     jQuery('#criar_editar-modal').modal('hide');
 
                     $(function() {
                         iziToast.success({
                             title: 'OK',
-                            message: 'Horas Adicionado com Sucesso!',
+                            message: 'Custo Adicionado com Sucesso!',
                         });
                     });
 
@@ -213,7 +220,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./banco_horas/update",
+            url: "./custos/update",
             data: dados,
             processData: false,
             contentType: false,
@@ -236,14 +243,14 @@ $(document).ready(function($) {
 
                 } else {
 
-                   $('#tabela_banco_horas').DataTable().draw(false);
+                   $('#tabela_custos').DataTable().draw(false);
 
                     jQuery('#criar_editar-modal').modal('hide');
 
                     $(function() {
                         iziToast.success({
                             title: 'OK',
-                            message: 'Horas Atualizado com Sucesso!',
+                            message: 'Custo Atualizado com Sucesso!',
                         });
                     });
 
@@ -277,7 +284,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: './banco_horas/delete',
+            url: './custos/delete',
             data: {
                 'id': $("#del").val(),
             },
@@ -288,14 +295,14 @@ $(document).ready(function($) {
                 jQuery('.del').button('reset');
             },
             success: function(data) {
-                $('#tabela_banco_horas').DataTable().row('#item-' + data.id).remove().draw(); //remove a linha e ordena
+                $('#tabela_custos').DataTable().row('#item-' + data.id).remove().draw(); //remove a linha e ordena
                 jQuery('#excluir-modal').modal('hide'); //fechar o modal
 
                 $(function() {
 
                     iziToast.success({
                         title: 'OK',
-                        message: 'Horas Excluído com Sucesso!',
+                        message: 'Custo Excluído com Sucesso!',
                     });
                 });
             },
@@ -311,6 +318,7 @@ $(document).ready(function($) {
 
         });
     });
+
 
 
 });

@@ -16,23 +16,40 @@
         <form id="form" role="form" method="post">
           <div class="row" style="width: 100%">
 
-            <div class="form-group col-md-12">
-              <strong>Nome do Setor:</strong>
+            <div class="form-group col-md-6">
+              <strong>Data de Ínicio:</strong>
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-black-tie"></i></span>
-                <input maxlength="250" id="nome_setor" class="form-control" name="nome_setor" type="text">
+                <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                <input maxlength="250" id="data_inicio" class="form-control" name="data_inicio" type="date">
               </div>
             </div>
 
+            <div class="form-group col-md-6">
+              <strong>Data de Término:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                <input id="data_termino" maxlength="250" class="form-control" name="data_termino" type="date">
+              </div>
+            </div>
+
+            <div class="form-group col-md-6">
+              <strong>Valor:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa  fa-genderless"></i></span>
+                <input id="valor" maxlength="250" class="form-control" name="valor" type="text">
+              </div>
+            </div>
 
             <div class="form-group col-md-12 senha">
-              <strong>Nome do Campus:</strong>
-              <select name="fk_campus" id="fk_campus" class="form-control selectCampus">
-                @foreach($campus as $campu)
-                  <option value='{{$campu->id}}'>{{$campu->nome_setor}}</option>
+              <strong>Contrato:</strong>
+              <select name="fk_contrato" id="fk_contrato" class="form-control selectValor">
+                @foreach($valores as $valor)
+                  <option value='{{$valor->id}}'>{{$valor->nome}}</option>
                 @endforeach
               </select>
             </div>
+
+
 
              <input type="hidden" id="id" name="id">
 

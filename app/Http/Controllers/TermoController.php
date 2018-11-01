@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DataTables;
 use App\Contrato;
+use App\Termo;
 
 class TermoController extends Controller
 {
     public function index(){
         //$testecampus = Campus::where('status','Ativo')->get();
         $testecontrato = Contrato::where('status','Ativo')->get();
-        return view('termo.index', compact('testecontrato'));
+        $valores = Termo::where('status', 'Ativo')->get();
+        return view('termo.index', compact('testecontrato', 'valores'));
         //return view('termo.index');
     }
 

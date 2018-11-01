@@ -121,7 +121,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     });
 
-    Route::group(['prefix'=>'horas','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
+    Route::group(['prefix'=>'banco_horas','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
     Route::get('',['as'=>'horas.index', 'uses'=>'BancoHorasController@index']);
     Route::get('/list',['as' => 'banco_horas.list', 'uses' => 'BancoHorasController@list']);
     Route::post('/create', ['as' => 'banco_horas.store', 'uses' => 'BancoHorasController@store']); // relacionada ao create do botão para salvar cadastro de veículo
@@ -154,7 +154,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/create', ['as' => 'campus.store', 'uses' => 'CampusController@store']); // relacionada ao create do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'campus.update', 'uses' => 'CampusController@update']); // uso para atualizações
     Route::post('/delete', ['as' => 'campus.delete', 'uses' => 'CampusController@destroy']); // para deletar
-    
+
     });
 
     Route::group(['prefix'=>'termos','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
@@ -163,7 +163,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/create', ['as' => 'termos.store', 'uses' => 'TermoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'termos.update', 'uses' => 'TermoController@update']); // uso para atualizações
     Route::post('/delete', ['as' => 'termos.delete', 'uses' => 'TermoController@destroy']); // para deletar
-    
+
     });
 
     Route::group(['prefix'=>'custos','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
@@ -172,7 +172,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/create', ['as' => 'custos.store', 'uses' => 'CustoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'custos.update', 'uses' => 'CustoController@update']); // uso para atualizações
     Route::post('/delete', ['as' => 'custos.delete', 'uses' => 'CustoController@destroy']); // para deletar
-    
+
     });
 
 });

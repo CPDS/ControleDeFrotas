@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\{
+  User,
+  BancoHoras
+};
 use DataTables;
+
 class BancoHorasController extends Controller
 {
     public function index(){
@@ -15,17 +19,27 @@ class BancoHorasController extends Controller
     }
 
     public function list() {
-        $Horas = Horas::orderBy('created_at', 'desc')->get();
+        $Horas = BancoHoras::orderBy('created_at', 'desc')->get();
 
-        return Datatables::of($Horas)->editColumn('acao', function ($horass){
+        return Datatables::of($Horas)
+        ->editColumn('acao', function ($horass){
             return $this->setBtns($horass);
-        })->escapeColumns([0])->make(true);
+        })
+        ->editColumn('fk_motorista', function ($horass){
+              return $horass->motorista->name;
+        })
+        ->escapeColumns([0])
+        ->make(true);
     }
 
-    private function setBtns(Horas $horass){
+    private function setBtns(BancoHoras $horass){
+        //dd($horass);
+        $motorista_nome = $horass->motorista->name;
+        
         $dados = "data-id='$horass->id' data-hora_inicio='$horass->hora_inicio' data-hora_termino='$horass->hora_termino' data-hora_intervalo='$horass->hora_intervalo'";
-        $dadosVisualizar = "data-hora_inicio='$horass->hora_inicio' data-hora_termino='$horass->hora_termino' data-hora_intervalo='$horass->hora_intervalo'";
-        $btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Horas' $dados ><i class='fa fa-eye'></i></a> ";
+        $dadosVisualizar = "data-hora_inicio='$horass->hora_inicio' data-hora_termino='$horass->hora_termino' data-hora_intervalo='$horass->hora_intervalo'
+        data-fk_motorista='$motorista_nome ' ";
+        $btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Horas' $dadosVisualizar ><i class='fa fa-eye'></i></a> ";
         $btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Horas' $dados><i class ='fa fa-pencil'></i></a> ";
         $btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Horas' data-id='$horass->id'><i class='fa fa-trash'></i></a>";
 

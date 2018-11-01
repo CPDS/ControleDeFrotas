@@ -11,8 +11,8 @@
       <span aria-hidden="true">&times;</span>
       </button>
 
-      <h4>
-        <strong><span >Informações do Banco de Horas</span></strong>
+      <h4> <!-- EDITAR CONFORME termo aditivo !!!!!!!!!! -->
+        <strong><span >Informações do Termo</span></strong>
       </h4>
 
     </div>
@@ -25,23 +25,23 @@
 
 
           <div class="form-group">
-              <strong>Hora de Ínicio:</strong>
-              <span id="hora_inicio-visualizar"></span>
+              <strong>Data de Ínicio:</strong>
+              <span id="data_inicio-visualizar"></span>
           </div>
 
           <div class="form-group">
-              <strong>Hora de Término:</strong>
-              <span id="hora_termino-visualizar"></span>
+              <strong>Data de Término:</strong>
+              <span id="data_termino-visualizar"></span>
           </div>
 
           <div class="form-group">
-              <strong>Hora de Intervalo:</strong>
-              <span id="hora_intervalo-visualizar"></span>
+              <strong>Valor:</strong>
+              <span id="valor-visualizar"></span>
           </div>
 
           <div class="form-group">
-              <strong>Motorista:</strong>
-              <span id="fk_motorista-visualizar"></span>
+              <strong>Contrato:</strong>
+              <span id="fk_contrato-visualizar"></span>
           </div>
 
 
@@ -52,7 +52,7 @@
     </div>
 
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary" data-dismiss="modal" id="tabela_banco_horas">Fechar</button>
+      <button type="button" class="btn btn-primary" data-dismiss="modal" id="tabela_termo_aditivo">Fechar</button>
     </div>
 
   </div> <!-- Fim de ModaL Content -->

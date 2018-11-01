@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DataTables;
+use App\{
+  Setor,
+  Campus
 
+};
 class SetorController extends Controller
 {
     public function index(){
         //$testecampus = Campus::where('status','Ativo')->get();
-        $testecampus = Campus::where('status','Ativo')->get();
-        return view('setor.index', compact('testecampus'));
+        $campus = Campus::where('status','Ativo')->get();
+        return view('setor.index', compact('campus'));
         //return view('termo.index');
     }
 

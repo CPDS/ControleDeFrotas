@@ -6,9 +6,9 @@
 <link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('css/iziToast.min.css') }}">
 <script src="{{ asset('js/iziToast.min.js') }}"></script>
-<script src="{{asset('js/ScriptsGerais/banco_hora.js')}}"></script>
+<script src="{{asset('js/ScriptsGerais/tipo_servico.js')}}"></script>
 @section('htmlheader_title')
-    Banco de Horas
+    Tipo de Servico
 @endsection
 
 
@@ -19,31 +19,25 @@
 
                 <div class="box box-success">
                   <div class="pull-left">
-                    <h2> &nbsp<i class="fa fa-calendar-times-o"></i>  @yield('contentheader_title', 'Horas Cadastradas')</h2>
-                  </div>
+            				<h2> &nbsp <i class="fa fa-wrench"></i> @yield('contentheader_title', 'Tipos de Serviços Cadastrados')</h2>
+            			</div>
                     <div class="box-header with-border">
-
-
-                        <div class="col-md-12">
-                         <div class="pull-right">
-                      <span>   <!-- Botão para cadastrar -->
-                           <a class="btn btn-primary btnAdicionarHoras btn-sm "><i class="fa fa-plus"></i> Cadastrar Hora</a>
-                       </span>
-                       </div>
-                       </div>
+                      <!--  <h3 class="box-title fa fa-road">Percursos Cadastrados</h3> -->
+                         <div class="col-md-12">
+                          <div class="pull-right">
+                       <span>   <!-- Botão para cadastrar -->
+                            <a class="btn btn-primary btnAdicionarTipoServico btn-sm "><i class="fa fa-plus"></i> Cadastrar Tipo de Serviço</a>
+                        </span>
+                        </div>
+                        </div>
 
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <table class="table table-bordered" id="tabela_banco_horas">
+                        <table class="table table-bordered" id="tabela_tiposervico">
                             <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Hora de Ínicio</th>
-                                <th>Hora de Término</th>
-                                <th>Hora de Intervalo</th>
-                                <th>Motorista</th>
-                                <th>Ação</th>
+                                <th>Nome do Serviço</th>
                             </tr>
                             </thead>
                         </table>
@@ -54,7 +48,7 @@
             </div>
         </div>
     </div>
-@include('banco_hora.modals.criar_editar_banco_hora')
-@include('banco_hora.modals.visualizar_banco_hora')
-@include('banco_hora.modals.retirar_banco_hora')
+@include('tiposervico.modals.criar_editar_tipo_servico')
+@include('tiposervico.modals.visualizar_tipo_servico')
+@include('tiposervico.modals.retirar_tipo_servico')
 @endsection

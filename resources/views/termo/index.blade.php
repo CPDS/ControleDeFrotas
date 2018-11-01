@@ -6,9 +6,9 @@
 <link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('css/iziToast.min.css') }}">
 <script src="{{ asset('js/iziToast.min.js') }}"></script>
-<script src="{{asset('js/ScriptsGerais/tipo_servico.js')}}"></script>
+<script src="{{asset('js/ScriptsGerais/termo_aditivo.js')}}"></script>
 @section('htmlheader_title')
-    Tipo de Servico
+    Termo Aditivo
 @endsection
 
 
@@ -19,14 +19,14 @@
 
                 <div class="box box-success">
                   <div class="pull-left">
-            				<h2> &nbsp <i class="fa fa-wrench"></i> @yield('contentheader_title', 'Tipos de Serviços Cadastrados')</h2>
+            				<h2> &nbsp <i class="fa fa-file"></i> @yield('contentheader_title', 'Termos Cadastrados')</h2>
             			</div>
                     <div class="box-header with-border">
-                      <!--  <h3 class="box-title fa fa-road">Percursos Cadastrados</h3> -->
+
                          <div class="col-md-12">
                           <div class="pull-right">
                        <span>   <!-- Botão para cadastrar -->
-                            <a class="btn btn-primary btnAdicionarTipoServico btn-sm "><i class="fa fa-plus"></i> Cadastrar Tipo de Serviço</a>
+                            <a class="btn btn-primary btnAdicionarTermos btn-sm "><i class="fa fa-plus"></i> Cadastrar Termo Aditivo</a>
                         </span>
                         </div>
                         </div>
@@ -34,10 +34,14 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <table class="table table-bordered" id="tabela_tiposervico">
+                        <table class="table table-bordered" id="tabela_termo_aditivo">
                             <thead>
                             <tr>
-                                <th>Nome do Serviço</th>
+                                <th>ID</th>
+                                <th>Data de Ínico</th>
+                                <th>Data de Término</th>
+                                <th>Valor</th>
+                                <th>Contrato</th>
                             </tr>
                             </thead>
                         </table>
@@ -48,7 +52,7 @@
             </div>
         </div>
     </div>
-@include('tipo_servico.modals.criar_editar_tipo_servico')
-@include('tipo_servico.modals.visualizar_tipo_servico')
-@include('tipo_servico.modals.retirar_tipo_servico')
+@include('termo.modals.criar_editar_termo')
+@include('termo.modals.visualizar_termo')
+@include('termo.modals.retirar_termo')
 @endsection

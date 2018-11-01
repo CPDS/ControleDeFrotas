@@ -21,7 +21,7 @@
              <strong>Hora de Ínicio:</strong>
              <div class="input-group">
                <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-               <input id="hora_inicio" class="form-control" name="hora_inicio" type="date">
+               <input id="hora_inicio" class="form-control" name="hora_inicio" type="time">
              </div>
            </div>
 
@@ -29,7 +29,7 @@
              <strong>Hora de Término:</strong>
              <div class="input-group">
                <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-               <input id="hora_termino" class="form-control" name="hora_termino" type="date">
+               <input id="hora_termino" class="form-control" name="hora_termino" type="time">
              </div>
            </div>
 
@@ -37,7 +37,7 @@
              <strong>Hora de Intervalo:</strong>
              <div class="input-group">
                <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-               <input id="hora_intervalo" class="form-control" name="hora_intervalo" type="date">
+               <input id="hora_intervalo" class="form-control" name="hora_intervalo" type="time">
              </div>
            </div>
 
