@@ -19,7 +19,8 @@ $(document).ready(function($) {
             { data: 'hora_chegada', name: 'hora_chegada' },
             { data: 'local_chegada', name: 'local_chegada' },
             { data: 'km_chegada', name: 'km_chegada' },
-            { data: 'fk_diario', name: 'fk_diario' }
+            { data: 'fk_diario', name: 'fk_diario' },
+            { data: 'acao', name: 'acao' }
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -62,7 +63,7 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [2], sortable : false },
+              { targets : [0,9], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
               { "width": "15%", "targets": 1 },//nome
               { "width": "15%", "targets": 2 },//matricula
@@ -70,7 +71,10 @@ $(document).ready(function($) {
               { "width": "15%", "targets": 4 },
               { "width": "15%", "targets": 5 },
               { "width": "15%", "targets": 6 },
-              { "width": "15%", "targets": 7 }
+              { "width": "15%", "targets": 7 },
+              { "width": "15%", "targets": 8 },
+              { "width": "15%", "targets": 9 }
+
             ]
     });
 
@@ -82,14 +86,14 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#hora_saida-visualizar').text($(this).data('Hora de Saída')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#local_saida-visualizar').text($(this).data('Local de Saída'));
-        $('#km_saida-visualizar').text($(this).data('KM de Saída'));
-        $('#roteiro-visualizar').text($(this).data('Roteiro'));
-        $('#hora_chegada-visualizar').text($(this).data('Hora de Chegada'));
-        $('#local_chegada-visualizar').text($(this).data('Local de Chegada'));
-        $('#km_chegada-visualizar').text($(this).data('KM de Chegada'));
-        $('#fk_diario-visualizar').text($(this).data('Diário de Bordo'));
+        $('#hora_saida-visualizar').text($(this).data('hora_saida')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#local_saida-visualizar').text($(this).data('local_saida'));
+        $('#km_saida-visualizar').text($(this).data('km_saida'));
+        $('#roteiro-visualizar').text($(this).data('roteiro'));
+        $('#hora_chegada-visualizar').text($(this).data('hora_chegada'));
+        $('#local_chegada-visualizar').text($(this).data('local_chegada'));
+        $('#km_chegada-visualizar').text($(this).data('km_chegada'));
+        $('#fk_diario-visualizar').text($(this).data('fk_diario'));
         jQuery('#visualizar-modal').modal('show');
     });
 

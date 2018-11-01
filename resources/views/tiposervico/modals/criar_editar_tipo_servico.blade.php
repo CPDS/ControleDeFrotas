@@ -17,7 +17,7 @@
           <div class="row" style="width: 100%">
 
             <div class="form-group col-md-12">
-              <strong>Nome do Serviço:</strong>
+              <strong>Tipo do Serviço:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-wrench"></i></span>
                 <input maxlength="250" id="nome_servico" class="form-control" name="nome_servico" type="text">

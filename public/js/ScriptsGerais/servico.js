@@ -33,7 +33,8 @@ $(document).ready(function($) {
             { data: 'descricao_geral_servico', name: 'descricao_geral_servico' },
             { data: 'fk_veiculo', name: 'fk_veiculo' },
             { data: 'fk_contrato', name: 'fk_contrato' },
-            { data: 'fk_motorista', name: 'fk_motorista' }
+            { data: 'fk_motorista', name: 'fk_motorista' },
+            { data: 'acao', name: 'acao' }
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -76,7 +77,7 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [2], sortable : false },
+              { targets : [0,23], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
               { "width": "15%", "targets": 1 },//nome
               { "width": "15%", "targets": 2 },//matricula
@@ -98,7 +99,9 @@ $(document).ready(function($) {
               { "width": "15%", "targets": 18 },
               { "width": "15%", "targets": 19 },
               { "width": "15%", "targets": 20 },
-              { "width": "15%", "targets": 21 }
+              { "width": "15%", "targets": 21 },
+              { "width": "15%", "targets": 22 },
+              { "width": "15%", "targets": 23 }
             ]
     });
 
@@ -110,25 +113,25 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#fk_veiculo-visualizar').text($(this).data('Veículo')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#fk_contrato-visualizar').text($(this).data('Contrato'));
-        $('#fk_motorista-visualizar').text($(this).data('Motorista'));
-        $('#valor_derivados-visualizar').text($(this).data('Valor dos Derivados'));
-        $('#valor_smv-visualizar').text($(this).data('Valor dos SMV'));
-        $('#numero_ordem_servico-visualizar').text($(this).data('Nº Ordem de Serviço'));
-        $('#data_servico-visualizar').text($(this).data('Data do Serviço'));
-        $('#km_entrada_oficina-visualizar').text($(this).data('KM Entrada Oficina'));
-        $('#numero_smv-visualizar').text($(this).data('Número SMV'));
-        $('#numero_lupus-visualizar').text($(this).data('Número Lupus'));
-        $('#numero_sei-visualizar').text($(this).data('Número SEI'));
-        $('#numero_empenho-visualizar').text($(this).data('Número Empenho'));
-        $('#data_envio_pedido_empenho-visualizar').text($(this).data('Data Envio Pedido Empenho'));
-        $('#numero_nf-visualizar').text($(this).data('Número Nota Fiscal'));
-        $('#data_pg_nob-visualizar').text($(this).data('Data PG NOB'));
-        $('#numero_nob-visualizar').text($(this).data('Número NOB'));
-        $('#valor_empenho-visualizar').text($(this).data('Valor Empenho'));
-        $('#valor_pago-visualizar').text($(this).data('Valor Pago'));
-        $('#descricao_geral_servico-visualizar').text($(this).data('Descrição Geral do Serviço'));
+        $('#fk_veiculo-visualizar').text($(this).data('fk_veiculo')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#fk_contrato-visualizar').text($(this).data('fk_contrato'));
+        $('#fk_motorista-visualizar').text($(this).data('fk_motorista'));
+        $('#valor_derivados-visualizar').text($(this).data('valor_derivados'));
+        $('#valor_smv-visualizar').text($(this).data('valor_smv'));
+        $('#numero_ordem_servico-visualizar').text($(this).data('numero_ordem_servico'));
+        $('#data_servico-visualizar').text($(this).data('data_servico'));
+        $('#km_entrada_oficina-visualizar').text($(this).data('km_entrada_oficina'));
+        $('#numero_smv-visualizar').text($(this).data('numero_smv'));
+        $('#numero_lupus-visualizar').text($(this).data('numero_lupus'));
+        $('#numero_sei-visualizar').text($(this).data('numero_sei'));
+        $('#numero_empenho-visualizar').text($(this).data('numero_empenho'));
+        $('#data_envio_pedido_empenho-visualizar').text($(this).data('data_envio_pedido_empenho'));
+        $('#numero_nf-visualizar').text($(this).data('numero_nf'));
+        $('#data_pg_nob-visualizar').text($(this).data('data_pg_nob'));
+        $('#numero_nob-visualizar').text($(this).data('numero_nob'));
+        $('#valor_empenho-visualizar').text($(this).data('valor_empenho'));
+        $('#valor_pago-visualizar').text($(this).data('valor_pago'));
+        $('#descricao_geral_servico-visualizar').text($(this).data('descricao_geral_servico'));
         jQuery('#visualizar-modal').modal('show');
     });
 

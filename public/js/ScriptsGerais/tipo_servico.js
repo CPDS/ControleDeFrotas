@@ -12,7 +12,8 @@ $(document).ready(function($) {
             ajax: '/tiposervico/list',
             columns: [
             { data: null, name: 'order' },
-            { data: 'nome_servico', name: 'nome_servico' }
+            { data: 'nome_servico', name: 'nome_servico' },
+            { data: 'acao', name: 'acao' }
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -55,8 +56,10 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [2], sortable : false },
-              { "width": "5%", "targets": 0 }//tipo de serviço
+              { targets : [0,2], sortable : false },
+              { "width": "5%", "targets": 0 },//tipo de serviço
+              { "width": "5%", "targets": 1 },
+              { "width": "5%", "targets": 2 }
             ]
     });
 
@@ -68,7 +71,7 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#nome_servico-visualizar').text($(this).data('Tipo de Serviço')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#nome_servico-visualizar').text($(this).data('nome_servico')); // # pego no visualizar.blade.php e data pego no Controller(botao)
         jQuery('#visualizar-modal').modal('show');
     });
 

@@ -37,6 +37,7 @@
                         <table class="table" id="tabela_passageiro">
                             <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Nome do Passageiro</th>
                                 <th>Solicitação</th>
                                 <th>RG</th>
@@ -46,6 +47,7 @@
                                 <th>Email</th>
                                 <th>instituição</th>
                                 <th>Observações</th>
+                                <th>Ação</th>
                             </tr>
                             </thead>
                         </table>

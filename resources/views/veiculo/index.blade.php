@@ -37,6 +37,7 @@
                         <table class="table table-bordered" id="tabela_veiculo">
                             <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Nº</th>
                                 <th>Nome do Veículo</th>
                                 <th>Placa</th>
@@ -50,6 +51,7 @@
                                 <th>Marca</th>
                                 <th>Ar Condicionado</th>
                                 <th>Bagageiro</th>
+                                <th>Ação</th>
                             </tr>
                             </thead>
                         </table>

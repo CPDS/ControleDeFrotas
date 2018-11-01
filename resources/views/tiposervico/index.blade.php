@@ -37,7 +37,9 @@
                         <table class="table table-bordered" id="tabela_tiposervico">
                             <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Nome do Serviço</th>
+                                <th>Ação</th>
                             </tr>
                             </thead>
                         </table>

@@ -13,7 +13,8 @@ $(document).ready(function($) {
             columns: [
             { data: null, name: 'order' },
             { data: 'nome_setor', name: 'nome_setor' },
-            { data: 'fk_campus', name: 'fk_campus' }
+            { data: 'fk_campus', name: 'fk_campus' },
+            { data: 'acao', name: 'acao' }
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -56,9 +57,11 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [12], sortable : false },
+              { targets : [0,3], sortable : false },
               { "width": "5%", "targets": 0 }, //setor
-              { "width": "5%", "targets": 1 } // Campus
+              { "width": "5%", "targets": 1 }, // Campus
+              { "width": "5%", "targets": 2 },
+              { "width": "5%", "targets": 3 }
             ]
     });
 
@@ -70,8 +73,8 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#nome_setor-visualizar').text($(this).data('Nome do Setor')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#fk_campus-visualizar').text($(this).data('Nome do Campus'));
+        $('#nome_setor-visualizar').text($(this).data('nome_setor')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#fk_campus-visualizar').text($(this).data('fk_campus'));
         jQuery('#visualizar-modal').modal('show');
     });
 

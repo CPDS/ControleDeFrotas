@@ -67,7 +67,7 @@ $(document).ready(function($) {
               { "width": "15%", "targets": 2 },//email
               { "width": "15%", "targets": 3 },//funcao
               { "width": "15%", "targets": 4 },//status
-              { "width": "15%", "targets": 5 },//acao
+              { "width": "15%", "targets": 5 }//acao
             ]
     });
 
@@ -80,9 +80,9 @@ $(document).ready(function($) {
     //Visualizar
     $(document).on('click', '.btnVisualizar', function() {
 
-        $('#nome_usuario-visualizar').text($(this).data('Nome do Usuário'));
-        $('#email-visualizar').text($(this).data('Email'));
-        //$('#funcao-visualizar').text($(this).data('Função'));
+        $('#nome_usuario-visualizar').text($(this).data('nome_usuario'));
+        $('#email-visualizar').text($(this).data('email'));
+        $('#funcao-visualizar').text($(this).data('funcao'));
         jQuery('#visualizar-modal').modal('show');
     });
 

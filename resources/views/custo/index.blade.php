@@ -45,6 +45,7 @@
                                 <th>Custo Total da Viagem</th>
                                 <th>Diário de Bordo</th>
                                 <th>Combustível</th>
+                                <th>Ação</th>
                             </tr>
                             </thead>
                         </table>

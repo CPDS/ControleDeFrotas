@@ -20,7 +20,8 @@ $(document).ready(function($) {
             { data: 'categoria', name: 'categoria' },
             { data: 'email', name: 'email' },
             { data: 'instituicao', name: 'instituicao' },
-            { data: 'observacoes', name: 'observacoes' }
+            { data: 'observacoes', name: 'observacoes' },
+            { data: 'acao', name: 'acao' }
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -63,7 +64,7 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [2], sortable : false },
+              { targets : [0,10], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
               { "width": "15%", "targets": 1 },//nome
               { "width": "15%", "targets": 2 },//matricula
@@ -72,7 +73,9 @@ $(document).ready(function($) {
               { "width": "15%", "targets": 5 },
               { "width": "15%", "targets": 6 },
               { "width": "15%", "targets": 7 },
-              { "width": "15%", "targets": 8 }
+              { "width": "15%", "targets": 8 },
+              { "width": "15%", "targets": 9 },
+              { "width": "15%", "targets": 10 }
             ]
     });
 
@@ -84,15 +87,15 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#nome_passageiro-visualizar').text($(this).data('Nome do Passageiro')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#fk_solicitacao-visualizar').text($(this).data('Solicitação'));
-        $('#rg-visualizar').text($(this).data('RG'));
-        $('#matricula-visualizar').text($(this).data('Matrícula'));
-        $('#telefone-visualizar').text($(this).data('Telefone'));
-        $('#categoria-visualizar').text($(this).data('Categoria'));
-        $('#email-visualizar').text($(this).data('Email'));
-        $('#instituicao-visualizar').text($(this).data('Instituição'));
-        $('#observacoes-visualizar').text($(this).data('Observações'));
+        $('#nome_passageiro-visualizar').text($(this).data('nome_passageiro')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#fk_solicitacao-visualizar').text($(this).data('fk_solicitacao'));
+        $('#rg-visualizar').text($(this).data('rg'));
+        $('#matricula-visualizar').text($(this).data('matricula'));
+        $('#telefone-visualizar').text($(this).data('telefone'));
+        $('#categoria-visualizar').text($(this).data('categoria'));
+        $('#email-visualizar').text($(this).data('email'));
+        $('#instituicao-visualizar').text($(this).data('instituicao'));
+        $('#observacoes-visualizar').text($(this).data('observacoes'));
         jQuery('#visualizar-modal').modal('show');
     });
 

@@ -46,7 +46,7 @@
                               <th>Cidade de Saída</th>
                               <th>Cidade de Chegada</th>
                               <th>Solicitante</th>
-                              <th>acao</th>
+                              <th>Ação</th>
                             </tr>
                             </thead>
                         </table>

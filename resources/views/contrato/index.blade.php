@@ -38,6 +38,7 @@
                         <table class="table table-bordered" id="tabela_contratos">
                             <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Nome da Empresa</th>
                                 <th>CNPJ</th>
                                 <th>Nº do Contrato</th>
@@ -45,6 +46,7 @@
                                 <th>Vencimento do Contrato</th>
                                 <th>Valor do Contrato</th>
                                 <th>Tipo de Contrato</th>
+                                <th>Ação</th>
                             </tr>
                             </thead>
                         </table>

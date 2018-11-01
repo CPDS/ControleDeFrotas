@@ -64,7 +64,7 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [ // quantidade de campos maior que o exemplo, tenho que mudar?
-              { targets : [2], sortable : false },
+              { targets : [0,10], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
               { "width": "20%", "targets": 1 },//nome
               { "width": "20%", "targets": 2 },//placa
@@ -74,7 +74,8 @@ $(document).ready(function($) {
               { "width": "20%", "targets": 6 },
               { "width": "20%", "targets": 7 },
               { "width": "20%", "targets": 8 },
-              { "width": "20%", "targets": 9 }
+              { "width": "20%", "targets": 9 },
+              { "width": "20%", "targets": 10 }
             ]
     });
 
@@ -86,27 +87,27 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#numero_rv-visualizar').text($(this).data('Nº RV')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#setor_emissor_rv-visualizar').text($(this).data('Setor Emissor da RV'));
-        $('#fk_veiculo-visualizar').text($(this).data('Veículo'));
-        $('#datahora_saida-visualizar').text($(this).data('Horário de Saída'));
-        $('#datahora_chegada-visualizar').text($(this).data('Horário de Chegada'));
-        $('#fk_cidade_saida-visualizar').text($(this).data('Cidade de Saída'));
-        $('#fk_cidade_chegada-visualizar').text($(this).data('Cidade de Chegada'));
-        $('#fk_tipo_servico-visualizar').text($(this).data('Tipo de Serviço'));
-        $('#fk_id_solicitante-visualizar').text($(this).data('Solicitante'));
-        $('#estimativa_km-visualizar').text($(this).data('Estimativa de KM'));
-        $('#estado-visualizar').text($(this).data('Estado'));
-        $('#nome_responsavel-visualizar').text($(this).data('Nome Responsável'));
-        $('#telefone_responsavel-visualizar').text($(this).data('Telefone'));
-        $('#local_saida-visualizar').text($(this).data('Local de Saída'));
-        $('#setor_autoriza_viagem-visualizar').text($(this).data('Autorização'));
-        $('#numero_passageiros-visualizar').text($(this).data('Nº Passageiros'));
-        $('#tipo_solicitacao-visualizar').text($(this).data('Tipo de Solicitação'));
-        $('#natureza_servico-visualizar').text($(this).data('Natureza da Viagem'));
-        $('#custo_viagem-visualizar').text($(this).data('Custo da Viagem'));
-        $('#descricao_bagagem-visualizar').text($(this).data('Bagagem'));
-        $('#codigo_acp_rv-visualizar').text($(this).data('Código ACP'));
+        $('#numero_rv-visualizar').text($(this).data('numero_rv')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#setor_emissor_rv-visualizar').text($(this).data('setor_emissor_rv'));
+        $('#fk_veiculo-visualizar').text($(this).data('fk_veiculo'));
+        $('#datahora_saida-visualizar').text($(this).data('datahora_saida'));
+        $('#datahora_chegada-visualizar').text($(this).data('datahora_chegada'));
+        $('#fk_cidade_saida-visualizar').text($(this).data('fk_cidade_saida'));
+        $('#fk_cidade_chegada-visualizar').text($(this).data('fk_cidade_chegada'));
+        $('#fk_tipo_servico-visualizar').text($(this).data('fk_tipo_servico'));
+        $('#fk_id_solicitante-visualizar').text($(this).data('fk_id_solicitante'));
+        $('#estimativa_km-visualizar').text($(this).data('estimativa_km'));
+        $('#estado-visualizar').text($(this).data('estado'));
+        $('#nome_responsavel-visualizar').text($(this).data('nome_responsavel'));
+        $('#telefone_responsavel-visualizar').text($(this).data('telefone_responsavel'));
+        $('#local_saida-visualizar').text($(this).data('local_saida'));
+        $('#setor_autoriza_viagem-visualizar').text($(this).data('setor_autoriza_viagem'));
+        $('#numero_passageiros-visualizar').text($(this).data('numero_passageiros'));
+        $('#tipo_solicitacao-visualizar').text($(this).data('tipo_solicitacao'));
+        $('#natureza_servico-visualizar').text($(this).data('natureza_servico'));
+        $('#custo_viagem-visualizar').text($(this).data('custo_viagem'));
+        $('#descricao_bagagem-visualizar').text($(this).data('descricao_bagagem'));
+        $('#codigo_acp_rv-visualizar').text($(this).data('codigo_acp_rv'));
         jQuery('#visualizar-modal').modal('show');
     });
 

@@ -42,6 +42,7 @@
                                 <th>Data de Término</th>
                                 <th>Valor</th>
                                 <th>Contrato</th>
+                                <th>Ação</th>
                             </tr>
                             </thead>
                         </table>

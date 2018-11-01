@@ -13,7 +13,8 @@ $(document).ready(function($) {
             columns: [
             { data: null, name: 'order' },
             { data: 'nome_diario', name: 'nome_diario' },
-            { data: 'ocorrencias', name: 'ocorrencias' }
+            { data: 'ocorrencias', name: 'ocorrencias' },
+            { data: 'acao', name: 'acao' }
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -56,9 +57,11 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [2], sortable : false },
+              { targets : [0,3], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
-              { "width": "15%", "targets": 1 }//nome
+              { "width": "15%", "targets": 1 },//nome
+              { "width": "15%", "targets": 2 },//
+              { "width": "15%", "targets": 3 }//acao
 
             ]
     });
@@ -71,8 +74,8 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#nome_diario-visualizar').text($(this).data('Nome do Diário')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#ocorrencias-visualizar').text($(this).data('Ocorrências'));
+        $('#nome_diario-visualizar').text($(this).data('nome_diario')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#ocorrencias-visualizar').text($(this).data('ocorrencias'));
         jQuery('#visualizar-modal').modal('show');
     });
 

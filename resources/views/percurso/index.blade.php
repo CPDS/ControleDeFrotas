@@ -37,6 +37,7 @@
                         <table class="table table-bordered" id="tabela_percursos">
                             <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Hora de Saída</th>
                                 <th>Local de Saída</th>
                                 <th>KM de Saída</th>
@@ -45,6 +46,7 @@
                                 <th>Local de Chegada</th>
                                 <th>KM de Chegada</th>
                                 <th>Diário de Bordo</th>
+                                <th>Ação</th>
                             </tr>
                             </thead>
                         </table>

@@ -23,7 +23,8 @@ $(document).ready(function($) {
             { data: 'rendimento', name: 'rendimento' },
             { data: 'marca', name: 'marca' },
             { data: 'tem_arcondicionado', name: 'tem_arcondicionado' },
-            { data: 'tipo_bagageiro', name: 'tipo_bagageiro' }
+            { data: 'tipo_bagageiro', name: 'tipo_bagageiro' },
+            { data: 'acao', name: 'acao' }
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -66,9 +67,9 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [12], sortable : false },
+              { targets : [0,13], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
-              { "width": "5%", "targets": 1 },//nome
+              { "width": "10%", "targets": 1 },//nome
               { "width": "10%", "targets": 2 },//placa
               { "width": "10%", "targets": 3 },//tipo_combustivel
               { "width": "10%", "targets": 4 },//botoes
@@ -77,8 +78,10 @@ $(document).ready(function($) {
               { "width": "10%", "targets": 7 },
               { "width": "10%", "targets": 8 },
               { "width": "10%", "targets": 9 },
-              { "width": "5%", "targets": 10 },
-              { "width": "5%", "targets": 11 }
+              { "width": "10%", "targets": 10 },
+              { "width": "10%", "targets": 11 },
+              { "width": "10%", "targets": 12 },
+              { "width": "10%", "targets": 13 }
             ]
     });
 
@@ -90,18 +93,18 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#nome_veiculo-visualizar').text($(this).data('Nome do Veículo')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#placa-visualizar').text($(this).data('Placa'));
-        $('#tipo_combustivel-visualizar').text($(this).data('Tipo de Combustível'));
-        $('#fk_campus-visualizar').text($(this).data('Campus'));
-        $('#qtd_total_lugares-visualizar').text($(this).data('Quantidade Total de Lugares'));
-        $('#ano_fabricacao-visualizar').text($(this).data('Ano de Fabricação'));
-        $('#minimo_passageiros-visualizar').text($(this).data('QTD Mínima de Passageiros'));
-        $('#maximo_passageiros-visualizar').text($(this).data('QTD Máxima de Passageiros'));
-        $('#rendimento-visualizar').text($(this).data('Rendimento'));
-        $('#marca-visualizar').text($(this).data('Marca'));
-        $('#tem_arcondicionado-visualizar').text($(this).data('Ar Condicionado'));
-        $('#tipo_bagageiro-visualizar').text($(this).data('Bagageiro'));
+        $('#nome_veiculo-visualizar').text($(this).data('nome_veiculo')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#placa-visualizar').text($(this).data('placa'));
+        $('#tipo_combustivel-visualizar').text($(this).data('tipo_combustivel'));
+        $('#fk_campus-visualizar').text($(this).data('fk_campus'));
+        $('#qtd_total_lugares-visualizar').text($(this).data('qtd_total_lugares'));
+        $('#ano_fabricacao-visualizar').text($(this).data('ano_fabricacao'));
+        $('#minimo_passageiros-visualizar').text($(this).data('minimo_passageiros'));
+        $('#maximo_passageiros-visualizar').text($(this).data('maximo_passageiros'));
+        $('#rendimento-visualizar').text($(this).data('rendimento'));
+        $('#marca-visualizar').text($(this).data('marca'));
+        $('#tem_arcondicionado-visualizar').text($(this).data('tem_arcondicionado'));
+        $('#tipo_bagageiro-visualizar').text($(this).data('tipo_bagageiro'));
         jQuery('#visualizar-modal').modal('show');
     });
 

@@ -37,6 +37,7 @@
                         <table class="table table-bordered" id="tabela_servicos">
                             <thead>
                             <tr>
+                                <th>ID</th> 
                                 <th>Veículo</th>
                                 <th>Contrato</th>
                                 <th>Valor dos Derivados</th>
@@ -48,6 +49,7 @@
                                 <th>Motorista</th>
                                 <th>Tipo de Manutenção</th>
                                 <th>Valor Pago</th> <!--restantes do campos suprimidos para melhor visualização -->
+                                <th>Ação</th>
                             </tr>
                             </thead>
                         </table>

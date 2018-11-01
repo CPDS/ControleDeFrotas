@@ -18,7 +18,8 @@ $(document).ready(function($) {
             { data: 'valor_manutencao', name: 'valor_manutencao' },
             { data: 'custo_total_viagem', name: 'custo_total_viagem' },
             { data: 'fk_diario_bordo', name: 'fk_diario_bordo' },
-            { data: 'fk_combustivel', name: 'fk_combustivel' }
+            { data: 'fk_combustivel', name: 'fk_combustivel' },
+            { data: 'acao', name: 'acao' }
 
             ],
             createdRow : function( row, data, index ) {
@@ -62,14 +63,16 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [2], sortable : false },
+              { targets : [0,8], sortable : false },
               { "width": "5%", "targets": 0 }, //nome
               { "width": "15%", "targets": 1 },//cnpj
               { "width": "15%", "targets": 2 },//número do contrato
               { "width": "15%", "targets": 3 },//vencimento do contrato
               { "width": "15%", "targets": 4 },
               { "width": "15%", "targets": 5 },
-              { "width": "15%", "targets": 6 }
+              { "width": "15%", "targets": 6 },
+              { "width": "15%", "targets": 7 },
+              { "width": "15%", "targets": 8 }
             ]
     });
 
@@ -81,13 +84,13 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#qtd_diaria-visualizar').text($(this).data('Quantidade da Diária')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#valor_diaria-visualizar').text($(this).data('Valor da Diária'));
-        $('#custo_total_diaria-visualizar').text($(this).data('Custo Total da Diária'));
-        $('#valor_manutencao-visualizar').text($(this).data('Tipo de Contrato'));
-        $('#custo_total_viagem-visualizar').text($(this).data('Custo Total da Viagem'));
-        $('#fk_diario_bordo-visualizar').text($(this).data('Diário de Bordo'));
-        $('#fk_combustivel-visualizar').text($(this).data('Combustível'));
+        $('#qtd_diaria-visualizar').text($(this).data('qtd_diaria')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#valor_diaria-visualizar').text($(this).data('valor_diaria'));
+        $('#custo_total_diaria-visualizar').text($(this).data('custo_total_diaria'));
+        $('#valor_manutencao-visualizar').text($(this).data('valor_manutencao'));
+        $('#custo_total_viagem-visualizar').text($(this).data('custo_total_viagem'));
+        $('#fk_diario_bordo-visualizar').text($(this).data('fk_diario_bordo'));
+        $('#fk_combustivel-visualizar').text($(this).data('fk_combustivel'));
         jQuery('#visualizar-modal').modal('show');
     });
 

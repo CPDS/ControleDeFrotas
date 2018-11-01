@@ -37,8 +37,10 @@
                         <table class="table" id="tabela_passageiro">
                             <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Nome do Diário</th>
                                 <th>Ocorrências</th>
+                                <th>Ação</th>
                             </tr>
                             </thead>
                         </table>

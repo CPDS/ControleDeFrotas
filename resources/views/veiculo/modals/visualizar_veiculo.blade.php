@@ -55,12 +55,12 @@
           </div>
 
           <div class="form-group">
-              <strong>QTD Mínima de Passageiros:</strong>
+              <strong>Mínimo de Passageiros:</strong>
               <span id="minimo_passageiros-visualizar"></span>
           </div>
 
           <div class="form-group">
-              <strong>QTD Máxima de Passageiros:</strong>
+              <strong>Máximo de Passageiros:</strong>
               <span id="maximo_passageiros-visualizar"></span>
           </div>
 

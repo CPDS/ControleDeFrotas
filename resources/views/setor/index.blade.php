@@ -37,8 +37,10 @@
                         <table class="table table-bordered" id="tabela_setor">
                             <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Nome do Setor</th>
                                 <th>Nome do Campus</th>
+                                <th>Ação</th>
                             </tr>
                             </thead>
                         </table>

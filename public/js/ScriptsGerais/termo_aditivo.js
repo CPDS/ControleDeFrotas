@@ -15,7 +15,8 @@ $(document).ready(function($) {
             { data: 'data_inicio', name: 'data_inicio' },
             { data: 'data_termino', name: 'data_termino' },
             { data: 'valor', name: 'valor' },
-            { data: 'fk_contrato', name: 'fk_contrato' }
+            { data: 'fk_contrato', name: 'fk_contrato' },
+            { data: 'acao', name: 'acao' }
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -58,11 +59,13 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [12], sortable : false },
+              { targets : [0,5], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
-              { "width": "5%", "targets": 1 },//data inicio
-              { "width": "10%", "targets": 2 },// data termino
-              { "width": "10%", "targets": 3 } // contrato
+              { "width": "15%", "targets": 1 },//data inicio
+              { "width": "15%", "targets": 2 },// data termino
+              { "width": "15%", "targets": 3 }, // contrato
+              { "width": "15%", "targets": 4 },
+              { "width": "15%", "targets": 5 }
             ]
     });
 
@@ -74,10 +77,10 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#data_inicio-visualizar').text($(this).data('Data de Ínicio')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#data_termino-visualizar').text($(this).data('Data de Término'));
-        $('#valor-visualizar').text($(this).data('Valor'));
-        $('#fk_contrato-visualizar').text($(this).data('Contrato'));
+        $('#data_inicio-visualizar').text($(this).data('data_inicio')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#data_termino-visualizar').text($(this).data('data_termino'));
+        $('#valor-visualizar').text($(this).data('valor'));
+        $('#fk_contrato-visualizar').text($(this).data('fk_contrato'));
         jQuery('#visualizar-modal').modal('show');
     });
 
