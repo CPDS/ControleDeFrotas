@@ -77,15 +77,9 @@
                <strong>Setor Emissor da RV:</strong>
                <div class="input-group">
                <span class="input-group-addon"><i class="fa fa-university"></i></span>
-               <select name="setor_emissor_rv" id="setor_emissor_rv" class="form-control">
-                 <option value='' selected disabled>Selecione ...</option>
-                 <option value="Setor X">Setor X</option>
-                 <option value="Setor Y">Setor Y</option>
-                 <option value="Setor Z">Setor Z</option>
-               </select>
+               <input id="setor_emissor_rv" class="form-control"  name="setor_emissor_rv" type="text">
              </div>
              </div>
-
 
              <div class="form-group col-md-6">
                <strong>Horário de Saída:</strong>
