@@ -20,6 +20,10 @@ class CreateViagemVeiculosTable extends Migration
             $table->foreign('fk_veiculo')->references('id')->on('veiculos');
             $table->integer('fk_solicitacao')->unsigned();
             $table->foreign('fk_solicitacao')->references('id')->on('viagems');
+            $table->timestamp('data_retirada');
+            $table->timestamp('data_entrega');
+            $table->integer('id_usuario')->unsigned();
+            $table->foreign('id_usuario')->references('id')->on('users');
             $table->timestamps();
         });
     }

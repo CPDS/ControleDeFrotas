@@ -17,7 +17,7 @@ class CreateTermosTable extends Migration
             $table->increments('id');
             $table->timestamp('data_inicio');
             $table->timestamp('data_termino');
-            $table->decimal('valor', 2,2);
+            $table->string('valor');
             $table->string('status');
             $table->integer('fk_contrato')->unsigned();
             $table->foreign('fk_contrato')->references('id')->on('contratos');

@@ -43,8 +43,8 @@
             <div class="form-group col-md-12 senha">
               <strong>Contrato:</strong>
               <select name="fk_contrato" id="fk_contrato" class="form-control selectValor">
-                @foreach($valores as $valor)
-                  <option value='{{$valor->id}}'>{{$valor->nome}}</option>
+                @foreach($testecontrato as $valor)
+                  <option value='{{$valor->id}}'>{{$valor->empresa_contratada_nome}}</option>
                 @endforeach
               </select>
             </div>

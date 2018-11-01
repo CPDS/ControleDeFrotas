@@ -7,7 +7,7 @@
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| contains the "web" middleware group. Now store something great!
 |
 */
 
@@ -31,7 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix'=>'veiculos','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
 	  Route::get('',['as'=>'veiculos.index', 'uses'=>'VeiculoController@index']);
     Route::get('/list',['as' => 'veiculos.list', 'uses' => 'VeiculoController@list']);
-    Route::post('/store', ['as' => 'veiculos.store', 'uses' => 'VeiculoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/store', ['as' => 'veiculos.store', 'uses' => 'VeiculoController@store']); // relacionada ao store do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'veiculos.update', 'uses' => 'VeiculoController@update']); // uso para atualizações
     Route::post('/delete', ['as' => 'veiculos.delete', 'uses' => 'VeiculoController@destroy']); // para deletar
 
@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix'=>'passageiros','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
     Route::get('',['as'=>'passageiros.index', 'uses'=>'PassageiroController@index']);
     Route::get('/list',['as' => 'passageiros.list', 'uses' => 'PassageiroController@list']);
-    Route::post('/store', ['as' => 'passageiros.store', 'uses' => 'PassageiroController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/store', ['as' => 'passageiros.store', 'uses' => 'PassageiroController@store']); // relacionada ao store do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'passageiros.update', 'uses' => 'PassageiroController@update']); // uso para atualizações
     Route::post('/delete', ['as' => 'passageiros.delete', 'uses' => 'PassageiroController@destroy']); // para deletar
 
@@ -48,7 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix'=>'viagems','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
     Route::get('',['as'=>'viagems.index', 'uses'=>'ViagemController@index']);
     Route::get('/list',['as' => 'viagems.list', 'uses' => 'ViagemController@list']);
-    Route::post('/store', ['as' => 'viagems.store', 'uses' => 'ViagemController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/store', ['as' => 'viagems.store', 'uses' => 'ViagemController@store']); // relacionada ao store do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'viagems.update', 'uses' => 'ViagemController@update']); // uso para atualizações
     Route::post('/delete', ['as' => 'viagems.delete', 'uses' => 'ViagemController@destroy']); // para deletar
     Route::get('/cidade/{estado}',['as' => 'viagem.cidade','uses' => 'ViagemController@selectCidade']);
@@ -96,7 +96,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix'=>'usuarios','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
     Route::get('',['as'=>'usuarios.index', 'uses'=>'UsuarioController@index']);
     Route::get('/list',['as' => 'usuarios.list', 'uses' => 'UsuarioController@list']);
-    Route::post('/create', ['as' => 'usuarios.store', 'uses' => 'UsuarioController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/store', ['as' => 'usuarios.store', 'uses' => 'UsuarioController@store']); // relacionada ao store do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'usuarios.update', 'uses' => 'UsuarioController@update']); // uso para atualizações
     Route::post('/delete', ['as' => 'usuarios.delete', 'uses' => 'UsuarioController@destroy']); // para deletar
     Route::get('/cidade/{estado}',['as' => 'usuarios.cidade','uses' => 'UsuarioController@selectCidade']);
@@ -106,7 +106,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix'=>'diarios','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
     Route::get('',['as'=>'diarios.index', 'uses'=>'DiarioController@index']);
     Route::get('/list',['as' => 'diarios.list', 'uses' => 'DiarioController@list']);
-    Route::post('/create', ['as' => 'diarios.store', 'uses' => 'DiarioController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/store', ['as' => 'diarios.store', 'uses' => 'DiarioController@store']); // relacionada ao store do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'diarios.update', 'uses' => 'DiarioController@update']); // uso para atualizações
     Route::post('/delete', ['as' => 'diarios.delete', 'uses' => 'DiarioController@destroy']); // para deletar
 
@@ -115,7 +115,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix'=>'servicos','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
     Route::get('',['as'=>'servicos.index', 'uses'=>'ServicoController@index']);
     Route::get('/list',['as' => 'servicos.list', 'uses' => 'ServicoController@list']);
-    Route::post('/create', ['as' => 'servicos.store', 'uses' => 'ServicoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/store', ['as' => 'servicos.store', 'uses' => 'ServicoController@store']); // relacionada ao store do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'servicos.update', 'uses' => 'ServicoController@update']); // uso para atualizações
     Route::post('/delete', ['as' => 'servicos.delete', 'uses' => 'ServicoController@destroy']); // para deletar
 
@@ -124,7 +124,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix'=>'banco_horas','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
     Route::get('',['as'=>'horas.index', 'uses'=>'BancoHorasController@index']);
     Route::get('/list',['as' => 'banco_horas.list', 'uses' => 'BancoHorasController@list']);
-    Route::post('/create', ['as' => 'banco_horas.store', 'uses' => 'BancoHorasController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/store', ['as' => 'banco_horas.store', 'uses' => 'BancoHorasController@store']); // relacionada ao store do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'banco_horas.update', 'uses' => 'BancoHorasController@update']); // uso para atualizações
     Route::post('/delete', ['as' => 'banco_horas.delete', 'uses' => 'BancoHorasController@destroy']); // para deletar
 
@@ -133,7 +133,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix'=>'setor','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
     Route::get('',['as'=>'setor.index', 'uses'=>'SetorController@index']);
     Route::get('/list',['as' => 'setor.list', 'uses' => 'SetorController@list']);
-    Route::post('/create', ['as' => 'setor.store', 'uses' => 'SetorController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/store', ['as' => 'setor.store', 'uses' => 'SetorController@store']); // relacionada ao store do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'setor.update', 'uses' => 'SetorController@update']); // uso para atualizações
     Route::post('/delete', ['as' => 'setor.delete', 'uses' => 'SetorController@destroy']); // para deletar
 
@@ -142,7 +142,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix'=>'tiposervico','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
     Route::get('',['as'=>'tiposervico.index', 'uses'=>'TipoServicoController@index']);
     Route::get('/list',['as' => 'tiposervico.list', 'uses' => 'TipoServicoController@list']);
-    Route::post('/create', ['as' => 'tiposervico.store', 'uses' => 'TipoServicoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/store', ['as' => 'tiposervico.store', 'uses' => 'TipoServicoController@store']); // relacionada ao store do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'tiposervico.update', 'uses' => 'TipoServicoController@update']); // uso para atualizações
     Route::post('/delete', ['as' => 'tiposervico.delete', 'uses' => 'TipoServicoController@destroy']); // para deletar
 
@@ -151,7 +151,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix'=>'campus','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
     Route::get('',['as'=>'campus.index', 'uses'=>'CampusController@index']);
     Route::get('/list',['as' => 'campus.list', 'uses' => 'CampusController@list']);
-    Route::post('/create', ['as' => 'campus.store', 'uses' => 'CampusController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/store', ['as' => 'campus.store', 'uses' => 'CampusController@store']); // relacionada ao store do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'campus.update', 'uses' => 'CampusController@update']); // uso para atualizações
     Route::post('/delete', ['as' => 'campus.delete', 'uses' => 'CampusController@destroy']); // para deletar
 
@@ -160,7 +160,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix'=>'termos','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
     Route::get('',['as'=>'termos.index', 'uses'=>'TermoController@index']);
     Route::get('/list',['as' => 'termos.list', 'uses' => 'TermoController@list']);
-    Route::post('/create', ['as' => 'termos.store', 'uses' => 'TermoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/store', ['as' => 'termos.store', 'uses' => 'TermoController@store']); // relacionada ao store do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'termos.update', 'uses' => 'TermoController@update']); // uso para atualizações
     Route::post('/delete', ['as' => 'termos.delete', 'uses' => 'TermoController@destroy']); // para deletar
 
@@ -169,7 +169,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix'=>'custos','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
     Route::get('',['as'=>'custos.index', 'uses'=>'CustoController@index']);
     Route::get('/list',['as' => 'custos.list', 'uses' => 'CustoController@list']);
-    Route::post('/create', ['as' => 'custos.store', 'uses' => 'CustoController@store']); // relacionada ao create do botão para salvar cadastro de veículo
+    Route::post('/store', ['as' => 'custos.store', 'uses' => 'CustoController@store']); // relacionada ao store do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'custos.update', 'uses' => 'CustoController@update']); // uso para atualizações
     Route::post('/delete', ['as' => 'custos.delete', 'uses' => 'CustoController@destroy']); // para deletar
 

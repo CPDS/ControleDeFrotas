@@ -1,13 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
+use Validator;
+use Response;
+use DataTables;
+use DB;
+use Auth;
 use App\{
   User,
   BancoHoras
 };
-use DataTables;
+
 
 class BancoHorasController extends Controller
 {
@@ -15,7 +21,6 @@ class BancoHorasController extends Controller
         //$testecampus = Campus::where('status','Ativo')->get();
         $users = User::role('Motorista')->where('status','Ativo')->get();
         return view('banco_hora.index', compact('users'));
-        //return view('termo.index');
     }
 
     public function list() {

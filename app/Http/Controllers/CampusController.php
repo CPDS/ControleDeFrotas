@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
+use Validator;
+use Response;
 use DataTables;
+use DB;
+use Auth;
 use App\Campus;
 
 class CampusController extends Controller
@@ -25,9 +31,9 @@ class CampusController extends Controller
     }
 
     private function setBtns(Campus $campus){
-    	$dados = "data-id='$campus->id' data-nome='$campus->nome' data-status='$campus->status'";
-        $dadosVisualizar = "data-nome='$campus->nome' data-status='$campus->status'";
-    	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Campus' $dados ><i class='fa fa-eye'></i></a> ";
+    	$dados = "data-id='$campus->id' data-nome_campus='$campus->nome_campus' data-status='$campus->status'";
+        $dadosVisualizar = "data-nome_campus='$campus->nome_campus' data-status='$campus->status'";
+    	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Campus' $dadosVisualizar ><i class='fa fa-eye'></i></a> ";
     	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Campus' $dados><i class ='fa fa-pencil'></i></a> ";
     	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Campus' data-id='$campus->id'><i class='fa fa-trash'></i></a>";
 
@@ -36,10 +42,10 @@ class CampusController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-            'nome' => 'required',
+            'nome_campus' => 'required',
         );
         $attributeNames = array(
-            'nome' => 'Nome',
+            'nome_campus' => 'Nome',
         );
         $messages = array(
             'same' => 'Essas senhas não coincidem.'
@@ -55,7 +61,7 @@ class CampusController extends Controller
                 return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         }else {
             $Campus = new Campus();
-            $Campus->nome = $request->nome;
+            $Campus->nome_campus = $request->nome_campus;
             $Campus->status = "Ativo";
             $Campus->save();
             //$Veiculo->setAttribute('titulo', $Veiculo->titulo);
@@ -67,7 +73,7 @@ class CampusController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'nome' => 'required',
+            'nome_campus' => 'required',
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -76,7 +82,7 @@ class CampusController extends Controller
         else {
 
             $Campus = Campus::find($request->id);
-            $Campus->nome = $request->nome;
+            $Campus->nome_campus = $request->nome_campus;
             $Campus->save();
             //$equipamento->setAttribute('buttons', $this->setDataButtons($equipamento));
             return response()->json($Campus);

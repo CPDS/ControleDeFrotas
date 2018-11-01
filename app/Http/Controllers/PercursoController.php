@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Percurso;
+use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
+use Validator;
+use Response;
 use DataTables;
+use DB;
+use Auth;
 use App\Diario;
 
 class PercursoController extends Controller
