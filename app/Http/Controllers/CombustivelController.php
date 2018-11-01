@@ -10,6 +10,7 @@ use Response;
 use DataTables;
 use DB;
 use Auth;
+use App\Combustivel;
 class CombustivelController extends Controller
 {
     public function index(){
