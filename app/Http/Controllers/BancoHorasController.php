@@ -72,7 +72,7 @@ class BancoHorasController extends Controller
         if ($validator->fails()){
                 return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         }else {
-            $Horas = new Horas();
+            $Horas = new BancoHoras();
             $Horas->hora_inicio = $request->hora_inicio;
             $Horas->hora_termino = $request->hora_termino;
             $Horas->fk_motorista = $request->fk_motorista;
