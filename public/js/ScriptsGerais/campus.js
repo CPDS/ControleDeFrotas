@@ -13,7 +13,8 @@ $(document).ready(function($) {
             columns: [
             { data: null, name: 'order' },
             { data: 'nome_campus', name: 'nome_campus' },
-            { data: 'status', name: 'status' }
+            { data: 'status', name: 'status' },
+            { data: 'acao', name: 'acao' }
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -56,9 +57,11 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [2], sortable : false },
+              { targets : [0,3], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
-              { "width": "15%", "targets": 1 }
+              { "width": "15%", "targets": 1 },
+              { "width": "15%", "targets": 2 },
+              { "width": "15%", "targets": 3 }
             ]
     });
 
@@ -70,9 +73,8 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#nome_campus-visualizar').text($(this).data('Nome do Campus'));
-        $('#status-visualizar').text($(this).data('Status')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-
+        $('#nome_campus-visualizar').text($(this).data('nome_campus'));
+        $('#status-visualizar').text($(this).data('status')); // # pego no visualizar.blade.php e data pego no Controller(botao)
         jQuery('#visualizar-modal').modal('show');
     });
 

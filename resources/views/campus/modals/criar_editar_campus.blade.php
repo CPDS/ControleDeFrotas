@@ -25,13 +25,13 @@
             </div>
 
 
-            <div class="form-group col-md-12">
+        <!--    <div class="form-group col-md-12">
               <strong>Status:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-hourglass-2"></i></span>
                 <input maxlength="250" id="status" class="form-control" name="status" type="text">
               </div>
-            </div>
+            </div> -->
 
              <input type="hidden" id="id" name="id">
 

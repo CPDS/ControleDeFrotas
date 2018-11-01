@@ -18,7 +18,8 @@ $(document).ready(function($) {
             { data: 'data_inicio_contrato', name: 'data_inicio_contrato' },
             { data: 'data_vencimento_contrato', name: 'data_vencimento_contrato' },
             { data: 'valor_contratado', name: 'valor_contratado' },
-            { data: 'tipo', name: 'tipo' }
+            { data: 'tipo', name: 'tipo' },
+            { data: 'acao', name: 'acao' }
 
             ],
             createdRow : function( row, data, index ) {
@@ -62,7 +63,7 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [2], sortable : false },
+              { targets : [0,8], sortable : false },
               { "width": "5%", "targets": 0 }, //nome
               { "width": "15%", "targets": 1 },//cnpj
               { "width": "15%", "targets": 2 },//número do contrato
@@ -70,7 +71,8 @@ $(document).ready(function($) {
               { "width": "15%", "targets": 4 },
               { "width": "15%", "targets": 5 },
               { "width": "15%", "targets": 6 },
-              { "width": "15%", "targets": 7 }
+              { "width": "15%", "targets": 7 },
+              { "width": "15%", "targets": 8 } // acao
             ]
     });
 
@@ -82,13 +84,13 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#empresa_contratada_nome-visualizar').text($(this).data('Nome da Empresa')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#empresa_contratada_cnpj-visualizar').text($(this).data('CNPJ'));
-        $('#numero_contrato-visualizar').text($(this).data('Nº do Contrato'));
-        $('#data_inicio_contrato-visualizar').text($(this).data('Ínicio do Contrato'));
-        $('#data_vencimento_contrato-visualizar').text($(this).data('Vencimento do Contrato'));
-        $('#valor_contratado-visualizar').text($(this).data('Valor do Contrato'));
-        $('#tipo-visualizar').text($(this).data('Tipo de Contrato'));
+        $('#empresa_contratada_nome-visualizar').text($(this).data('empresa_contratada_nome')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        $('#empresa_contratada_cnpj-visualizar').text($(this).data('empresa_contratada_cnpj'));
+        $('#numero_contrato-visualizar').text($(this).data('numero_contrato'));
+        $('#data_inicio_contrato-visualizar').text($(this).data('data_inicio_contrato'));
+        $('#data_vencimento_contrato-visualizar').text($(this).data('data_vencimento_contrato'));
+        $('#valor_contratado-visualizar').text($(this).data('valor_contratado'));
+        $('#tipo-visualizar').text($(this).data('tipo'));
         jQuery('#visualizar-modal').modal('show');
     });
 

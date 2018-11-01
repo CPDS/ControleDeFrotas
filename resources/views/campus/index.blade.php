@@ -26,7 +26,7 @@
                          <div class="col-md-12">
                           <div class="pull-right">
                        <span>   <!-- Botão para cadastrar -->
-                            <a class="btn btn-primary btnAdicionarCampus btn-sm "><i class="fa fa-plus"></i> Cadastrar Setor</a>
+                            <a class="btn btn-primary btnAdicionarCampus btn-sm "><i class="fa fa-plus"></i> Cadastrar Campus</a>
                         </span>
                         </div>
                         </div>
@@ -37,8 +37,10 @@
                         <table class="table table-bordered" id="tabela_campus">
                             <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Nome do Campus</th>
                                 <th>Status</th>
+                                <th>Ação</th>
                             </tr>
                             </thead>
                         </table>
