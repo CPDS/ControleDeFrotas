@@ -22,11 +22,11 @@ class ViagemController extends Controller
 {
     public function index(){
         $estados = Estado::select('nome','id')->get();
-        $tipo_servico = TipoServico::select('nome_servico','id')->get();
+        $tipo_servicos = TipoServico::select('nome_servico','id')->get();
         $veiculos = Veiculo::select('nome_veiculo','id')->where('status','Ativo')->get();
         $motoristas = User::role('Motorista')->where('status','Ativo')->get();
         //dd($motoristas);
-        return view('viagem.index',compact('estados','tipo_servico','veiculos','motoristas'));
+        return view('viagem.index',compact('estados','tipo_servicos','veiculos','motoristas'));
     }
 
     public function list() {

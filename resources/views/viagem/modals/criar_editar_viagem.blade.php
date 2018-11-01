@@ -65,7 +65,7 @@
               </div>
             </div>
 
-             <div class="form-group col-md-12">
+             <div class="form-group col-md-6">
                <strong>Nº RV:</strong>
                <div class="input-group">
                  <span class="input-group-addon"><i class="fa fa-file"></i></span>
@@ -133,18 +133,15 @@
                </select>
              </div>
 
-             <div class="form-group col-md-12">
-              <strong>Tipo de Serviço:</strong>
-              <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-gear"></i></span>
-                 <select name="fk_tipo_servico" id="fk_tipo_servico" class="form-control">
-                   <option value='' selected disabled>Selecione ...</option>
-                   <option value="Serviço X">Serviço X</option>
-                   <option value="Serviço Y">Serviço Y</option>
-                   <option value="Serviço Z">Serviço Z</option>
-                 </select> <!-- Tem que selecionar da tabela com as cidades -->
-               </div>
+             <div class="form-group col-md-12 senha">
+               <strong>Tipo de Serviço:</strong>
+               <select name="fk_tipo_servico" id="fk_tipo_servico" class="form-control selectCombustivel">
+                 @foreach($tipo_servicos as $tipo_servico)
+                   <option value='{{$tipo_servico->id}}'>{{$tipo_servico->nome}}</option>
+                 @endforeach
+               </select>
              </div>
+
 
              <div class="form-group col-md-12">
                <strong>Solicitante:</strong>
@@ -168,9 +165,9 @@
               <span class="input-group-addon"><i class="fa fa-question"></i></span>
                  <select name="situacao" id="situacao" class="form-control">
                    <option value='' selected disabled>Selecione ...</option>
-                   <option value="Situação X">Situação X</option>
-                   <option value="Situação Y">Situação Y</option>
-                   <option value="Situação Z">Situação Z</option>
+                   <option value="Aprovado">Deferido</option>
+                   <option value="Indeferido">Indeferido</option>
+                   <option value="Pendente">Pendente</option>
                  </select> <!-- Tem que selecionar da tabela com as cidades -->
                </div>
              </div>
