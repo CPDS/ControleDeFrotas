@@ -69,6 +69,7 @@
                     <li><a href="{{ url('tiposervico') }}">{{ trans('Tipo de Serviços') }}</a></li>
                     <li><a href="{{ url('campus') }}">{{ trans('Campus') }}</a></li>
                     <li><a href="{{ url('termos') }}">{{ trans('Termo Aditivo') }}</a></li>
+                    <li><a href="{{ url('combustivel') }}">{{ trans('Combustível') }}</a></li>
                 </ul>
 
             </li>

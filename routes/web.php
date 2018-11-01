@@ -175,6 +175,15 @@ Route::group(['middleware' => 'auth'], function () {
 
     });
 
+    Route::group(['prefix'=>'combustivel','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
+    Route::get('',['as'=>'combustivel.index', 'uses'=>'CombustivelController@index']);
+    Route::get('/list',['as' => 'combustivel.list', 'uses' => 'CombustivelController@list']);
+    Route::post('/store', ['as' => 'combustivel.store', 'uses' => 'CombustivelController@store']); // relacionada ao store do botão para salvar cadastro de veículo
+    Route::post('/update', ['as' => 'combustivel.update', 'uses' => 'CombustivelController@update']); // uso para atualizações
+    Route::post('/delete', ['as' => 'combustivel.delete', 'uses' => 'CombustivelController@destroy']); // para deletar
+
+    });
+
 });
 
 Auth::routes();
