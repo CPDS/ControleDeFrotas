@@ -55,7 +55,6 @@
                 <ul class="treeview-menu">
                      <li><a href="{{ url('veiculos') }}">{{ trans('Veículos Cadastrados') }}</a></li>
                      <li><a class="btnAdicionarVeiculos">{{ trans('Cadastrar Veículos') }}</a></li>
-                    <li><a href="{{ url('contratos') }}" class="btnAdicionarContratos">{{ trans('Contrato') }}</a></li>
                     <li><a href="{{ url('servicos') }}">{{ trans('Serviços Cadastrados') }}</a></li>
                 </ul>
 
@@ -66,6 +65,7 @@
                 <ul class="treeview-menu">
                      <li><a href="{{ url('banco_horas') }}">{{ trans('Banco de Horas') }}</a></li>
                     <li><a href="{{ url('setor') }}">{{ trans('Setores') }}</a></li>
+                    <li><a href="{{ url('contratos') }}" class="btnAdicionarContratos">{{ trans('Contrato') }}</a></li>
                     <li><a href="{{ url('tiposervico') }}">{{ trans('Tipo de Serviços') }}</a></li>
                     <li><a href="{{ url('campus') }}">{{ trans('Campus') }}</a></li>
                     <li><a href="{{ url('termos') }}">{{ trans('Termo Aditivo') }}</a></li>
