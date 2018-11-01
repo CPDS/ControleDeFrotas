@@ -29,7 +29,7 @@
               <strong>Nome do Campus:</strong>
               <select name="fk_campus" id="fk_campus" class="form-control selectCampus">
                 @foreach($campus as $campu)
-                  <option value='{{$campu->id}}'>{{$campu->nome_setor}}</option>
+                  <option value='{{$campu->id}}'>{{$campu->nome_campus}}</option>
                 @endforeach
               </select>
             </div>
