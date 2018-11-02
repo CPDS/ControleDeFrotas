@@ -245,6 +245,10 @@ class ViagemController extends Controller
         }
     }
 
+
+    public function reservas(Request $request){
+      dd($request->dados);
+    }
     // desabilitar veículo
 
     public function destroy(Request $request) { // deletar

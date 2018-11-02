@@ -66,16 +66,16 @@ $(document).ready(function($) {
             columnDefs : [ // quantidade de campos maior que o exemplo, tenho que mudar?
               { targets : [0,10], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
-              { "width": "20%", "targets": 1 },//nome
-              { "width": "20%", "targets": 2 },//placa
-              { "width": "20%", "targets": 3 },//tipo_combustivel
-              { "width": "20%", "targets": 4 },//
-              { "width": "20%", "targets": 5 },
-              { "width": "20%", "targets": 6 },
-              { "width": "20%", "targets": 7 },
-              { "width": "20%", "targets": 8 },
-              { "width": "20%", "targets": 9 },
-              { "width": "20%", "targets": 10 }
+              { "width": "10%", "targets": 1 },//nome
+              { "width": "10%", "targets": 2 },//placa
+              { "width": "10%", "targets": 3 },//tipo_combustivel
+              { "width": "10%", "targets": 4 },//
+              { "width": "10%", "targets": 5 },
+              { "width": "10%", "targets": 6 },
+              { "width": "10%", "targets": 7 },
+              { "width": "10%", "targets": 8 },
+              { "width": "10%", "targets": 9 },
+              { "width": "10%", "targets": 10 }
             ]
     });
 
@@ -110,6 +110,43 @@ $(document).ready(function($) {
         $('#codigo_acp_rv-visualizar').text($(this).data('codigo_acp_rv'));
         jQuery('#visualizar-modal').modal('show');
     });
+
+    $(document).on('click', '.btnConsultar', function(){ // função para buscar de acordo com datas
+      //alert('asdsa');
+      var data_saida = $('#data_saida').val();
+      var hora_saida = $('#hora_saida').val();
+      var data_chegada = $('#data_chegada').val();
+      var hora_chegada = $('#hora_chegada').val();
+      var dados = [data_saida+' '+hora_saida+':00',data_chegada+' '+hora_chegada+':00'];
+
+      // validações
+
+      if(data_saida == '' || hora_saida == '' || data_chegada == '' || hora_chegada == ''){
+        alert('Preencha as Informações corretamente!');
+          $('#informacoes').prop("hidden",true); // retorna verdadeiro se todas informações foram preenchidas correto e mostra o modal
+      }else{
+        $('#informacoes').prop("hidden",false); // sem preencher tudo restante do modal é ocultado
+        var option=''; // para selecionar o motorista
+
+        $.getJSON('./viagems/reservas/'+dados, function(dados){
+             //Atibuindo valores à variavel com os dados da consulta
+             $.each(dados.motoristas, function(i,motoristas){
+                 option += '<option value="'+motoristas.id+'">'+motoristas.nome+'</option>';
+             });
+
+              //passando para o select de veículo
+             $('#fk_motorista').html(option).show();
+
+             option=''; // para selecionar o veículo
+             $.each(dados.veiculos, function(i,veiculos){
+                 option += '<option value="'+veiculos.id+'">'+veiculos.nome+'</option>';
+             });
+             //passando para o select de veículo
+             $('#fk_veiculo').html(option).show();
+
+          });
+      }
+    });//fim btnConsultar
 
     //Editar
     $(document).on('click', '.btnEditar', function() {
@@ -170,7 +207,7 @@ $(document).ready(function($) {
         $('.modal-title').text('Nova Solicitação de Viagem');
         $('.callout').addClass("hidden");
         $('.callout').find("p").text("");
-
+        $('#informacoes').prop("hidden",true);
         $('#form')[0].reset();
 
         jQuery('#criar_editar-modal').modal('show');
