@@ -8,8 +8,9 @@
 <body class="hold-transition login-page">
     <div id="app" v-cloak>
         <div class="login-box">
-            <div class="login-logo">
+            <div class="login-logo"> <!-- Tela inicial do sistema -->
                 <a href="{{ url('/home') }}"><b>Controle de Frotas</b></a>
+                <center><h5>Sistema de Requisições de Transporte</h5></center>
             </div><!-- /.login-logo -->
 
         @if (count($errors) > 0)
