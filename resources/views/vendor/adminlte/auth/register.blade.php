@@ -10,7 +10,7 @@
     <div id="app" v-cloak>
         <div class="register-box">
             <div class="register-logo">
-                <a href="{{ url('/home') }}"><b>Admin</b>LTE</a>
+                <a href="{{ url('/home') }}"><b>Controle de Frotas</b></a>
             </div>
 
             @if (count($errors) > 0)
@@ -25,20 +25,17 @@
             @endif
 
             <div class="register-box-body">
-                <p class="login-box-msg">{{ trans('adminlte_lang::message.registermember') }}</p>
-
-                <register-form></register-form>
-
-                @include('adminlte::auth.partials.social_login')
-
-                <a href="{{ url('/login') }}" class="text-center">{{ trans('adminlte_lang::message.membreship') }}</a>
+                <p style="color:red"> Entre em contato com o setor de Transporte da UESB para realizar seu cadastro!</p>
+                <a href="{{ url('/login') }}">Voltar</a><br>
             </div><!-- /.form-box -->
         </div><!-- /.register-box -->
     </div>
 
+
+
     @include('adminlte::layouts.partials.scripts_auth')
 
-    @include('adminlte::auth.terms')
+
 
 </body>
 
