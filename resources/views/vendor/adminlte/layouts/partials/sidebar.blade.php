@@ -73,7 +73,7 @@
                 </ul>
 
             </li>
-            <li class="active"><a href="{{ url('contato') }}"><i class='fa fa-phone'></i> <span>{{ trans('Contato') }}</span></a></li>
+            
         </ul><!-- /.sidebar-menu -->
       <!--  <ul class="sidebar-menu">
         <li class="active"><a href="{{ url('veiculos') }}"><i class='fa fa-car'></i> <span>{{ trans('Veículos') }}</span></a></li> </ul> -->
