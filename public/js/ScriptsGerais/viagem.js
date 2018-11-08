@@ -136,10 +136,10 @@ $(document).ready(function($) {
 
               //passando para o select de veículo
              $('#fk_motorista').html(option).show();
-
+            
              option=''; // para selecionar o veículo
              $.each(dados.veiculos, function(i,veiculos){
-                 option += '<option value="'+veiculos.id+'">'+veiculos.nome+'</option>';
+                 option += '<option value="'+veiculos.id+'">'+veiculos.nome_veiculo+'</option>';
              });
              //passando para o select de veículo
              $('#fk_veiculo').html(option).show();
@@ -209,7 +209,9 @@ $(document).ready(function($) {
         $('.callout').find("p").text("");
         $('#informacoes').prop("hidden",true);
         $('#form')[0].reset();
-
+        $('#fk_id_solicitante').val($(this).data('name'));
+        $('#fk_id_solicitante').prop("readonly",true);
+        $('#id').val($(this).data('id'));
         jQuery('#criar_editar-modal').modal('show');
 
     });

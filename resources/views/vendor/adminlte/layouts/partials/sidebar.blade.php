@@ -42,7 +42,7 @@
                <a href="{{ url('viagems') }}"><i class='fa fa-globe'></i> <span>{{ trans('Gerenciar Viagem') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                      <li><a href="{{ url('viagems') }}">{{ trans('Viagems Solicitadas') }}</a></li>
-                    <li><a class="btnAdicionarViagems">{{ trans('Solicitação de Viagem') }}</a></li>
+                    <li><a class="btnAdicionarViagems" data-id="{{Auth::user()->id}}" data-name="{{Auth::user()->name}}">{{ trans('Solicitação de Viagem') }}</a></li>
                     <li><a href="{{ url('percursos') }}" class="btnAdicionarPercursos">{{ trans('Percursos') }}</a></li>
                     <li><a href="{{ url('diarios') }}" class="btnAdicionarDiarios">{{ trans('Diários de Bordo') }}</a></li>
                 </ul>

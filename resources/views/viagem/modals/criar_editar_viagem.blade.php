@@ -99,22 +99,6 @@
                  </div>
                  </div>
 
-                 <div class="form-group col-md-6">
-                   <strong>Horário de Saída:</strong>
-                   <div class="input-group">
-                   <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-                   <input id="datahora_saida" class="form-control"  name="datahora_saida" type="time"> <!-- Campo nào pega hora ainda -->
-                 </div>
-                 </div>
-
-                 <div class="form-group col-md-6">
-                   <strong>Horário de Chegada:</strong>
-                   <div class="input-group">
-                   <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-                   <input id="datahora_chegada" class="form-control"  name="datahora_chegada" type="time"> <!-- Campo nào pega hora ainda -->
-                 </div>
-                 </div>
-
                  <div class="form-group col-md-6 senha">
                    <strong>Estado de Saída:</strong>
                    <select name="estado" id="estado" class="form-control selectEstado">
@@ -149,7 +133,7 @@
                    <strong>Tipo de Serviço:</strong>
                    <select name="fk_tipo_servico" id="fk_tipo_servico" class="form-control selectCombustivel">
                      @foreach($tipo_servicos as $tipo_servico)
-                       <option value='{{$tipo_servico->id}}'>{{$tipo_servico->nome}}</option>
+                       <option value='{{$tipo_servico->id}}'>{{$tipo_servico->nome_servico}}</option>
                      @endforeach
                    </select>
                  </div>

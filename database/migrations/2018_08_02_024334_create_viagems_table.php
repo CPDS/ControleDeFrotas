@@ -28,7 +28,7 @@ class CreateViagemsTable extends Migration
             $table->integer('numero_passageiros');
             $table->string('tipo_solicitacao');
             $table->string('natureza_servico');
-            $table->decimal('custo_viagem', 8,2);
+            $table->string('custo_viagem');
             $table->string('descricao_bagagem');
             $table->string('codigo_acp_rv');
             $table->string('situacao');
