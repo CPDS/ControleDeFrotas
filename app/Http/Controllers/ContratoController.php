@@ -28,7 +28,7 @@ class ContratoController extends Controller
     }
 
     private function setBtns(Contrato $contratos){
-        $dados = "data-id='$contratos->id' data-empresa_contratada_empresa_contratada_nome='$contratos->empresa_contratada_empresa_contratada_nome' data-empresa_contratada_cnpj='$contratos->empresa_contratada_cnpj' data-numero_contrato='$contratos->numero_contrato' data-data_inicio_contrato='$contratos->data_inicio_contrato' data-data_vencimento_contrato='$contratos->data_vencimento_contrato' data-valor_contratado='$contratos->valor_contratado' data-tipo='$contratos->tipo'";
+        $dados = "data-id='$contratos->id' data-empresa_contratada_nome='$contratos->empresa_contratada_nome' data-empresa_contratada_cnpj='$contratos->empresa_contratada_cnpj' data-numero_contrato='$contratos->numero_contrato' data-data_inicio_contrato='$contratos->data_inicio_contrato' data-data_vencimento_contrato='$contratos->data_vencimento_contrato' data-valor_contratado='$contratos->valor_contratado' data-tipo='$contratos->tipo'";
         $dadosVisualizar = "data-empresa_contratada_empresa_contratada_nome='$contratos->empresa_contratada_empresa_contratada_nome' data-empresa_contratada_cnpj='$contratos->empresa_contratada_cnpj' data-numero_contrato='$contratos->numero_contrato' data-data_inicio_contrato='$contratos->data_inicio_contrato' data-data_vencimento_contrato='$contratos->data_vencimento_contrato' data-valor_contratado='$contratos->valor_contratado' data-tipo='$contratos->tipo'";
         $btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Contrato' $dados ><i class='fa fa-eye'></i></a> ";
         $btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Contrato' $dados><i class ='fa fa-pencil'></i></a> ";
@@ -46,7 +46,7 @@ class ContratoController extends Controller
               'data_vencimento_contrato' => 'required',
               'valor_contratado' => 'required',
               'tipo' => 'required',
-              
+
         );
         $attributeNames = array(
             'empresa_contratada_nome' => 'Nome Empresa',
@@ -56,7 +56,7 @@ class ContratoController extends Controller
             'data_vencimento_contrato' => 'Vencimento',
             'valor_contratado' => 'Valor',
             'tipo' => 'Tipo',
-            
+
 
         );
         $messages = array(
@@ -93,7 +93,7 @@ class ContratoController extends Controller
             'data_vencimento_contrato' => 'required',
             'valor_contratado' => 'required',
             'tipo' => 'required',
-            
+
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -124,7 +124,3 @@ class ContratoController extends Controller
         return response()->json($Contrato);
     }
 }
-
-
-
-

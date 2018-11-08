@@ -72,7 +72,7 @@ $(document).ready(function($) {
               { "width": "15%", "targets": 5 },
               { "width": "15%", "targets": 6 },
               { "width": "15%", "targets": 7 },
-              { "width": "15%", "targets": 8 } // acao
+              { "width": "15%", "targets": 8 }// acao
             ]
     });
 

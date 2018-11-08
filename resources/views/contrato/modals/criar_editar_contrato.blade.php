@@ -50,7 +50,7 @@
            </div>
 
            <div class="form-group col-md-12">
-             <strong>Vencimento do Contrato :</strong>
+             <strong>Vencimento do Contrato:</strong>
              <div class="input-group">
                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                <input maxlength="250" id="data_vencimento_contrato" class="form-control" name="data_vencimento_contrato" type="date">
@@ -58,7 +58,7 @@
            </div>
 
            <div class="form-group col-md-12">
-             <strong>Valor do Contrato :</strong>
+             <strong>Valor do Contrato:</strong>
              <div class="input-group">
                <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
                <input maxlength="250" id="valor_contratado" class="form-control" name="valor_contratado" type="text">
@@ -66,7 +66,7 @@
            </div>
 
            <div class="form-group col-md-12">
-             <strong>Tipo do Contrato :</strong>
+             <strong>Tipo do Contrato:</strong>
              <div class="input-group">
                <span class="input-group-addon"><i class="fa fa-file-text"></i></span>
                <input maxlength="250" id="tipo" class="form-control" name="tipo" type="text">

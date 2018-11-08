@@ -25,49 +25,40 @@
 
 
           <div class="form-group">
-              <strong>Nome do Passageiro:</strong>
-              <span id="nome_passageiro-visualizar"></span>
+              <strong>Nome da Empresa:</strong>
+              <span id="empresa_contratada_nome-visualizar"></span>
           </div>
 
           <div class="form-group">
-              <strong>Solicitação:</strong>
-              <span id="fk_solicitacao-visualizar"></span>
+              <strong>CNPJ:</strong>
+              <span id="empresa_contratada_cnpj-visualizar"></span>
           </div>
 
           <div class="form-group">
-              <strong>RG:</strong>
-              <span id="rg-visualizar"></span>
+              <strong>Nº do Contrato:</strong>
+              <span id="numero_contrato-visualizar"></span>
           </div>
 
           <div class="form-group">
-              <strong>Matrícula:</strong>
-              <span id="matricula-visualizar"></span>
+              <strong>Ínicio do Contrato:</strong>
+              <span id="data_inicio_contrato-visualizar"></span>
           </div>
 
           <div class="form-group">
-              <strong>Telefone:</strong>
-              <span id="telefone-visualizar"></span>
+              <strong>Vencimento do Contrato:</strong>
+              <span id="data_vencimento_contrato-visualizar"></span>
           </div>
 
           <div class="form-group">
-              <strong>Categoria:</strong>
-              <span id="categoria-visualizar"></span>
+              <strong>Valor do Contrato:</strong>
+              <span id="valor_contratado-visualizar"></span>
           </div>
 
           <div class="form-group">
-              <strong>Email:</strong>
-              <span id="email-visualizar"></span>
+              <strong>Tipo do Contrato:</strong>
+              <span id="tipo-visualizar"></span>
           </div>
 
-          <div class="form-group">
-              <strong>Instituição:</strong>
-              <span id="instituicao-visualizar"></span>
-          </div>
-
-          <div class="form-group">
-              <strong>Observações:</strong>
-              <span id="observacoes-visualizar"></span>
-          </div>
 
         </div>
 
