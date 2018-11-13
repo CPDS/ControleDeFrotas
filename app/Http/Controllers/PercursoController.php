@@ -11,6 +11,7 @@ use DataTables;
 use DB;
 use Auth;
 use App\Diario;
+use App\Percurso;
 
 class PercursoController extends Controller
 {
