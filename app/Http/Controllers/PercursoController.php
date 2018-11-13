@@ -22,9 +22,12 @@ class PercursoController extends Controller
     public function list() {
         $Percurso = Percurso::orderBy('created_at', 'desc')->get();
 
-        return Datatables::of($Percurso)->editColumn('acao', function ($percursos){
+        return Datatables::of($Percurso)
+        ->editColumn('acao', function ($percursos){
             return $this->setBtns($percursos);
-        })->escapeColumns([0])->make(true);
+        })
+        ->escapeColumns([0])
+        ->make(true);
     }
 
     private function setBtns(Percurso $percursos){

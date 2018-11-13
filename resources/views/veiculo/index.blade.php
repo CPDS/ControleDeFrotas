@@ -45,8 +45,8 @@
                                 <th>Campus</th>
                                 <th>Quantidade Total de Lugares</th>
                                 <th>Ano de Fabricação</th>
-                                <th>QTD Mínima de Passageiros</th>
-                                <th>QTD Máxima de Passageiros</th>
+                                <th>Mínimo de Passageiros</th>
+                                <th>Máximo de Passageiros</th>
                                 <th>Rendimento</th>
                                 <th>Marca</th>
                                 <th>Ar Condicionado</th>

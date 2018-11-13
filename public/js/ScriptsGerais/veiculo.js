@@ -68,7 +68,7 @@ $(document).ready(function($) {
             },
             columnDefs : [
               { targets : [0,13], sortable : false },
-              { "width": "5%", "targets": 0 }, //nº
+              { "width": "5%", "targets":  0 }, //nº
               { "width": "10%", "targets": 1 },//nome
               { "width": "10%", "targets": 2 },//placa
               { "width": "10%", "targets": 3 },//tipo_combustivel

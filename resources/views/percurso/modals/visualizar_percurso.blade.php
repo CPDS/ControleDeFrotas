@@ -12,7 +12,7 @@
       </button>
 
       <h4> <!-- EDITAR CONFORME PERCURSO !!!!!!!!!! -->
-        <strong><span >Informações do Veículo</span></strong>
+        <strong><span >Informações do Percurso</span></strong>
       </h4>
 
     </div>
