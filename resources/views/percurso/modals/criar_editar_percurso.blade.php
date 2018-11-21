@@ -20,7 +20,7 @@
               <strong>Hora de Saída:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                <input maxlength="250" id="hora_saida" class="form-control" name="hora_saida" type="date">
+                <input maxlength="250" id="hora_saida" class="form-control" name="hora_saida" type="time">
               </div>
             </div>
 
@@ -28,7 +28,7 @@
               <strong>Hora de Chegada:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                <input id="hora_chegada" maxlength="250" class="form-control" name="hora_chegada" type="date">
+                <input id="hora_chegada" maxlength="250" class="form-control" name="hora_chegada" type="time">
               </div>
             </div>
 
