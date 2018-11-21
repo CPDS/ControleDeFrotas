@@ -272,7 +272,7 @@ $(document).ready(function($) {
         console.log(dados);
         $.ajax({
             type: 'post',
-            url: "./usuarios/create",
+            url: "./usuarios/store",
             data: dados,
             processData: false,
             contentType: false,

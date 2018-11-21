@@ -38,7 +38,6 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Nº</th>
                                 <th>Nome do Veículo</th>
                                 <th>Placa</th>
                                 <th>Tipo de Combustível</th>
