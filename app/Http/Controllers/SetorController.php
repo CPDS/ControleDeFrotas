@@ -19,7 +19,7 @@ class SetorController extends Controller
 {
     public function index(){
         //$testecampus = Campus::where('status','Ativo')->get();
-        $campus = Campus::where('status','Ativo')->get();
+        $campus = Campus::where('status','Ativo')->where('status','Ativo')->get();
         return view('setor.index', compact('campus'));
         //return view('termo.index');
     }

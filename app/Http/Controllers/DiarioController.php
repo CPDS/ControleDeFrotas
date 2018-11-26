@@ -19,7 +19,7 @@ class DiarioController extends Controller
     }
 
     public function list() {
-        $Diario = Diario::orderBy('created_at', 'desc')->get();
+        $Diario = Diario::orderBy('created_at', 'desc')->where('status','Ativo')->get();
 
         return Datatables::of($Diario)->editColumn('acao', function ($diarios){
             return $this->setBtns($diarios);

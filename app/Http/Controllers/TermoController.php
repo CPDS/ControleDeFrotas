@@ -24,7 +24,7 @@ class TermoController extends Controller
     }
 
     public function list() {
-        $Termo = Termo::orderBy('created_at', 'desc')->get();
+        $Termo = Termo::orderBy('created_at', 'desc')->where('status','Ativo')->get();
 
         return Datatables::of($Termo)->editColumn('acao', function ($termos){
             return $this->setBtns($termos);

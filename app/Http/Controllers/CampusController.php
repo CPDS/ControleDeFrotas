@@ -19,7 +19,7 @@ class CampusController extends Controller
     }
 
     public function list() {
-        $Campus = Campus::orderBy('created_at', 'desc')->get();
+        $Campus = Campus::orderBy('created_at', 'desc')->where('status','Ativo')->get();
 
         return Datatables::of($Campus)
         ->editColumn('acao', function ($campus){

@@ -23,7 +23,7 @@ class ServicoController extends Controller
     }
 
     public function list() {
-        $Servico = Servico::orderBy('created_at', 'desc')->get();
+        $Servico = Servico::orderBy('created_at', 'desc')->where('status','Ativo')->get();
 
         return Datatables::of($Servico)->editColumn('acao', function ($servicos){
         	return $this->setBtns($servicos);

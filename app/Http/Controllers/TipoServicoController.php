@@ -20,7 +20,7 @@ class TipoServicoController extends Controller
     }
 
     public function list() {
-        $TipoServico = TipoServico::orderBy('created_at', 'desc')->get();
+        $TipoServico = TipoServico::orderBy('created_at', 'desc')->where('status','Ativo')->get();
 
         return Datatables::of($TipoServico)->editColumn('acao', function ($tiposervicos){
             return $this->setBtns($tiposervicos);

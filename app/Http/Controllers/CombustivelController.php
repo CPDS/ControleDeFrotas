@@ -21,7 +21,7 @@ class CombustivelController extends Controller
     }
 
     public function list() {
-        $Combustivel = Combustivel::orderBy('created_at', 'desc')->get();
+        $Combustivel = Combustivel::orderBy('created_at', 'desc')->where('status','Ativo')->get();
 
         return Datatables::of($Combustivel)->editColumn('acao', function ($combustivels){
             return $this->setBtns($combustivels);

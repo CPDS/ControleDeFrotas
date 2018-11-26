@@ -20,7 +20,7 @@ class ContratoController extends Controller
     }
 
     public function list() {
-        $Contrato = Contrato::orderBy('created_at', 'desc')->get();
+        $Contrato = Contrato::orderBy('created_at', 'desc')->where('status','Ativo')->get();
 
         return Datatables::of($Contrato)->editColumn('acao', function ($contratos){
             return $this->setBtns($contratos);

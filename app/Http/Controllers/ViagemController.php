@@ -32,7 +32,7 @@ class ViagemController extends Controller
     }
 
     public function list() {
-        $Viagem = Viagem::orderBy('created_at', 'desc')->get();
+        $Viagem = Viagem::orderBy('created_at', 'desc')->where('status','Ativo')->get();
 
         return Datatables::of($Viagem)->editColumn('acao', function ($viagems){
         	return $this->setBtns($viagems);

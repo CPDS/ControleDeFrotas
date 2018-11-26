@@ -21,10 +21,11 @@ class BancoHorasController extends Controller
         //$testecampus = Campus::where('status','Ativo')->get();
         $users = User::role('Motorista')->where('status','Ativo')->get();
         return view('banco_hora.index', compact('users'));
+        
     }
 
     public function list() {
-        $Horas = BancoHoras::orderBy('created_at', 'desc')->get();
+        $Horas = BancoHoras::orderBy('created_at', 'desc')->where('status','Ativo')->get();
 
         return Datatables::of($Horas)
         ->editColumn('acao', function ($horass){
@@ -40,10 +41,10 @@ class BancoHorasController extends Controller
     private function setBtns(BancoHoras $horass){
         //dd($horass);
         $motorista_nome = $horass->motorista->name;
-        
+        //dd($motorista_nome);
         $dados = "data-id='$horass->id' data-hora_inicio='$horass->hora_inicio' data-hora_termino='$horass->hora_termino' data-hora_intervalo='$horass->hora_intervalo'";
         $dadosVisualizar = "data-hora_inicio='$horass->hora_inicio' data-hora_termino='$horass->hora_termino' data-hora_intervalo='$horass->hora_intervalo'
-        data-fk_motorista='$motorista_nome ' ";
+        data-fk_motorista='$motorista_nome' ";
         $btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Horas' $dadosVisualizar ><i class='fa fa-eye'></i></a> ";
         $btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Horas' $dados><i class ='fa fa-pencil'></i></a> ";
         $btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Horas' data-id='$horass->id'><i class='fa fa-trash'></i></a>";
@@ -99,7 +100,7 @@ class BancoHorasController extends Controller
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         else {
 
-            $Horas = Horas::find($request->id);
+            $Horas = BancoHoras::find($request->id);
             $Horas->hora_inicio = $request->hora_inicio;
             $Horas->hora_termino = $request->hora_termino;
             $Horas->fk_motorista = $request->fk_motorista;
@@ -113,7 +114,7 @@ class BancoHorasController extends Controller
     // desabilitar veículo
 
     public function destroy(Request $request) {
-        $Horas = Horas::find($request->id);
+        $Horas = BancoHoras::find($request->id);
         $Horas->status = "Inativo";
         $Horas->save();
         return response()->json($Horas);

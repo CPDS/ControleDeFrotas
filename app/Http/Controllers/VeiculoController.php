@@ -22,7 +22,7 @@ class VeiculoController extends Controller
         return view('veiculo.index',compact('campuss'));
     }
     public function list() {
-        $Veiculo = Veiculo::orderBy('created_at', 'desc')->get();
+        $Veiculo = Veiculo::orderBy('created_at', 'desc')->where('status','Ativo')->get();
         
         return Datatables::of($Veiculo)->editColumn('acao', function ($veiculos){
         	return $this->setBtns($veiculos);
@@ -118,6 +118,10 @@ class VeiculoController extends Controller
         if ($validator->fails())
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         else {
+            if($request->tem_arcondicionado == "Sim")
+              $ar = true;
+          else
+              $ar = false;
             $Veiculo = Veiculo::find($request->id);
             $Veiculo->nome_veiculo = $request->nome_veiculo;
             $Veiculo->placa = $request->placa;
@@ -129,7 +133,7 @@ class VeiculoController extends Controller
             $Veiculo->maximo_passageiros = $request->maximo_passageiros;
             $Veiculo->rendimento = $request->rendimento;
             $Veiculo->marca = $request->marca;
-            $Veiculo->tem_arcondicionado = $request->tem_arcondicionado;
+            $Veiculo->tem_arcondicionado = $ar;
             $Veiculo->tipo_bagageiro = $request->tipo_bagageiro;
             $Veiculo->save();
             //$equipamento->setAttribute('buttons', $this->setDataButtons($equipamento));

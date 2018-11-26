@@ -25,7 +25,7 @@ class UsuarioController extends Controller
     }
 
     public function list() {
-        $usuarios = User::orderBy('created_at', 'desc')->get();
+        $usuarios = User::orderBy('created_at', 'desc')->where('status','Ativo')->get();
 
         return Datatables::of($usuarios)
         ->editColumn('acao', function ($usuarios){

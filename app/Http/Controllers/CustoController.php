@@ -22,7 +22,7 @@ class CustoController extends Controller
     }
 
     public function list() {
-        $Custo = Custo::orderBy('created_at', 'desc')->get();
+        $Custo = Custo::orderBy('created_at', 'desc')->where('status','Ativo')->get();
 
         return Datatables::of($Custo)->editColumn('acao', function ($custos){
             return $this->setBtns($custos);
