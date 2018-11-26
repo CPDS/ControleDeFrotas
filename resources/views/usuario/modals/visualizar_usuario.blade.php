@@ -12,7 +12,7 @@
       </button>
 
       <h4>
-        <strong><span id="nome_usuario-visualizar"></span></strong>
+        <strong><span id="name-visualizar"></span></strong>
       </h4>
 
     </div>
@@ -26,6 +26,16 @@
           <div class="form-group">
               <strong>Email:</strong>
               <span id="email-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Endereço:</strong>
+              <span id="endereco-visualizar"></span>
+          </div>
+
+          <div class="form-group">
+              <strong>Telefone:</strong>
+              <span id="telefone-visualizar"></span>
           </div>
 
           <div class="form-group">

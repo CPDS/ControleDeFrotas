@@ -82,6 +82,7 @@ $(document).ready(function($) {
               { "width": "10%", "targets": 11 },
               { "width": "10%", "targets": 12 },
               { "width": "10%", "targets": 13 }
+
             ]
     });
 

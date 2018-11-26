@@ -37,7 +37,7 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>Painel Viagems</h3>
+              <h3>Painel Viagens</h3>
 
               <strong><p>Reserva(s) de viagem(s)<br> agendadas</p></strong>
             </div>

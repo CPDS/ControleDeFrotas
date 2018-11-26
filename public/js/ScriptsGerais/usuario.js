@@ -15,6 +15,8 @@ $(document).ready(function($) {
             { data: null, name: 'order' },
             { data: 'name', name: 'name' },
             { data: 'email', name: 'email'},
+            { data: 'endereco', name: 'endereco'},
+            { data: 'telefone', name: 'telefone'},
             { data: 'funcao', name: 'funcao'},
             { data: 'status', name: 'status' },
             { data: 'acao', name: 'acao' }
@@ -61,13 +63,15 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [0,5], sortable : false },
+              { targets : [0,7], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
               { "width": "15%", "targets": 1 },//nome
               { "width": "15%", "targets": 2 },//email
               { "width": "15%", "targets": 3 },//funcao
               { "width": "15%", "targets": 4 },//status
-              { "width": "15%", "targets": 5 }//acao
+              { "width": "15%", "targets": 5 },//acao
+              { "width": "15%", "targets": 6 },
+              { "width": "15%", "targets": 7 }
             ]
     });
 
@@ -80,8 +84,10 @@ $(document).ready(function($) {
     //Visualizar
     $(document).on('click', '.btnVisualizar', function() {
 
-        $('#nome_usuario-visualizar').text($(this).data('nome_usuario'));
+        $('#name-visualizar').text($(this).data('name'));
         $('#email-visualizar').text($(this).data('email'));
+        $('#endereco-visualizar').text($(this).data('endereco'));
+        $('#telefone-visualizar').text($(this).data('telefone'));
         $('#funcao-visualizar').text($(this).data('funcao'));
         jQuery('#visualizar-modal').modal('show');
     });
