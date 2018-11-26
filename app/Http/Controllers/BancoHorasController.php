@@ -42,9 +42,11 @@ class BancoHorasController extends Controller
         //dd($horass);
         $motorista_nome = $horass->motorista->name;
         //dd($motorista_nome);
-        $dados = "data-id='$horass->id' data-hora_inicio='$horass->hora_inicio' data-hora_termino='$horass->hora_termino' data-hora_intervalo='$horass->hora_intervalo'";
+        $dados = "data-id='$horass->id'  data-fk_motorista='$motorista_nome'  data-hora_inicio='$horass->hora_inicio' data-hora_termino='$horass->hora_termino' data-hora_intervalo='$horass->hora_intervalo'";
         $dadosVisualizar = "data-hora_inicio='$horass->hora_inicio' data-hora_termino='$horass->hora_termino' data-hora_intervalo='$horass->hora_intervalo'
-        data-fk_motorista='$motorista_nome' ";
+        data-fk_motorista='$motorista_nome'
+        
+        ";
         $btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Horas' $dadosVisualizar ><i class='fa fa-eye'></i></a> ";
         $btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Horas' $dados><i class ='fa fa-pencil'></i></a> ";
         $btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Horas' data-id='$horass->id'><i class='fa fa-trash'></i></a>";

@@ -12,8 +12,8 @@ use DB;
 use Auth;
 use App\{
   Setor,
-  Campus
-
+  Campus,
+  Termo
 };
 class SetorController extends Controller
 {

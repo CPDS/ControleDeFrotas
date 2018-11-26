@@ -41,6 +41,7 @@
              </div>
            </div>
 
+               <input id="fk_motorista" class="form-control" name="fk_motorista" type="hidden">
            <div class="form-group col-md-6 senha">
              <strong>Motorista:</strong>
              <select name="fk_motorista" id="fk_motorista" class="form-control selectMotorista">

@@ -26,11 +26,26 @@ class VeiculoController extends Controller
         
         return Datatables::of($Veiculo)->editColumn('acao', function ($veiculos){
         	return $this->setBtns($veiculos);
-        })->escapeColumns([0])->make(true);
+        })
+        ->editColumn('fk_campus', function ($veiculos){
+            return $veiculos->campus->nome_campus;
+        })
+        ->editColumn('tem_arcondicionado', function ($veiculos){
+            if($veiculos->tem_arcondicionado == true)
+                return 'Sim';
+            else
+                return 'Não';
+        })
+        ->escapeColumns([0])->make(true);
     }
     private function setBtns(Veiculo $veiculos){
-    	$dados = "data-id='$veiculos->id' data-nome_veiculo='$veiculos->nome_veiculo' data-placa='$veiculos->placa' data-tipo_combustivel='$veiculos->tipo_combustivel' data-fk_campus='$veiculos->fk_campus' data-qtd_total_lugares='$veiculos->qtd_total_lugares' data-ano_fabricacao='$veiculos->ano_fabricacao' data-minimo_passageiros='$veiculos->minimo_passageiros' data-maximo_passageiros='$veiculos->maximo_passageiros' data-rendimento='$veiculos->rendimento' data-marca='$veiculos->marca' data-tem_arcondicionado='$veiculos->tem_arcondicionado' data-tipo_bagageiro='$veiculos->tipo_bagageiro'";
-        $dadosVisualizar = "data-nome_veiculo='$veiculos->nome_veiculo' data-placa='$veiculos->placa 'data-tipo_combustivel='$veiculos->tipo_combustivel' data-fk_campus='$veiculos->fk_campus' data-qtd_total_lugares='$veiculos->qtd_total_lugares' data-ano_fabricacao='$veiculos->ano_fabricacao' data-minimo_passageiros='$veiculos->minimo_passageiros' data-maximo_passageiros='$veiculos->maximo_passageiros' data-rendimento='$veiculos->rendimento' data-marca='$veiculos->marca' data-tem_arcondicionado='$veiculos->tem_arcondicionado' data-tipo_bagageiro='$veiculos->tipo_bagageiro'";
+        $campus_nome = $veiculos->campus->nome_campus;
+        if($veiculos->tem_arcondicionado == true)
+            $temar = 'Sim';
+        else
+            $temar = 'Não';
+    	$dados = "data-id='$veiculos->id' data-nome_veiculo='$veiculos->nome_veiculo' data-placa='$veiculos->placa' data-tipo_combustivel='$veiculos->tipo_combustivel' data-fk_campus='$campus_nome' data-qtd_total_lugares='$veiculos->qtd_total_lugares' data-ano_fabricacao='$veiculos->ano_fabricacao' data-minimo_passageiros='$veiculos->minimo_passageiros' data-maximo_passageiros='$veiculos->maximo_passageiros' data-rendimento='$veiculos->rendimento' data-marca='$veiculos->marca' data-tem_arcondicionado='$temar' data-tipo_bagageiro='$veiculos->tipo_bagageiro'";
+        $dadosVisualizar = "data-nome_veiculo='$veiculos->nome_veiculo' data-placa='$veiculos->placa 'data-tipo_combustivel='$veiculos->tipo_combustivel' data-fk_campus='$campus_nome' data-qtd_total_lugares='$veiculos->qtd_total_lugares' data-ano_fabricacao='$veiculos->ano_fabricacao' data-minimo_passageiros='$veiculos->minimo_passageiros' data-maximo_passageiros='$veiculos->maximo_passageiros' data-rendimento='$veiculos->rendimento' data-marca='$veiculos->marca' data-tem_arcondicionado='$temar' data-tipo_bagageiro='$veiculos->tipo_bagageiro'";
     	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Veículo' $dados ><i class='fa fa-eye'></i></a> ";
     	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Veículo' $dados><i class ='fa fa-pencil'></i></a> ";
     	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Veículo' data-id='$veiculos->id'><i class='fa fa-trash'></i></a>";

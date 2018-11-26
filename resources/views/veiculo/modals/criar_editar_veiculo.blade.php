@@ -48,8 +48,8 @@
              <div class="input-group">
                <span class="input-group-addon"><i class="fa fa-university"></i>
                </span>
+               <input id="fk_campus" class="form-control" name="fk_campus" type="hidden">
                 <select name="fk_campus" id="fk_campus" class="form-control">
-                  <option value='' selected disabled>Selecione ...</option>
                   @foreach($campuss as $campus)
                     <option value="{{$campus->id}}">{{$campus->nome_campus}}</option>
                   @endforeach
