@@ -34,7 +34,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <table class="table" id="tabela_passageiro">
+                        <table class="table" id="tabela_diarios">
                             <thead>
                             <tr>
                                 <th>ID</th>

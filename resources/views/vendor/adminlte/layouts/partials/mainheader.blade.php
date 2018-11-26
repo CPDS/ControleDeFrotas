@@ -127,13 +127,13 @@
                                 <img src="{{ Gravatar::get($user->email) }}" class="img-circle" alt="User Image" />
                                 <p>
                                     {{ Auth::user()->name }}
-                                    <small>{{ trans('adminlte_lang::message.login') }} Nov. 2012</small>
+                                  <!--  <small>{{ trans('adminlte_lang::message.login') }} </small> -->
                                 </p>
                             </li>
                             <!-- Menu Body -->
-                            <li class="user-body">
+                      <!--      <li class="user-body">
                                 <div class="col-xs-4 text-center">
-                                    <a href="#">{{ trans('adminlte_lang::message.followers') }}</a>
+                                    <a href="#">Seguidores</a>
                                 </div>
                                 <div class="col-xs-4 text-center">
                                     <a href="#">{{ trans('adminlte_lang::message.sales') }}</a>
@@ -141,17 +141,17 @@
                                 <div class="col-xs-4 text-center">
                                     <a href="#">{{ trans('adminlte_lang::message.friends') }}</a>
                                 </div>
-                            </li>
+                            </li> -->
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                <div class="pull-left">
+                            <!--    <div class="pull-left">
                                     <a href="{{ url('/settings') }}" class="btn btn-default btn-flat">{{ trans('adminlte_lang::message.profile') }}</a>
-                                </div>
+                                </div> -->
                                 <div class="pull-right">
                                     <a href="{{ url('/logout') }}" class="btn btn-default btn-flat" id="logout"
                                        onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                        {{ trans('adminlte_lang::message.signout') }}
+                                        Sair
                                     </a>
 
                                     <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
@@ -166,9 +166,9 @@
                 @endif
 
                 <!-- Control Sidebar Toggle Button -->
-                <li>
+            <!--    <li>
                     <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </nav>
