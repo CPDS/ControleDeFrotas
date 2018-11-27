@@ -27,6 +27,7 @@
 
             <div class="form-group col-md-12 senha">
               <strong>Nome do Campus:</strong>
+              <input id="fk_campus" class="form-control" name="fk_campus" type="hidden">
               <select name="fk_campus" id="fk_campus" class="form-control selectCampus">
                 @foreach($campus as $campu)
                   <option value='{{$campu->id}}'>{{$campu->nome_campus}}</option>
