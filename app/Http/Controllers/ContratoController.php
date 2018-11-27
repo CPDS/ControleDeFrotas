@@ -21,10 +21,17 @@ class ContratoController extends Controller
 
     public function list() {
         $Contrato = Contrato::orderBy('created_at', 'desc')->where('status','Ativo')->get();
-
+        //dd($Contrato);
         return Datatables::of($Contrato)->editColumn('acao', function ($contratos){
             return $this->setBtns($contratos);
-        })->escapeColumns([0])->make(true);
+        })
+        ->editColumn('data_inicio_contrato', function($contratos){
+            return date("d/m/y",strtotime($contratos->data_inicio_contrato));
+        })
+        ->editColumn('data_vencimento_contrato', function($contratos){
+            return date("d/m/y",strtotime($contratos->data_vencimento_contrato));
+        })
+        ->escapeColumns([0])->make(true);
     }
 
     private function setBtns(Contrato $contratos){

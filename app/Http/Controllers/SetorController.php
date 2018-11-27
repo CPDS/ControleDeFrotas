@@ -25,11 +25,15 @@ class SetorController extends Controller
     }
 
     public function list() {
-        $Setor = Setor::orderBy('created_at', 'desc')->get();
+        $Setor = Setor::orderBy('created_at', 'desc')->where('status','Ativo')->get();
 
         return Datatables::of($Setor)->editColumn('acao', function ($setors){
             return $this->setBtns($setors);
-        })->escapeColumns([0])->make(true);
+        })
+        ->editColumn('fk_campus', function ($setors){
+            return $setors->campus->nome_campus;
+        })
+        ->escapeColumns([0])->make(true);
     }
 
     private function setBtns(Setor $setors){
@@ -82,7 +86,7 @@ class SetorController extends Controller
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         else {
 
-            $Setor = Termo::find($request->id);
+            $Setor = Setor::find($request->id);
             $Setor->nome_setor = $request->nome_setor;
             $Setor->fk_campus = $request->fk_campus;
             $Setor->save();
@@ -94,7 +98,7 @@ class SetorController extends Controller
     // desabilitar veículo
 
     public function destroy(Request $request) {
-        $Setor = Termo::find($request->id);
+        $Setor = Setor::find($request->id);
         $Setor->status = "Inativo";
         $Setor->save();
         return response()->json($Setor);

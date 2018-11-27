@@ -73,7 +73,7 @@ class TipoServicoController extends Controller
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         else {
 
-            $Diario = Diario::find($request->id);
+            $TipoServico = TipoServico::find($request->id);
             $TipoServico->nome_servico = $request->nome_servico;
             $TipoServico->save();
             //$equipamento->setAttribute('buttons', $this->setDataButtons($equipamento));
@@ -84,7 +84,7 @@ class TipoServicoController extends Controller
     // desabilitar veículo
 
     public function destroy(Request $request) {
-        $TipoServico = Diario::find($request->id);
+        $TipoServico = TipoServico::find($request->id);
         $TipoServico->status = "Inativo";
         $TipoServico->save();
         return response()->json($TipoServico);

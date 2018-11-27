@@ -20,7 +20,7 @@
               <strong>Veículo:</strong>
                 <select name="fk_veiculo" id="fk_veiculo" class="form-control selectVeiculo">
                   @foreach($veiculos as $veiculo)
-                    <option value='{{$veiculo->id}}'>{{$veiculo->nome}}</option>
+                    <option value='{{$veiculo->id}}'>{{$veiculo->nome_veiculo}}</option>
                   @endforeach
                 </select>
             </div>
@@ -29,7 +29,7 @@
               <strong>Contrato:</strong>
               <select name="fk_contrato" id="fk_contrato" class="form-control">
                 @foreach($contratos as $contrato)
-                  <option value='{{$contrato->id}}'>{{$contrato->nome}}</option>
+                  <option value='{{$contrato->id}}'>{{$contrato->empresa_contratada_nome}}</option>
                 @endforeach
               </select>
             </div>
@@ -38,7 +38,7 @@
               <strong>Motorista:</strong>
               <select name="fk_motorista" id="fk_motorista" class="form-control">
                 @foreach($motoristas as $motorista)
-                  <option value='{{$motorista->id}}'>{{$motorista->nome}}</option>
+                  <option value='{{$motorista->id}}'>{{$motorista->name}}</option>
                 @endforeach
               </select>
             </div>
