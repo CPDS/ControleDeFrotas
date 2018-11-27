@@ -37,8 +37,9 @@ class SetorController extends Controller
     }
 
     private function setBtns(Setor $setors){
-        $dados = "data-id='$setors->id' data-nome_setor='$setors->nome_setor' data-fk_campus='$setors->fk_campus'";
-        $dadosVisualizar = "data-nome_setor='$setors->nome_setor' data-fk_campus='$setors->fk_campus'";
+        $campus_nome = $setors->campus->nome_campus;
+        $dados = "data-id='$setors->id' data-nome_setor='$setors->nome_setor' data-fk_campus='$campus_nome'";
+        $dadosVisualizar = "data-nome_setor='$setors->nome_setor' data-fk_campus='$campus_nome'";
         $btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Setor' $dados ><i class='fa fa-eye'></i></a> ";
         $btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Setor' $dados><i class ='fa fa-pencil'></i></a> ";
         $btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Setor' data-id='$setors->id'><i class='fa fa-trash'></i></a>";

@@ -30,5 +30,9 @@ class RoleSeeder extends Seeder
           'name' => 'Professor',
           'guard_name' => 'web',
         ]);
+        DB::table('roles')->insert([
+          'name' => 'Tecnico',
+          'guard_name' => 'web',
+        ]);
     }
 }
