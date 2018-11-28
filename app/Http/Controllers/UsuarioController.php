@@ -59,7 +59,7 @@ class UsuarioController extends Controller
             $funcao = $tipoFuncao;
 
 
-      $dados = 'data-name="'.$usuarios->name.'" data-email="'.$usuarios->email.'" data-endereco="'.$usuarios->endereco.'" data-telefone="'.$usuarios->telefone.'" data-funcao="'.$funcao.'"
+      $dados = 'data-id ="'.$usuarios->id.'" data-name="'.$usuarios->name.'" data-email="'.$usuarios->email.'" data-endereco="'.$usuarios->endereco.'" data-telefone="'.$usuarios->telefone.'" data-funcao="'.$funcao.'"
        ';
       $dados_visualizar = 'data-name="'.$usuarios->name.'" data-email="'.$usuarios->email.'" data-endereco="'.$usuarios->endereco.'" data-telefone="'.$usuarios->telefone.'" data-funcao="'.$funcao.'"
       ';
@@ -117,7 +117,7 @@ class UsuarioController extends Controller
             $Usuario->telefone = $request->telefone;
             $Usuario->fk_cidade = $request->cidade;
             $Usuario->endereco = $request->endereco;
-            $Usuario->status = true;
+            $Usuario->status = "Ativo";
             $Usuario->save();
             $Usuario->assignRole($request->funcao);
             //$Veiculo->setAttribute('titulo', $Veiculo->titulo);
@@ -129,12 +129,12 @@ class UsuarioController extends Controller
 
     public function update(Request $request)
     {
+        //dd($request->all());
         $rules = array(
             'name' => 'required',
             'telefone' => 'required',
             'endereco' => 'required',
-            'cidade' => 'required',
-            'estado' => 'required'
+            'funcao' => 'required'
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -142,14 +142,20 @@ class UsuarioController extends Controller
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         else {
 
-            $Usuario = Usuario::find($request->id);
+            $Usuario = User::find($request->id);
+
+            foreach($Usuario->getRoleNames() as $funcao)
+                $role = $funcao;
+            
+            $Usuario->removeRole($role);
+
             $Usuario->name = $request->name;
             $Usuario->email = $request->email;
-            $usuario->telefone = $request->telefone;
-            $usuario->endereco = $request->endereco;
-            $usuario->fk_cidade = $request->cidade;
-            $usuario->assignRole($request->funcao);
-            $usuario->save();
+            $Usuario->telefone = $request->telefone;
+            $Usuario->endereco = $request->endereco;
+            //$Usuario->fk_cidade = $request->cidade;
+            $Usuario->assignRole($request->funcao);
+            $Usuario->save();
             //$equipamento->setAttribute('buttons', $this->setDataButtons($equipamento));
             return response()->json($Usuario);
         }

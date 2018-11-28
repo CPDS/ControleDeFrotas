@@ -114,10 +114,10 @@ $(document).ready(function($) {
     /*Evento ajax - EDITAR USUÁRIO*/
     $('.modal-footer').on('click', '.edit', function() {
         var dados = new FormData($("#form")[0]); //pega os dados do form
-
+        console.log(dados);
         $.ajax({
             type: 'post',
-            url: "./usuarios/edit",
+            url: "./usuarios/update",
             data: dados,
             processData: false,
             contentType: false,
