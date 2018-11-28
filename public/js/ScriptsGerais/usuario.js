@@ -104,6 +104,9 @@ $(document).ready(function($) {
 
         var btnEditar = $(this);
 
+        $('#form :input').each(function(index,input){
+            $('#'+input.id).val($(btnEditar).data(input.id));
+        });
 
         jQuery('#criar_editar-modal').modal('show'); //Abrir o modal
     });

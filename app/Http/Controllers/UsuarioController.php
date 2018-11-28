@@ -59,14 +59,12 @@ class UsuarioController extends Controller
             $funcao = $tipoFuncao;
 
 
-      $dados = 'data-name="'.$usuarios->name.'" data-email="'.$usuarios->email.'" data-telefone="'.$usuarios->telefone.'" data-funcao="'.$funcao.'"
-      data-endereco="'.$usuarios->endereco.'" data-cidade="'.$usuarios->cidade->id .'" data-estado="'.$usuarios->cidade->estado->id.'"
-      data-status="'.$status.'"';
-      $dados_visualizar = 'data-name="'.$usuarios->name.'" data-email="'.$usuarios->email.'" data-telefone="'.$usuarios->telefone.'" data-funcao="'.$funcao.'"
-      data-endereco="'.$usuarios->endereco.'" data-cidade="'.$usuarios->cidade->name .'" data-estado="'.$usuarios->cidade->estado->name.'"
-      data-status="'.$status.'"';
+      $dados = 'data-name="'.$usuarios->name.'" data-email="'.$usuarios->email.'" data-endereco="'.$usuarios->endereco.'" data-telefone="'.$usuarios->telefone.'" data-funcao="'.$funcao.'"
+       ';
+      $dados_visualizar = 'data-name="'.$usuarios->name.'" data-email="'.$usuarios->email.'" data-endereco="'.$usuarios->endereco.'" data-telefone="'.$usuarios->telefone.'" data-funcao="'.$funcao.'"
+      ';
 
-    	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Usuario' $dados_visualizar ><i class='fa fa-eye'></i></a> ";
+      $btnVisualizar= "<a class='btn btn-primary btn-sm btnVisualizar' title='Ver Usuario' $dados_visualizar ><i class='fa fa-eye'></i></a> ";
       $btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Usuario' $dados><i class ='fa fa-pencil'></i></a> ";
 
       if(Auth::user()->id == $usuarios->id)
@@ -76,9 +74,9 @@ class UsuarioController extends Controller
 
       if(!$usuarios->status){
           $btnAtivar = ' <a data-id="'.$usuarios->id.'" class="btn btn-warning btnAtivar" '. $dados .' title="Ativar Usúário" data-toggle="tooltip" ><i class="fa fa-user-plus"> </i></a>';
-          return $btnVer.$btnEditar.$btnAtivar;
+          return $btnVisualizar.$btnEditar.$btnAtivar;
       }else{
-          return $btnVer.$btnEditar.$btnDeletar;
+          return $btnVisualizar.$btnEditar.$btnDeletar;
       }
     }
 

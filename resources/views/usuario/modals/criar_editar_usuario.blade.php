@@ -83,6 +83,7 @@
                   <option value="Secretaria">Secretária</option>
                   <option value="Motorista">Motorista</option>
                   <option value="Professor">Professor</option>
+                  <option value="Tecnico">Técnico</option>
                 </select>
             </div>
 
