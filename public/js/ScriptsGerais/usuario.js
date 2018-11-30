@@ -167,7 +167,7 @@ $(document).ready(function($) {
     });
 
     //Excluir
-    $(document).on('click', '.btnExcluir', function() {
+    $(document).on('click', '.btnDeletar', function() {
         $('.modal-title').text('Desativar Usuário');
         $('.id_del').val($(this).data('id'));
 

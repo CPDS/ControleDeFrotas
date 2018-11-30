@@ -72,7 +72,7 @@ class UsuarioController extends Controller
       else
         $btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Usuario' data-id='$usuarios->id'><i class='fa fa-trash'></i></a>";
 
-      if(!$usuarios->status){
+      if($usuarios->status == "Inativo"){
           $btnAtivar = ' <a data-id="'.$usuarios->id.'" class="btn btn-warning btnAtivar" '. $dados .' title="Ativar Usúário" data-toggle="tooltip" ><i class="fa fa-user-plus"> </i></a>';
           return $btnVisualizar.$btnEditar.$btnAtivar;
       }else{
@@ -164,7 +164,7 @@ class UsuarioController extends Controller
     // desabilitar veículo
 
     public function destroy(Request $request) {
-        $Usuario = Usuario::find($request->id);
+        $Usuario = User::find($request->id);
         $Usuario->status = "Inativo";
         $Usuario->save();
         return response()->json($Usuario);
