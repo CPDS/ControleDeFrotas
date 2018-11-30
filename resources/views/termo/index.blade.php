@@ -19,7 +19,7 @@
 
                 <div class="box box-success">
                   <div class="pull-left">
-            				<h2> &nbsp <i class="fa fa-file"></i> @yield('contentheader_title', 'Termos Cadastrados')</h2>
+            				<h2> &nbsp <i class="fa fa-file"></i> @yield('contentheader_title', 'Termos Aditivos Cadastrados')</h2>
             			</div>
                     <div class="box-header with-border">
 
