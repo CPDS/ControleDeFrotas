@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
       $this->call(CampusSeeder::Class);
       $this->call(VeiculoSeeder::class);
       $this->call(TipoServicoSeeder::class);
-      
+      $this->call(ViagemSeeder::class);
+      $this->call(ContratoSeeder::class);
       //$this->call(CombustivelSeeder::Class);
 
     }

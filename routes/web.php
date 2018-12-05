@@ -68,7 +68,7 @@ Route::group(['middleware' => 'auth'], function () {
   //  });
 
     Route::group(['prefix'=>'motoristas','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
-    Route::get('',['as'=>'motoristas.index', 'uses'=>'UsuarioController@index']);
+    Route::get('',['as'=>'motoristas.index', 'uses'=>'UsuarioController@index'])->middleware('role:Secretaria');
     Route::get('/list',['as' => 'motoristas.list', 'uses' => 'UsuarioController@list']);
     Route::post('/store', ['as' => 'motoristas.store', 'uses' => 'UsuarioController@store']); // relacionada ao create do botão para salvar cadastro de veículo
     Route::post('/update', ['as' => 'motoristas.update', 'uses' => 'UsuarioController@update']); // uso para atualizações

@@ -15,8 +15,8 @@ class CreateTermosTable extends Migration
     {
         Schema::create('termos', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamp('data_inicio');
-            $table->timestamp('data_termino');
+            $table->date('data_inicio');
+            $table->date('data_termino');
             $table->string('valor');
             $table->string('status');
             $table->integer('fk_contrato')->unsigned();

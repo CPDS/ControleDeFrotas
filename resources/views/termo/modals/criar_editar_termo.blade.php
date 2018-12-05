@@ -42,6 +42,7 @@
 
             <div class="form-group col-md-12 senha">
               <strong>Contrato:</strong>
+              <input id="fk_contrato" class="form-control" name="fk_contrato" type="hidden">
               <select name="fk_contrato" id="fk_contrato" class="form-control selectValor">
                 @foreach($testecontrato as $valor)
                   <option value='{{$valor->id}}'>{{$valor->empresa_contratada_nome}}</option>

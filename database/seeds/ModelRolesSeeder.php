@@ -11,6 +11,7 @@ class ModelRolesSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('model_has_roles')->insert([
           'role_id' => 1,
           'model_type' => 'App\User',
@@ -22,5 +23,7 @@ class ModelRolesSeeder extends Seeder
             'model_type' => 'App\User',
             'model_id' => 2,
           ]);
+
+        
     }
 }
