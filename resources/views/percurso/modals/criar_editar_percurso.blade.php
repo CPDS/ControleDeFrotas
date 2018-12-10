@@ -82,9 +82,10 @@
 
             <div class="form-group col-md-12 senha">
               <strong>Diário de Bordo:</strong>
-              <select name="diario" id="diario" class="form-control selectEstado">
+              <input id="fk_diario" class="form-control" name="fk_diario" type="hidden">
+              <select name="fk_diario" id="fk_diario" class="form-control selectEstado">
                 @foreach($diarios as $diario)
-                  <option value='{{$diario->id}}'>{{$diario->nome}}</option>
+                  <option value='{{$diario->id}}'>{{$diario->nome_diario}}</option>
                 @endforeach
               </select>
             </div>
