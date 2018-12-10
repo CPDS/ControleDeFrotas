@@ -64,15 +64,15 @@ $(document).ready(function($) {
             },
             columnDefs : [
               { targets : [0,8], sortable : false },
-              { "width": "5%", "targets": 0 }, //nome
-              { "width": "15%", "targets": 1 },//cnpj
-              { "width": "15%", "targets": 2 },//número do contrato
-              { "width": "15%", "targets": 3 },//vencimento do contrato
-              { "width": "15%", "targets": 4 },
-              { "width": "15%", "targets": 5 },
-              { "width": "15%", "targets": 6 },
-              { "width": "15%", "targets": 7 },
-              { "width": "15%", "targets": 8 }// acao
+              { "width": "10%", "targets": 0 }, //nome
+              { "width": "10%", "targets": 1 },//cnpj
+              { "width": "10%", "targets": 2 },//número do contrato
+              { "width": "10%", "targets": 3 },//vencimento do contrato
+              { "width": "10%", "targets": 4 },
+              { "width": "10%", "targets": 5 },
+              { "width": "10%", "targets": 6 },
+              { "width": "10%", "targets": 7 },
+              { "width": "40%", "targets": 8 }// acao
             ]
     });
 

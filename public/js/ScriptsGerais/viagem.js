@@ -9,7 +9,7 @@ $(document).ready(function($) {
             processing: true,
             serverSide: true,
             deferRender: true,
-            ajax: '/viagems/list',
+            ajax: './viagens/list',
             columns: [
             { data: null, name: 'order' },
             { data: 'numero_rv', name: 'numero_rv' },
@@ -128,7 +128,7 @@ $(document).ready(function($) {
         $('#informacoes').prop("hidden",false); // sem preencher tudo restante do modal é ocultado
         var option=''; // para selecionar o motorista
 
-        $.getJSON('./viagems/reservas/'+dados, function(dados){
+        $.getJSON('./viagens/reservas/'+dados, function(dados){
              //Atibuindo valores à variavel com os dados da consulta
              $.each(dados.motoristas, function(i,motoristas){
                  option += '<option value="'+motoristas.id+'">'+motoristas.nome+'</option>';
@@ -136,7 +136,7 @@ $(document).ready(function($) {
 
               //passando para o select de veículo
              $('#fk_motorista').html(option).show();
-            
+
              option=''; // para selecionar o veículo
              $.each(dados.veiculos, function(i,veiculos){
                  option += '<option value="'+veiculos.id+'">'+veiculos.nome_veiculo+'</option>';
@@ -223,7 +223,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./viagems/store",
+            url: "./viagens/store",
             data: dados,
             processData: false,
             contentType: false,
@@ -279,7 +279,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./viagems/update",
+            url: "./viagens/update",
             data: dados,
             processData: false,
             contentType: false,
@@ -343,7 +343,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: './viagems/delete',
+            url: './viagens/delete',
             data: {
                 'id': $("#del").val(),
             },
@@ -384,7 +384,7 @@ $(document).ready(function($) {
         var id = $("#estado option:selected").val();
         //variavel que adiciona as opções
         var option = '';
-        $.getJSON('./viagems/cidade/'+id, function(dados){
+        $.getJSON('./viagens/cidade/'+id, function(dados){
             console.log(dados);
             //Atibuindo valores à variavel com os dados da consulta
             $.each(dados.cidades, function(i,cidade){
@@ -404,7 +404,7 @@ $(document).ready(function($) {
         var id = $("#estado2 option:selected").val();
         //variavel que adiciona as opções
         var option = '';
-        $.getJSON('./viagems/cidade/'+id, function(dados){
+        $.getJSON('./viagens/cidade/'+id, function(dados){
             //Atibuindo valores à variavel com os dados da consulta
             $.each(dados.cidades, function(i,cidade){
                 option += '<option value="'+cidade.id+'">'+cidade.nome+'</option>';

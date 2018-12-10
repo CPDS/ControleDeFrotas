@@ -45,7 +45,7 @@
           </div>
 
           <div class="form-group">
-              <strong>Vencimento do Contrato:</strong>
+              <strong>Termino do Contrato:</strong>
               <span id="data_vencimento_contrato-visualizar"></span>
           </div>
 

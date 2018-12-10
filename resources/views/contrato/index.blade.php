@@ -42,8 +42,8 @@
                                 <th>Nome da Empresa</th>
                                 <th>CNPJ</th>
                                 <th>Nº do Contrato</th>
-                                <th>Ínicio do Contrato</th>
-                                <th>Vencimento do Contrato</th>
+                                <th>Ínicio</th>
+                                <th>Termino</th>
                                 <th>Valor do Contrato</th>
                                 <th>Tipo de Contrato</th>
                                 <th>Ação</th>

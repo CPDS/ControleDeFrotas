@@ -50,7 +50,7 @@
            </div>
 
            <div class="form-group col-md-12">
-             <strong>Vencimento do Contrato:</strong>
+             <strong>Termino do Contrato:</strong>
              <div class="input-group">
                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                <input maxlength="250" id="data_vencimento_contrato" class="form-control" name="data_vencimento_contrato" type="date">

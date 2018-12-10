@@ -44,7 +44,7 @@
             <div class="icon">
             	<i class="fa fa-road"></i>
             </div>
-            <a href="{{ url('viagems') }}" class="small-box-footer">Exibir viagem(s) <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ url('viagens') }}" class="small-box-footer">Exibir viagem(s) <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

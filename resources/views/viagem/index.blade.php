@@ -8,7 +8,7 @@
 <script src="{{ asset('js/iziToast.min.js') }}"></script>
 <script src="{{asset('js/ScriptsGerais/viagem.js')}}"></script>
 @section('htmlheader_title')
-    Veículos
+    Viagem
 @endsection
 
 
@@ -20,7 +20,7 @@
                 <div class="box box-success">
                     <div class="box-header with-border">
                       <div class="pull-left">
-                        <h2> &nbsp <i class="fa fa-road"></i>  @yield('contentheader_title', 'Viagems Cadastradas')</h2>
+                        <h2> &nbsp <i class="fa fa-road"></i>  @yield('contentheader_title', 'Viagens Cadastradas')</h2>
                       </div>
 
                          <div class="col-md-12">
