@@ -37,6 +37,15 @@ class ViagemController extends Controller
         return Datatables::of($Viagem)->editColumn('acao', function ($viagems){
         	return $this->setBtns($viagems);
         })
+        ->editColumn('fk_veiculo', function ($viagems){
+            return $viagems->veiculo->nome_veiculo;
+        })
+        ->editColumn('fk_cidade_saida', function ($viagems){
+            return $viagems->cidade_saida->nome;
+        })
+        ->editColumn('fk_cidade_chegada', function ($viagems){
+            return $viagems->cidade_chegada->nome;
+        })
         ->escapeColumns([0])
         ->make(true);
     }

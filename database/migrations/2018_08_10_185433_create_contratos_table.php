@@ -16,7 +16,7 @@ class CreateContratosTable extends Migration
         Schema::create('contratos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('empresa_contratada_nome');
-            $table->string('empresa_contratada_cnpj')->unique();
+            $table->string('empresa_contratada_cnpj');
             $table->string('numero_contrato');
             $table->date('data_inicio_contrato');
             $table->date('data_vencimento_contrato');
