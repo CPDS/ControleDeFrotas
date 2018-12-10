@@ -326,4 +326,41 @@ $(document).ready(function($) {
     });
 
 
+    //Select de Estado e Cidade
+    $(document).on('change','.selectEstado', function(){
+        //recuperando id do select de estado
+        var id = $("#estado option:selected").val();
+        //variavel que adiciona as opções
+        var option = '';
+        $.getJSON('./percursos/cidade/'+id, function(dados){
+            console.log(dados);
+            //Atibuindo valores à variavel com os dados da consulta
+            $.each(dados.cidades, function(i,cidade){
+                option += '<option value="'+cidade.id+'">'+cidade.nome+'</option>';
+            });
+            //passando para o select de cidades
+            $('#fk_cidade_saida').html(option).show();
+        });
+
+
+    });
+
+
+    //Select de Estado e Cidade
+    $(document).on('change','.selectEstado2', function(){
+        //recuperando id do select de estado
+        var id = $("#estado2 option:selected").val();
+        //variavel que adiciona as opções
+        var option = '';
+        $.getJSON('./percursos/cidade/'+id, function(dados){
+            //Atibuindo valores à variavel com os dados da consulta
+            $.each(dados.cidades, function(i,cidade){
+                option += '<option value="'+cidade.id+'">'+cidade.nome+'</option>';
+            });
+            //passando para o select de cidades
+            $('#fk_cidade_chegada').html(option).show();
+        });
+
+    });
+
 });
