@@ -66,7 +66,7 @@ $(document).ready(function($) {
             columnDefs : [ // quantidade de campos maior que o exemplo, tenho que mudar?
               { targets : [0,10], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
-              { "width": "10%", "targets": 1 },//nome
+              { "width": "5%", "targets": 1 },//nome
               { "width": "10%", "targets": 2 },//placa
               { "width": "10%", "targets": 3 },//tipo_combustivel
               { "width": "10%", "targets": 4 },//
