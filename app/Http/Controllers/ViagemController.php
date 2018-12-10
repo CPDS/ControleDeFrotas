@@ -62,7 +62,7 @@ class ViagemController extends Controller
       $data_chegada = substr($viagems->data_chegada, 0, 10);
       $data_criado_em = substr($viagems->criado_em, 0, 10);
       $data_atualizado_em = substr($viagems->atualizado_em, 0, 10); // quebrar a string de hora e data
-      
+
       $nomeveiculo = $viagems->veiculo->nome_veiculo;
       $cidadesaida = $viagems->cidade_saida->nome;
       $cidadechegada = $viagems->cidade_chegada->nome;
@@ -84,22 +84,22 @@ class ViagemController extends Controller
       data-fk_cidade_chegada='$cidadechegada' data-fk_tipo_servico='$tiposervico' data-fk_id_solicitante='$solicitante' data-estimativa_km='$viagems->estimativa_km'
       data-nome_responsavel='$viagems->nome_responsavel' data-telefone_responsavel='$viagems->telefone_responsavel' data-local_saida='$viagems->local_saida'  data-setor_autoriza_viagem='$viagems->setor_autoriza_viagem'  data-numero_passageiros='$viagems->numero_passageiros'  data-tipo_solicitacao='$viagems->tipo_solicitacao'  data-natureza_servico='$viagems->natureza_servico'  data-custo_viagem='$viagems->custo_viagem'  data-descricao_bagagem='$viagems->descricao_bagagem'  data-codigo_acp_rv='$viagems->codigo_acp_rv' ";
 
-    	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Viagem' $dadosVisualizar ><i class='fa fa-eye'></i></a> ";
+    	$btnVer= " <a class='btn btn-primary btn-sm btnVer' title='Ver Viagem' $dadosVisualizar ><i class='fa fa-eye'></i></a> ";
 
-    	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Viagem' $dados><i class ='fa fa-pencil'></i></a> ";
+    	$btnEditar= " <a class='btn btn-warning btn-sm btnEditar' title='Editar Viagem' $dados><i class ='fa fa-pencil'></i></a> ";
 
-      $btnVaga = "<a class='btn btn-primary btn-sm btnVaga' title='Solicitar Vaga' $dados><i class ='fa fa-plus'></i></a>";
+      $btnVaga = " <a class='btn btn-primary btn-sm btnVaga' title='Solicitar Vaga' $dados><i class ='fa fa-plus'></i></a>";
 
-    	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Viagem' data-id='$viagems->id'><i class='fa fa-trash'></i></a>";
+    	$btnDeletar= " <a class='btn btn-danger btn-sm btnDeletar' title='Deletar Viagem' data-id='$viagems->id'><i class='fa fa-trash'></i></a>";
 
     	return $btnVer.$btnEditar.$btnVaga.$btnDeletar;
     }
 
     public function store(Request $request) { // cadastro de viagem
       //dd($request->all());
-      /*  
+      /*
       $rules = array(
-            
+
             'numero_rv' => 'required',
               'setor_emissor_rv' => 'required',
               'fk_veiculo' => 'required',
@@ -203,15 +203,15 @@ class ViagemController extends Controller
             $Viagem->codigo_acp_rv = $request->codigo_acp_rv;
             $Viagem->status = 'Ativo';
             $Viagem->save();
-            
+
             $ViagemVeiculo = new ViagemVeiculo();
             $ViagemVeiculo->fk_solicitacao = $Viagem->id;
             $ViagemVeiculo->fk_veiculo = $request->fk_veiculo;
-            
+
             $ViagemVeiculo->id_usuario = Auth::user()->id;
             $ViagemVeiculo->status = 'Ativo';
             $ViagemVeiculo->save();
-            
+
             //$Veiculo->setAttribute('titulo', $Veiculo->titulo);
             //$Veiculo->setAttribute('descricao', $Veiculo->descricao);
             return response()->json($Viagem); // mudar para viagem
@@ -328,13 +328,13 @@ class ViagemController extends Controller
             ->get();
         }
         //dd()
-        //array de veiculos 
+        //array de veiculos
         foreach ($veiculo_que_sera_reservado as $veiculo_que_sera_reservado2) {
-                        
+
             array_push($veiculoReservar,[
                 'id' => $veiculo_que_sera_reservado2->id,
                 'nome_veiculo' => $veiculo_que_sera_reservado2->nome_veiculo
-            ]);  
+            ]);
         }
 
         //array de motoristas
@@ -368,7 +368,7 @@ class ViagemController extends Controller
         viagems.datahora_saida,viagems.datahora_chegada,
         viagem_veiculos.fk_motorista, viagem_veiculos.status from viagems join viagem_veiculos
         on viagem_veiculos.fk_solicitacao = viagems.id
-        join veiculos on viagem_veiculos.fk_veiculo = veiculos.id join users on 
+        join veiculos on viagem_veiculos.fk_veiculo = veiculos.id join users on
         viagems.fk_motorista = users.id
         where ? between viagems.datahora_saida and viagems.datahora_chegada or ? between viagems.datahora_saida and viagems.datahora_chegada
         and viagems.status = ? and viagem_veiculos.status = ? and veiculos.status = ?';
@@ -415,6 +415,6 @@ class ViagemController extends Controller
 
     }
 
-    
+
 
 }
