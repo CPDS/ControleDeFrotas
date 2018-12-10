@@ -35,9 +35,11 @@ class ContratoController extends Controller
     }
 
     private function setBtns(Contrato $contratos){
+        $teste = date("d/m/y",strtotime($contratos->data_inicio_contrato));
+        $teste2 = date("d/m/y",strtotime($contratos->data_vencimento_contrato));
         $dados = "data-id='$contratos->id' data-empresa_contratada_nome='$contratos->empresa_contratada_nome' data-empresa_contratada_cnpj='$contratos->empresa_contratada_cnpj' data-numero_contrato='$contratos->numero_contrato' data-data_inicio_contrato='$contratos->data_inicio_contrato' data-data_vencimento_contrato='$contratos->data_vencimento_contrato' data-valor_contratado='$contratos->valor_contratado' data-tipo='$contratos->tipo'";
-        $dadosVisualizar = "data-empresa_contratada_empresa_contratada_nome='$contratos->empresa_contratada_empresa_contratada_nome' data-empresa_contratada_cnpj='$contratos->empresa_contratada_cnpj' data-numero_contrato='$contratos->numero_contrato' data-data_inicio_contrato='$contratos->data_inicio_contrato' data-data_vencimento_contrato='$contratos->data_vencimento_contrato' data-valor_contratado='$contratos->valor_contratado' data-tipo='$contratos->tipo'";
-        $btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Contrato' $dados ><i class='fa fa-eye'></i></a> ";
+        $dadosVisualizar = "data-empresa_contratada_empresa_contratada_nome='$contratos->empresa_contratada_empresa_contratada_nome' data-empresa_contratada_cnpj='$contratos->empresa_contratada_cnpj' data-numero_contrato='$contratos->numero_contrato' data-data_inicio_contrato='$teste' data-data_vencimento_contrato='$teste2' data-valor_contratado='$contratos->valor_contratado' data-tipo='$contratos->tipo'";
+        $btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Contrato' $dadosVisualizar ><i class='fa fa-eye'></i></a> ";
         $btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Contrato' $dados><i class ='fa fa-pencil'></i></a> ";
         $btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Contrato' data-id='$contratos->id'><i class='fa fa-trash'></i></a>";
 
