@@ -19,8 +19,8 @@ $(document).ready(function($) {
             { data: 'datahora_chegada', name: 'datahora_chegada' },
             { data: 'fk_cidade_saida', name: 'fk_cidade_saida' },
             { data: 'fk_cidade_chegada', name: 'fk_cidade_chegada' },
-            { data: 'fk_tipo_servico', name: 'fk_tipo_servico' },
-            { data: 'fk_id_solicitante', name: 'fk_id_solicitante' },
+            
+
             { data: 'acao', name: 'acao' }
             ],
             createdRow : function( row, data, index ) {
@@ -64,7 +64,7 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [ // quantidade de campos maior que o exemplo, tenho que mudar?
-              { targets : [0,10], sortable : false },
+              { targets : [0,9], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
               { "width": "5%", "targets": 1 },//nome
               { "width": "10%", "targets": 2 },//placa
@@ -73,9 +73,7 @@ $(document).ready(function($) {
               { "width": "10%", "targets": 5 },
               { "width": "10%", "targets": 6 },
               { "width": "10%", "targets": 7 },
-              { "width": "10%", "targets": 8 },
-              { "width": "10%", "targets": 9 },
-              { "width": "10%", "targets": 10 }
+              { "width": "30%", "targets": 8 }
             ]
     });
 

@@ -45,7 +45,6 @@
                               <th>Horário de Chegada</th>
                               <th>Cidade de Saída</th>
                               <th>Cidade de Chegada</th>
-                              <th>Solicitante</th>
                               <th>Ação</th>
                             </tr>
                             </thead>
