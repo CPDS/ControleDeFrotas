@@ -46,6 +46,12 @@ class ViagemController extends Controller
         ->editColumn('fk_cidade_chegada', function ($viagems){
             return $viagems->cidade_chegada->nome;
         })
+        ->editColumn('datahora_saida', function($viagems){
+            return date("d/m/y",strtotime($viagems->datahora_saida));
+        })
+        ->editColumn('datahora_chegada', function($viagems){
+            return date("d/m/y",strtotime($viagems->datahora_chegada));
+        })
         ->escapeColumns([0])
         ->make(true);
     }
@@ -56,7 +62,13 @@ class ViagemController extends Controller
       $data_chegada = substr($viagems->data_chegada, 0, 10);
       $data_criado_em = substr($viagems->criado_em, 0, 10);
       $data_atualizado_em = substr($viagems->atualizado_em, 0, 10); // quebrar a string de hora e data
-
+      
+      $nomeveiculo = $viagems->veiculo->nome_veiculo;
+      $cidadesaida = $viagems->cidade_saida->nome;
+      $cidadechegada = $viagems->cidade_chegada->nome;
+      $tiposervico = $viagems->tipo_servico->nome_servico;
+      $solicitante = $viagems->solicitante->name;
+      //dd($cidadechegada);
       $dados = "data-id='$viagems->id' data-numero_rv='$viagems->numero_rv' data-setor_emissor_rv='$viagems->setor_emissor_rv' data-fk_veiculo='$viagems->fk_veiculo'
       data-datahora_saida='$viagems->datahora_saida' data-datahora_chegada='$viagems->datahora_chegada' data-status='$viagems->status' data-fk_cidade_saida='$viagems->fk_cidade_saida'
       data-fk_cidade_chegada='$viagems->fk_cidade_chegada' data-fk_tipo_servico='$viagems->fk_tipo_servico' data-fk_id_solicitante='$viagems->fk_id_solicitante' data-estimativa_km='$viagems->estimativa_km'
@@ -67,12 +79,12 @@ class ViagemController extends Controller
       data-fk_cidade_chegada='$viagems->fk_cidade_chegada' data-fk_tipo_servico='$viagems->fk_tipo_servico' data-fk_id_solicitante='$viagems->fk_id_solicitante' data-estimativa_km='$viagems->estimativa_km'
       data-nome_responsavel='$viagems->nome_responsavel' data-telefone_responsavel='$viagems->telefone_responsavel' data-local_saida='$viagems->local_saida'  data-setor_autoriza_viagem='$viagems->setor_autoriza_viagem'  data-numero_passageiros='$viagems->numero_passageiros'  data-tipo_solicitacao='$viagems->tipo_solicitacao'  data-natureza_servico='$viagems->natureza_servico'  data-custo_viagem='$viagems->custo_viagem'  data-descricao_bagagem='$viagems->descricao_bagagem'  data-codigo_acp_rv='$viagems->codigo_acp_rv' ";
 
-      $dadosVisualizar = "data-numero_rv='$viagems->numero_rv' data-setor_emissor_rv='$viagems->setor_emissor_rv' data-fk_veiculo='$viagems->fk_veiculo'
-      data-datahora_saida='$viagems->datahora_saida' data-datahora_chegada='$viagems->datahora_chegada' data-status='$viagems->status' data-fk_cidade_saida='$viagems->fk_cidade_saida'
-      data-fk_cidade_chegada='$viagems->fk_cidade_chegada' data-fk_tipo_servico='$viagems->fk_tipo_servico' data-fk_id_solicitante='$viagems->fk_id_solicitante' data-estimativa_km='$viagems->estimativa_km'
+      $dadosVisualizar = "data-numero_rv='$viagems->numero_rv' data-setor_emissor_rv='$viagems->setor_emissor_rv' data-fk_veiculo='$nomeveiculo'
+      data-datahora_saida='$viagems->datahora_saida' data-datahora_chegada='$viagems->datahora_chegada' data-status='$viagems->status' data-fk_cidade_saida='$cidadesaida'
+      data-fk_cidade_chegada='$cidadechegada' data-fk_tipo_servico='$tiposervico' data-fk_id_solicitante='$solicitante' data-estimativa_km='$viagems->estimativa_km'
       data-nome_responsavel='$viagems->nome_responsavel' data-telefone_responsavel='$viagems->telefone_responsavel' data-local_saida='$viagems->local_saida'  data-setor_autoriza_viagem='$viagems->setor_autoriza_viagem'  data-numero_passageiros='$viagems->numero_passageiros'  data-tipo_solicitacao='$viagems->tipo_solicitacao'  data-natureza_servico='$viagems->natureza_servico'  data-custo_viagem='$viagems->custo_viagem'  data-descricao_bagagem='$viagems->descricao_bagagem'  data-codigo_acp_rv='$viagems->codigo_acp_rv' ";
 
-    	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Viagem' $dados ><i class='fa fa-eye'></i></a> ";
+    	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Viagem' $dadosVisualizar ><i class='fa fa-eye'></i></a> ";
 
     	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Viagem' $dados><i class ='fa fa-pencil'></i></a> ";
 

@@ -18,6 +18,14 @@ class Viagem extends Model
         return $this->belongsTo(Cidade::class,'fk_cidade_chegada');
     }
 
+    public function tipo_servico(){
+        return $this->belongsTo(TipoServico::class,'fk_tipo_servico');
+    }
+
+    public function solicitante(){
+        return $this->belongsTo(User::class,'fk_id_solicitante');
+    }
+
     protected $fillable=[
       'numero_rv', 'setor_emissor_rv', 'fk_veiculo', 'datahora_saida', 'datahora_chegada',
       'status', 'fk_cidade_saida', 'fk_cidade_chegada', 'fk_tipo_servico', 'fk_id_solicitante',
