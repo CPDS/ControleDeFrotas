@@ -12,12 +12,14 @@ use DB;
 use Auth;
 use App\Diario;
 use App\Percurso;
+use App\Estado;
 
 class PercursoController extends Controller
 {
     public function index(){
+        $estados = Estado::select('nome','id')->get();
         $diarios = Diario::where('status','Ativo')->get();
-        return view('percurso.index',compact('diarios'));
+        return view('percurso.index',compact('diarios','estados'));
     }
 
     public function list() {
@@ -137,5 +139,23 @@ class PercursoController extends Controller
         return response()->json($Percurso);
     }
 
+    //Select Cidade
+    public function selectCidade(Request $request){
+        //consulta no banco
+        $dados_cidades = Cidade::where('fk_estado',$request->estado)
+        ->select('id','nome')
+        ->orderBy('nome')
+        ->get();
+        //Array de cidade
+        $cidades = array();
+        foreach($dados_cidades as $dados_cidade){
+            array_push($cidades,[
+                'id' => $dados_cidade->id,
+                'nome' => $dados_cidade->nome
+            ]);
+        }
+        //retornando para o javascript
+        return response()->json(['cidades' => $cidades]);
 
+    }
 }

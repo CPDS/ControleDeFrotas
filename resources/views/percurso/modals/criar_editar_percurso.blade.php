@@ -33,35 +33,33 @@
             </div>
 
             <div class="form-group col-md-6">
-              <strong>Estado de Saída:</strong> <!-- mudar id e name -->
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa  fa-genderless"></i></span>
-                <input id="local_saida" maxlength="250" class="form-control" name="local_saida" type="text">
-              </div>
+            <strong>Estado de Saída:</strong>
+              <select name="estado" id="estado" class="form-control selectEstado">
+                @foreach($estados as $estado)
+                  <option value='{{$estado->id}}'>{{$estado->nome}}</option>
+                @endforeach
+              </select>
             </div>
 
             <div class="form-group col-md-6">
-              <strong>Local de Saída:</strong>
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa  fa-genderless"></i></span>
-                <input id="local_saida" maxlength="250" class="form-control" name="local_saida" type="text">
-              </div>
+            <strong>Cidade de Saída:</strong>
+              <select name="fk_cidade_saida" id="fk_cidade_saida" class="form-control">
+              </select>
             </div>
 
             <div class="form-group col-md-6">
-              <strong>Estado de Chegada:</strong>
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                <input id="local_chegada" maxlength="250" class="form-control" name="local_chegada" type="text">
-              </div>
+            <strong>Estado de Chegada:</strong>
+                   <select name="estado2" id="estado2" class="form-control selectEstado2">
+                     @foreach($estados as $estado)
+                       <option value='{{$estado->id}}'>{{$estado->nome}}</option>
+                     @endforeach
+                   </select>
             </div>
 
             <div class="form-group col-md-6">
-              <strong>Local de Chegada:</strong>
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                <input id="local_chegada" maxlength="250" class="form-control" name="local_chegada" type="text">
-              </div>
+            <strong>Cidade de Chegada:</strong>
+              <select name="fk_cidade_chegada" id="fk_cidade_chegada" class="form-control">
+              </select>
             </div>
 
             <div class="form-group col-md-6">
