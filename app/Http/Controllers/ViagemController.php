@@ -23,12 +23,13 @@ use App\{
 class ViagemController extends Controller
 {
     public function index(){
+        $viagems = Viagem::select('numero_rv', 'id')->get();
         $estados = Estado::select('nome','id')->get();
         $tipo_servicos = TipoServico::select('nome_servico','id')->get();
         $veiculos = Veiculo::select('nome_veiculo','id')->where('status','Ativo')->get();
         $motoristas = User::role('Motorista')->where('status','Ativo')->get();
         //dd($request->id);
-        return view('viagem.index',compact('estados','tipo_servicos','veiculos','motoristas'));
+        return view('viagem.index',compact('estados','tipo_servicos','veiculos','motoristas', 'viagems'));
     }
 
     public function list() {

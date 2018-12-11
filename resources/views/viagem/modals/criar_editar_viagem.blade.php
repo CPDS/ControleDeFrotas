@@ -17,45 +17,46 @@
         <form id="form" role="form" method="post">
           <div class="row" style="width: 100%">
 
+            <div id="informacoes_data">
+              <div class="form-group col-md-6">
+                <strong>Data Saída:</strong>
+                <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
+                <input id="data_saida" class="form-control"  name="data_saida" type="date"> <!-- Campo nào pega hora ainda -->
+              </div>
+              </div>
 
-            <div class="form-group col-md-6">
-              <strong>Data Saída:</strong>
-              <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-              <input id="data_saida" class="form-control"  name="data_saida" type="date"> <!-- Campo nào pega hora ainda -->
-            </div>
-            </div>
+              <div class="form-group col-md-6">
+                <strong>Hora Saída:</strong>
+                <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
+                <input id="hora_saida" class="form-control"  name="hora_saida" type="time"> <!-- Campo nào pega hora ainda -->
+              </div>
+              </div>
 
-            <div class="form-group col-md-6">
-              <strong>Hora Saída:</strong>
-              <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-              <input id="hora_saida" class="form-control"  name="hora_saida" type="time"> <!-- Campo nào pega hora ainda -->
-            </div>
-            </div>
+              <div class="form-group col-md-6">
+                <strong>Data Chegada:</strong>
+                <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
+                <input id="data_chegada" class="form-control"  name="data_chegada" type="date"> <!-- Campo nào pega hora ainda -->
+              </div>
+              </div>
 
-            <div class="form-group col-md-6">
-              <strong>Data Chegada:</strong>
-              <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-              <input id="data_chegada" class="form-control"  name="data_chegada" type="date"> <!-- Campo nào pega hora ainda -->
-            </div>
-            </div>
-
-            <div class="form-group col-md-6">
-              <strong>Hora Chegada:</strong>
-              <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-              <input id="hora_chegada" class="form-control"  name="hora_chegada" type="time"> <!-- Campo nào pega hora ainda -->
-            </div>
-            </div>
+              <div class="form-group col-md-6">
+                <strong>Hora Chegada:</strong>
+                <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
+                <input id="hora_chegada" class="form-control"  name="hora_chegada" type="time"> <!-- Campo nào pega hora ainda -->
+              </div>
+              </div>
 
 
-            <div class="col-md-12">
-              <a class="btnConsultar btn btn-sm btn-primary">Consultar</a>
-              <br><br>
+              <div class="col-md-12">
+                <a class="btnConsultar btn btn-sm btn-primary">Consultar</a>
+                <br><br>
+              </div>
             </div>
-
+            
             <div id="informacoes" hidden>
 
                 <div class="form-group col-md-6 senha">
@@ -75,7 +76,7 @@
                   <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-bus"></i></span>
                   <select name="fk_veiculo" id="fk_veiculo" class="form-control selectVeiculo">
-      
+
                       <option value='' disabled selected>Selecione</option>
 
                   </select>

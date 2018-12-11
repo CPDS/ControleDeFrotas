@@ -19,7 +19,7 @@ $(document).ready(function($) {
             { data: 'datahora_chegada', name: 'datahora_chegada' },
             { data: 'fk_cidade_saida', name: 'fk_cidade_saida' },
             { data: 'fk_cidade_chegada', name: 'fk_cidade_chegada' },
-            
+
 
             { data: 'acao', name: 'acao' }
             ],
@@ -161,6 +161,8 @@ $(document).ready(function($) {
         $('.modal-footer .btn-action').removeClass('add');
         $('.modal-footer .btn-action').addClass('edit');
         $('.modal-title').text('Editar Cadastro da Viagem');
+        $('#informacoes').prop("hidden",false);
+        $('#informacoes_data').prop("hidden",true);
         $('.callout').addClass("hidden"); //ocultar a div de aviso
         $('.callout').find("p").text(""); //limpar a div de aviso
 
@@ -197,12 +199,22 @@ $(document).ready(function($) {
         jQuery('#excluir-modal').modal('show'); //Abrir o modal
     });
 
+    //Botao Vaga
+    $(document).on('click','.btnVaga', function(){
+      //alert('aqui');
+      $('.modal-title').text('Cadastro de Passageiro'); // título do modal
+
+      jQuery('.modalPassageiros').modal('show');
+
+    });
+
     //Adicionar
     $(document).on('click', '.btnAdicionarViagems', function() {
     $('.modal-footer .btn-action').removeClass('edit');
         $('.modal-footer .btn-action').addClass('add');
 
         $('.modal-title').text('Nova Solicitação de Viagem');
+        $('#informacoes_data').prop("hidden",false);
         $('.callout').addClass("hidden");
         $('.callout').find("p").text("");
         $('#informacoes').prop("hidden",true);
@@ -413,5 +425,6 @@ $(document).ready(function($) {
 
     });
 
+    $("#telefone").mask("(99) 99999-9999");
 
 });

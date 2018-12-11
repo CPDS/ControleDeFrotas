@@ -59,4 +59,5 @@
 @include('viagem.modals.criar_editar_viagem')
 @include('viagem.modals.visualizar_viagem')
 @include('viagem.modals.retirar_viagem')
+@include('passageiro.modals.criar_editar_passageiro')
 @endsection
