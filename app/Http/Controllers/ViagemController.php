@@ -33,10 +33,24 @@ class ViagemController extends Controller
     }
 
     public function list() {
-        $Viagem = Viagem::orderBy('created_at', 'desc')->where('status','Ativo')->get();
+
+        //Capiturar Usuário Logado
+        $usuario_logado = Auth::user();
+        
+        //Consulta para Colaboradores
+        if($usuario_logado->hasRole('Motorista')){
+
+            $Viagem = Viagem::orderBy('created_at', 'desc')->where('status','Ativo')
+            ->where('fk_motorista',$usuario_logado->id)
+            ->get();
+
+        }
+        else{
+            $Viagem = Viagem::orderBy('created_at', 'desc')->where('status','Ativo')->get();
+        }
 
         return Datatables::of($Viagem)->editColumn('acao', function ($viagems){
-        	return $this->setBtns($viagems);
+            return $this->setBtns($viagems);
         })
         ->editColumn('fk_veiculo', function ($viagems){
             return $viagems->veiculo->nome_veiculo;
@@ -54,7 +68,7 @@ class ViagemController extends Controller
             return date("d/m/y",strtotime($viagems->datahora_chegada));
         })
         ->escapeColumns([0])
-        ->make(true);
+        ->make(true);   
     }
 
     private function setBtns(Viagem $viagems){
@@ -85,13 +99,18 @@ class ViagemController extends Controller
       data-fk_cidade_chegada='$cidadechegada' data-fk_tipo_servico='$tiposervico' data-fk_id_solicitante='$solicitante' data-estimativa_km='$viagems->estimativa_km'
       data-nome_responsavel='$viagems->nome_responsavel' data-telefone_responsavel='$viagems->telefone_responsavel' data-local_saida='$viagems->local_saida'  data-setor_autoriza_viagem='$viagems->setor_autoriza_viagem'  data-numero_passageiros='$viagems->numero_passageiros'  data-tipo_solicitacao='$viagems->tipo_solicitacao'  data-natureza_servico='$viagems->natureza_servico'  data-custo_viagem='$viagems->custo_viagem'  data-descricao_bagagem='$viagems->descricao_bagagem'  data-codigo_acp_rv='$viagems->codigo_acp_rv' ";
 
+      $btnDeletar='';
+      $btnEditar='';
+      $btnVer='';
+      $btnVaga='';
+
     	$btnVer= " <a class='btn btn-primary btn-sm btnVer' title='Ver Viagem' $dadosVisualizar ><i class='fa fa-eye'></i></a> ";
-
-    	$btnEditar= " <a class='btn btn-warning btn-sm btnEditar' title='Editar Viagem' $dados><i class ='fa fa-pencil'></i></a> ";
-
-      $btnVaga = " <a class='btn btn-primary btn-sm btnVaga' title='Solicitar Vaga' $dados><i class ='fa fa-plus'></i></a>";
-
-    	$btnDeletar= " <a class='btn btn-danger btn-sm btnDeletar' title='Deletar Viagem' data-id='$viagems->id'><i class='fa fa-trash'></i></a>";
+        if(Auth::user()->hasRole('Administrador|Secretaria|Coordenador'))
+            $btnEditar= " <a class='btn btn-warning btn-sm btnEditar' title='Editar Viagem' $dados><i class ='fa fa-pencil'></i></a> ";
+        if(Auth::user()->hasRole('Administrador|Tecnico|Professor'))
+            $btnVaga = " <a class='btn btn-primary btn-sm btnVaga' title='Solicitar Vaga' $dados><i class ='fa fa-plus'></i></a>";
+        if(Auth::user()->hasRole('Administrador|Secretaria|Coordenador'))
+    	    $btnDeletar= " <a class='btn btn-danger btn-sm btnDeletar' title='Deletar Viagem' data-id='$viagems->id'><i class='fa fa-trash'></i></a>";
 
     	return $btnVer.$btnEditar.$btnVaga.$btnDeletar;
     }

@@ -29,7 +29,7 @@ class ViagemSeeder extends Seeder
             'descricao_bagagem' => 'algumas malas',
             'codigo_acp_rv' => '321',
             'situacao' => 'Pendente',
-            'fk_motorista' => 1,
+            'fk_motorista' => 2,
             'fk_veiculo' => 1,
             'fk_cidade_saida' => 1321,
             'fk_cidade_chegada' => 1401,

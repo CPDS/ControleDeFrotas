@@ -45,7 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     });
 
-    Route::group(['prefix'=>'viagens','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador']], function(){
+    Route::group(['prefix'=>'viagens','where'=>['id'=>'[0-9]+']], function(){
     Route::get('',['as'=>'viagens.index', 'uses'=>'ViagemController@index']);
     Route::get('/list',['as' => 'viagens.list', 'uses' => 'ViagemController@list']);
     Route::post('/store', ['as' => 'viagens.store', 'uses' => 'ViagemController@store']); // relacionada ao store do botão para salvar cadastro de veículo

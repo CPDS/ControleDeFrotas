@@ -36,16 +36,19 @@ class RoleSeeder extends Seeder
         ]);
 
         DB::table('roles')->insert([
+          'name' => 'Tecnico',
+          'guard_name' => 'web',
+        ]);
+
+        DB::table('roles')->insert([
           'name' => 'Professor',
           'guard_name' => 'web',
         ]);
 
         DB::table('roles')->insert([
-          'name' => 'Tecnico',
+          'name' => 'Estudante',
           'guard_name' => 'web',
         ]);
-
-        
 
         //PERMISSOES
         #Usuário
