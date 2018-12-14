@@ -151,7 +151,7 @@ $(document).ready(function($) {
     });
 
     //Adicionar
-    $(document).on('click', '.btnAdicionar', function() {
+    $(document).on('click', '.btnAdicionar' '.btnVaga', function() {
         $('.modal-footer .btn-action').removeClass('edit');
         $('.modal-footer .btn-action').addClass('add');
 
