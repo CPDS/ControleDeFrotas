@@ -40,6 +40,7 @@ class PassageiroController extends Controller
     }
 
     public function store(Request $request) {
+      //dd($request->all());
         $rules = array(
               'nome_passageiro' => 'required',
               'matricula' => 'required',

@@ -200,7 +200,7 @@ $(document).ready(function($) {
     });
 
     //Botao Vaga
-    $(document).on('click','.btnVaga', function(){
+      $(document).on('click','.btnVaga', function(){
       //alert('aqui');
       $('.modal-title').text('Cadastro de Passageiro'); // título do modal
 
@@ -225,8 +225,8 @@ $(document).ready(function($) {
         jQuery('#criar_editar-modal').modal('show');
 
     });
-
-    $('.modal-footer').on('click', '.add', function() {
+    //EVENTO AJAX - Cadasrar viagem
+    $('.modal-footer').on('click', '.addViagem', function() {
 
         var dados = new FormData($("#form")[0]); //pega os dados do form
         console.log(dados);
@@ -258,12 +258,68 @@ $(document).ready(function($) {
 
                     $('#tabela_viagem').DataTable().draw(false);
 
-                    jQuery('#criar_editar-modal').modal('hide');
+                    jQuery('#criar_editar_viagem-modal').modal('hide');
 
                     $(function() {
                         iziToast.success({
                             title: 'OK',
                             message: 'Viagem Adicionada com Sucesso!',
+                        });
+                    });
+
+                }
+            },
+
+            error: function() {
+                jQuery('#criar_editar-modal').modal('hide'); //fechar o modal
+
+                iziToast.error({
+                    title: 'Erro Interno',
+                    message: 'Operação Cancelada!',
+                });
+            },
+
+        });
+    }); // fim do adicionar
+
+    $('.modal-footer').on('click', '#passageiro', function() {
+
+        var dados = new FormData($(".form_passageiro")[0]); //pega os dados do form
+        console.log(dados);
+        //alert("aqui");
+        $.ajax({
+            type: 'post',
+            url: "./passageiros/store",
+            data: dados,
+            processData: false,
+            contentType: false,
+            beforeSend: function(){
+                jQuery('.add').button('loading');
+            },
+            complete: function() {
+                jQuery('.add').button('reset');
+            },
+            success: function(data) {
+                 //Verificar os erros de preenchimento
+                if ((data.errors)) {
+
+                    $('.callout').removeClass('hidden'); //exibe a div de erro
+                    $('.callout').find('p').text(""); //limpa a div para erros successivos
+
+                    $.each(data.errors, function(nome, mensagem) {
+                            $('.callout').find("p").append(mensagem + "</br>");
+                    });
+
+                } else {
+
+                    $('#tabela_passageiro').DataTable().draw(false);
+
+                    jQuery('#criar_editar-modal').modal('hide');
+
+                    $(function() {
+                        iziToast.success({
+                            title: 'OK',
+                            message: 'Passageiro Adicionado com Sucesso!',
                         });
                     });
 

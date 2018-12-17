@@ -1,4 +1,4 @@
-<div id="criar_editar-modal" class="modal fade bs-example" role="dialog" data-backdrop="static">
+<div id="criar_editar_viagem-modal" class="modal fade bs-example" role="dialog" data-backdrop="static">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
@@ -56,7 +56,7 @@
                 <br><br>
               </div>
             </div>
-            
+
             <div id="informacoes" hidden>
 
                 <div class="form-group col-md-6 senha">
@@ -329,7 +329,7 @@
       </div> <!-- Fim de ModaL Body-->
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-action btn-success add" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> &nbsp Aguarde...">
+        <button type="button" class="btn btn-action btn-success addViagem" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> &nbsp Aguarde...">
           <i class="fa fa-floppy-o"> </i>
         </button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">
