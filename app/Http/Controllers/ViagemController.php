@@ -108,7 +108,7 @@ class ViagemController extends Controller
         if(Auth::user()->hasRole('Administrador|Secretaria|Coordenador'))
             $btnEditar= " <a class='btn btn-warning btn-sm btnEditar' title='Editar Viagem' $dados><i class ='fa fa-pencil'></i></a> ";
         if(Auth::user()->hasRole('Administrador|Tecnico|Professor'))
-            $btnVaga = " <a class='btn btn-primary btn-sm btnVaga' title='Solicitar Vaga' $dados><i class ='fa fa-plus'></i></a>";
+            $btnVaga = " <a class='btn btn-primary btn-sm btnVaga' title='Solicitar Vaga'><i class ='fa fa-plus'></i></a>";
         if(Auth::user()->hasRole('Administrador|Secretaria|Coordenador'))
     	    $btnDeletar= " <a class='btn btn-danger btn-sm btnDeletar' title='Deletar Viagem' data-id='$viagems->id'><i class='fa fa-trash'></i></a>";
 
