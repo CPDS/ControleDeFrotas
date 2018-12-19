@@ -173,7 +173,7 @@ $(document).ready(function($) {
         });
 
 
-        jQuery('#criar_editar-modal').modal('show'); //Abrir o modal
+        jQuery('#criar_editar_viagem-modal').modal('show'); //Abrir o modal
         //jQuery('#visualizar-modal').modal('show');
     });
 
