@@ -222,7 +222,7 @@ $(document).ready(function($) {
         $('#fk_id_solicitante').val($(this).data('name'));
         $('#fk_id_solicitante').prop("readonly",true);
         $('#id').val($(this).data('id'));
-        jQuery('#criar_editar-modal').modal('show');
+        jQuery('#criar_editar_viagem-modal').modal('show');
 
     });
     //EVENTO AJAX - Cadasrar viagem

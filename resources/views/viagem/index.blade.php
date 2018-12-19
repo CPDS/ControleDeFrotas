@@ -27,7 +27,7 @@
                          <div class="col-md-12">
                           <div class="pull-right">
                         <span>
-                          <!--  <a class="btn btn-primary btnAdicionar btn-sm"><i class="fa fa-plus"></i>  Cadastrar Viagem</a> -->
+                        <!--    <a class="btn btn-primary btnAdicionarViagems btn-sm"><i class="fa fa-plus"></i>  Cadastrar Viagem</a> -->
                         </span>
                         </div>
                         </div>
