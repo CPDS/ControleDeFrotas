@@ -13,6 +13,7 @@ use Auth;
 use App\Diario;
 use App\Percurso;
 use App\Estado;
+use App\Cidade;
 
 class PercursoController extends Controller
 {
