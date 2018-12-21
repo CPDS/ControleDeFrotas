@@ -40,14 +40,11 @@
                                 <th>ID</th>
                                 <th>Nome do Veículo</th>
                                 <th>Placa</th>
-                                <th>Tipo de Combustível</th>
                                 <th>Campus</th>
                                 <th>Quantidade Total de Lugares</th>
-                                <th>Ano de Fabricação</th>
                                 <th>Mínimo de Passageiros</th>
                                 <th>Máximo de Passageiros</th>
                                 <th>Rendimento</th>
-                                <th>Marca</th>
                                 <th>Ar Condicionado</th>
                                 <th>Bagageiro</th>
                                 <th>Ação</th>

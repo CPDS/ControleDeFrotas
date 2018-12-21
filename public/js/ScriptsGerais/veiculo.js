@@ -14,14 +14,14 @@ $(document).ready(function($) {
             { data: null, name: 'order' },
             { data: 'nome_veiculo', name: 'nome_veiculo' },
             { data: 'placa', name: 'placa' },
-            { data: 'tipo_combustivel', name: 'tipo_combustivel' },
+            //{ data: 'tipo_combustivel', name: 'tipo_combustivel' },
             { data: 'fk_campus', name: 'fk_campus' },
             { data: 'qtd_total_lugares', name: 'qtd_total_lugares' },
-            { data: 'ano_fabricacao', name: 'ano_fabricacao' },
+            //{ data: 'ano_fabricacao', name: 'ano_fabricacao' },
             { data: 'minimo_passageiros', name: 'minimo_passageiros' },
             { data: 'maximo_passageiros', name: 'maximo_passageiros' },
             { data: 'rendimento', name: 'rendimento' },
-            { data: 'marca', name: 'marca' },
+            //{ data: 'marca', name: 'marca' },
             { data: 'tem_arcondicionado', name: 'tem_arcondicionado' },
             { data: 'tipo_bagageiro', name: 'tipo_bagageiro' },
             { data: 'acao', name: 'acao' }
@@ -67,9 +67,9 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [0,13], sortable : false },
+              { targets : [0,10], sortable : false },
               { "width": "5%", "targets":  0 }, //nº
-              { "width": "10%", "targets": 1 },//nome
+              { "width": "5%", "targets": 1 },//nome
               { "width": "10%", "targets": 2 },//placa
               { "width": "10%", "targets": 3 },//tipo_combustivel
               { "width": "10%", "targets": 4 },//botoes
@@ -77,11 +77,8 @@ $(document).ready(function($) {
               { "width": "10%", "targets": 6 },
               { "width": "10%", "targets": 7 },
               { "width": "10%", "targets": 8 },
-              { "width": "10%", "targets": 9 },
-              { "width": "10%", "targets": 10 },
-              { "width": "10%", "targets": 11 },
-              { "width": "10%", "targets": 12 },
-              { "width": "10%", "targets": 13 }
+              { "width": "5%", "targets": 9 },
+              { "width": "15%", "targets": 10 }
 
             ]
     });
