@@ -40,12 +40,12 @@
           </div>
 
           <div class="form-group">
-              <strong>Horário de Saída:</strong>
-              <span id="datahora_saida"></span>
+              <strong>Saída:</strong>
+              <span id="datahora_saida-visualizar"></span>
           </div>
 
           <div class="form-group">
-              <strong>Horário de Chegada:</strong>
+              <strong>Chegada:</strong>
               <span id="datahora_chegada-visualizar"></span>
           </div>
 
@@ -72,11 +72,6 @@
           <div class="form-group">
               <strong>Estimativa de KM:</strong>
               <span id="estimativa_km-visualizar"></span>
-          </div>
-
-          <div class="form-group">
-              <strong>Estado:</strong>
-              <span id="estado-visualizar"></span>
           </div>
 
           <div class="form-group">

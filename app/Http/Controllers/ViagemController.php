@@ -227,8 +227,7 @@ class ViagemController extends Controller
             $ViagemVeiculo = new ViagemVeiculo();
             $ViagemVeiculo->fk_solicitacao = $Viagem->id;
             $ViagemVeiculo->fk_veiculo = $request->fk_veiculo;
-
-            $ViagemVeiculo->id_usuario = Auth::user()->id;
+            $ViagemVeiculo->fk_motorista = $request->fk_motorista;
             $ViagemVeiculo->status = 'Ativo';
             $ViagemVeiculo->save();
 
