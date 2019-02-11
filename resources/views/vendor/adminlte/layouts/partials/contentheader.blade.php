@@ -20,7 +20,7 @@
         <div class="col-lg-4 col-xs-6">
           <!-- small box -->
           <a href="{{ url('usuarios') }}" >
-          <div class="small-box bg-yellow">
+          <div class="small-box bg-orange">
             <div class="inner">
               <h3>&nbsp; Painel Usuários</h3>
               <!-- pula linha removido para ficar sincrono na tela -->
