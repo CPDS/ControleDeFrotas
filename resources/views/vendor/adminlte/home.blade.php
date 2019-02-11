@@ -40,7 +40,7 @@
 <section class="content-header">
 
   <h1>
-    @yield('contentheader_title', 'Painel de Controle')
+    @yield('contentheader_title', 'Área de Trabalho')
     <small>@yield('contentheader_description')</small>
  	</h1>
 
