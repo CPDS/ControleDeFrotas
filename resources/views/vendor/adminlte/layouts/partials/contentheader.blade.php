@@ -19,12 +19,12 @@
   <div class="row">
         <div class="col-lg-4 col-xs-6">
           <!-- small box -->
-          <a href="{{ url('usuarios') }}" >
+          <a style="color: white;" href="{{ url('usuarios') }}" >
           <div class="small-box bg-orange">
             <div class="inner">
               <h3>&nbsp; Painel Usuários</h3>
               <!-- pula linha removido para ficar sincrono na tela -->
-              <strong><p>Usuário(s) cadastrado(s)<br> no sistema</p></strong>
+              <strong><p align="center">Usuário(s) cadastrado(s) no sistema</p></strong>
             </div>
             <div class="icon">
               <i class="fa fa-user"></i>
@@ -36,12 +36,12 @@
         <!-- ./col -->
         <div class="col-lg-4 col-xs-6">
           <!-- small box -->
-          <a href="{{ url('viagens') }}">
+          <a style="color: white;" href="{{ url('viagens') }}">
           <div class="small-box bg-green">
             <div class="inner">
               <h3>&nbsp; Painel Viagens</h3>
 
-              <strong><p>Reserva(s) de viagem(s)<br> agendadas</p></strong>
+              <strong><p align="center">Reserva(s) de viagem(s) agendadas</p></strong>
             </div>
             <div class="icon">
             	<i class="fa fa-road"></i>
@@ -53,12 +53,12 @@
 
         <div class="col-lg-4 col-xs-6">
           <!-- small box -->
-          <a href="{{ url('veiculos') }}">
+          <a style="color: white;" href="{{ url('veiculos') }}">
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>&nbsp; Painel Veículos</h3>
 
-              <strong><p>Veículo(s) cadastrado(s)<br> no sistema</p></strong>
+              <strong><p align="center">Veículo(s) cadastrado(s) no sistema</p></strong>
             </div>
             <div class="icon">
               <i class="fa fa-car"></i>
@@ -70,12 +70,12 @@
         <!-- ./col -->
         <div class="col-lg-4 col-xs-6">
           <!-- small box -->
-          <a href="{{ url('passageiros') }}">
+          <a style="color: white;" href="{{ url('passageiros') }}">
           <div class="small-box bg-green">
             <div class="inner">
               <h3>&nbsp; Painel Passageiros</h3>
 
-              <strong><p>Exibir passageiro(s) cadastrado(s)<br> no sistema</p></strong>
+              <strong><p align="center">Exibir passageiro(s) cadastrado(s) no sistema</p></strong>
             </div>
             <div class="icon">
               <i class="fa fa-users"></i>
@@ -86,12 +86,12 @@
 
         <div class="col-lg-4 col-xs-6">
           <!-- small box -->
-          <a href="{{ url('contratos') }}">
+          <a style="color: white;" href="{{ url('contratos') }}">
          	<div class="small-box bg-aqua">
 	            <div class="inner">
 	              <h3>&nbsp; Painel Contratos</h3>
 
-	              <strong><p>Contrato(s) cadastrado(s)<br> no sistema</p></strong>
+	              <strong><p align="center">Contrato(s) cadastrado(s) no sistema</p></strong>
 	            </div>
 	            <div class="icon">
 	              <i class="fa fa-file"></i>
@@ -102,12 +102,12 @@
 
     	<div class="col-lg-4 col-xs-6">
           	<!-- small box -->
-            <a href="{{ url('percursos') }}">
+            <a style="color: white;" href="{{ url('percursos') }}">
           	<div class="small-box bg-green">
             	<div class="inner">
               		<h3>&nbsp; Painel Percursos</h3>
 
-              		<strong><p>Percurso(s) cadastrado(s)<br> no sistema</p></strong>
+              		<strong><p align="center">&nbsp;Percurso(s) cadastrado(s) no sistema</p></strong>
             	</div>
 
             	<div class="icon">
