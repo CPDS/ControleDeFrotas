@@ -1,8 +1,8 @@
 <!-- Main Footer -->
 <footer class="main-footer">
-    <!-- To the right -->
-    <div class="pull-right hidden-xs">
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2018 <a href="http://frotas.cpds.uesb.br">Controle de Frotas</a>
+    <strong>Copyright &copy;@php echo date('Y',strtotime('now')); @endphp <a href="http://www2.uesb.br/cpds/" target="_blank"> CPDS / Fábrica de Software</a> | UINFOR.</strong> <br>
+    <strong>Analista Sênior:</strong> <a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4775141T8" target="_blank">Claudia Ribeiro</a><br>
+    <strong>Analista:</strong> Jéssica Cerqueira <br>
+    <strong>Desenvolvedores:</strong> Camilo Moreira, Reinaldo Bispo, Romildo Cruz.
 </footer>
+
