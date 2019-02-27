@@ -47,22 +47,22 @@ class PercursoController extends Controller
     public function store(Request $request) {
         $rules = array(
               'hora_saida' => 'required',
-              'local_saida' => 'required',
+              //'local_saida' => 'required',
               'km_saida' => 'required',
               'roteiro' => 'required',
               'hora_chegada' => 'required',
-              'local_chegada' => 'required',
+              //'local_chegada' => 'required',
               'km_chegada' => 'required',
               'fk_diario' => 'required',
 
         );
         $attributeNames = array(
             'hora_saida' => 'Hr Saída',
-            'local_saida' => 'Local Saída',
+            //'local_saida' => 'Local Saída',
             'km_saida' => 'Km Saída',
             'roteiro' => 'Roteiro',
             'hora_chegada' => 'Hr Chegada',
-            'local_chegada' => 'Local Chegada',
+            //'local_chegada' => 'Local Chegada',
             'km_chegada' => 'Km Chegada',
             'fk_diario' => 'Diário',
 
@@ -76,13 +76,18 @@ class PercursoController extends Controller
         if ($validator->fails()){
                 return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         }else {
+
+            $data_hora_saida = $request->data_saida.' '.$request->hora_saida.':00';
+            $data_hora_chegada = $request->data_chegada.' '.$request->hora_chegada.':00';
             $Percurso = new Percurso();
-            $Percurso->hora_saida = $request->hora_saida;
-            $Percurso->local_saida = $request->local_saida;
+            //$Percurso->hora_saida = $request->hora_saida;
+            $Percurso->hora_saida = $data_hora_saida;
+            $Percurso->hora_chegada =$data_hora_chegada;
+            $Percurso->local_saida = $request->fk_cidade_saida;
             $Percurso->km_saida = $request->km_saida;
             $Percurso->roteiro = $request->roteiro;
-            $Percurso->hora_chegada = $request->hora_chegada;
-            $Percurso->local_chegada = $request->local_chegada;
+            //$Percurso->hora_chegada = $request->hora_chegada;
+            $Percurso->local_chegada = $request->fk_cidade_chegada;
             $Percurso->km_chegada = $request->km_chegada;
             $Percurso->fk_diario = $request->fk_diario;
 
@@ -98,12 +103,12 @@ class PercursoController extends Controller
     {
         $rules = array(
             'hora_saida' => 'required',
-            'local_saida' => 'required',
+            //'local_saida' => 'required',
             'tipo_combustivel' => 'required',
             'km_saida' => 'required',
             'roteiro' => 'required',
             'hora_chegada' => 'required',
-            'local_chegada' => 'required',
+            //'local_chegada' => 'required',
             'km_chegada' => 'required',
             'fk_diario' => 'required',
 
@@ -116,12 +121,12 @@ class PercursoController extends Controller
 
             $Percurso = Percurso::find($request->id);
             $Percurso->hora_saida = $request->hora_saida;
-            $Percurso->local_saida = $request->local_saida;
+            $Percurso->local_saida = $request->fk_cidade_saida;
             $Percurso->tipo_combustivel = $request->tipo_combustivel;
             $Percurso->km_saida = $request->km_saida;
             $Percurso->roteiro = $request->roteiro;
             $Percurso->hora_chegada = $request->hora_chegada;
-            $Percurso->local_chegada = $request->local_chegada;
+            $Percurso->local_chegada = $request->fk_cidade_chegada;
             $Percurso->km_chegada = $request->km_chegada;
             $Percurso->fk_diario = $request->fk_diario;
 
