@@ -22,7 +22,7 @@
           <a style="color: white;" href="{{ url('usuarios') }}" >
           <div class="small-box bg-orange">
             <div class="inner">
-              <h3>&nbsp; Painel Usuários</h3>
+              <h3 align="center">Usuários</h3>
               <!-- pula linha removido para ficar sincrono na tela -->
               <strong><p align="center">Usuário(s) cadastrado(s) no sistema</p></strong>
             </div>
@@ -39,7 +39,7 @@
           <a style="color: white;" href="{{ url('viagens') }}">
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>&nbsp; Painel Viagens</h3>
+              <h3 align="center">Viagens</h3>
 
               <strong><p align="center">Reserva(s) de viagem(s) agendadas</p></strong>
             </div>
@@ -56,7 +56,7 @@
           <a style="color: white;" href="{{ url('veiculos') }}">
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>&nbsp; Painel Veículos</h3>
+              <h3 align="center">Veículos</h3>
 
               <strong><p align="center">Veículo(s) cadastrado(s) no sistema</p></strong>
             </div>
@@ -73,7 +73,7 @@
           <a style="color: white;" href="{{ url('passageiros') }}">
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>&nbsp; Painel Passageiros</h3>
+              <h3 align="center"> Passageiros</h3>
 
               <strong><p align="center">Exibir passageiro(s) cadastrado(s) no sistema</p></strong>
             </div>
@@ -89,7 +89,7 @@
           <a style="color: white;" href="{{ url('contratos') }}">
          	<div class="small-box bg-aqua">
 	            <div class="inner">
-	              <h3>&nbsp; Painel Contratos</h3>
+	              <h3 align="center">Contratos</h4>
 
 	              <strong><p align="center">Contrato(s) cadastrado(s) no sistema</p></strong>
 	            </div>
@@ -105,7 +105,7 @@
             <a style="color: white;" href="{{ url('percursos') }}">
           	<div class="small-box bg-green">
             	<div class="inner">
-              		<h3>&nbsp; Painel Percursos</h3>
+              		<h3 align="center">Percursos</h3>
 
               		<strong><p align="center">&nbsp;Percurso(s) cadastrado(s) no sistema</p></strong>
             	</div>

@@ -40,22 +40,22 @@
           <!--  <li class="active"><a href="{{ url('viagems') }}"><i class='fa fa-globe'></i> <span>{{ trans('Viagem') }}</span></a></li> -->
             <li class="treeview"> <!-- cria o menuzinho que abre para cadastrar a viagem -->
                <a href="{{ url('viagens') }}"><i class='fa fa-globe'></i> <span>{{ trans('Gerenciar Viagem') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
-                <ul class="treeview-menu">
-                     <li><a href="{{ url('viagens') }}">{{ trans('Viagens Solicitadas') }}</a></li>
-                    <li><a class="btnAdicionarViagems" data-id="{{Auth::user()->id}}" data-name="{{Auth::user()->name}}">{{ trans('Solicitação de Viagem') }}</a></li>
-                    <li><a href="{{ url('percursos') }}" class="btnAdicionarPercursos">{{ trans('Percursos') }}</a></li>
-                    <li><a href="{{ url('diarios') }}" class="btnAdicionarDiarios">{{ trans('Diários de Bordo') }}</a></li>
+                <ul class="treeview-menu"><!-- se a role nao pegar na linha tenta colocar antes desse treeview -->
+                @role('Administrador')<li><a href="{{ url('viagens') }}">{{ trans('Viagens Solicitadas') }}</a></li>@endrole
+                     @role('Administrador')<li><a class="btnAdicionarViagems" data-id="{{Auth::user()->id}}" data-name="{{Auth::user()->name}}">{{ trans('Solicitação de Viagem') }}</a></li>@endrole
+                    @role('Administrador')<li><a href="{{ url('percursos') }}" class="btnAdicionarPercursos">{{ trans('Percursos') }}</a></li>@endrole
+                    @role('Administrador')<li><a href="{{ url('diarios') }}" class="btnAdicionarDiarios">{{ trans('Diários de Bordo') }}</a></li>@endrole
                 </ul>
 
             </li>
-            <li class="active"><a href="{{ url('passageiros') }}"><i class='fa fa-users'></i> <span>{{ trans(' Gerenciar Passageiros') }}</span></a></li>
+            @role('Administrador')<li class="active"><a href="{{ url('passageiros') }}"><i class='fa fa-users'></i> <span>{{ trans(' Gerenciar Passageiros') }}</span></a></li>@endrole
 
             <li class="treeview"> <!-- cria o menuzinho que abre para cadastrar veículos -->
-               <a href="#"><i class='fa fa-car'></i> <span>{{ trans('Gerenciar Veículos') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+            @role('Administrador')<a href="#"><i class='fa fa-car'></i> <span>{{ trans('Gerenciar Veículos') }}</span> <i class="fa fa-angle-left pull-right"></i></a>@endrole
                 <ul class="treeview-menu">
-                     <li><a href="{{ url('veiculos') }}">{{ trans('Veículos Cadastrados') }}</a></li>
-                     <li><a class="btnAdicionarVeiculos">{{ trans('Cadastrar Veículos') }}</a></li>
-                    <li><a href="{{ url('servicos') }}">{{ trans('Serviços Cadastrados') }}</a></li>
+                @role('Administrador')<li><a href="{{ url('veiculos') }}">{{ trans('Veículos Cadastrados') }}</a></li>@endrole
+                     @role('Administrador')<li><a class="btnAdicionarVeiculos">{{ trans('Cadastrar Veículos') }}</a></li>@endrole
+                     @role('Administrador')<li><a href="{{ url('servicos') }}">{{ trans('Serviços Cadastrados') }}</a></li>@endrole
                 </ul>
 
             </li>
@@ -63,13 +63,13 @@
             <li class="treeview"> <!-- cria o menuzinho que abre para gerenciar demais opções -->
                <a href="{{ url('Gerenciar') }}"><i class='fa fa-globe'></i> <span>{{ trans('Gerenciar') }}</span> <i class="fa fa-wrench pull-right"></i></a>
                 <ul class="treeview-menu">
-                     <li><a href="{{ url('banco_horas') }}">{{ trans('Banco de Horas') }}</a></li>
-                    <li><a href="{{ url('setor') }}">{{ trans('Setores') }}</a></li>
-                    <li><a href="{{ url('contratos') }}" class="btnAdicionarContratos">{{ trans('Contrato') }}</a></li>
-                    <li><a href="{{ url('tiposervico') }}">{{ trans('Tipo de Serviços') }}</a></li>
-                    <li><a href="{{ url('campus') }}">{{ trans('Campus') }}</a></li>
-                    <li><a href="{{ url('termos') }}">{{ trans('Termo Aditivo') }}</a></li>
-                    <li><a href="{{ url('combustivel') }}">{{ trans('Combustível') }}</a></li>
+                @role('Administrador')<li><a href="{{ url('banco_horas') }}">{{ trans('Banco de Horas') }}</a></li>@endrole
+                @role('Administrador')<li><a href="{{ url('setor') }}">{{ trans('Setores') }}</a></li>@endrole
+                @role('Administrador')<li><a href="{{ url('contratos') }}" class="btnAdicionarContratos">{{ trans('Contrato') }}</a></li>@endrole
+                @role('Administrador')<li><a href="{{ url('tiposervico') }}">{{ trans('Tipo de Serviços') }}</a></li>@endrole
+                @role('Administrador')<li><a href="{{ url('campus') }}">{{ trans('Campus') }}</a></li>@endrole
+                @role('Administrador')<li><a href="{{ url('termos') }}">{{ trans('Termo Aditivo') }}</a></li>@endrole
+                    @role('Administrador|Motorista')<li><a href="{{ url('combustivel') }}">{{ trans('Combustível') }}</a></li>@endrole
                 </ul>
 
             </li>
