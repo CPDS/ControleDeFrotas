@@ -21,9 +21,9 @@ class PercursoController extends Controller
         $estados = Estado::select('nome','id')->get();
         $diarios = Diario::where('status','Ativo')->get();
         $percursos = Percurso::where('status','Ativo')->get();
-        
-        die($percursos);
-        return view('percurso.index',compact('diarios','estados'));
+        $cidades = Cidade::select('nome','id')->get();
+        //die($percursos);
+        return view('percurso.index',compact('diarios','estados','cidades'));
     }
 
     public function list() {
@@ -42,15 +42,19 @@ class PercursoController extends Controller
         $cidadechegada = $percursos->cidade_chegada->nome;
         $estado = $percursos->cidade_saida->estado->id;
         $estado2 = $percursos->cidade_chegada->estado->id;
+        $idcidadesaida = $percursos->cidade_saida->id;
+        $idcidadechegada = $percursos->cidade_chegada->id;
         $nomeestado = $percursos->cidade_saida->estado->nome;
         $nomeestado2 = $percursos->cidade_chegada->estado->nome;
 
         $data_saida = date('d/m/Y',strtotime($percursos->hora_saida));
+        
         $hora_saida = date('H:i',strtotime($percursos->hora_saida));
+        //die($hora_saida);        
         //dd($hora_saida);
         
 
-        $dados = "data-id='$percursos->id' data-data_saida='$data_saida' data-estado='$estado' data-estado2='$estado2' data-fk_cidade_chegada='$percursos->fk_cidade_chegada' data-fk_cidade_saida='$percursos->fk_cidade_saida' data-hora_saida='$percursos->hora_saida' data-local_saida='$percursos->local_saida' data-km_saida='$percursos->km_saida' data-roteiro='$percursos->roteiro' data-hora_chegada='$percursos->hora_chegada' data-local_chegada='$percursos->local_chegada' data-km_chegada='$percursos->km_chegada' data-fk_diario='$percursos->fk_diario' ";
+        $dados = "data-id='$percursos->id' data-data_saida='$data_saida' data-estado='$estado' data-estado2='$estado2' data-fk_cidade_chegada='$idcidadechegada' data-fk_cidade_saida='$idcidadesaida' data-hora_saida='$percursos->hora_saida' data-local_saida='$percursos->local_saida' data-km_saida='$percursos->km_saida' data-roteiro='$percursos->roteiro' data-hora_chegada='$percursos->hora_chegada' data-local_chegada='$percursos->local_chegada' data-km_chegada='$percursos->km_chegada' data-fk_diario='$percursos->fk_diario' ";
         $dadosVisualizar = "data-estado='$nomeestado' data-estado2='$nomeestado2' data-fk_cidade_chegada='$cidadechegada' data-fk_cidade_saida='$cidadesaida' data-hora_saida='$percursos->hora_saida' data-local_saida='$percursos->local_saida 'data-tipo_combustivel='$percursos->tipo_combustivel' data-km_saida='$percursos->km_saida' data-roteiro='$percursos->roteiro' data-hora_chegada='$percursos->hora_chegada' data-local_chegada='$percursos->local_chegada' data-km_chegada='$percursos->km_chegada' data-fk_diario='$percursos->fk_diario' ";
         $btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Percurso' $dadosVisualizar ><i class='fa fa-eye'></i></a> ";
         $btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Percurso' $dados><i class ='fa fa-pencil'></i></a> ";

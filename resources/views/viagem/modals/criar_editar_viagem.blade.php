@@ -125,12 +125,18 @@
                  <div class="form-group col-md-6 senha ">
                    <strong>Cidade de Saída:</strong>
                    <select name="fk_cidade_saida" id="fk_cidade_saida" class="form-control">
+                      @foreach($cidades as $cidade)
+                       <option value='{{$cidade->id}}'>{{$cidade->nome}}</option>
+                      @endforeach
                    </select>
                  </div>
 
                  <div class="form-group col-md-6 senha ">
                    <strong>Cidade de Chegada:</strong>
                    <select name="fk_cidade_chegada" id="fk_cidade_chegada" class="form-control">
+                      @foreach($cidades as $cidade)
+                       <option value='{{$cidade->id}}'>{{$cidade->nome}}</option>
+                      @endforeach
                    </select>
                  </div>
 

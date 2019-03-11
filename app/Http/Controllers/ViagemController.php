@@ -28,8 +28,9 @@ class ViagemController extends Controller
         $tipo_servicos = TipoServico::select('nome_servico','id')->get();
         $veiculos = Veiculo::select('nome_veiculo','id')->where('status','Ativo')->get();
         $motoristas = User::role('Motorista')->where('status','Ativo')->select('name','id')->get();
+        $cidades = Cidade::select('nome','id')->get();
         //dd($motoristas);
-        return view('viagem.index',compact('estados','tipo_servicos','veiculos','motoristas', 'viagems'));
+        return view('viagem.index',compact('estados','tipo_servicos','veiculos','motoristas', 'viagems','cidades'));
     }
 
     public function list() {
