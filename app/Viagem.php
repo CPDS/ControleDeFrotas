@@ -10,6 +10,10 @@ class Viagem extends Model
         return $this->belongsTo(Veiculo::class,'fk_veiculo');
     }
 
+    public function motorista(){
+        return $this->belongsTo(User::class,'fk_motorista');
+    }
+
     public function cidade_saida(){
         return $this->belongsTo(Cidade::class,'fk_cidade_saida');
     }

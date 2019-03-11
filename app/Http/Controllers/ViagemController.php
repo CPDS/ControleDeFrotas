@@ -27,8 +27,8 @@ class ViagemController extends Controller
         $estados = Estado::select('nome','id')->get();
         $tipo_servicos = TipoServico::select('nome_servico','id')->get();
         $veiculos = Veiculo::select('nome_veiculo','id')->where('status','Ativo')->get();
-        $motoristas = User::role('Motorista')->where('status','Ativo')->get();
-        //dd($request->id);
+        $motoristas = User::role('Motorista')->where('status','Ativo')->select('name','id')->get();
+        //dd($motoristas);
         return view('viagem.index',compact('estados','tipo_servicos','veiculos','motoristas', 'viagems'));
     }
 
@@ -79,6 +79,7 @@ class ViagemController extends Controller
       $data_atualizado_em = substr($viagems->atualizado_em, 0, 10); // quebrar a string de hora e data
 
       $nomeveiculo = $viagems->veiculo->nome_veiculo;
+      $nomemotorista = $viagems->motorista->name;
       $cidadesaida = $viagems->cidade_saida->nome;
       $cidadechegada = $viagems->cidade_chegada->nome;
       $tiposervico = $viagems->tipo_servico->nome_servico;
@@ -87,21 +88,22 @@ class ViagemController extends Controller
       $estado2 = $viagems->cidade_chegada->estado->id;
       $nomeestado = $viagems->cidade_saida->estado->nome;
       $nomeestado2 = $viagems->cidade_chegada->estado->nome;
-      $nomecidade = $viagems->cidade_chegada->nome;
+      //$nomecidade = $viagems->cidade_chegada->nome;
       //dd($cidadechegada);
-      $dados = "data-id='$viagems->id' data-numero_rv='$viagems->numero_rv' data-setor_emissor_rv='$viagems->setor_emissor_rv' data-fk_veiculo='$nomeveiculo'
+      
+      $dados = "data-id='$viagems->id' data-numero_rv='$viagems->numero_rv' data-fk_motorista='$viagems->fk_motorista' data-setor_emissor_rv='$viagems->setor_emissor_rv' data-fk_veiculo='$viagems->fk_veiculo'
       data-datahora_saida='$viagems->datahora_saida' data-datahora_chegada='$viagems->datahora_chegada' data-status='$viagems->status' data-fk_cidade_saida='$viagems->fk_cidade_saida'
       data-fk_cidade_chegada='$viagems->fk_cidade_chegada' data-estado='$estado' data-estado2='$estado2' data-fk_tipo_servico='$viagems->fk_tipo_servico' data-fk_id_solicitante='$viagems->fk_id_solicitante' data-estimativa_km='$viagems->estimativa_km'
       data-nome_responsavel='$viagems->nome_responsavel' data-telefone_responsavel='$viagems->telefone_responsavel'  data-local_saida='$viagems->local_saida'  data-setor_autoriza_viagem='$viagems->setor_autoriza_viagem'  data-numero_passageiros='$viagems->numero_passageiros'  data-tipo_solicitacao='$viagems->tipo_solicitacao'  data-natureza_servico='$viagems->natureza_servico'  data-custo_viagem='$viagems->custo_viagem'  data-descricao_bagagem='$viagems->descricao_bagagem'  data-codigo_acp_rv='$viagems->codigo_acp_rv' data-situacao='$viagems->situacao' ";
-
-      $dadosEditar = "data-id='$viagems->id' data-numero_rv='$viagems->numero_rv' data-setor_emissor_rv='$viagems->setor_emissor_rv' data-fk_veiculo='$viagems->fk_veiculo'
+      
+      $dadosEditar = "data-id='$viagems->id' data-numero_rv='$viagems->numero_rv' data-fk_motorista='$viagems->fk_motorista' data-setor_emissor_rv='$viagems->setor_emissor_rv' data-fk_veiculo='$viagems->fk_veiculo'
       data-datahora_saida='$viagems->datahora_saida' data-datahora_chegada='$viagems->datahora_chegada' data-status='$viagems->status' data-fk_cidade_saida='$viagems->fk_cidade_saida'
-      data-fk_cidade_chegada='$nomecidade' data-estado='$nomeestado' data-estado2='$nomeestado2' data-fk_tipo_servico='$viagems->fk_tipo_servico' data-fk_id_solicitante='$viagems->fk_id_solicitante' data-estimativa_km='$viagems->estimativa_km'
+      data-fk_cidade_chegada='$viagems->fk_cidade_chegada' data-estado='$estado' data-estado2='$estado2' data-fk_tipo_servico='$viagems->fk_tipo_servico' data-fk_id_solicitante='$viagems->fk_id_solicitante' data-estimativa_km='$viagems->estimativa_km'
       data-nome_responsavel='$viagems->nome_responsavel' data-telefone_responsavel='$viagems->telefone_responsavel' data-local_saida='$viagems->local_saida'  data-setor_autoriza_viagem='$viagems->setor_autoriza_viagem'  data-numero_passageiros='$viagems->numero_passageiros'  data-tipo_solicitacao='$viagems->tipo_solicitacao'  data-natureza_servico='$viagems->natureza_servico'  data-custo_viagem='$viagems->custo_viagem'  data-descricao_bagagem='$viagems->descricao_bagagem'  data-codigo_acp_rv='$viagems->codigo_acp_rv' data-situacao='$viagems->situacao' ";
 
-      $dadosVisualizar = "data-numero_rv='$viagems->numero_rv' data-setor_emissor_rv='$viagems->setor_emissor_rv' data-fk_veiculo='$nomeveiculo'
+      $dadosVisualizar = "data-numero_rv='$viagems->numero_rv' data-fk_motorista='$nomemotorista' data-setor_emissor_rv='$viagems->setor_emissor_rv' data-fk_veiculo='$nomeveiculo'
       data-datahora_saida='$viagems->datahora_saida' data-datahora_chegada='$viagems->datahora_chegada' data-status='$viagems->status' data-fk_cidade_saida='$cidadesaida'
-      data-fk_cidade_chegada='$cidadechegada' data-fk_tipo_servico='$tiposervico' data-fk_id_solicitante='$solicitante' data-estimativa_km='$viagems->estimativa_km'
+      data-fk_cidade_chegada='$cidadechegada' data-estado='$nomeestado' data-estado2='$nomeestado2' data-fk_tipo_servico='$tiposervico' data-fk_id_solicitante='$solicitante' data-estimativa_km='$viagems->estimativa_km'
       data-nome_responsavel='$viagems->nome_responsavel' data-telefone_responsavel='$viagems->telefone_responsavel' data-local_saida='$viagems->local_saida'  data-setor_autoriza_viagem='$viagems->setor_autoriza_viagem'  data-numero_passageiros='$viagems->numero_passageiros'  data-tipo_solicitacao='$viagems->tipo_solicitacao'  data-natureza_servico='$viagems->natureza_servico'  data-custo_viagem='$viagems->custo_viagem'  data-descricao_bagagem='$viagems->descricao_bagagem'  data-codigo_acp_rv='$viagems->codigo_acp_rv' ";
 
       $btnDeletar='';
@@ -111,7 +113,7 @@ class ViagemController extends Controller
 
     	$btnVer= " <a class='btn btn-primary btn-sm btnVer' title='Ver Viagem' $dadosVisualizar ><i class='fa fa-eye'></i></a> ";
         if(Auth::user()->hasRole('Administrador|Secretaria|Coordenador'))
-            $btnEditar= " <a class='btn btn-warning btn-sm btnEditar' title='Editar Viagem' $dados><i class ='fa fa-pencil'></i></a> ";
+            $btnEditar= " <a class='btn btn-warning btn-sm btnEditar' title='Editar Viagem' $dadosEditar><i class ='fa fa-pencil'></i></a> ";
         if(Auth::user()->hasRole('Administrador|Tecnico|Professor'))
             $btnVaga = " <a class='btn btn-primary btn-sm btnVaga' title='Solicitar Vaga'><i class ='fa fa-plus'></i></a>";
         if(Auth::user()->hasRole('Administrador|Secretaria|Coordenador'))

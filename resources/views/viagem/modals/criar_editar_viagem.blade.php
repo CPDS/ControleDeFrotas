@@ -64,8 +64,10 @@
                   <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-bus"></i></span>
                   <select name="fk_motorista" id="fk_motorista" class="form-control selectMotorista">
-
-                      <option value='' disabled selected>Selecione</option>
+                    <option value='' disabled selected>Selecione</option>
+                    @foreach($motoristas as $motorista)
+                      <option value='{{$motorista->id}}'>{{$motorista->name}}</option>
+                    @endforeach
 
                   </select>
                 </div>
@@ -76,8 +78,10 @@
                   <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-bus"></i></span>
                   <select name="fk_veiculo" id="fk_veiculo" class="form-control selectVeiculo">
-
-                      <option value='' disabled selected>Selecione</option>
+                  <option value='' disabled selected>Selecione</option>
+                    @foreach($veiculos as $veiculo)
+                      <option value='{{$veiculo->id}}'>{{$veiculo->nome_veiculo}}</option>
+                    @endforeach
 
                   </select>
                 </div>
