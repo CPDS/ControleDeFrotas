@@ -47,16 +47,22 @@ class PercursoController extends Controller
         $nomeestado = $percursos->cidade_saida->estado->nome;
         $nomeestado2 = $percursos->cidade_chegada->estado->nome;
 
-        $data_saida = date('d/m/Y',strtotime($percursos->hora_saida));
-        //die($data_saida);
+        $data_saida = date('Y-m-d',strtotime($percursos->hora_saida));
+        $data_chegada = date('Y-m-d',strtotime($percursos->hora_chegada));
+
         $hora_saida = date('H:i',strtotime($percursos->hora_saida));
         $hora_chegada = date('H:i',strtotime($percursos->hora_chegada));
-        //die($hora_saida);        
-        //dd($hora_saida);
+
+        $formatadata = date("d/m/y",strtotime($percursos->hora_saida));
+        $visualizarsaida = $formatadata.' '.$hora_saida.':00';
+
+        $formatadata = date("d/m/y",strtotime($percursos->hora_chegada));
+        $visualizarchegada = $formatadata.' '.$hora_chegada.':00';
+    
         
 
-        $dados = "data-id='$percursos->id' data-data_saida='$data_saida' data-estado='$estado' data-estado2='$estado2' data-fk_cidade_chegada='$idcidadechegada' data-fk_cidade_saida='$idcidadesaida' data-hora_saida='$hora_saida' data-local_saida='$percursos->local_saida' data-km_saida='$percursos->km_saida' data-roteiro='$percursos->roteiro' data-hora_chegada='$hora_chegada' data-local_chegada='$percursos->local_chegada' data-km_chegada='$percursos->km_chegada' data-fk_diario='$percursos->fk_diario' ";
-        $dadosVisualizar = "data-estado='$nomeestado' data-estado2='$nomeestado2' data-fk_cidade_chegada='$cidadechegada' data-fk_cidade_saida='$cidadesaida' data-hora_saida='$percursos->hora_saida' data-local_saida='$percursos->local_saida 'data-tipo_combustivel='$percursos->tipo_combustivel' data-km_saida='$percursos->km_saida' data-roteiro='$percursos->roteiro' data-hora_chegada='$percursos->hora_chegada' data-local_chegada='$percursos->local_chegada' data-km_chegada='$percursos->km_chegada' data-fk_diario='$percursos->fk_diario' ";
+        $dados = "data-id='$percursos->id' data-data_saida='$data_saida' data-data_chegada='$data_chegada' data-estado='$estado' data-estado2='$estado2' data-fk_cidade_chegada='$idcidadechegada' data-fk_cidade_saida='$idcidadesaida' data-hora_saida='$hora_saida' data-local_saida='$percursos->local_saida' data-km_saida='$percursos->km_saida' data-roteiro='$percursos->roteiro' data-hora_chegada='$hora_chegada' data-local_chegada='$percursos->local_chegada' data-km_chegada='$percursos->km_chegada' data-fk_diario='$percursos->fk_diario' ";
+        $dadosVisualizar = "data-estado='$nomeestado' data-estado2='$nomeestado2' data-fk_cidade_chegada='$cidadechegada' data-fk_cidade_saida='$cidadesaida' data-hora_saida='$visualizarsaida' data-local_saida='$cidadesaida' data-tipo_combustivel='$percursos->tipo_combustivel' data-km_saida='$percursos->km_saida' data-roteiro='$percursos->roteiro' data-hora_chegada='$visualizarchegada' data-local_chegada='$cidadechegada' data-km_chegada='$percursos->km_chegada' data-fk_diario='$percursos->fk_diario' ";
         $btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Percurso' $dadosVisualizar ><i class='fa fa-eye'></i></a> ";
         $btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Percurso' $dados><i class ='fa fa-pencil'></i></a> ";
         $btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Percurso' data-id='$percursos->id'><i class='fa fa-trash'></i></a>";
