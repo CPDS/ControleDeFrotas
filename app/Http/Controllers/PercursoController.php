@@ -130,7 +130,7 @@ class PercursoController extends Controller
         $rules = array(
             'hora_saida' => 'required',
             //'local_saida' => 'required',
-            'tipo_combustivel' => 'required',
+            //'tipo_combustivel' => 'required',
             'km_saida' => 'required',
             'roteiro' => 'required',
             'hora_chegada' => 'required',
@@ -145,13 +145,16 @@ class PercursoController extends Controller
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         else {
 
+            $data_hora_saida = $request->data_saida.' '.$request->hora_saida.':00';
+            $data_hora_chegada = $request->data_chegada.' '.$request->hora_chegada.':00';
+
             $Percurso = Percurso::find($request->id);
-            $Percurso->hora_saida = $request->hora_saida;
+            $Percurso->hora_saida = $data_hora_saida;
             $Percurso->local_saida = $request->fk_cidade_saida;
-            $Percurso->tipo_combustivel = $request->tipo_combustivel;
+            //$Percurso->tipo_combustivel = $request->tipo_combustivel;
             $Percurso->km_saida = $request->km_saida;
             $Percurso->roteiro = $request->roteiro;
-            $Percurso->hora_chegada = $request->hora_chegada;
+            $Percurso->hora_chegada = $data_hora_chegada;
             $Percurso->local_chegada = $request->fk_cidade_chegada;
             $Percurso->km_chegada = $request->km_chegada;
             $Percurso->fk_diario = $request->fk_diario;
