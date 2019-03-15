@@ -18,6 +18,8 @@ class CreateDiariosTable extends Migration
             $table->string('nome_diario');
             $table->text('ocorrencias');
             $table->string('status');
+            $table->integer('fk_viagem')->unsigned();
+            $table->foreign('fk_viagem')->references('id')->on('viagems');
             $table->timestamps();
         });
     }

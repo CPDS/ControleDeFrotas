@@ -57,6 +57,7 @@ class DiarioController extends Controller
             $Diario = new Diario();
             $Diario->nome_diario = $request->nome_diario;
             $Diario->ocorrencias = $request->ocorrencias;
+            $Diario->fk_viagem = $request->fk_viagem;
             $Diario->status = "Ativo";
             $Diario->save();
             //$Diario->setAttribute('titulo', $Diario->titulo);
@@ -79,6 +80,7 @@ class DiarioController extends Controller
             $Diario = Diario::find($request->id);
             $Diario->nome_diario = $request->nome_diario;
             $Diario->ocorrencias = $request->ocorrencias;
+            $Diario->fk_viagem = $request->fk_viagem;
             $Diario->save();
             //$equipamento->setAttribute('buttons', $this->setDataButtons($equipamento));
             return response()->json($Diario);
