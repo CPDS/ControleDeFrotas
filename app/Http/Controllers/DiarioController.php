@@ -10,11 +10,13 @@ use DataTables;
 use DB;
 use Auth;
 use App\Diario;
+use App\Viagem;
 
 class DiarioController extends Controller
 {
     public function index(){
-        return view('diario.index');
+        $viagens = Viagem::where('status','Ativo')->get();
+        return view('diario.index',compact('viagens'));
         //return view('termo.index');
     }
 
