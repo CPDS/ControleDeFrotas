@@ -16,6 +16,7 @@ class CreateViagemsTable extends Migration
         Schema::create('viagems', function (Blueprint $table) {
             $table->increments('id');
             $table->string('numero_rv');
+            $table->string('nome');
             $table->string('setor_emissor_rv');
             $table->timestamp('datahora_saida');
             $table->timestamp('datahora_chegada');

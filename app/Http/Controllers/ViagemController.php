@@ -222,6 +222,7 @@ class ViagemController extends Controller
             $Viagem = new Viagem();
             $Viagem->numero_rv = $request->numero_rv; // banco = html ~tag~ | mudar conforma tá o banco de viagem
             $Viagem->setor_emissor_rv = $request->setor_emissor_rv;
+            $Viagem->nome = $request->nome;
             $Viagem->fk_veiculo = $request->fk_veiculo;
             $Viagem->fk_motorista = $request->fk_motorista;
             $Viagem->datahora_saida = $data_hora_saida;
@@ -294,6 +295,7 @@ class ViagemController extends Controller
             $Viagem = Viagem::find($request->id);
             $Viagem->numero_rv = $request->numero_rv; // banco = html ~tag~ | mudar conforma tá o banco de viagem
             $Viagem->setor_emissor_rv = $request->setor_emissor_rv;
+            $Viagem->nome = $request->nome;
             $Viagem->fk_veiculo = $request->fk_veiculo;
             $Viagem->datahora_saida = $request->datahora_saida;
             $Viagem->datahora_chegada = $request->datahora_chegada;

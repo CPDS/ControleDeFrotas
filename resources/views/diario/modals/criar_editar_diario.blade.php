@@ -26,6 +26,20 @@
              </div>
            </div>
 
+           <div class="form-group col-md-6 senha">
+              <strong>Viagem:</strong>
+              <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-bus"></i></span>
+              <select name="fk_viagem" id="fk_viagem" class="form-control selectViagem">
+                <option value='' disabled selected>Selecione</option>
+                @foreach($viagens as $viagem)
+                  <option value='{{$viagem->id}}'>{{$viagem->nome}}</option>
+                @endforeach
+
+              </select>
+            </div>
+            </div>
+
            <div class="form-group col-md-12">
              <strong>Ocorrências:</strong>
              <div class="input-group col-md-12">
