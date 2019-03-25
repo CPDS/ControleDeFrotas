@@ -149,12 +149,13 @@
                    </select>
                  </div>
 
-
+                  <input maxlength="250" id="fk_id_solicitante" class="form-control" name="fk_id_solicitante" type="hidden">
+                   
                  <div class="form-group col-md-12">
                    <strong>Solicitante:</strong>
                    <div class="input-group">
                      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                     <input maxlength="250" id="fk_id_solicitante" class="form-control" name="fk_id_solicitante" type="text">
+                     <input maxlength="250" id="fk_id_solicitante_visualizar" class="form-control" name="fk_id_solicitante" type="text">
                    </div>
                  </div>
 

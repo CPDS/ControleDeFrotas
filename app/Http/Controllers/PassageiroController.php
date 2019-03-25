@@ -30,12 +30,12 @@ class PassageiroController extends Controller
     }
 
     private function setBtns(Passageiro $passageiros){
-    	$dados = "data-id='$passageiros->id' data-nome_passageiro='$passageiros->nome_passageiro' data-matricula='$passageiros->matricula' data-status='$passageiros->status'";
-        $dadosVisualizar = "data-nome_passageiro='$passageiros->nome_passageiro' data-matricula='$passageiros->matricula' data-status='$passageiros->status'";
-    	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Passageiro' $dados ><i class='fa fa-eye'></i></a> ";
+    	$dados = "data-id='$passageiros->id' data-nome_passageiro='$passageiros->nome_passageiro' data-matricula='$passageiros->matricula' data-email='$passageiros->email' data-telefone='$passageiros->telefone' data-rg='$passageiros->rg' data-categoria='$passageiros->categoria' data-instituicao='$passageiros->instituicao' data-observacoes='$passageiros->observacoes' data-fk_solicitacao='$passageiros->fk_solicitacao' data-status='$passageiros->status'";
+        $dadosVisualizar = "data-nome_passageiro='$passageiros->nome_passageiro' data-matricula='$passageiros->matricula' data-email='$passageiros->email' data-telefone='$passageiros->telefone' data-rg='$passageiros->rg' data-categoria='$passageiros->categoria' data-instituicao='$passageiros->instituicao' data-observacoes='$passageiros->observacoes' data-fk_solicitacao='$passageiros->fk_solicitacao' data-status='$passageiros->status'";
+    	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Passageiro' $dadosVisualizar ><i class='fa fa-eye'></i></a> ";
     	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Passageiro' $dados><i class ='fa fa-pencil'></i></a> ";
     	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Passageiro' data-id='$passageiros->id'><i class='fa fa-trash'></i></a>";
-
+        
     	return $btnVer.$btnEditar.$btnDeletar;
     }
 

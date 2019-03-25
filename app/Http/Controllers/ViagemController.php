@@ -114,7 +114,7 @@ class ViagemController extends Controller
       
       $dadosEditar = "data-id='$viagems->id' data-numero_rv='$viagems->numero_rv' data-fk_motorista='$viagems->fk_motorista' data-setor_emissor_rv='$viagems->setor_emissor_rv' data-fk_veiculo='$viagems->fk_veiculo'
       data-datahora_saida='$viagems->datahora_saida' data-datahora_chegada='$viagems->datahora_chegada' data-status='$viagems->status' data-fk_cidade_saida='$viagems->fk_cidade_saida'
-      data-fk_cidade_chegada='$viagems->fk_cidade_chegada' data-estado='$estado' data-estado2='$estado2' data-fk_tipo_servico='$viagems->fk_tipo_servico' data-fk_id_solicitante='$viagems->fk_id_solicitante' data-estimativa_km='$viagems->estimativa_km'
+      data-fk_cidade_chegada='$viagems->fk_cidade_chegada' data-estado='$estado' data-estado2='$estado2' data-fk_tipo_servico='$viagems->fk_tipo_servico' data-fk_id_solicitante_visualizar='$solicitante' data-fk_id_solicitante='$viagems->fk_id_solicitante' data-estimativa_km='$viagems->estimativa_km'
       data-nome_responsavel='$viagems->nome_responsavel' data-telefone_responsavel='$viagems->telefone_responsavel' data-local_saida='$viagems->local_saida'  data-setor_autoriza_viagem='$viagems->setor_autoriza_viagem'  data-numero_passageiros='$viagems->numero_passageiros'  data-tipo_solicitacao='$viagems->tipo_solicitacao'  data-natureza_servico='$viagems->natureza_servico'  data-custo_viagem='$viagems->custo_viagem'  data-descricao_bagagem='$viagems->descricao_bagagem'  data-codigo_acp_rv='$viagems->codigo_acp_rv' data-situacao='$viagems->situacao' ";
 
       $dadosVisualizar = "data-numero_rv='$viagems->numero_rv' data-fk_motorista='$nomemotorista' data-setor_emissor_rv='$viagems->setor_emissor_rv' data-fk_veiculo='$nomeveiculo'
