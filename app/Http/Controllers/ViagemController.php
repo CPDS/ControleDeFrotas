@@ -29,13 +29,14 @@ class ViagemController extends Controller
         $veiculos = Veiculo::select('nome_veiculo','id')->where('status','Ativo')->get();
         $motoristas = User::role('Motorista')->where('status','Ativo')->select('name','id')->get();
         $cidades = Cidade::select('nome','id')->get();
+        $solicitantes = User::select('name','id')->where('status','Ativo')->get();
         //dd($motoristas);
-        return view('viagem.index',compact('estados','tipo_servicos','veiculos','motoristas', 'viagems','cidades'));
+        return view('viagem.index',compact('estados','tipo_servicos','veiculos','motoristas', 'viagems','cidades','solicitantes'));
     }
 
     public function list() {
 
-        //Capiturar Usuário Logado
+        //Capturar Usuário Logado
         $usuario_logado = Auth::user();
         
         //Consulta para Colaboradores
@@ -138,65 +139,6 @@ class ViagemController extends Controller
     }
 
     public function store(Request $request) { // cadastro de viagem
-      //dd($request->all());
-      /*
-      $rules = array(
-
-            'numero_rv' => 'required',
-              'setor_emissor_rv' => 'required',
-              'fk_veiculo' => 'required',
-              'datahora_saida' => 'required',
-              'datahora_chegada' => 'required',
-              //'status' => 'required',
-              'fk_cidade_saida' => 'required',
-              //'status' => 'required',
-              'fk_cidade_chegada' => 'required',
-              'fk_tipo_servico' => 'required',
-              //'fk_id_solicitante' => 'required',
-              'estimativa_km' => 'required',
-              'nome_responsavel' => 'required',
-              'telefone_responsavel' => 'required',
-              'local_saida' => 'required',
-              'setor_autoriza_viagem' => 'required',
-              'numero_passageiros' => 'required',
-              'tipo_solicitacao' => 'required',
-              'natureza_servico' => 'required',
-              'custo_viagem' => 'required',
-              'descricao_bagagem' => 'required',
-              'codigo_acp_rv' => 'required',
-        );
-        $attributeNames = array(
-            'numero_rv' => 'Nº RV',
-            'setor_emissor_rv' => 'Setor Emissor',
-            'fk_veiculo' => 'Veículo',
-            'datahora_saida' => 'Saída',
-            'datahora_chegada' => 'Chegada',
-            //'status' => 'Status',
-            'fk_cidade_saida' => 'Cidade Saída',
-            //'status' => 'Status',
-            'fk_cidade_chegada' => 'Cidade Chegada',
-            'fk_tipo_servico' => 'Tipo Serviço',
-            //'fk_id_solicitante' => 'Solicitante',
-            'estimativa_km' => 'Estimativa Km',
-            'nome_responsavel' => 'Responsável',
-            'telefone_responsavel' => 'Tel Responsável',
-            'local_saida' => 'Local Saída',
-            'setor_autoriza_viagem' => 'Setor Autoriza',
-            'numero_passageiros' => 'Nº Passag',
-            'tipo_solicitacao' => 'Tipo Solicitação',
-            'natureza_servico' => 'Natureza Serviço',
-            'custo_viagem' => 'Custo Viagem',
-            'descricao_bagagem' => 'Descrição Bagagem',
-            'codigo_acp_rv' => 'Cód ACP',
-        );
-        $messages = array(
-            'same' => 'Essas senhas não coincidem.'
-        );
-        $validator = Validator::make(Input::all(), $rules, $messages);
-        $validator->setAttributeNames($attributeNames);
-        if ($validator->fails()){
-                return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
-        }else {*/
 
             //conversoes data e hora
              //data e hora de  saida
