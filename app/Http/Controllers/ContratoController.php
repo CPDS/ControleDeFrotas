@@ -95,13 +95,13 @@ class ContratoController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'empresa_contratada_nome' => 'required',
-            'empresa_contratada_cnpj' => 'required',
-            'numero_contrato' => 'required',
-            'data_inicio_contrato' => 'required',
-            'data_vencimento_contrato' => 'required',
-            'valor_contratado' => 'required',
-            'tipo' => 'required',
+            'empresa_contratada_nome' => 'required|min:3|max:45',
+            'empresa_contratada_cnpj' => 'required|min:3|max:45',
+            'numero_contrato' => 'required|numeric',
+            'data_inicio_contrato' => 'required|date_format:d-m-Y',
+            'data_vencimento_contrato' => 'required|date_format:d-m-Y',
+            'valor_contratado' => 'required|numeric',
+            'tipo' => 'required|min:3|max:45',
 
         );
 

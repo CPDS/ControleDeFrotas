@@ -60,7 +60,7 @@ class TermoController extends Controller
               'data_inicio' => 'required',
               'data_termino' => 'required',
               'fk_contrato' => 'required',
-              'valor' => 'required',
+              'valor' => 'required|numeric',
         );
         $attributeNames = array(
             'data_inicio' => 'Início',
@@ -71,6 +71,7 @@ class TermoController extends Controller
         $messages = array(
             'same' => 'Essas senhas não coincidem.'
         );
+
         $validator = Validator::make(Input::all(), $rules, $messages);
         $validator->setAttributeNames($attributeNames);
         if ($validator->fails()){
@@ -92,10 +93,10 @@ class TermoController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'data_inicio' => 'required',
-            'data_termino' => 'required',
+            'data_inicio' => 'required|date_format:d-m-Y',
+            'data_termino' => 'required|date_format:d-m-Y',
             'fk_contrato' => 'required',
-            'valor' => 'required',
+            'valor' => 'required|numeric',
         );
 
         $validator = Validator::make(Input::all(), $rules);

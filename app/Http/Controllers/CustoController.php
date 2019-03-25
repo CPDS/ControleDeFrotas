@@ -41,11 +41,11 @@ class CustoController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-              'qtd_diaria' => 'required',
-              'valor_diaria' => 'required',
-              'custo_total_diaria' => 'required',
-              'valor_manutencao' => 'required',
-              'custo_total_viagem' => 'required',
+              'qtd_diaria' => 'required|numeric',
+              'valor_diaria' => 'required|numeric',
+              'custo_total_diaria' => 'required|numeric',
+              'valor_manutencao' => 'required|numeric',
+              'custo_total_viagem' => 'required|numeric',
               'fk_diario_bordo' => 'required',
               'fk_combustivel' => 'required',
               

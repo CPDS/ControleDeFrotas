@@ -40,8 +40,8 @@ class CombustivelController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-              'valor_litro' => 'required',
-              'nome' => 'required',
+              'valor_litro' => 'required|numeric',
+              'nome' => 'required|min:3|max:45',
               
         );
         $attributeNames = array(

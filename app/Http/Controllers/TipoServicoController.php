@@ -39,7 +39,7 @@ class TipoServicoController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-            'nome_servico' => 'required',
+            'nome_servico' => 'required|min:3|max:45',
         );
         $attributeNames = array(
             'nome_servico' => 'Nome',

@@ -12,4 +12,14 @@ class Setor extends Model
     protected $fillable=[
         'nome_setor','fk_campus',
     ];
+
+  //  public $rules = [
+   //     'nome_setor' => 'required|min:3|max:100',
+    //]; 
+
+    public function rules(){
+        return [
+            'nome_setor' => 'required|min:3|max:100',
+        ];
+    }
 }

@@ -56,10 +56,10 @@ class BancoHorasController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-              'hora_inicio' => 'required',
-              'hora_termino' => 'required',
+              'hora_inicio' => 'required|date_format:d-m-Y',
+              'hora_termino' => 'required|date_format:d-m-Y',
               'fk_motorista' => 'required',
-              'hora_intervalo' => 'required',
+              'hora_intervalo' => 'required|numeric',
         );
         $attributeNames = array(
             'hora_inicio' => 'Início',

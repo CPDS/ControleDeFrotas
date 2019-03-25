@@ -72,13 +72,13 @@ class PercursoController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-              'hora_saida' => 'required',
+              'hora_saida' => 'required|date_format:d-m-Y',
               //'local_saida' => 'required',
-              'km_saida' => 'required',
-              'roteiro' => 'required',
-              'hora_chegada' => 'required',
+              'km_saida' => 'required|numeric',
+              'roteiro' => 'required|min:3|max:45',
+              'hora_chegada' => 'required|numeric',
               //'local_chegada' => 'required',
-              'km_chegada' => 'required',
+              'km_chegada' => 'required|numeric',
               'fk_diario' => 'required',
 
         );

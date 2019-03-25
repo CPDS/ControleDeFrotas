@@ -84,9 +84,9 @@ class LiberacaoController extends Controller
     public function update(Request $request, $id)
     {
         $rules = array(
-            'titulo' => 'required',
-            'destino' => 'required',
-            'retorno' => 'required',
+            'titulo' => 'required|min:3|max:45',
+            'destino' => 'required|min:3|max:45',
+            'retorno' => 'required|min:3|max:45',
             'fk_veiculo' => 'required',
             'fk_motorista' => 'required',
 

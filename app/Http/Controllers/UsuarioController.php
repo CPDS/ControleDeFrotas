@@ -82,14 +82,14 @@ class UsuarioController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-            'name' => 'required',
-            'email' => 'required',
-            'senha' => 'required|same:confirmarsenha',
-            'endereco' => 'required',
-            'telefone' => 'required',
-            'cidade' => 'required',
+            'name' => 'required|min:3|max:45',
+            'email' => 'requiredemail|unique:users, email,'.$id,
+            'senha' => 'required|same::confirm-password',
+            'endereco' => 'required|min:3|max:45',
+            'telefone' => 'required|numeric',
+            'cidade' => 'required|min:3|max:45',
             'estado' => 'required',
-            'funcao' => 'required',
+            'funcao' => 'required|min:3|max:45',
         );
         $attributeNames = array(
             'confirmarsenha' => 'confirmar senha',

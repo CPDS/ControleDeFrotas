@@ -53,18 +53,18 @@ class VeiculoController extends Controller
     }
     public function store(Request $request) {
         $rules = array(
-              'nome_veiculo' => 'required',
-              'placa' => 'required',
+              'nome_veiculo' => 'required|min:3|max:45',
+              'placa' => 'required|min:3|max:45',
               'tipo_combustivel' => 'required',
               'fk_campus' => 'required',
-              'qtd_total_lugares' => 'required',
-              'ano_fabricacao' => 'required',
-              'minimo_passageiros' => 'required',
-              'maximo_passageiros' => 'required',
-              'rendimento' => 'required',
-              'marca' => 'required',
+              'qtd_total_lugares' => 'required|numeric',
+              'ano_fabricacao' => 'required|numeric',
+              'minimo_passageiros' => 'required|numeric',
+              'maximo_passageiros' => 'required|numeric',
+              'rendimento' => 'required|numeric',
+              'marca' => 'required|min:3|max:45',
               'tem_arcondicionado' => 'required',
-              'tipo_bagageiro' => 'required',
+              'tipo_bagageiro' => 'required|min:3|max:45',
         );
         $attributeNames = array(
             'nome_veiculo' => 'Nome',

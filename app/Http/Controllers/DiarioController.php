@@ -40,8 +40,8 @@ class DiarioController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-              'nome_diario' => 'required',
-              'ocorrencias' => 'required',
+              'nome_diario' => 'required|min:3|max:45',
+              'ocorrencias' => 'required|min:3|max:45',
         );
         $attributeNames = array(
             'ocorrencias' => 'Ocorrências',
