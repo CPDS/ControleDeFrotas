@@ -29,7 +29,7 @@
             <div class="icon">
               <i class="fa fa-user"></i>
             </div>
-            <a href="{{ url('usuarios') }}" class="small-box-footer">Exibir usuário(s) <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ url('usuarios') }}" class="small-box-footer">Usuário(s) <i class="fa fa-arrow-circle-right"></i></a>
           </div> </a>
         </div>
 
@@ -46,7 +46,7 @@
             <div class="icon">
             	<i class="fa fa-road"></i>
             </div>
-            <a href="{{ url('viagens') }}" class="small-box-footer">Exibir viagem(s) <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ url('viagens') }}" class="small-box-footer">Viagem(s) <i class="fa fa-arrow-circle-right"></i></a>
           </div></a>
         </div>
         <!-- ./col -->
@@ -63,7 +63,7 @@
             <div class="icon">
               <i class="fa fa-car"></i>
             </div>
-            <a href="{{ url('veiculos') }}" class="small-box-footer">Exibir veículo(s) <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ url('veiculos') }}" class="small-box-footer">Veículo(s) <i class="fa fa-arrow-circle-right"></i></a>
           </div> </a>
         </div>
 
@@ -80,7 +80,7 @@
             <div class="icon">
               <i class="fa fa-users"></i>
             </div>
-            <a href="{{ url('passageiros') }}" class="small-box-footer">Exibir Passageiro(s) <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ url('passageiros') }}" class="small-box-footer">Passageiro(s) <i class="fa fa-arrow-circle-right"></i></a>
           </div></a>
         </div>
 
@@ -96,7 +96,7 @@
 	            <div class="icon">
 	              <i class="fa fa-file"></i>
 	            </div>
-	            <a href="{{ url('contratos') }}" class="small-box-footer">Exibir Contrato(s) <i class="fa fa-arrow-circle-right"></i></a>
+	            <a href="{{ url('contratos') }}" class="small-box-footer">Contrato(s) <i class="fa fa-arrow-circle-right"></i></a>
           	</div></a>
         </div>
 
@@ -113,7 +113,7 @@
             	<div class="icon">
               		<i class="fa fa-road"></i>
             	</div>
-            	<a href="{{ url('percursos') }}" class="small-box-footer">Exibir Percurso(s) <i class="fa fa-arrow-circle-right"></i></a>
+            	<a href="{{ url('percursos') }}" class="small-box-footer">Percurso(s) <i class="fa fa-arrow-circle-right"></i></a>
           	</div></a>
     	</div>
 	</div>
