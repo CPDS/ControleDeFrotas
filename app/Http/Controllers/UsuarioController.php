@@ -109,10 +109,10 @@ class UsuarioController extends Controller
     public function store(Request $request) {
         $rules = array(
             'name' => 'required|min:3|max:45',
-            'email' => 'requiredemail|unique:users, email,'.$id,
-            'senha' => 'required|same::confirm-password',
+            'email' => 'required',
+            'senha' => 'required|same:confirmarsenha',
             'endereco' => 'required|min:3|max:45',
-            'telefone' => 'required|numeric',
+            'telefone' => 'required',
             'cidade' => 'required|min:3|max:45',
             'estado' => 'required',
             'funcao' => 'required|min:3|max:45',
