@@ -24,6 +24,32 @@ class UsuarioController extends Controller
         return view('usuario.index',compact('estados'));
     }
 
+    public function permissions()
+    {
+        $permissions = Permission::all();
+        $models = Role::all();
+        return view('user.permission',compact('permissions','models'));    
+    }
+
+    public function getPermissions($papel)
+    {
+        $permissions = ModelHasPermission::where('model_id',$papel)->get();
+        return response()->json(['data' => $permissions ]);    
+    }
+    
+    public function createPermissions(Request $request){
+       
+        ModelHasPermission::where('model_id',$request->fk_model)->delete();
+        foreach ($request->permissao as $value) {
+            $ModelHasPermission = new ModelHasPermission();
+            $ModelHasPermission->permission_id = $value;
+            $ModelHasPermission->model_id = $request->fk_model;
+            $ModelHasPermission->model_type = 'App\User';
+            $ModelHasPermission->save();
+        }
+        return response()->json($ModelHasPermission);
+    } 
+
     public function list() {
         $usuarios = User::orderBy('created_at', 'desc')->where('status','Ativo')->get();
 
