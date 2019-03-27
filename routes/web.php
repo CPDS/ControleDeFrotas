@@ -102,7 +102,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/update', ['as' => 'usuarios.update', 'uses' => 'UsuarioController@update']); 
     Route::post('/delete', ['as' => 'usuarios.delete', 'uses' => 'UsuarioController@destroy']); 
     Route::get('/cidade/{estado}',['as' => 'usuarios.cidade','uses' => 'UsuarioController@selectCidade']);
-
+    Route::post('/permission', ['as' => 'gerenciar-users.post.permission', 'uses' => 'UserController@createPermissions']);
     });
 
     Route::group(['prefix'=>'diarios','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador|Coordenador|Motorista|Tecnico']], function(){

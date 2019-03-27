@@ -15,7 +15,9 @@ use App\Viagem;
 class DiarioController extends Controller
 {
     public function index(){
-        $viagens = Viagem::where('status','Ativo')->get();
+        $usuario_logado = Auth::user()->id;
+
+        $viagens = Viagem::where('status','Ativo')->where('fk_motorista',$usuario_logado)->get();
         return view('diario.index',compact('viagens'));
         //return view('termo.index');
     }
