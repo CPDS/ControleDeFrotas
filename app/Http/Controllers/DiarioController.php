@@ -48,9 +48,11 @@ class DiarioController extends Controller
         $attributeNames = array(
             'ocorrencias' => 'Ocorrências',
         );
+        
         $messages = array(
-            'same' => 'Essas senhas não coincidem.'
-        );
+            'same' => 'Essas senhas não coincidem.',
+            
+        ); 
         $validator = Validator::make(Input::all(), $rules, $messages);
         $validator->setAttributeNames($attributeNames);
         if ($validator->fails()){
@@ -67,6 +69,7 @@ class DiarioController extends Controller
             return response()->json($Diario);
         }
     }
+
 
     public function update(Request $request)
     {

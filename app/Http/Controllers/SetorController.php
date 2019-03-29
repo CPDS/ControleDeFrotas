@@ -63,7 +63,7 @@ class SetorController extends Controller
         ); 
 
          // Validar dados
-         $this->validate($request, $this->Setor->rules);
+         //$this->validate($request, $this->Setor->rules);
 
         $validator = Validator::make(Input::all(), $rules, $messages);
         $validator->setAttributeNames($attributeNames);

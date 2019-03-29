@@ -111,7 +111,7 @@ class UsuarioController extends Controller
             'name' => 'required|min:3|max:45',
             'email' => 'required',
             'senha' => 'required|same:confirmarsenha',
-            'endereco' => 'required|min:3|max:45',
+            'endereco' => 'required|min:3|max:250',
             'telefone' => 'required',
             'cidade' => 'required|min:3|max:45',
             'estado' => 'required',
