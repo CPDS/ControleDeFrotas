@@ -218,7 +218,7 @@ class ViagemController extends Controller
             'fk_id_solicitante' => 'required',
             'estimativa_km' => 'required|numeric',
             'nome_responsavel' => 'required|min:3|max:45',
-            'telefone_responsavel' => 'required|numeric',
+            'telefone_responsavel' => 'required',
             'local_saida' => 'required|min:3|max:45',
             'setor_autoriza_viagem' => 'required',
             'numero_passageiros' => 'required|numeric',
