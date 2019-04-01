@@ -12,6 +12,7 @@ class ViagemSeeder extends Seeder
     public function run()
     {
         DB::table('viagems')->insert([
+            'nome' => 'Viagem para Conquista',
             'numero_rv' => '3423423',
             'setor_emissor_rv' => 'Setor A',
             'datahora_saida' => date('Y-m-d H:i:s',strtotime("now")),
@@ -29,7 +30,7 @@ class ViagemSeeder extends Seeder
             'descricao_bagagem' => 'algumas malas',
             'codigo_acp_rv' => '321',
             'situacao' => 'Pendente',
-            'fk_motorista' => 2,
+            'fk_motorista' => 4,
             'fk_veiculo' => 1,
             'fk_cidade_saida' => 1321,
             'fk_cidade_chegada' => 1401,
