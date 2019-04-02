@@ -51,6 +51,17 @@ class UsuarioController extends Controller
     } 
 
     public function list() {
+        /* a adaptar 
+
+        $user = User::LEFTJOIN('setors','users.fk_setor','=','setors.id')
+        ->JOIN('model_has_roles','model_has_roles.model_id','=','users.id')
+        ->JOIN('roles','model_has_roles.role_id','=','roles.id')
+        ->where('users.status','Ativo')
+        ->select('users.id','users.name as nome_user','users.cpf','users.telefone','users.endereco','setors.nome as nome_setor','setors.sigla','users.email', 'setors.id as fk_setor','roles.name as nome_role' , 'users.cpf', 'users.cnpj', 'users.responsavel', 'users.contato')
+        ->orderBy('users.created_at', 'desc')->get();
+
+        */
+        
         $usuarios = User::orderBy('created_at', 'desc')->where('status','Ativo')->get();
 
         return Datatables::of($usuarios)
