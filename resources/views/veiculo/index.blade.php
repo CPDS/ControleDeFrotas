@@ -25,9 +25,9 @@
 
                          <div class="col-md-12">
                           <div class="pull-right">
-                <!--        <span>    Botão para cadastrar
-                            <a class="btn btn-primary btnAdicionar btn-sm "><i class="fa fa-plus"></i> Cadastrar Veículo</a>
-                        </span> -->
+                       <span>
+                            <a class="btn btn-primary btnAdicionarVeiculos btn-sm "><i class="fa fa-plus"></i> Cadastrar Veículo</a>
+                        </span>
                         </div>
                         </div>
 

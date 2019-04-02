@@ -26,7 +26,7 @@
 
           <div class="form-group">
               <strong>Nome do Veículo:</strong>
-              <span id="nome-visualizar"></span>
+              <span id="nome_veiculo-visualizar"></span>
           </div>
 
           <div class="form-group">

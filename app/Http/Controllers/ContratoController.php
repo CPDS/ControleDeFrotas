@@ -98,8 +98,8 @@ class ContratoController extends Controller
             'empresa_contratada_nome' => 'required|min:3|max:45',
             'empresa_contratada_cnpj' => 'required|min:3|max:45',
             'numero_contrato' => 'required|numeric',
-            'data_inicio_contrato' => 'required|date_format:m-d-Y',
-            'data_vencimento_contrato' => 'required|date_format:m-d-Y',
+            'data_inicio_contrato' => 'required',
+            'data_vencimento_contrato' => 'required',
             'valor_contratado' => 'required|numeric',
             'tipo' => 'required|min:3|max:45',
 
