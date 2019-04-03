@@ -62,7 +62,9 @@
             <!--Gerenciar demais opções -->
             <li class="treeview"> <!-- cria o menuzinho que abre para gerenciar demais opções -->
                <a href="{{ url('Gerenciar') }}"><i class='fa fa-globe'></i> <span>{{ trans('Gerenciar') }}</span> <i class="fa fa-wrench pull-right"></i></a>
+               
                 <ul class="treeview-menu">
+                @role('Administrador')<li><a href="{{ url('permissions') }}">{{ trans('Permissões') }}</a></li>@endrole
                 @role('Administrador')<li><a href="{{ url('banco_horas') }}">{{ trans('Banco de Horas') }}</a></li>@endrole
                 @role('Administrador')<li><a href="{{ url('setor') }}">{{ trans('Setores') }}</a></li>@endrole
                 @role('Administrador')<li><a href="{{ url('contratos') }}" class="btnAdicionarContratos">{{ trans('Contrato') }}</a></li>@endrole
