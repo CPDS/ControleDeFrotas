@@ -14,7 +14,9 @@ use Hash;
 use App\User;
 use App\Estado;
 use App\Cidade;
-
+use App\Permission;
+use App\Role;
+use App\ModelHasPermission;
 
 class UsuarioController extends Controller
 {
@@ -28,7 +30,7 @@ class UsuarioController extends Controller
     {
         $permissions = Permission::all();
         $models = Role::all();
-        return view('user.permission',compact('permissions','models'));    
+        return view('usuario.permission',compact('permissions','models'));    
     }
 
     public function getPermissions($papel)
@@ -50,17 +52,7 @@ class UsuarioController extends Controller
         return response()->json($ModelHasPermission);
     } 
 
-    public function list() {
-        /* a adaptar 
-
-        $user = User::LEFTJOIN('setors','users.fk_setor','=','setors.id')
-        ->JOIN('model_has_roles','model_has_roles.model_id','=','users.id')
-        ->JOIN('roles','model_has_roles.role_id','=','roles.id')
-        ->where('users.status','Ativo')
-        ->select('users.id','users.name as nome_user','users.cpf','users.telefone','users.endereco','setors.nome as nome_setor','setors.sigla','users.email', 'setors.id as fk_setor','roles.name as nome_role' , 'users.cpf', 'users.cnpj', 'users.responsavel', 'users.contato')
-        ->orderBy('users.created_at', 'desc')->get();
-
-        */
+    public function list() {        
         
         $usuarios = User::orderBy('created_at', 'desc')->where('status','Ativo')->get();
 

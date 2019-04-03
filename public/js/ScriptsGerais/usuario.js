@@ -166,6 +166,84 @@ $(document).ready(function($) {
         });
     });
 
+    //função para as permissions
+    $('#papel').change(function(){
+   
+        var papel = $("#papel :selected").val();
+        $.ajax({
+            type: 'get',
+            url: "/usuarios/get-permissions/"+papel,
+            processData: false,
+            contentType: false,
+              success: function(response) {
+               
+                $('input[id="permissao"]').each(function() {
+                    $(this).prop('checked', false);
+                    for(var i = 0; i < response.data.length; i++){
+                        if(response.data[i].permission_id == this.value){
+                            $(this).prop('checked', true);
+                            return;
+                        }else{
+                            $(this).prop('checked', false);
+                        }
+                    }
+                });  
+            },
+        });
+    });
+
+    $(document).on('click', '.permission', function() {
+        var dados = new FormData($("#form")[0]); //pega os dados do form
+
+        console.log(dados);
+
+        $.ajax({
+            type: 'post',
+            url: "/usuarios/permission",
+            data: dados,
+            processData: false,
+            contentType: false,
+            beforeSend: function(){
+                jQuery('.add').button('loading');
+            },
+            complete: function() {
+                jQuery('.add').button('reset');
+            },
+            success: function(data) {
+                 //Verificar os erros de preenchimento
+                if ((data.errors)) {
+
+                    $('.callout').removeClass('hidden'); //exibe a div de erro
+                    $('.callout').find('p').text(""); //limpa a div para erros successivos
+
+                    $.each(data.errors, function(nome, mensagem) {
+                            $('.callout').find("p").append(mensagem + "</br>");
+                    });
+
+                } else {
+
+
+                    $(function() {
+                        iziToast.destroy();
+                        iziToast.success({
+                            title: 'OK',
+                            message: 'Usuário adicionado com Sucesso!',
+                        });
+                    });
+
+                }
+            },
+
+            error: function() {
+                iziToast.error({
+                    title: 'Erro Interno',
+                    message: 'Operação Cancelada!',
+                });
+            },
+
+        });
+    });
+
     //Excluir
     $(document).on('click', '.btnDeletar', function() {
         $('.modal-title').text('Desativar Usuário');
