@@ -66,15 +66,15 @@ $(document).ready(function($) {
             columnDefs : [
               { targets : [0,10], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
-              { "width": "15%", "targets": 1 },//nome
-              { "width": "15%", "targets": 2 },//matricula
-              { "width": "15%", "targets": 3 },//status
-              { "width": "15%", "targets": 4 },
-              { "width": "15%", "targets": 5 },
-              { "width": "15%", "targets": 6 },
-              { "width": "15%", "targets": 7 },
-              { "width": "15%", "targets": 8 },
-              { "width": "15%", "targets": 9 },
+              { "width": "5%", "targets": 1 },//nome
+              { "width": "10%", "targets": 2 },//matricula
+              { "width": "10%", "targets": 3 },//status
+              { "width": "10%", "targets": 4 },
+              { "width": "10%", "targets": 5 },
+              { "width": "10%", "targets": 6 },
+              { "width": "10%", "targets": 7 },
+              { "width": "10%", "targets": 8 },
+              { "width": "5%", "targets": 9 },
               { "width": "15%", "targets": 10 }
             ]
     });

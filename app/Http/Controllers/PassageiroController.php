@@ -44,7 +44,7 @@ class PassageiroController extends Controller
         $rules = array(
               'nome_passageiro' => 'required|min:3|max:45',
               'matricula' => 'required|numeric',
-              'email' => 'required|email|unique:users, email,'.$id,
+              'email' => 'required|email|unique:users, email',
               'telefone' => 'required|numeric',
               'rg' => 'required|numeric',
               'categoria' => 'required|min:3|max:45',
