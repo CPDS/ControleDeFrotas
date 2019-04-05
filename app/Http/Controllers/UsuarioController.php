@@ -67,10 +67,10 @@ class UsuarioController extends Controller
             return " <span class='label label-default' style='font-size:14px'>Inativo</span>";
         })
         ->editColumn('funcao', function($usuarios){
-            foreach($usuarios->getRoleNames() as $tipoFuncao){
-                $funcao = $tipoFuncao;
-            }
-            return $funcao;
+            //foreach($usuarios->getRoleNames() as $tipoFuncao){
+                //$funcao = $tipoFuncao;
+            //}
+            return $usuarios->getRoleNames();
         })
         ->escapeColumns([0])
         ->make(true);
@@ -84,9 +84,9 @@ class UsuarioController extends Controller
         else
             $status = 'Inativo';
         //Buscando a funçao do usuario
-        foreach($usuarios->getRoleNames() as $tipoFuncao)
-            $funcao = $tipoFuncao;
-
+        //foreach($usuarios->getRoleNames() as $tipoFuncao)
+            //$funcao = $tipoFuncao;
+            $funcao = $usuarios->getRoleNames();
 
       $dados = 'data-id ="'.$usuarios->id.'" data-name="'.$usuarios->name.'" data-email="'.$usuarios->email.'" data-endereco="'.$usuarios->endereco.'" data-telefone="'.$usuarios->telefone.'" data-funcao="'.$funcao.'"
        ';
@@ -173,8 +173,8 @@ class UsuarioController extends Controller
 
             $Usuario = User::find($request->id);
 
-            foreach($Usuario->getRoleNames() as $funcao)
-                $role = $funcao;
+            //foreach($Usuario->getRoleNames() as $funcao)
+                $role = $Usuario->getRoleNames();
             
             $Usuario->removeRole($role);
 

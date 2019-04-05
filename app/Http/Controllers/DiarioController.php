@@ -15,9 +15,16 @@ use App\Viagem;
 class DiarioController extends Controller
 {
     public function index(){
-        $usuario_logado = Auth::user()->id;
-
-        $viagens = Viagem::where('status','Ativo')->where('fk_motorista',$usuario_logado)->get();
+        $usuario_logado = Auth::user();
+        if($usuario_logado->roles->first()->name == 'Administrador')
+        {
+            $viagens = Viagem::where('status','Ativo')->get();
+        }
+        if($usuario_logado->roles->first()->name == 'Motorista')
+        {
+            $viagens = Viagem::where('status','Ativo')->where('fk_motorista',$usuario_logado)->get();
+        }
+        
         return view('diario.index',compact('viagens'));
         //return view('termo.index');
     }
