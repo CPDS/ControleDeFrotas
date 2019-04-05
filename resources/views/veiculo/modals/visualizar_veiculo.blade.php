@@ -29,15 +29,15 @@
               <span id="nome_veiculo-visualizar"></span>
           </div>
 
-          <div class="form-group">
+       <!--   <div class="form-group">
               <strong>Placa:</strong>
               <span id="placa-visualizar"></span>
-          </div>
+          </div> -->
 
-          <div class="form-group">
+        <!--  <div class="form-group">
               <strong>Tipo de Combustível:</strong>
               <span id="tipo_combustivel-visualizar"></span>
-          </div>
+          </div> -->
 
           <div class="form-group">
               <strong>Campus:</strong>
@@ -64,10 +64,10 @@
               <span id="maximo_passageiros-visualizar"></span>
           </div>
 
-          <div class="form-group">
+      <!--    <div class="form-group">
               <strong>Rendimento:</strong>
               <span id="rendimento-visualizar"></span>
-          </div>
+          </div> -->
 
           <div class="form-group">
               <strong>Marca:</strong>

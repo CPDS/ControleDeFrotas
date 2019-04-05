@@ -13,14 +13,14 @@ $(document).ready(function($) {
             columns: [
             { data: null, name: 'order' },
             { data: 'nome_veiculo', name: 'nome_veiculo' },
-            { data: 'placa', name: 'placa' },
+            //{ data: 'placa', name: 'placa' },
             //{ data: 'tipo_combustivel', name: 'tipo_combustivel' },
-            { data: 'fk_campus', name: 'fk_campus' },
+           // { data: 'fk_campus', name: 'fk_campus' },
             { data: 'qtd_total_lugares', name: 'qtd_total_lugares' },
             //{ data: 'ano_fabricacao', name: 'ano_fabricacao' },
             { data: 'minimo_passageiros', name: 'minimo_passageiros' },
             { data: 'maximo_passageiros', name: 'maximo_passageiros' },
-            { data: 'rendimento', name: 'rendimento' },
+          //  { data: 'rendimento', name: 'rendimento' },
             //{ data: 'marca', name: 'marca' },
             { data: 'tem_arcondicionado', name: 'tem_arcondicionado' },
             { data: 'tipo_bagageiro', name: 'tipo_bagageiro' },
@@ -67,18 +67,15 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [0,10], sortable : false },
-              { "width": "5%", "targets":  0 }, //nº
-              { "width": "5%", "targets": 1 },//nome
+              { targets : [0,7], sortable : false },
+              { "width": "15%", "targets":  0 }, //nº
+              { "width": "15%", "targets": 1 },//nome
               { "width": "10%", "targets": 2 },//placa
               { "width": "10%", "targets": 3 },//tipo_combustivel
               { "width": "10%", "targets": 4 },//botoes
               { "width": "10%", "targets": 5 },
               { "width": "10%", "targets": 6 },
-              { "width": "10%", "targets": 7 },
-              { "width": "10%", "targets": 8 },
-              { "width": "5%", "targets": 9 },
-              { "width": "15%", "targets": 10 }
+              { "width": "20%", "targets": 7 }
 
             ]
     });
@@ -92,7 +89,7 @@ $(document).ready(function($) {
     //Ver
     $(document).on('click', '.btnVer', function() {
         $('#nome_veiculo-visualizar').text($(this).data('nome_veiculo')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#placa-visualizar').text($(this).data('placa'));
+       // $('#placa-visualizar').text($(this).data('placa'));
         $('#tipo_combustivel-visualizar').text($(this).data('tipo_combustivel'));
         $('#fk_campus-visualizar').text($(this).data('fk_campus'));
         $('#qtd_total_lugares-visualizar').text($(this).data('qtd_total_lugares'));

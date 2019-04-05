@@ -46,15 +46,17 @@ class ContratoController extends Controller
         return $btnVer.$btnEditar.$btnDeletar;
     }
 
+    
+
     public function store(Request $request) {
         $rules = array(
-              'empresa_contratada_nome' => 'required',
-              'empresa_contratada_cnpj' => 'required',
-              'numero_contrato' => 'required',
-              'data_inicio_contrato' => 'required',
-              'data_vencimento_contrato' => 'required',
-              'valor_contratado' => 'required',
-              'tipo' => 'required',
+              'empresa_contratada_nome' => 'required|min:3|max:250',
+              'empresa_contratada_cnpj' => 'required|numeric',
+              'numero_contrato' => 'required|numeric',
+              'data_inicio_contrato' => 'required|date',
+              'data_vencimento_contrato' => 'required|date',
+              'valor_contratado' => 'required|numeric',
+              'tipo' => 'required|min:3|max:250',
 
         );
         $attributeNames = array(

@@ -39,6 +39,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Nome do Diário</th>
+                                <th>Viagem</th>
                                 <th>Ocorrências</th>
                                 <th>Ação</th>
                             </tr>

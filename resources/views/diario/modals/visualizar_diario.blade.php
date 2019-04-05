@@ -30,6 +30,11 @@
           </div>
 
           <div class="form-group">
+              <strong>Viagem:</strong>
+              <span id="fk_viagem-visualizar"></span>
+          </div>
+
+          <div class="form-group">
               <strong>Ocorrências:</strong>
               <span id="ocorrencias-visualizar"></span>
           </div>

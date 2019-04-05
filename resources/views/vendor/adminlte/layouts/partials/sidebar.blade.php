@@ -34,6 +34,7 @@
             <li class="header">{{ trans('Conrole de Frotas') }}</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-home'></i> <span>{{ trans('Ínicio') }}</span></a></li>
+            <li class="active"><a href="{{ url('usuarios') }}"><i class='fa fa-users'></i> <span>{{ trans('Usuários') }}</span></a></li>
           <!--  <li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li> -->
             <ul class="sidebar-menu">
 

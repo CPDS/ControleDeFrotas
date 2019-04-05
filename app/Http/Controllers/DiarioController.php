@@ -50,10 +50,13 @@ class DiarioController extends Controller
     public function store(Request $request) {
         $rules = array(
               'nome_diario' => 'required|min:3|max:45',
+              'fk_viagem' => 'required',
               'ocorrencias' => 'required|min:3|max:45',
         );
         $attributeNames = array(
             'ocorrencias' => 'Ocorrências',
+            'fk_viagem' => 'Viagem',
+            'nome_diario' => 'Nome',
         );
         
         $messages = array(

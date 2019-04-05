@@ -13,6 +13,7 @@ $(document).ready(function($) {
             columns: [
             { data: null, name: 'order' },
             { data: 'nome_diario', name: 'nome_diario' },
+            { data: 'fk_viagem', name: 'fk_viagem' },
             { data: 'ocorrencias', name: 'ocorrencias' },
             { data: 'acao', name: 'acao' }
             ],
@@ -57,11 +58,12 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [0,3], sortable : false },
-              { "width": "5%", "targets": 0 }, //nº
+              { targets : [0,4], sortable : false },
+              { "width": "15%", "targets": 0 }, //nº
               { "width": "15%", "targets": 1 },//nome
-              { "width": "15%", "targets": 2 },//
-              { "width": "15%", "targets": 3 }//acao
+              { "width": "20%", "targets": 2 },//
+              { "width": "25%", "targets": 3 },
+              { "width": "25%", "targets": 3 }//acao
 
             ]
     });
