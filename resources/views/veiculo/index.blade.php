@@ -39,12 +39,12 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Nome do Veículo</th>
-                                <th>Placa</th>
-                                <th>Campus</th>
+                            <!--    <th>Placa</th> -->
+                             <!--   <th>Campus</th> -->
                                 <th>Quantidade Total de Lugares</th>
                                 <th>Mínimo de Passageiros</th>
                                 <th>Máximo de Passageiros</th>
-                                <th>Rendimento</th>
+                               <!-- <th>Rendimento</th> -->
                                 <th>Ar Condicionado</th>
                                 <th>Bagageiro</th>
                                 <th>Ação</th>
