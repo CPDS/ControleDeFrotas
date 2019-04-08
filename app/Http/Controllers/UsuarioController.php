@@ -86,7 +86,7 @@ class UsuarioController extends Controller
         //Buscando a funçao do usuario
         //foreach($usuarios->getRoleNames() as $tipoFuncao)
             //$funcao = $tipoFuncao;
-            $funcao = $usuarios->getRoleNames();
+      $funcao = $usuarios->getRoleNames()[0];
 
       $dados = 'data-id ="'.$usuarios->id.'" data-name="'.$usuarios->name.'" data-email="'.$usuarios->email.'" data-endereco="'.$usuarios->endereco.'" data-telefone="'.$usuarios->telefone.'" data-funcao="'.$funcao.'"
        ';
@@ -174,7 +174,7 @@ class UsuarioController extends Controller
             $Usuario = User::find($request->id);
 
             //foreach($Usuario->getRoleNames() as $funcao)
-                $role = $Usuario->getRoleNames();
+            $role = $Usuario->getRoleNames()[0];
             
             $Usuario->removeRole($role);
 
