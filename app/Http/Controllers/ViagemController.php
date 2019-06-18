@@ -38,7 +38,7 @@ class ViagemController extends Controller
 
         //Capturar Usuário Logado
         $usuario_logado = Auth::user();
-        
+
         //Consulta para Colaboradores
         if($usuario_logado->hasRole('Motorista')){
 
@@ -70,7 +70,7 @@ class ViagemController extends Controller
             return date("d/m/y",strtotime($viagems->datahora_chegada));
         })
         ->escapeColumns([0])
-        ->make(true);   
+        ->make(true);
     }
 
     private function setBtns(Viagem $viagems){
@@ -100,18 +100,18 @@ class ViagemController extends Controller
 
       $formatadata = date("d/m/y",strtotime($viagems->datahora_saida));
       $visualizarsaida = $formatadata.' '.$hora_saida1.':00';
-      
+
       $formatadata = date("d/m/y",strtotime($viagems->datahora_saida));
       $visualizarchegada = $formatadata.' '.$hora_chegada1.':00';
-      
+
       //$nomecidade = $viagems->cidade_chegada->nome;
       //dd($cidadechegada);
-      
+
       $dados = "data-id='$viagems->id' data-numero_rv='$viagems->numero_rv' data-fk_motorista='$viagems->fk_motorista' data-setor_emissor_rv='$viagems->setor_emissor_rv' data-fk_veiculo='$viagems->fk_veiculo'
       data-datahora_saida='$viagems->datahora_saida' data-datahora_chegada='$viagems->datahora_chegada' data-status='$viagems->status' data-fk_cidade_saida='$viagems->fk_cidade_saida'
       data-fk_cidade_chegada='$viagems->fk_cidade_chegada' data-estado='$estado' data-estado2='$estado2' data-fk_tipo_servico='$viagems->fk_tipo_servico' data-fk_id_solicitante='$viagems->fk_id_solicitante' data-estimativa_km='$viagems->estimativa_km'
       data-nome_responsavel='$viagems->nome_responsavel' data-telefone_responsavel='$viagems->telefone_responsavel'  data-local_saida='$viagems->local_saida'  data-setor_autoriza_viagem='$viagems->setor_autoriza_viagem'  data-numero_passageiros='$viagems->numero_passageiros'  data-tipo_solicitacao='$viagems->tipo_solicitacao'  data-natureza_servico='$viagems->natureza_servico'  data-custo_viagem='$viagems->custo_viagem'  data-descricao_bagagem='$viagems->descricao_bagagem'  data-codigo_acp_rv='$viagems->codigo_acp_rv' data-situacao='$viagems->situacao' ";
-      
+
       $dadosEditar = "data-id='$viagems->id' data-nome='$viagems->nome' data-numero_rv='$viagems->numero_rv' data-fk_motorista='$viagems->fk_motorista' data-setor_emissor_rv='$viagems->setor_emissor_rv' data-fk_veiculo='$viagems->fk_veiculo'
       data-datahora_saida='$viagems->datahora_saida' data-datahora_chegada='$viagems->datahora_chegada' data-status='$viagems->status' data-fk_cidade_saida='$viagems->fk_cidade_saida'
       data-fk_cidade_chegada='$viagems->fk_cidade_chegada' data-estado='$estado' data-estado2='$estado2' data-fk_tipo_servico='$viagems->fk_tipo_servico' data-fk_id_solicitante_visualizar='$solicitante' data-fk_id_solicitante='$viagems->fk_id_solicitante' data-estimativa_km='$viagems->estimativa_km'
@@ -161,7 +161,7 @@ class ViagemController extends Controller
             'tipo_solicitacao' => 'required|min:3|max:45',
             'natureza_servico' => 'required|min:3|max:45',
             'custo_viagem' => 'required|numeric',
-            'descricao_bagagem' => 'required',
+            'descricao_bagagem' => 'required|min:3|max:45',
             'codigo_acp_rv' => 'required|numeric',
         );
 
@@ -186,7 +186,7 @@ class ViagemController extends Controller
             'tipo_solicitacao' => 'Tipo de Solicitação',
             'natureza_servico' => 'Natureza do Serviço',
             'custo_viagem' => 'Custo da Viagem',
-            'descricao_bagagem' => 'Descrição Bagagem',
+             'descricao_bagagem' => 'Descrição Bagagem',
             'codigo_acp_rv' => 'Código ACP',
         );
 
@@ -195,15 +195,15 @@ class ViagemController extends Controller
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         else {
             //conversoes data e hora
-        
+
             $data_saida = $request->data_saida.' '.$request->datahora_saida.':00';
             $data_entrega = $request->data_final.' '.$request->hora_final.':00';
 
-                
+
             $data_hora_saida = $request->data_saida.' '.$request->hora_saida.':00';
             $data_hora_chegada = $request->data_chegada.' '.$request->hora_chegada.':00';
             $Viagem = new Viagem();
-            $Viagem->numero_rv = $request->numero_rv; 
+            $Viagem->numero_rv = $request->numero_rv;
             $Viagem->setor_emissor_rv = $request->setor_emissor_rv;
             $Viagem->nome = $request->nome;
             $Viagem->fk_veiculo = $request->fk_veiculo;
@@ -246,8 +246,8 @@ class ViagemController extends Controller
             'numero_rv' => 'required|numeric',
             'setor_emissor_rv' => 'required',
             'fk_veiculo' => 'required',
-            'datahora_saida' => 'required|date_format:d-m-Y',
-            'datahora_chegada' => 'required|date_format:d-m-Y',
+            //'datahora_saida' => 'required|date_format:d-m-Y',
+            //'datahora_chegada' => 'required|date_format:d-m-Y',
             //'status' => 'required',
             'fk_cidade_saida' => 'required',
             //'status' => 'required',
@@ -263,7 +263,7 @@ class ViagemController extends Controller
             'tipo_solicitacao' => 'required|min:3|max:45',
             'natureza_servico' => 'required|min:3|max:45',
             'custo_viagem' => 'required|numeric',
-            'descricao_bagagem' => 'required|numeric',
+            'descricao_bagagem' => 'required',
             'codigo_acp_rv' => 'required|numeric',
         );
 

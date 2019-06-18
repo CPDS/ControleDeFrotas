@@ -95,7 +95,6 @@ $(document).ready(function($) {
         $('#fk_tipo_servico-visualizar').text($(this).data('fk_tipo_servico'));
         $('#fk_id_solicitante-visualizar').text($(this).data('fk_id_solicitante'));
         $('#estimativa_km-visualizar').text($(this).data('estimativa_km'));
-        $('#estado-visualizar').text($(this).data('estado'));
         $('#nome_responsavel-visualizar').text($(this).data('nome_responsavel'));
         $('#telefone_responsavel-visualizar').text($(this).data('telefone_responsavel'));
         $('#local_saida-visualizar').text($(this).data('local_saida'));
