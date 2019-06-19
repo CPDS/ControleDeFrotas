@@ -115,7 +115,6 @@ $(document).ready(function($) {
       var data_chegada = $('#data_chegada').val();
       var hora_chegada = $('#hora_chegada').val();
       var dados = [data_saida+' '+hora_saida+':00',data_chegada+' '+hora_chegada+':00'];
-
       // validações
 
       if(data_saida == '' || hora_saida == '' || data_chegada == '' || hora_chegada == ''){
@@ -124,6 +123,11 @@ $(document).ready(function($) {
       }else{
         $('#informacoes').prop("hidden",false); // sem preencher tudo restante do modal é ocultado
         var option=''; // para selecionar o motorista
+
+         $('#data_saida2').val(data_saida);
+         $('#hora_saida2').val(hora_saida);
+         $('#data_chegada2').val(data_chegada);
+         $('#hora_chegada2').val(hora_chegada);
 
         $.getJSON('./viagens/reservas/'+dados, function(dados){
              //Atibuindo valores à variavel com os dados da consulta

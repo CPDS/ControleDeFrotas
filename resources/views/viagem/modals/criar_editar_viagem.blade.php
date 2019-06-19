@@ -60,13 +60,13 @@
             <div id="informacoes" hidden>
 
 
-              
+
             <div id="informacoes_data">
               <div class="form-group col-md-6">
                 <strong>Data Saída:</strong>
                 <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-                <input id="data_saida" class="form-control"  name="data_saida" type="date"> <!-- Campo nào pega hora ainda -->
+                <input id="data_saida2" class="form-control"  name="data_saida2" type="date"> <!-- Campo nào pega hora ainda -->
               </div>
               </div>
 
@@ -74,7 +74,7 @@
                 <strong>Hora Saída:</strong>
                 <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-                <input id="hora_saida" class="form-control"  name="hora_saida" type="time"> <!-- Campo nào pega hora ainda -->
+                <input id="hora_saida2" class="form-control"  name="hora_saida2" type="time"> <!-- Campo nào pega hora ainda -->
               </div>
               </div>
 
@@ -82,7 +82,7 @@
                 <strong>Data Chegada:</strong>
                 <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-                <input id="data_chegada" class="form-control"  name="data_chegada" type="date"> <!-- Campo nào pega hora ainda -->
+                <input id="data_chegada2" class="form-control"  name="data_chegada2" type="date"> <!-- Campo nào pega hora ainda -->
               </div>
               </div>
 
@@ -90,10 +90,10 @@
                 <strong>Hora Chegada:</strong>
                 <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
-                <input id="hora_chegada" class="form-control"  name="hora_chegada" type="time"> <!-- Campo nào pega hora ainda -->
+                <input id="hora_chegada2" class="form-control"  name="hora_chegada2" type="time"> <!-- Campo nào pega hora ainda -->
               </div>
               </div>
-              
+
                 <div class="form-group col-md-12">
                    <strong>Nome:</strong>
                    <div class="input-group">
@@ -193,7 +193,7 @@
                  </div>
 
                   <input maxlength="250" id="fk_id_solicitante" class="form-control" name="fk_id_solicitante" type="hidden">
-                   
+
                  <div class="form-group col-md-12">
                    <strong>Solicitante:</strong>
                    <div class="input-group">
