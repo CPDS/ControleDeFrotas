@@ -163,6 +163,22 @@
               </div>
             </div>
 
+            <div class="form-group col-md-6">
+              <strong>Valor do Serviço:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+                <input maxlength="250" id="valor_servico" class="form-control" name="valor_servico" type="number">
+              </div>
+            </div>
+
+            <div class="form-group col-md-6">
+              <strong>Valor da Peça:</strong>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+                <input maxlength="250" id="valor_pecas" class="form-control" name="valor_pecas" type="number">
+              </div>
+            </div>
+
             <div class="form-group col-md-12">
               <strong>Descrição Geral do Serviço:</strong>
               <div class="input-group col-md-12">
