@@ -180,6 +180,14 @@
             </div>
 
             <div class="form-group col-md-12">
+              <strong>Tipo de Manutenção:</strong>
+              <div class="input-group col-md-12">
+                <span></span>
+                <textarea rows="5" id="tipo_servico_manutencao" maxlength="250" class="form-control" name="tipo_servico_manutencao" type="text"></textarea>
+              </div>
+            </div>
+
+            <div class="form-group col-md-12">
               <strong>Descrição Geral do Serviço:</strong>
               <div class="input-group col-md-12">
                 <span></span>
