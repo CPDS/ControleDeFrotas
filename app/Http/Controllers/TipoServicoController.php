@@ -42,7 +42,7 @@ class TipoServicoController extends Controller
             'nome_servico' => 'required|min:3|max:45',
         );
         $attributeNames = array(
-            'nome_servico' => 'Nome',
+            'nome_servico' => 'Tipo de Serviço',
         );
         $messages = array(
             'same' => 'Essas senhas não coincidem.'
