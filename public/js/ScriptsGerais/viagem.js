@@ -115,7 +115,7 @@ $(document).ready(function($) {
       var data_chegada = $('#data_chegada').val();
       var hora_chegada = $('#hora_chegada').val();
       var dados = [data_saida+' '+hora_saida+':00',data_chegada+' '+hora_chegada+':00'];
-      // validações
+       // validações
 
       if(data_saida == '' || hora_saida == '' || data_chegada == '' || hora_chegada == ''){
         alert('Preencha as Informações corretamente!');

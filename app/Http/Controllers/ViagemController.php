@@ -195,6 +195,8 @@ class ViagemController extends Controller
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         else {
             //conversoes data e hora
+            //$data_entrega =>'date_format:d/m/Y H:i:s|before:data_saida'
+            //$data_saida =>'date_format:d/m/Y H:i:s|after:data_entrega'
 
             $data_saida = $request->data_saida.' '.$request->datahora_saida.':00';
             $data_entrega = $request->data_final.' '.$request->hora_final.':00';
@@ -246,8 +248,8 @@ class ViagemController extends Controller
             'numero_rv' => 'required|numeric',
             'setor_emissor_rv' => 'required',
             'fk_veiculo' => 'required',
-            //'datahora_saida' => 'required|date_format:d-m-Y',
-            //'datahora_chegada' => 'required|date_format:d-m-Y',
+            'datahora_saida' => 'required|date_format:d/m/Y',
+            'datahora_chegada' => 'required|date_format:d/m/Y',
             //'status' => 'required',
             'fk_cidade_saida' => 'required',
             //'status' => 'required',
