@@ -20,6 +20,7 @@ class DiarioController extends Controller
         {
             $viagens = Viagem::where('status','Ativo')->get();
         }
+        //Se for motorista, retornar apenas viagens dele
         if($usuario_logado->roles->first()->name == 'Motorista')
         {
             $viagens = Viagem::where('status','Ativo')->where('fk_motorista',$usuario_logado)->get();
@@ -34,13 +35,20 @@ class DiarioController extends Controller
 
         return Datatables::of($Diario)->editColumn('acao', function ($diarios){
             return $this->setBtns($diarios);
-        })->escapeColumns([0])->make(true);
+        })
+        ->editColumn('fk_viagem', function ($diarios){
+            return $diarios->viagem->nome;
+        })
+        ->escapeColumns([0])->make(true);
     }
 
     private function setBtns(Diario $diarios){
-        $dados = "data-id='$diarios->id' data-ocorrencias='$diarios->ocorrencias' data-nome_diario='$diarios->nome_diario'";
-        $dadosVisualizar = "data-ocorrencias='$diarios->ocorrencias' data-nome_diario='$diarios->nome_diario'";
-        $btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Diario' $dados ><i class='fa fa-eye'></i></a> ";
+
+        $nomeviagem = $diarios->viagem->nome;
+
+        $dados = "data-id='$diarios->id' data-ocorrencias='$diarios->ocorrencias' data-nome_diario='$diarios->nome_diario' data-fk_viagem='$diarios->fk_viagem'";
+        $dadosVisualizar = "data-ocorrencias='$diarios->ocorrencias' data-nome_diario='$diarios->nome_diario' data-fk_viagem='$nomeviagem'";
+        $btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Diario' $dadosVisualizar ><i class='fa fa-eye'></i></a> ";
         $btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Diario' $dados><i class ='fa fa-pencil'></i></a> ";
         $btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Diario' data-id='$diarios->id'><i class='fa fa-trash'></i></a>";
 

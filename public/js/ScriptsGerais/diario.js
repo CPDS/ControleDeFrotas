@@ -78,6 +78,7 @@ $(document).ready(function($) {
     $(document).on('click', '.btnVer', function() {
         $('#nome_diario-visualizar').text($(this).data('nome_diario')); // # pego no visualizar.blade.php e data pego no Controller(botao)
         $('#ocorrencias-visualizar').text($(this).data('ocorrencias'));
+        $('#fk_viagem-visualizar').text($(this).data('fk_viagem'));
         jQuery('#visualizar-modal').modal('show');
     });
 
