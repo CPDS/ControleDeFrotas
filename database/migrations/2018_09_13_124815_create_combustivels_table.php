@@ -15,8 +15,8 @@ class CreateCombustivelsTable extends Migration
     {
         Schema::create('combustivels', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('valor_litro');
             $table->string('nome');
+            $table->string('valor_litro');
             $table->string('status');
             $table->timestamps();
         });
