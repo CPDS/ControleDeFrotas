@@ -38,7 +38,7 @@
 						 <th>E-mail</th>
 						 <th>Endereço</th>
 						 <th>Telefone</th>
-						 <th>Funçao</th>
+						 <th>Função</th>
 						 <th>Status</th>
 						 <th>Ação</th>
 					</tr>

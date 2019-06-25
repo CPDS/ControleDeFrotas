@@ -21,7 +21,7 @@ class BancoHorasController extends Controller
         //$testecampus = Campus::where('status','Ativo')->get();
         $users = User::role('Motorista')->where('status','Ativo')->get();
         return view('banco_hora.index', compact('users'));
-        
+
     }
 
     public function list() {
@@ -45,7 +45,7 @@ class BancoHorasController extends Controller
         $dados = "data-id='$horass->id'  data-fk_motorista='$motorista_nome'  data-hora_inicio='$horass->hora_inicio' data-hora_termino='$horass->hora_termino' data-hora_intervalo='$horass->hora_intervalo'";
         $dadosVisualizar = "data-hora_inicio='$horass->hora_inicio' data-hora_termino='$horass->hora_termino' data-hora_intervalo='$horass->hora_intervalo'
         data-fk_motorista='$motorista_nome'
-        
+
         ";
         $btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Horas' $dadosVisualizar ><i class='fa fa-eye'></i></a> ";
         $btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Horas' $dados><i class ='fa fa-pencil'></i></a> ";
@@ -56,10 +56,10 @@ class BancoHorasController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-              'hora_inicio' => 'required|date_format:m-d-Y',
-              'hora_termino' => 'required|date_format:m-d-Y',
+              'hora_inicio' => 'required|date_format:h:m',
+              'hora_termino' => 'required|date_format:h:m',
               'fk_motorista' => 'required',
-              'hora_intervalo' => 'required|numeric',
+              'hora_intervalo' => 'required|date_format:h:m',
         );
         $attributeNames = array(
             'hora_inicio' => 'Início',
