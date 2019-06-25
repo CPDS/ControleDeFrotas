@@ -12,8 +12,8 @@ $(document).ready(function($) {
             ajax: '/combustivel/list',
             columns: [
             { data: null, name: 'order' },
-            { data: 'valor_litro', name: 'valor_litro' },
             { data: 'nome', name: 'nome' },
+            { data: 'valor_litro', name: 'valor_litro' },
             { data: 'acao', name: 'acao' }
 
             ],
@@ -59,9 +59,10 @@ $(document).ready(function($) {
             },
             columnDefs : [
               { targets : [0,3], sortable : false },
-              { "width": "5%", "targets": 0 }, //nome
-              { "width": "15%", "targets": 1 },//cnpj
-              { "width": "15%", "targets": 2 } //
+              { "width": "40%", "targets": 0 }, //nome
+              { "width": "40%", "targets": 1 },//valor
+              { "width": "10%", "targets": 2 },
+              { "width": "10%", "targets": 3 } //ação
             ]
     });
 
@@ -72,9 +73,9 @@ $(document).ready(function($) {
     }).draw();
 
     //Ver
-    $(document).on('click', '.btnVer', function() {
-        $('#valor_litro-visualizar').text($(this).data('valor_litro')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+    $(document).on('click', '.btnVer', function() { // # pego no visualizar.blade.php e data pego no Controller(botao)
         $('#nome-visualizar').text($(this).data('nome'));
+        $('#valor_litro-visualizar').text($(this).data('valor_litro'));
         jQuery('#visualizar-modal').modal('show');
     });
 

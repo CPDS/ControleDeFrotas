@@ -36,18 +36,20 @@ class CombustivelController extends Controller
         $btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Combustivel' data-id='$combustivels->id'><i class='fa fa-trash'></i></a>";
 
         return $btnVer.$btnEditar.$btnDeletar;
+
+
     }
 
     public function store(Request $request) {
         $rules = array(
-              'valor_litro' => 'required|numeric',
               'nome' => 'required|min:3|max:45',
-              
+              'valor_litro' => 'required|numeric',
+
         );
         $attributeNames = array(
-            'valor_litro' => 'Início',
-            'nome' => 'Término',
-            
+            'nome' => 'Nome',
+            'valor_litro' => 'Valor do Litro',
+
         );
         $messages = array(
             'same' => 'Essas senhas não coincidem.'
@@ -60,7 +62,7 @@ class CombustivelController extends Controller
             $Combustivel = new Combustivel();
             $Combustivel->valor_litro = $request->valor_litro;
             $Combustivel->nome = $request->nome;
-            
+
             $Combustivel->status = "Ativo";
             $Combustivel->save();
             //$Combustivel->setAttribute('titulo', $Combustivel->titulo);
@@ -72,9 +74,9 @@ class CombustivelController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'valor_litro' => 'required',
             'nome' => 'required',
-            
+            'valor_litro' => 'required',
+
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -85,7 +87,7 @@ class CombustivelController extends Controller
             $Combustivel = Combustivel::find($request->id);
             $Combustivel->valor_litro = $request->valor_litro;
             $Combustivel->nome = $request->nome;
-            
+
             $Combustivel->save();
             //$equipamento->setAttribute('buttons', $this->setDataButtons($equipamento));
             return response()->json($Combustivel);
