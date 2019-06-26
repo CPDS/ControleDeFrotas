@@ -77,15 +77,15 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [0,23], sortable : false },
+              { targets : [0,6], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
-              { "width": "15%", "targets": 1 },//nome
-              { "width": "15%", "targets": 2 },//matricula
-              { "width": "15%", "targets": 3 },//status
-              { "width": "15%", "targets": 4 },
-              { "width": "15%", "targets": 5 },
-              { "width": "15%", "targets": 6 },
-              { "width": "15%", "targets": 7 },
+              { "width": "10%", "targets": 1 },//nome
+              { "width": "10%", "targets": 2 },//matricula
+              { "width": "20%", "targets": 3 },//status
+              { "width": "20%", "targets": 4 },
+              { "width": "20%", "targets": 5 },
+              { "width": "15%", "targets": 6 }
+            /*  { "width": "15%", "targets": 7 },
               { "width": "15%", "targets": 8 },
               { "width": "15%", "targets": 9 },
               { "width": "15%", "targets": 10 },
@@ -101,7 +101,7 @@ $(document).ready(function($) {
               { "width": "15%", "targets": 20 },
               { "width": "15%", "targets": 21 },
               { "width": "15%", "targets": 22 },
-              { "width": "15%", "targets": 23 }
+              { "width": "15%", "targets": 23 } */
             ]
     });
 

@@ -37,18 +37,18 @@
                         <table class="table table-bordered" id="tabela_servicos">
                             <thead>
                             <tr>
-                                <th>ID</th> 
+                                <th>ID</th>
                                 <th>Veículo</th>
                                 <th>Contrato</th>
-                                <th>Valor dos Derivados</th>
-                                <th>Valor das Peças</th>
+                            <!--    <th>Valor dos Derivados</th> -->
+                            <!--    <th>Valor das Peças</th> -->
                                 <th>Valor do Serviço</th>
-                                <th>Valor do SMV</th>
+                            <!--    <th>Valor do SMV</th> -->
                                 <th>Ordem de Serviço</th>
-                                <th>Data do Serviço</th>
-                                <th>Motorista</th>
+                            <!--    <th>Data do Serviço</th> -->
+                            <!--    <th>Motorista</th> -->
                                 <th>Tipo de Manutenção</th>
-                                <th>Valor Pago</th> <!--restantes do campos suprimidos para melhor visualização -->
+                            <!--    <th>Valor Pago</th>  -->
                                 <th>Ação</th>
                             </tr>
                             </thead>
