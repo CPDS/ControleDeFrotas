@@ -113,7 +113,7 @@ class ViagemController extends Controller
       data-nome_responsavel='$viagems->nome_responsavel' data-telefone_responsavel='$viagems->telefone_responsavel'  data-local_saida='$viagems->local_saida'  data-setor_autoriza_viagem='$viagems->setor_autoriza_viagem'  data-numero_passageiros='$viagems->numero_passageiros'  data-tipo_solicitacao='$viagems->tipo_solicitacao'  data-natureza_servico='$viagems->natureza_servico'  data-custo_viagem='$viagems->custo_viagem'  data-descricao_bagagem='$viagems->descricao_bagagem'  data-codigo_acp_rv='$viagems->codigo_acp_rv' data-situacao='$viagems->situacao' ";
 
       $dadosEditar = "data-id='$viagems->id' data-nome='$viagems->nome' data-numero_rv='$viagems->numero_rv' data-fk_motorista='$viagems->fk_motorista' data-setor_emissor_rv='$viagems->setor_emissor_rv' data-fk_veiculo='$viagems->fk_veiculo'
-      data-datahora_saida='$viagems->datahora_saida' data-datahora_chegada='$viagems->datahora_chegada' data-status='$viagems->status' data-fk_cidade_saida='$viagems->fk_cidade_saida'
+      data-data_saida2='$data_saida1' data-hora_saida2='$hora_saida1' data-data_chegada2='$data_chegada1' data-hora_chegada2='$hora_chegada1' data-status='$viagems->status' data-fk_cidade_saida='$viagems->fk_cidade_saida'
       data-fk_cidade_chegada='$viagems->fk_cidade_chegada' data-estado='$estado' data-estado2='$estado2' data-fk_tipo_servico='$viagems->fk_tipo_servico' data-fk_id_solicitante_visualizar='$solicitante' data-fk_id_solicitante='$viagems->fk_id_solicitante' data-estimativa_km='$viagems->estimativa_km'
       data-nome_responsavel='$viagems->nome_responsavel' data-telefone_responsavel='$viagems->telefone_responsavel' data-local_saida='$viagems->local_saida'  data-setor_autoriza_viagem='$viagems->setor_autoriza_viagem'  data-numero_passageiros='$viagems->numero_passageiros'  data-tipo_solicitacao='$viagems->tipo_solicitacao'  data-natureza_servico='$viagems->natureza_servico'  data-custo_viagem='$viagems->custo_viagem'  data-descricao_bagagem='$viagems->descricao_bagagem'  data-codigo_acp_rv='$viagems->codigo_acp_rv' data-situacao='$viagems->situacao' ";
 
@@ -121,7 +121,7 @@ class ViagemController extends Controller
       data-datahora_saida='$visualizarsaida' data-datahora_chegada='$visualizarchegada' data-status='$viagems->status' data-fk_cidade_saida='$cidadesaida'
       data-fk_cidade_chegada='$cidadechegada' data-estado='$nomeestado' data-estado2='$nomeestado2' data-fk_tipo_servico='$tiposervico' data-fk_id_solicitante='$solicitante' data-estimativa_km='$viagems->estimativa_km'
       data-nome_responsavel='$viagems->nome_responsavel' data-telefone_responsavel='$viagems->telefone_responsavel' data-local_saida='$viagems->local_saida'  data-setor_autoriza_viagem='$viagems->setor_autoriza_viagem'  data-numero_passageiros='$viagems->numero_passageiros'  data-tipo_solicitacao='$viagems->tipo_solicitacao'  data-natureza_servico='$viagems->natureza_servico'  data-custo_viagem='$viagems->custo_viagem'  data-descricao_bagagem='$viagems->descricao_bagagem'  data-codigo_acp_rv='$viagems->codigo_acp_rv' ";
-
+      
       $btnDeletar='';
       $btnEditar='';
       $btnVer='';

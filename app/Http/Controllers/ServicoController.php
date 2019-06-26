@@ -125,7 +125,7 @@ class ServicoController extends Controller
             $Servico->save();
             //$Veiculo->setAttribute('titulo', $Veiculo->titulo);
             //$Veiculo->setAttribute('descricao', $Veiculo->descricao);
-            return response()->json($Veiculo);
+            return response()->json($Servico);
         }
     }
 

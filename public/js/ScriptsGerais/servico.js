@@ -28,7 +28,7 @@ $(document).ready(function($) {
             { data: 'numero_nf', name: 'numero_nf' }, // nota fiscal
             { data: 'data_pg_nob', name: 'data_pg_nob' },
             { data: 'numero_nob', name: 'numero_nob' },
-            { data: 'valor_emprenho', name: 'valor_emprenho' },
+            { data: 'valor_empenho', name: 'valor_empenho' },
             { data: 'valor_pago', name: 'valor_pago' },
             { data: 'descricao_geral_servico', name: 'descricao_geral_servico' },
             { data: 'fk_veiculo', name: 'fk_veiculo' },
