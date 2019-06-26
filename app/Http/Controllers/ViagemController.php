@@ -151,7 +151,7 @@ class ViagemController extends Controller
             //'status' => 'required',
             'fk_cidade_chegada' => 'required',
             'fk_tipo_servico' => 'required',
-            'fk_id_solicitante' => 'required',
+            //'fk_id_solicitante' => 'required',
             'estimativa_km' => 'required|numeric',
             'nome_responsavel' => 'required|min:3|max:45',
             'telefone_responsavel' => 'required',
@@ -176,7 +176,7 @@ class ViagemController extends Controller
             //'status' => 'required',
             'fk_cidade_chegada' => 'Cidade Chegada',
             'fk_tipo_servico' => 'Tipo Serviço',
-            'fk_id_solicitante' => 'Solicitante',
+            //'fk_id_solicitante' => 'Solicitante',
             'estimativa_km' => 'Estimativa Km',
             'nome_responsavel' => 'Nome do Responsável',
             'telefone_responsavel' => 'Telefone do Responsável',
@@ -215,7 +215,7 @@ class ViagemController extends Controller
             $Viagem->fk_cidade_saida = $request->fk_cidade_saida;
             $Viagem->fk_cidade_chegada = $request->fk_cidade_chegada;
             $Viagem->fk_tipo_servico = $request->fk_tipo_servico;
-            $Viagem->fk_id_solicitante = $request->id;
+            $Viagem->fk_id_solicitante = Auth::user()->id;
             $Viagem->estimativa_km = $request->estimativa_km;
             $Viagem->nome_responsavel = $request->nome_responsavel;
             $Viagem->telefone_responsavel = $request->telefone_responsavel;
@@ -255,7 +255,7 @@ class ViagemController extends Controller
             //'status' => 'required',
             'fk_cidade_chegada' => 'required',
             'fk_tipo_servico' => 'required',
-            'fk_id_solicitante' => 'required',
+            //'fk_id_solicitante' => 'required',
             'estimativa_km' => 'required|numeric',
             'nome_responsavel' => 'required|min:3|max:45',
             'telefone_responsavel' => 'required',
@@ -285,7 +285,7 @@ class ViagemController extends Controller
             //$Viagem->status = 'Ativo';
             $Viagem->fk_cidade_chegada = $request->fk_cidade_chegada;
             $Viagem->fk_tipo_servico = $request->fk_tipo_servico;
-            $Viagem->fk_id_solicitante = $request->fk_id_solicitante;
+            $Viagem->fk_id_solicitante = Auth::user()->id;
             $Viagem->estimativa_km = $request->estimativa_km;
             $Viagem->nome_responsavel = $request->nome_responsavel;
             $Viagem->telefone_responsavel = $request->telefone_responsavel;
