@@ -46,6 +46,7 @@
                      @role('Administrador')<li><a class="btnAdicionarViagems" data-id="{{Auth::user()->id}}" data-name="{{Auth::user()->name}}">{{ trans('Solicitação de Viagem') }}</a></li>@endrole
                     @role('Administrador')<li><a href="{{ url('percursos') }}" class="btnAdicionarPercursos">{{ trans('Percursos') }}</a></li>@endrole
                     @role('Administrador|Motorista')<li><a href="{{ url('diarios') }}" class="btnAdicionarDiarios">{{ trans('Diários de Bordo') }}</a></li>@endrole
+                    @role('Administrador')<li><a href="{{ url('liberacao') }}">{{ trans('Liberação de Viagem') }}</a></li>@endrole
                 </ul>
 
             </li>
@@ -63,7 +64,7 @@
             <!--Gerenciar demais opções -->
             <li class="treeview"> <!-- cria o menuzinho que abre para gerenciar demais opções -->
                <a href="{{ url('Gerenciar') }}"><i class='fa fa-globe'></i> <span>{{ trans('Gerenciar') }}</span> <i class="fa fa-wrench pull-right"></i></a>
-               
+
                 <ul class="treeview-menu">
                 @role('Administrador')<li><a href="{{ url('permissions') }}">{{ trans('Permissões') }}</a></li>@endrole
                 @role('Administrador')<li><a href="{{ url('banco_horas') }}">{{ trans('Banco de Horas') }}</a></li>@endrole

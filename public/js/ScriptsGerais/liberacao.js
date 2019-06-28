@@ -5,36 +5,21 @@ $(document).ready(function($) {
         }
     }); // EDITAR DE ACORDO COM VARIAVEIS DE PERCURSO NO BANCO DE DADOS
 
-    var tabela = $('#tabela_servicos').DataTable({
+    var tabela = $('#tabela_liberacao').DataTable({
             processing: true,
             serverSide: true,
             deferRender: true,
-            ajax: '/servicos/list',
+            ajax: '/liberacao/list',
             columns: [
             { data: null, name: 'order' },
-            //{ data: 'valor_derivados', name: 'valor_derivados' },
-            //{ data: 'valor_pecas', name: 'valor_pecas' },
-            { data: 'valor_servico', name: 'valor_servico' },
-            //{ data: 'valor_smv', name: 'valor_smv' },
-            { data: 'numero_ordem_servico', name: 'numero_ordem_servico' },
-            //{ data: 'data_servico', name: 'data_servico' },
-            //{ data: 'km_entrada_oficina', name: 'km_entrada_oficina' },
-            { data: 'tipo_servico_manutencao', name: 'tipo_servico_manutencao' },
-            //{ data: 'numero_smv', name: 'numero_smv' },
-            //{ data: 'numero_lupus', name: 'numero_lupus' },
-            //{ data: 'numero_sei', name: 'numero_sei' },
-            //{ data: 'numero_empenho', name: 'numero_empenho' },
-            //{ data: 'data_envio_pedido_empenho', name: 'data_envio_pedido_empenho' },
-            //{ data: 'numero_nf', name: 'numero_nf' }, // nota fiscal
-            //{ data: 'data_pg_nob', name: 'data_pg_nob' },
-            //{ data: 'numero_nob', name: 'numero_nob' },
-            //{ data: 'valor_empenho', name: 'valor_empenho' },
-            //{ data: 'valor_pago', name: 'valor_pago' },
-            //{ data: 'descricao_geral_servico', name: 'descricao_geral_servico' },
-            { data: 'fk_veiculo', name: 'fk_veiculo' },
-            { data: 'fk_contrato', name: 'fk_contrato' },
+            { data: 'titulo', name: 'titulo' },
+            { data: 'datahora_saida', name: 'datahora_saida' },
+            { data: 'datahora_chegada', name: 'datahora_chegada' },
+            { data: 'destino', name: 'destino' },
+            { data: 'retorno', name: 'retorno' },
+            { data: 'status', name: 'status' },
+            //{ data: 'fk_veiculo', name: 'fk_veiculo' },
             //{ data: 'fk_motorista', name: 'fk_motorista' },
-            { data: 'acao', name: 'acao' }
             ],
             createdRow : function( row, data, index ) {
                 row.id = "item-" + data.id;
@@ -77,31 +62,15 @@ $(document).ready(function($) {
                 }
             },
             columnDefs : [
-              { targets : [0,6], sortable : false },
+              { targets : [0,7], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
-              { "width": "10%", "targets": 1 },//nome
-              { "width": "10%", "targets": 2 },//matricula
-              { "width": "20%", "targets": 3 },//status
+              { "width": "5%", "targets": 1 },//nome
+              { "width": "5%", "targets": 2 },//matricula
+              { "width": "10%", "targets": 3 },//status
               { "width": "20%", "targets": 4 },
               { "width": "20%", "targets": 5 },
-              { "width": "15%", "targets": 6 }
-            /*  { "width": "15%", "targets": 7 },
-              { "width": "15%", "targets": 8 },
-              { "width": "15%", "targets": 9 },
-              { "width": "15%", "targets": 10 },
-              { "width": "15%", "targets": 11 },
-              { "width": "15%", "targets": 12 },
-              { "width": "15%", "targets": 13 },
-              { "width": "15%", "targets": 14 },
-              { "width": "15%", "targets": 15 },
-              { "width": "15%", "targets": 16 },
-              { "width": "15%", "targets": 17 },
-              { "width": "15%", "targets": 18 },
-              { "width": "15%", "targets": 19 },
-              { "width": "15%", "targets": 20 },
-              { "width": "15%", "targets": 21 },
-              { "width": "15%", "targets": 22 },
-              { "width": "15%", "targets": 23 } */
+              { "width": "15%", "targets": 6 },
+              { "width": "15%", "targets": 7 }
             ]
     });
 
@@ -114,24 +83,12 @@ $(document).ready(function($) {
     //Ver
     $(document).on('click', '.btnVer', function() {
         $('#fk_veiculo-visualizar').text($(this).data('fk_veiculo')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#fk_contrato-visualizar').text($(this).data('fk_contrato'));
         $('#fk_motorista-visualizar').text($(this).data('fk_motorista'));
-        $('#valor_derivados-visualizar').text($(this).data('valor_derivados'));
-        $('#valor_smv-visualizar').text($(this).data('valor_smv'));
-        $('#numero_ordem_servico-visualizar').text($(this).data('numero_ordem_servico'));
-        $('#data_servico-visualizar').text($(this).data('data_servico'));
-        $('#km_entrada_oficina-visualizar').text($(this).data('km_entrada_oficina'));
-        $('#numero_smv-visualizar').text($(this).data('numero_smv'));
-        $('#numero_lupus-visualizar').text($(this).data('numero_lupus'));
-        $('#numero_sei-visualizar').text($(this).data('numero_sei'));
-        $('#numero_empenho-visualizar').text($(this).data('numero_empenho'));
-        $('#data_envio_pedido_empenho-visualizar').text($(this).data('data_envio_pedido_empenho'));
-        $('#numero_nf-visualizar').text($(this).data('numero_nf'));
-        $('#data_pg_nob-visualizar').text($(this).data('data_pg_nob'));
-        $('#numero_nob-visualizar').text($(this).data('numero_nob'));
-        $('#valor_empenho-visualizar').text($(this).data('valor_empenho'));
-        $('#valor_pago-visualizar').text($(this).data('valor_pago'));
-        $('#descricao_geral_servico-visualizar').text($(this).data('descricao_geral_servico'));
+        $('#titulo-visualizar').text($(this).data('titulo'));
+        $('#datahora_saida-visualizar').text($(this).data('datahora_saida'));
+        $('#datahora_chegada-visualizar').text($(this).data('numero_ordem_servico'));
+        $('#destino-visualizar').text($(this).data('destino'));
+        $('#retorno-visualizar').text($(this).data('retorno'));
         jQuery('#visualizar-modal').modal('show');
     });
 
@@ -187,11 +144,11 @@ $(document).ready(function($) {
     });
 
     //Adicionar
-    $(document).on('click', '.btnAdicionarServicos', function() {
+    $(document).on('click', '.btnAdicionarLiberacao', function() {
         $('.modal-footer .btn-action').removeClass('edit');
         $('.modal-footer .btn-action').addClass('add');
 
-        $('.modal-title').text('Novo Cadastro de Serviço');
+        $('.modal-title').text('Nova Liberação de Viagem');
         $('.callout').addClass("hidden");
         $('.callout').find("p").text("");
 
@@ -208,7 +165,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./servicos/store",
+            url: "./liberacao/store",
             data: dados,
             processData: false,
             contentType: false,
@@ -231,14 +188,14 @@ $(document).ready(function($) {
 
                 } else {
 
-                    $('#tabela_servicos').DataTable().draw(false);
+                    $('#tabela_liberacao').DataTable().draw(false);
 
                     jQuery('#criar_editar-modal').modal('hide');
 
                     $(function() {
                         iziToast.success({
                             title: 'OK',
-                            message: 'Serviço Adicionado com Sucesso!',
+                            message: 'Liberação Adicionada com Sucesso!',
                         });
                     });
 
@@ -264,7 +221,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: "./servicos/update",
+            url: "./liberacao/update",
             data: dados,
             processData: false,
             contentType: false,
@@ -287,14 +244,14 @@ $(document).ready(function($) {
 
                 } else {
 
-                   $('#tabela_servicos').DataTable().draw(false);
+                   $('#tabela_liberacao').DataTable().draw(false);
 
                     jQuery('#criar_editar-modal').modal('hide');
 
                     $(function() {
                         iziToast.success({
                             title: 'OK',
-                            message: 'Serviço Atualizado com Sucesso!',
+                            message: 'Liberação Atualizada com Sucesso!',
                         });
                     });
 
@@ -328,7 +285,7 @@ $(document).ready(function($) {
 
         $.ajax({
             type: 'post',
-            url: './servicos/delete',
+            url: './liberacao/delete',
             data: {
                 'id': $("#del").val(),
             },
@@ -339,14 +296,14 @@ $(document).ready(function($) {
                 jQuery('.del').button('reset');
             },
             success: function(data) {
-                $('#tabela_servicos').DataTable().row('#item-' + data.id).remove().draw(); //remove a linha e ordena
+                $('#tabela_liberacao').DataTable().row('#item-' + data.id).remove().draw(); //remove a linha e ordena
                 jQuery('#excluir-modal').modal('hide'); //fechar o modal
 
                 $(function() {
 
                     iziToast.success({
                         title: 'OK',
-                        message: 'Serviço Excluído com Sucesso!',
+                        message: 'Liberação Excluída com Sucesso!',
                     });
                 });
             },
