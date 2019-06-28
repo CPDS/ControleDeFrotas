@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\{
+    Veiculo,
+    User
+};
 
 class LiberacaoController extends Controller
 {
@@ -49,7 +53,7 @@ class LiberacaoController extends Controller
         $Liberacao->fk_motorista = $request->fk_motorista;
         $Liberacao->status = 'Ativo';
         $Liberacao->save();
-        return response()->json($Liberacao); 
+        return response()->json($Liberacao);
     }
 
     /**
