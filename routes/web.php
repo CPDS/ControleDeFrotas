@@ -188,6 +188,15 @@ Route::group(['middleware' => 'auth'], function () {
 
     });
 
+    Route::group(['prefix'=>'liberacao','where'=>['id'=>'[0-9]+'], 'middleware' => ['role:Administrador|Coordenador|Tecnico']], function(){
+    Route::get('',['as'=>'liberacao.index', 'uses'=>'LiberacaoController@index']);
+    Route::get('/list',['as' => 'liberacao.list', 'uses' => 'LiberacaoController@list']);
+    Route::post('/store', ['as' => 'liberacao.store', 'uses' => 'LiberacaoController@store']); 
+    Route::post('/update', ['as' => 'liberacao.update', 'uses' => 'LiberacaoController@update']); 
+    Route::post('/delete', ['as' => 'liberacao.delete', 'uses' => 'LiberacaoController@destroy']); 
+    
+        });
+
 });
 
 Auth::routes();
