@@ -20,7 +20,7 @@
               <strong>Data de Ínicio:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                <input maxlength="250" id="data_inicio" class="form-control" name="data_inicio" type="date">
+                <input maxlength="250" id="data_inicio" class="form-control" name="data_inicio" type="date" max="2200-12-31">
               </div>
             </div>
 

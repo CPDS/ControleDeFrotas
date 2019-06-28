@@ -93,8 +93,8 @@ class TermoController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'data_inicio' => 'required|date_format:d-m-Y',
-            'data_termino' => 'required|date_format:d-m-Y',
+            'data_inicio' => 'required',
+            'data_termino' => 'required',
             'fk_contrato' => 'required',
             'valor' => 'required|numeric',
         );
