@@ -16,7 +16,7 @@ use App\Viagem;
 class PassageiroController extends Controller
 {
     public function index(){
-        $viagems = Viagem::select('numero_rv', 'id')->get();
+        $viagems = Viagem::select('numero_rv', 'id','nome')->get();
         return view('passageiro.index', compact('viagems'));
     }
 
@@ -26,13 +26,52 @@ class PassageiroController extends Controller
         return Datatables::of($Passageiro)->editColumn('acao', function ($passageiros){
 
         	return $this->setBtns($passageiros);
-        })->escapeColumns([0])->make(true);
+        })
+        ->editColumn('fk_solicitacao', function ($passageiros){
+            return $passageiros->viagem->nome;
+        })
+        ->escapeColumns([0])->make(true);
     }
 
     private function setBtns(Passageiro $passageiros){
-    	$dados = "data-id='$passageiros->id' data-nome_passageiro='$passageiros->nome_passageiro' data-matricula='$passageiros->matricula' data-status='$passageiros->status'";
-        $dadosVisualizar = "data-nome_passageiro='$passageiros->nome_passageiro' data-matricula='$passageiros->matricula' data-status='$passageiros->status'";
-    	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Passageiro' $dados ><i class='fa fa-eye'></i></a> ";
+        /*
+        nome_passageiro' => 'required|min:3|max:45',
+        'matricula' => 'required|numeric',
+        'email' => 'required',
+        'telefone' => 'required',
+        'rg' => 'required|numeric',
+        'categoria' => 'required|min:3|max:45',
+        'instituicao' => 'required|min:3|max:45',
+        'observacoes' => 'required|min:3|max:45',
+        'fk_solicitacao' => 'required',*/
+        $dados = 
+        "data-id='$passageiros->id' 
+        data-nome_passageiro='$passageiros->nome_passageiro' 
+        data-matricula='$passageiros->matricula' 
+        data-status='$passageiros->status'
+        data-telefone='$passageiros->telefone'
+        data-rg='$passageiros->rg'
+        data-categoria='$passageiros->categoria'
+        data-instituicao='$passageiros->instituicao'
+        data-observacoes='$passageiros->observacoes'
+        data-email='$passageiros->email'
+        data-fk_solicitacao='$passageiros->fk_solicitacao'
+        ";
+        $nomeviagem = $passageiros->viagem->nome;
+        //dd($nomeviagem);
+        $dadosVisualizar = 
+        "data-nome_passageiro='$passageiros->nome_passageiro' 
+        data-matricula='$passageiros->matricula' 
+        data-status='$passageiros->status'
+        data-telefone='$passageiros->telefone'
+        data-rg='$passageiros->rg'
+        data-categoria='$passageiros->categoria'
+        data-instituicao='$passageiros->instituicao'
+        data-observacoes='$passageiros->observacoes'
+        data-email='$passageiros->email'
+        data-fk_solicitacao='$nomeviagem'
+        ";
+    	$btnVer= "<a class='btn btn-primary btn-sm btnVer' title='Ver Passageiro' $dadosVisualizar ><i class='fa fa-eye'></i></a> ";
     	$btnEditar= "<a class='btn btn-warning btn-sm btnEditar' title='Editar Passageiro' $dados><i class ='fa fa-pencil'></i></a> ";
     	$btnDeletar= "<a class='btn btn-danger btn-sm btnDeletar' title='Deletar Passageiro' data-id='$passageiros->id'><i class='fa fa-trash'></i></a>";
 

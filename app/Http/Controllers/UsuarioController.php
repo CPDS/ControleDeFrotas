@@ -86,9 +86,10 @@ class UsuarioController extends Controller
         //Buscando a funçao do usuario
         //foreach($usuarios->getRoleNames() as $tipoFuncao)
             //$funcao = $tipoFuncao;
-      $funcao = $usuarios->getRoleNames();
+      $funcao = $usuarios->roles->first()->name;
+      $funcao1 = $usuarios->roles;
 
-      $dados = 'data-id ="'.$usuarios->id.'" data-name="'.$usuarios->name.'" data-email="'.$usuarios->email.'" data-endereco="'.$usuarios->endereco.'" data-telefone="'.$usuarios->telefone.'" data-funcao="'.$funcao.'"
+      $dados = 'data-id ="'.$usuarios->id.'" data-name="'.$usuarios->name.'" data-email="'.$usuarios->email.'" data-endereco="'.$usuarios->endereco.'" data-telefone="'.$usuarios->telefone.'" data-funcao="'.$funcao1.'"
        ';
       $dados_visualizar = 'data-name="'.$usuarios->name.'" data-email="'.$usuarios->email.'" data-endereco="'.$usuarios->endereco.'" data-telefone="'.$usuarios->telefone.'" data-funcao="'.$funcao.'"
       ';
