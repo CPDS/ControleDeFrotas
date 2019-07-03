@@ -39,7 +39,7 @@
               <strong>RG:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <input placeholder="Digite seu RG" id="rg" maxlength="254" class="form-control" name="rg" type="text">
+                <input placeholder="Digite seu RG" id="rg" maxlength="254" class="form-control" name="rg" type="numeric">
               </div>
             </div>
 
@@ -47,7 +47,7 @@
               <strong>Matrícula:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <input maxlength="150" id="matricula" class="form-control" name="matricula" type="text">
+                <input maxlength="150" id="matricula" class="form-control" name="matricula" type="numeric">
               </div>
             </div>
 

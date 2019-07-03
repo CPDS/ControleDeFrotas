@@ -46,12 +46,12 @@ class ContratoController extends Controller
         return $btnVer.$btnEditar.$btnDeletar;
     }
 
-    
+
 
     public function store(Request $request) {
         $rules = array(
               'empresa_contratada_nome' => 'required|min:3|max:250',
-              'empresa_contratada_cnpj' => 'required|numeric',
+              'empresa_contratada_cnpj' => 'required|alpha_dash',
               'numero_contrato' => 'required|numeric',
               'data_inicio_contrato' => 'required|date',
               'data_vencimento_contrato' => 'required|date',
@@ -98,7 +98,7 @@ class ContratoController extends Controller
     {
         $rules = array(
             'empresa_contratada_nome' => 'required|min:3|max:45',
-            'empresa_contratada_cnpj' => 'required|min:3|max:45',
+            'empresa_contratada_cnpj' => 'required|alpha_dash',
             'numero_contrato' => 'required|numeric',
             'data_inicio_contrato' => 'required',
             'data_vencimento_contrato' => 'required',

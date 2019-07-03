@@ -20,7 +20,7 @@
               <strong>Quantidade da Diária:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-black-tie"></i></span>
-                <input maxlength="250" id="qtd_diaria" class="form-control" name="qtd_diaria" type="text">
+                <input maxlength="250" id="qtd_diaria" class="form-control" name="qtd_diaria" type="numeric">
               </div>
             </div>
 
@@ -28,7 +28,7 @@
               <strong>Valor da Diária:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                <input maxlength="250" id="valor_diaria" class="form-control" name="valor_diaria" type="text">
+                <input maxlength="250" id="valor_diaria" class="form-control" name="valor_diaria" type="numeric">
               </div>
             </div>
 
@@ -36,7 +36,7 @@
               <strong>Custo Total da Diária:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                <input maxlength="250" id="custo_total_diaria" class="form-control" name="custo_total_diaria" type="text">
+                <input maxlength="250" id="custo_total_diaria" class="form-control" name="custo_total_diaria" type="numeric">
               </div>
             </div>
 
@@ -44,7 +44,7 @@
               <strong>Valor da Manutenção:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                <input maxlength="250" id="valor_manutencao" class="form-control" name="valor_manutencao" type="text">
+                <input maxlength="250" id="valor_manutencao" class="form-control" name="valor_manutencao" type="numeric">
               </div>
             </div>
 
@@ -52,7 +52,7 @@
               <strong>Custo Total da Viagem:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                <input maxlength="250" id="custo_total_viagem" class="form-control" name="custo_total_viagem" type="text">
+                <input maxlength="250" id="custo_total_viagem" class="form-control" name="custo_total_viagem" type="numeric">
               </div>
             </div>
 

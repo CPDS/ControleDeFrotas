@@ -29,7 +29,7 @@
              <strong>CNPJ:</strong>
              <div class="input-group">
                <span class="input-group-addon"><i class="fa fa-copyright"></i></span>
-               <input placeholder="Digite o CNPJ" maxlength="250" id="empresa_contratada_cnpj" class="form-control" name="empresa_contratada_cnpj" type="text">
+               <input placeholder="Digite o CNPJ" maxlength="250" id="empresa_contratada_cnpj" class="form-control" name="empresa_contratada_cnpj" type="alpha_dash">
              </div>
            </div>
 
@@ -37,7 +37,7 @@
              <strong>Nº do Contrato:</strong>
              <div class="input-group">
                <span class="input-group-addon"><i class="fa fa-sort-numeric-desc"></i></span>
-               <input placeholder="Digite o nº do contrato" maxlength="250" id="numero_contrato" class="form-control" name="numero_contrato" type="text">
+               <input placeholder="Digite o nº do contrato" maxlength="250" id="numero_contrato" class="form-control" name="numero_contrato" type="numeric">
              </div>
            </div>
 
@@ -61,7 +61,7 @@
              <strong>Valor do Contrato:</strong>
              <div class="input-group">
                <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-               <input maxlength="250" id="valor_contratado" class="form-control" name="valor_contratado" type="text">
+               <input maxlength="250" id="valor_contratado" class="form-control" name="valor_contratado" type="numeric">
              </div>
            </div>
 

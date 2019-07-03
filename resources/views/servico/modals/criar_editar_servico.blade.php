@@ -47,7 +47,7 @@
               <strong>Valor dos derivados:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                <input maxlength="250" id="valor_derivados" class="form-control" name="valor_derivados" type="number">
+                <input maxlength="250" id="valor_derivados" class="form-control" name="valor_derivados" type="numeric">
               </div>
             </div>
 
@@ -55,7 +55,7 @@
               <strong>Valor dos SMV:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                <input maxlength="250" id="valor_smv" class="form-control" name="valor_smv" type="number">
+                <input maxlength="250" id="valor_smv" class="form-control" name="valor_smv" type="numeric">
               </div>
             </div>
 
@@ -63,7 +63,7 @@
               <strong>Nº Ordem de Serviço:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-file"></i></span>
-                <input maxlength="250" id="numero_ordem_servico" class="form-control" name="numero_ordem_servico" type="text">
+                <input maxlength="250" id="numero_ordem_servico" class="form-control" name="numero_ordem_servico" type="numeric">
               </div>
             </div>
 
@@ -79,7 +79,7 @@
               <strong>KM Entrada Oficina:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-dashboard"></i></span>
-                <input maxlength="250" id="km_entrada_oficina" class="form-control" name="km_entrada_oficina" type="text">
+                <input maxlength="250" id="km_entrada_oficina" class="form-control" name="km_entrada_oficina" type="numeric">
               </div>
             </div>
 
@@ -87,7 +87,7 @@
               <strong>Número SMV:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-file"></i></span>
-                <input maxlength="250" id="numero_smv" class="form-control" name="numero_smv" type="number">
+                <input maxlength="250" id="numero_smv" class="form-control" name="numero_smv" type="numeric">
               </div>
             </div>
 
@@ -95,7 +95,7 @@
               <strong>Número Lupus:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-file"></i></span>
-                <input maxlength="250" id="numero_lupus" class="form-control" name="numero_lupus" type="text">
+                <input maxlength="250" id="numero_lupus" class="form-control" name="numero_lupus" type="numeric">
               </div>
             </div>
 
@@ -103,7 +103,7 @@
               <strong>Número SEI:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-file"></i></span>
-                <input maxlength="250" id="numero_sei" class="form-control" name="numero_sei" type="text">
+                <input maxlength="250" id="numero_sei" class="form-control" name="numero_sei" type="numeric">
               </div>
             </div>
 
@@ -111,7 +111,7 @@
               <strong>Número Empenho:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-file"></i></span>
-                <input maxlength="250" id="numero_empenho" class="form-control" name="numero_empenho" type="text">
+                <input maxlength="250" id="numero_empenho" class="form-control" name="numero_empenho" type="numeric">
               </div>
             </div>
 
@@ -127,7 +127,7 @@
               <strong>Número Nota Fiscal:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-file"></i></span>
-                <input maxlength="250" id="numero_nf" class="form-control" name="numero_nf" type="text">
+                <input maxlength="250" id="numero_nf" class="form-control" name="numero_nf" type="numeirc">
               </div>
             </div>
 
@@ -151,7 +151,7 @@
               <strong>Valor Empenho:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                <input maxlength="250" id="valor_empenho" class="form-control" name="valor_empenho" type="number">
+                <input maxlength="250" id="valor_empenho" class="form-control" name="valor_empenho" type="numeric">
               </div>
             </div>
 
@@ -159,7 +159,7 @@
               <strong>Valor Pago:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                <input maxlength="250" id="valor_pago" class="form-control" name="valor_pago" type="number">
+                <input maxlength="250" id="valor_pago" class="form-control" name="valor_pago" type="numeric">
               </div>
             </div>
 
@@ -167,7 +167,7 @@
               <strong>Valor do Serviço:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                <input maxlength="250" id="valor_servico" class="form-control" name="valor_servico" type="number">
+                <input maxlength="250" id="valor_servico" class="form-control" name="valor_servico" type="numeric">
               </div>
             </div>
 
@@ -175,7 +175,7 @@
               <strong>Valor da Peça:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                <input maxlength="250" id="valor_pecas" class="form-control" name="valor_pecas" type="number">
+                <input maxlength="250" id="valor_pecas" class="form-control" name="valor_pecas" type="numeric">
               </div>
             </div>
 

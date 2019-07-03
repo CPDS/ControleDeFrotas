@@ -67,13 +67,13 @@ $(document).ready(function($) {
               { targets : [0,8], sortable : false },
               { "width": "5%", "targets": 0 }, //nº
               { "width": "5%", "targets": 1 },//nome
-              { "width": "10%", "targets": 2 },//placa
-              { "width": "20%", "targets": 3 },//tipo_combustivel
+              { "width": "20%", "targets": 2 },//placa
+              { "width": "15%", "targets": 3 },//tipo_combustivel
               { "width": "10%", "targets": 4 },//
               { "width": "10%", "targets": 5 },
               { "width": "10%", "targets": 6 },
               { "width": "10%", "targets": 7 },
-              { "width": "20%", "targets": 8 }
+              { "width": "5%", "targets": 8 }
             ]
     });
 
@@ -92,7 +92,7 @@ $(document).ready(function($) {
         $('#datahora_chegada-visualizar').text($(this).data('datahora_chegada'));
         $('#fk_cidade_saida-visualizar').text($(this).data('fk_cidade_saida'));
         $('#fk_cidade_chegada-visualizar').text($(this).data('fk_cidade_chegada'));
-        $('#fk_tipo_servico-visualizar').text($(this).data('fk_tipo_servico'));
+        /*$('#fk_tipo_servico-visualizar').text($(this).data('fk_tipo_servico'));
         $('#fk_id_solicitante-visualizar').text($(this).data('fk_id_solicitante'));
         $('#estimativa_km-visualizar').text($(this).data('estimativa_km'));
         $('#nome_responsavel-visualizar').text($(this).data('nome_responsavel'));
@@ -104,7 +104,7 @@ $(document).ready(function($) {
         $('#natureza_servico-visualizar').text($(this).data('natureza_servico'));
         $('#custo_viagem-visualizar').text($(this).data('custo_viagem'));
         $('#descricao_bagagem-visualizar').text($(this).data('descricao_bagagem'));
-        $('#codigo_acp_rv-visualizar').text($(this).data('codigo_acp_rv'));
+        $('#codigo_acp_rv-visualizar').text($(this).data('codigo_acp_rv')); */
         jQuery('#visualizar-modal').modal('show');
     });
 
@@ -339,7 +339,7 @@ $(document).ready(function($) {
             },
 
         });
-    }); // fim do adicionar
+    }); // fim do adicionar passageiro
 
     // Editar
     $('.modal-footer').on('click', '.edit', function() {

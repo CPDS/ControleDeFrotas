@@ -36,7 +36,7 @@
               <strong>Valor:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa  fa-genderless"></i></span>
-                <input id="valor" maxlength="250" class="form-control" name="valor" type="text">
+                <input id="valor" maxlength="250" class="form-control" name="valor" type="numeric">
               </div>
             </div>
 

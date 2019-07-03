@@ -64,7 +64,7 @@
               <strong>Total de Lugares:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-bus"></i></span>
-                <input id="qtd_total_lugares" maxlength="20" class="form-control" name="qtd_total_lugares" type="text">
+                <input id="qtd_total_lugares" maxlength="20" class="form-control" name="qtd_total_lugares" type="numeric">
               </div>
             </div>
 
@@ -72,7 +72,7 @@
               <strong>Ano de Fabricação:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                <input maxlength="20" class="form-control" id="ano_fabricacao" name="ano_fabricacao" type="text">
+                <input maxlength="20" class="form-control" id="ano_fabricacao" name="ano_fabricacao" type="numeric">
               </div>
             </div>
 
@@ -80,7 +80,7 @@
                <strong>Mínimo de Passageiros:</strong>
                <div class="input-group">
                  <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                 <input id="minimo_passageiros" maxlength="20" class="form-control" name="minimo_passageiros" type="text">
+                 <input id="minimo_passageiros" maxlength="20" class="form-control" name="minimo_passageiros" type="numeric">
                </div>
              </div>
 
@@ -88,7 +88,7 @@
                <strong>Maxímo de Passageiros:</strong>
                <div class="input-group">
                  <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                 <input id="maximo_passageiros" maxlength="20" class="form-control" name="maximo_passageiros" type="text">
+                 <input id="maximo_passageiros" maxlength="20" class="form-control" name="maximo_passageiros" type="numeric">
                </div>
              </div>
 
@@ -96,7 +96,7 @@
                <strong>Rendimento:</strong>
                <div class="input-group">
                  <span class="input-group-addon"><i class="fa fa-tachometer"></i></span>
-                 <input id="rendimento" maxlength="20" class="form-control" name="rendimento" type="text">
+                 <input id="rendimento" maxlength="20" class="form-control" name="rendimento" type="numeric">
                </div>
              </div>
 

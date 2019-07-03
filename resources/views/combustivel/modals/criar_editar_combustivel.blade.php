@@ -28,7 +28,7 @@
               <strong>Valor do Litro:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                <input maxlength="250" id="valor_litro" class="form-control" name="valor_litro" type="text">
+                <input maxlength="250" id="valor_litro" class="form-control" name="valor_litro" type="numeric">
               </div>
             </div>
 

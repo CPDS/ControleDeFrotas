@@ -135,7 +135,7 @@
                    <strong>Nº RV:</strong>
                    <div class="input-group">
                      <span class="input-group-addon"><i class="fa fa-file"></i></span>
-                     <input placeholder="Digite o número da RV" maxlength="150" id="numero_rv" class="form-control" name="numero_rv" type="text">
+                     <input placeholder="Digite o número da RV" maxlength="150" id="numero_rv" class="form-control" name="numero_rv" type="numeric">
                    </div>
                  </div>
 
@@ -206,7 +206,7 @@
                      <strong>Estimativa de KM</strong>
                      <div class="input-group">
                      <span class="input-group-addon"><i class="fa fa-road"></i></span>
-                     <input placeholder="Informe a Estimativa de KM" maxlength="254" id="estimativa_km" class="form-control" name="estimativa_km" type="text">
+                     <input placeholder="Informe a Estimativa de KM" maxlength="254" id="estimativa_km" class="form-control" name="estimativa_km" type="numeric">
                      </div>
                  </div>
 
@@ -260,7 +260,7 @@
                    <strong>Nº Passageiros:</strong>
                    <div class="input-group">
                      <span class="input-group-addon"><i class="fa fa-group"></i></span>
-                     <input placeholder="Digite quantidade de Passageiros" id="numero_passageiros" maxlength="254" class="form-control" name="numero_passageiros" type="text">
+                     <input placeholder="Digite quantidade de Passageiros" id="numero_passageiros" maxlength="254" class="form-control" name="numero_passageiros" type="numeric">
                    </div>
                  </div>
 
@@ -285,7 +285,7 @@
                    <strong>Custo da Viagem:</strong>
                    <div class="input-group">
                      <span class="input-group-addon"><i class="fa fa-money"></i></span>
-                     <input placeholder="Digite o Custo da Viagem" id="custo_viagem" maxlength="254" class="form-control" name="custo_viagem" type="text">
+                     <input placeholder="Digite o Custo da Viagem" id="custo_viagem" maxlength="254" class="form-control" name="custo_viagem" type="numeric">
                    </div>
                  </div>
 
@@ -293,7 +293,7 @@
                    <strong>Código ACP:</strong>
                    <div class="input-group">
                      <span class="input-group-addon"><i class="fa fa-file-code-o"></i></span>
-                     <input id="codigo_acp_rv" maxlength="254" class="form-control" name="codigo_acp_rv" type="text">
+                     <input id="codigo_acp_rv" maxlength="254" class="form-control" name="codigo_acp_rv" type="numeric">
                    </div>
                  </div>
 
