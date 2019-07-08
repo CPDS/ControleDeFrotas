@@ -83,26 +83,26 @@ $(document).ready(function($) {
 
     //Ver
     $(document).on('click', '.btnVer', function() {
-        $('#numero_rv-visualizar').text($(this).data('numero_rv')); // # pego no visualizar.blade.php e data pego no Controller(botao)
-        $('#setor_emissor_rv-visualizar').text($(this).data('setor_emissor_rv'));
-        $('#fk_veiculo-visualizar').text($(this).data('fk_veiculo'));
-        $('#datahora_saida-visualizar').text($(this).data('datahora_saida'));
-        $('#datahora_chegada-visualizar').text($(this).data('datahora_chegada'));
-        $('#fk_cidade_saida-visualizar').text($(this).data('fk_cidade_saida'));
-        $('#fk_cidade_chegada-visualizar').text($(this).data('fk_cidade_chegada'));
-        $('#fk_tipo_servico-visualizar').text($(this).data('fk_tipo_servico'));
-        $('#fk_id_solicitante-visualizar').text($(this).data('fk_id_solicitante'));
-        $('#estimativa_km-visualizar').text($(this).data('estimativa_km'));
-        $('#nome_responsavel-visualizar').text($(this).data('nome_responsavel'));
-        $('#telefone_responsavel-visualizar').text($(this).data('telefone_responsavel'));
-        $('#local_saida-visualizar').text($(this).data('local_saida'));
-        $('#setor_autoriza_viagem-visualizar').text($(this).data('setor_autoriza_viagem'));
-        $('#numero_passageiros-visualizar').text($(this).data('numero_passageiros'));
-        $('#tipo_solicitacao-visualizar').text($(this).data('tipo_solicitacao'));
-        $('#natureza_servico-visualizar').text($(this).data('natureza_servico'));
-        $('#custo_viagem-visualizar').text($(this).data('custo_viagem'));
-        $('#descricao_bagagem-visualizar').text($(this).data('descricao_bagagem'));
-        $('#codigo_acp_rv-visualizar').text($(this).data('codigo_acp_rv'));
+        // $('#numero_rv-visualizar').text($(this).data('numero_rv')); // # pego no visualizar.blade.php e data pego no Controller(botao)
+        // $('#setor_emissor_rv-visualizar').text($(this).data('setor_emissor_rv'));
+        // $('#fk_veiculo-visualizar').text($(this).data('fk_veiculo'));
+        // $('#datahora_saida-visualizar').text($(this).data('datahora_saida'));
+        // $('#datahora_chegada-visualizar').text($(this).data('datahora_chegada'));
+        // $('#fk_cidade_saida-visualizar').text($(this).data('fk_cidade_saida'));
+        // $('#fk_cidade_chegada-visualizar').text($(this).data('fk_cidade_chegada'));
+        // $('#fk_tipo_servico-visualizar').text($(this).data('fk_tipo_servico'));
+        // $('#fk_id_solicitante-visualizar').text($(this).data('fk_id_solicitante'));
+        // $('#estimativa_km-visualizar').text($(this).data('estimativa_km'));
+        // $('#nome_responsavel-visualizar').text($(this).data('nome_responsavel'));
+        // $('#telefone_responsavel-visualizar').text($(this).data('telefone_responsavel'));
+        // $('#local_saida-visualizar').text($(this).data('local_saida'));
+        // $('#setor_autoriza_viagem-visualizar').text($(this).data('setor_autoriza_viagem'));
+        // $('#numero_passageiros-visualizar').text($(this).data('numero_passageiros'));
+        // $('#tipo_solicitacao-visualizar').text($(this).data('tipo_solicitacao'));
+        // $('#natureza_servico-visualizar').text($(this).data('natureza_servico'));
+        // $('#custo_viagem-visualizar').text($(this).data('custo_viagem'));
+        // $('#descricao_bagagem-visualizar').text($(this).data('descricao_bagagem'));
+        // $('#codigo_acp_rv-visualizar').text($(this).data('codigo_acp_rv'));
         jQuery('#visualizar-modal').modal('show');
     });
 
