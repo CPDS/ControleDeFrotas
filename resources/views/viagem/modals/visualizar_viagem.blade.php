@@ -11,7 +11,7 @@
       </div> <!-- Fim de ModaL Header-->
 
         <div class="modal-body">
-
+ <form id="form">
       <div class="row">
 
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -120,7 +120,7 @@
         </div>
 
       </div>
-
+</form>
     </div>
        <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal" id="tabela_viagem">Fechar</button>
