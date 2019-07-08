@@ -311,6 +311,7 @@
              <input type="hidden" id="id" name="id">
 
          </div>
+</div>
 
        </form>
 
@@ -394,5 +395,4 @@
     </div> <!-- Fim de ModaL Content-->
 
   </div> <!-- Fim de ModaL Dialog-->
-
 </div> <!-- Fim de ModaL Usuario-->
