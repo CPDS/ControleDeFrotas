@@ -48,11 +48,11 @@ class SetorController extends Controller
     }
 
     public function store(Request $request) {
-       
+
         $rules = array(
-              'nome_setor' => 'required|min:3|max:45',
+              'nome_setor' => 'required|string|min:3|max:45',
               'fk_campus' => 'required',
-               
+
         );
         $attributeNames = array(
             'nome_setor' => 'Nome',
@@ -60,7 +60,7 @@ class SetorController extends Controller
         );
         $messages = array(
             'same' => 'Essas senhas não coincidem.'
-        ); 
+        );
 
          // Validar dados
          //$this->validate($request, $this->Setor->rules);

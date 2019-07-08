@@ -144,7 +144,7 @@ class ViagemController extends Controller
             'numero_rv' => 'required|numeric',
             'setor_emissor_rv' => 'required',
             'fk_veiculo' => 'required',
-            'datahora_saida' => 'required|date',
+            //'datahora_saida' => 'required|date',
             //'datahora_chegada' => 'required|date_format:d-m-Y',
             //'status' => 'required',
             'fk_cidade_saida' => 'required',
@@ -167,7 +167,7 @@ class ViagemController extends Controller
         $attributeNames = array(
             'numero_rv' => 'Numero RV',
             'setor_emissor_rv' => 'Setor Emissor',
-            'fk_veiculo' => 'required',
+            'fk_veiculo' => 'Veículo',
             //'datahora_saida' => 'required|date_format:d-m-Y',
             //'datahora_chegada' => 'required|date_format:d-m-Y',
             //'status' => 'required',

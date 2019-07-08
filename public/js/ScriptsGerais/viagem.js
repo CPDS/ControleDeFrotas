@@ -19,8 +19,6 @@ $(document).ready(function($) {
             { data: 'datahora_chegada', name: 'datahora_chegada' },
             { data: 'fk_cidade_saida', name: 'fk_cidade_saida' },
             { data: 'fk_cidade_chegada', name: 'fk_cidade_chegada' },
-
-
             { data: 'acao', name: 'acao' }
             ],
             createdRow : function( row, data, index ) {
@@ -73,7 +71,7 @@ $(document).ready(function($) {
               { "width": "10%", "targets": 5 },
               { "width": "10%", "targets": 6 },
               { "width": "10%", "targets": 7 },
-              { "width": "5%", "targets": 8 }
+              { "width": "15%", "targets": 8 }
             ]
     });
 
@@ -92,7 +90,7 @@ $(document).ready(function($) {
         $('#datahora_chegada-visualizar').text($(this).data('datahora_chegada'));
         $('#fk_cidade_saida-visualizar').text($(this).data('fk_cidade_saida'));
         $('#fk_cidade_chegada-visualizar').text($(this).data('fk_cidade_chegada'));
-        /*$('#fk_tipo_servico-visualizar').text($(this).data('fk_tipo_servico'));
+        $('#fk_tipo_servico-visualizar').text($(this).data('fk_tipo_servico'));
         $('#fk_id_solicitante-visualizar').text($(this).data('fk_id_solicitante'));
         $('#estimativa_km-visualizar').text($(this).data('estimativa_km'));
         $('#nome_responsavel-visualizar').text($(this).data('nome_responsavel'));
@@ -104,7 +102,7 @@ $(document).ready(function($) {
         $('#natureza_servico-visualizar').text($(this).data('natureza_servico'));
         $('#custo_viagem-visualizar').text($(this).data('custo_viagem'));
         $('#descricao_bagagem-visualizar').text($(this).data('descricao_bagagem'));
-        $('#codigo_acp_rv-visualizar').text($(this).data('codigo_acp_rv')); */
+        $('#codigo_acp_rv-visualizar').text($(this).data('codigo_acp_rv'));
         jQuery('#visualizar-modal').modal('show');
     });
 
