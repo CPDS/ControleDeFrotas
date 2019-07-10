@@ -42,7 +42,7 @@ class CombustivelController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-              'nome' => 'required|string|min:3|max:45',
+              'nome' => 'required|alpha|min:3|max:45',
               'valor_litro' => 'required|numeric',
 
         );
@@ -74,7 +74,7 @@ class CombustivelController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'nome' => 'required',
+            'nome' => 'required|alpha',
             'valor_litro' => 'required',
 
         );
