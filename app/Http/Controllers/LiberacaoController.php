@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+use Response;
+use DataTables;
+use DB;
+use Auth;
 use App\{
     Veiculo,
-    User
+    User,
+    Motorista,
+    Liberacao
 };
 
 class LiberacaoController extends Controller
@@ -30,6 +37,27 @@ class LiberacaoController extends Controller
     public function create()
     {
         //
+    }
+
+    public function list() {
+        $Liberacao = Liberacao::orderBy('created_at', 'desc')->get();
+        
+        return Datatables::of($Liberacao)->editColumn('acao', function ($liberacaos){
+        	return $this->setBtns($liberacaos);
+        })
+        ->editColumn('fk_motorista', function ($liberacaos){
+            return $liberacaos->motorista->name;
+        })
+        ->editColumn('fk_veiculo', function ($liberacaos){
+            return $liberacaos->veiculo->nome_veiculo;
+        })
+        ->editColumn('tem_arcondicionado', function ($veiculos){
+            if($veiculos->tem_arcondicionado == true)
+                return 'Sim';
+            else
+                return 'Não';
+        })
+        ->escapeColumns([0])->make(true);
     }
 
     /**
