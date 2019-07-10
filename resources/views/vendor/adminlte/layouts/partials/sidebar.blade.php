@@ -46,7 +46,7 @@
                      @role('Administrador')<li><a class="btnAdicionarViagems" data-id="{{Auth::user()->id}}" data-name="{{Auth::user()->name}}">{{ trans('Solicitação de Viagem') }}</a></li>@endrole
                     @role('Administrador')<li><a href="{{ url('percursos') }}" class="btnAdicionarPercursos">{{ trans('Percursos') }}</a></li>@endrole
                     @role('Administrador|Motorista')<li><a href="{{ url('diarios') }}" class="btnAdicionarDiarios">{{ trans('Diários de Bordo') }}</a></li>@endrole
-                    @role('Administrador')<li><a href="{{ url('liberacao') }}">{{ trans('Liberação de Viagem') }}</a></li>@endrole
+                    @role('Administrador')<li><a href="{{ url('liberacao') }}" class="btnAdicionarLiberacao" >{{ trans('Liberação de Viagem') }}</a></li>@endrole
                 </ul>
 
             </li>

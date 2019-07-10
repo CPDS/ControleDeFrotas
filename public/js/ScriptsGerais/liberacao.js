@@ -18,6 +18,7 @@ $(document).ready(function($) {
             { data: 'destino', name: 'destino' },
             { data: 'retorno', name: 'retorno' },
             { data: 'status', name: 'status' },
+            { data: 'acao', name: 'acao' },
             //{ data: 'fk_veiculo', name: 'fk_veiculo' },
             //{ data: 'fk_motorista', name: 'fk_motorista' },
             ],
@@ -145,6 +146,7 @@ $(document).ready(function($) {
 
     //Adicionar
     $(document).on('click', '.btnAdicionarLiberacao', function() {
+
         $('.modal-footer .btn-action').removeClass('edit');
         $('.modal-footer .btn-action').addClass('add');
 

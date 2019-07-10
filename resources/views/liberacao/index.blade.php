@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('css/iziToast.min.css') }}">
 <script src="{{ asset('js/iziToast.min.js') }}"></script>
-<script src="{{asset('js/ScriptsGerais/servico.js')}}"></script>
+<script src="{{asset('js/ScriptsGerais/liberacao.js')}}"></script>
 @section('htmlheader_title')
     Liberacao
 @endsection
@@ -26,7 +26,7 @@
                          <div class="col-md-12">
                           <div class="pull-right">
                        <span>   <!-- Botão para cadastrar -->
-                            <a class="btn btn-primary btnAdicionarLiberacao btn-sm "><i class="fa fa-plus"></i> Cadastrar Serviço</a> 
+                            <a class="btn btn-primary btnAdicionarLiberacao btn-sm "><i class="fa fa-plus"></i>Cadastrar Liberação</a>
                         </span>
                         </div>
                         </div>

@@ -84,7 +84,7 @@
       </div> <!-- Fim de ModaL Body-->
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-action btn-success add" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> &nbsp Aguarde...">
+        <button type="button" class="btn btn-action btnAdicionarLiberacao btn-success add" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> &nbsp Aguarde...">
           <i class="fa fa-floppy-o"> </i>
         </button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">
