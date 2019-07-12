@@ -50,13 +50,13 @@ class ContratoController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-              'empresa_contratada_nome' => 'required|min:3|max:250',
+              'empresa_contratada_nome' => 'required|alpha|min:3|max:250',
               'empresa_contratada_cnpj' => 'required|alpha_dash',
               'numero_contrato' => 'required|numeric',
               'data_inicio_contrato' => 'required|date',
               'data_vencimento_contrato' => 'required|date',
               'valor_contratado' => 'required|numeric',
-              'tipo' => 'required|min:3|max:250',
+              'tipo' => 'required|alpha|min:3|max:250',
 
         );
         $attributeNames = array(
@@ -97,13 +97,13 @@ class ContratoController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'empresa_contratada_nome' => 'required|min:3|max:45',
+            'empresa_contratada_nome' => 'required|alpha|min:3|max:45',
             'empresa_contratada_cnpj' => 'required|alpha_dash',
             'numero_contrato' => 'required|numeric',
             'data_inicio_contrato' => 'required',
             'data_vencimento_contrato' => 'required',
             'valor_contratado' => 'required|numeric',
-            'tipo' => 'required|min:3|max:45',
+            'tipo' => 'required|alpha|min:3|max:45',
 
         );
 

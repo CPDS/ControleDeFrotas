@@ -50,7 +50,7 @@ class SetorController extends Controller
     public function store(Request $request) {
 
         $rules = array(
-              'nome_setor' => 'required|string|min:3|max:45',
+              'nome_setor' => 'required|alpha|min:3|max:45',
               'fk_campus' => 'required',
 
         );
@@ -84,7 +84,7 @@ class SetorController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'nome_setor' => 'required',
+            'nome_setor' => 'required|alpha|min:3|max:45',
             'fk_campus' => 'required',
         );
 

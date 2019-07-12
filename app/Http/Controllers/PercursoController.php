@@ -58,8 +58,8 @@ class PercursoController extends Controller
 
         $formatadata = date("d/m/y",strtotime($percursos->hora_chegada));
         $visualizarchegada = $formatadata.' '.$hora_chegada.':00';
-    
-        
+
+
 
         $dados = "data-id='$percursos->id' data-data_saida='$data_saida' data-data_chegada='$data_chegada' data-estado='$estado' data-estado2='$estado2' data-fk_cidade_chegada='$idcidadechegada' data-fk_cidade_saida='$idcidadesaida' data-hora_saida='$hora_saida' data-local_saida='$percursos->local_saida' data-km_saida='$percursos->km_saida' data-roteiro='$percursos->roteiro' data-hora_chegada='$hora_chegada' data-local_chegada='$percursos->local_chegada' data-km_chegada='$percursos->km_chegada' data-fk_diario='$percursos->fk_diario' ";
         $dadosVisualizar = "data-estado='$nomeestado' data-estado2='$nomeestado2' data-fk_cidade_chegada='$cidadechegada' data-fk_cidade_saida='$cidadesaida' data-hora_saida='$visualizarsaida' data-local_saida='$cidadesaida' data-tipo_combustivel='$percursos->tipo_combustivel' data-km_saida='$percursos->km_saida' data-roteiro='$percursos->roteiro' data-hora_chegada='$visualizarchegada' data-local_chegada='$cidadechegada' data-km_chegada='$percursos->km_chegada' data-fk_diario='$percursos->fk_diario' ";
@@ -75,19 +75,19 @@ class PercursoController extends Controller
               'hora_saida' => 'required|date_format:d-m-Y',
               //'local_saida' => 'required',
               'km_saida' => 'required|numeric',
-              'roteiro' => 'required|min:3|max:45',
-              'hora_chegada' => 'required|numeric',
+              'roteiro' => 'required|alpha|min:3|max:45',
+              'hora_chegada' => 'required|date_format:d-m-Y',
               //'local_chegada' => 'required',
               'km_chegada' => 'required|numeric',
               'fk_diario' => 'required',
 
         );
         $attributeNames = array(
-            'hora_saida' => 'Hr Saída',
+            'hora_saida' => 'Hora Saída',
             //'local_saida' => 'Local Saída',
             'km_saida' => 'Km Saída',
             'roteiro' => 'Roteiro',
-            'hora_chegada' => 'Hr Chegada',
+            'hora_chegada' => 'Hora Chegada',
             //'local_chegada' => 'Local Chegada',
             'km_chegada' => 'Km Chegada',
             'fk_diario' => 'Diário',
@@ -128,14 +128,14 @@ class PercursoController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'hora_saida' => 'required',
+            'hora_saida' => 'required|date_format:d-m-Y',
             //'local_saida' => 'required',
             //'tipo_combustivel' => 'required',
-            'km_saida' => 'required',
-            'roteiro' => 'required',
-            'hora_chegada' => 'required',
+            'km_saida' => 'required|numeric',
+            'roteiro' => 'required|alpha|min:3|max:45',
+            'hora_chegada' => 'required|date_format:d-m-Y',
             //'local_chegada' => 'required',
-            'km_chegada' => 'required',
+            'km_chegada' => 'required|numeric',
             'fk_diario' => 'required',
 
         );

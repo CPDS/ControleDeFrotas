@@ -25,7 +25,7 @@ class DiarioController extends Controller
         {
             $viagens = Viagem::where('status','Ativo')->where('fk_motorista',$usuario_logado)->get();
         }
-        
+
         return view('diario.index',compact('viagens'));
         //return view('termo.index');
     }
@@ -57,20 +57,20 @@ class DiarioController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-              'nome_diario' => 'required|min:3|max:45',
+              'nome_diario' => 'required|aplha|min:3|max:45',
               'fk_viagem' => 'required',
-              'ocorrencias' => 'required|min:3|max:45',
+              'ocorrencias' => 'required|alpha|min:3|max:45',
         );
         $attributeNames = array(
             'ocorrencias' => 'Ocorrências',
             'fk_viagem' => 'Viagem',
             'nome_diario' => 'Nome',
         );
-        
+
         $messages = array(
             'same' => 'Essas senhas não coincidem.',
-            
-        ); 
+
+        );
         $validator = Validator::make(Input::all(), $rules, $messages);
         $validator->setAttributeNames($attributeNames);
         if ($validator->fails()){
@@ -92,7 +92,7 @@ class DiarioController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'ocorrencias' => 'required',
+            'ocorrencias' => 'required|alpha',
         );
 
         $validator = Validator::make(Input::all(), $rules);

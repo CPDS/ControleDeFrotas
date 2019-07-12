@@ -41,7 +41,7 @@ class LiberacaoController extends Controller
 
     public function list() {
         $Liberacao = Liberacao::orderBy('created_at', 'desc')->get();
-        
+
         return Datatables::of($Liberacao)->editColumn('acao', function ($liberacaos){
         	return $this->setBtns($liberacaos);
         })
@@ -116,9 +116,9 @@ class LiberacaoController extends Controller
     public function update(Request $request, $id)
     {
         $rules = array(
-            'titulo' => 'required|min:3|max:45',
-            'destino' => 'required|min:3|max:45',
-            'retorno' => 'required|min:3|max:45',
+            'titulo' => 'required|alpha|min:3|max:45',
+            'destino' => 'required|alpha|min:3|max:45',
+            'retorno' => 'required|alpha|min:3|max:45',
             'fk_veiculo' => 'required',
             'fk_motorista' => 'required',
 

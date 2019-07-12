@@ -42,7 +42,7 @@ class CampusController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-            'nome_campus' => 'required|min:3|max:45',
+            'nome_campus' => 'required|alpha|min:3|max:45',
         );
         $attributeNames = array(
             'nome_campus' => 'Nome',
@@ -73,7 +73,7 @@ class CampusController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'nome_campus' => 'required',
+            'nome_campus' => 'required|alpha',
         );
 
         $validator = Validator::make(Input::all(), $rules);

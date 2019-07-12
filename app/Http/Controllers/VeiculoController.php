@@ -23,7 +23,7 @@ class VeiculoController extends Controller
     }
     public function list() {
         $Veiculo = Veiculo::orderBy('created_at', 'desc')->where('status','Ativo')->get();
-        
+
         return Datatables::of($Veiculo)->editColumn('acao', function ($veiculos){
         	return $this->setBtns($veiculos);
         })
@@ -53,7 +53,7 @@ class VeiculoController extends Controller
     }
     public function store(Request $request) {
         $rules = array(
-              'nome_veiculo' => 'required|min:3|max:45',
+              'nome_veiculo' => 'required|alpha|min:3|max:45',
               'placa' => 'required|min:3|max:45',
               'tipo_combustivel' => 'required',
               'fk_campus' => 'required',
@@ -62,9 +62,9 @@ class VeiculoController extends Controller
               'minimo_passageiros' => 'required|numeric',
               'maximo_passageiros' => 'required|numeric',
               'rendimento' => 'required|numeric',
-              'marca' => 'required|min:3|max:45',
-              'tem_arcondicionado' => 'required',
-              'tipo_bagageiro' => 'required|min:3|max:45',
+              'marca' => 'required|alpha|min:3|max:45',
+              'tem_arcondicionado' => 'required|alpha',
+              'tipo_bagageiro' => 'required|alpha|min:3|max:45',
         );
         $attributeNames = array(
             'nome_veiculo' => 'Nome',
@@ -116,18 +116,18 @@ class VeiculoController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'nome_veiculo' => 'required',
-            'placa' => 'required',
+            'nome_veiculo' => 'required|alpha|min:3|max:45',
+            'placa' => 'required|min:3|max:45',
             'tipo_combustivel' => 'required',
             'fk_campus' => 'required',
-            'qtd_total_lugares' => 'required',
-            'ano_fabricacao' => 'required',
-            'minimo_passageiros' => 'required',
-            'maximo_passageiros' => 'required',
-            'rendimento' => 'required',
-            'marca' => 'required',
-            'tem_arcondicionado' => 'required',
-            'tipo_bagageiro' => 'required',
+            'qtd_total_lugares' => 'required|numeric',
+            'ano_fabricacao' => 'required|numeric',
+            'minimo_passageiros' => 'required|numeric',
+            'maximo_passageiros' => 'required|numeric',
+            'rendimento' => 'required|numeric',
+            'marca' => 'required|alpha|min:3|max:45',
+            'tem_arcondicionado' => 'required|alpha|min:3|max:45',
+            'tipo_bagageiro' => 'required|alpha|min:3|max:45',
         );
         $validator = Validator::make(Input::all(), $rules);
         if ($validator->fails())
@@ -178,7 +178,7 @@ class VeiculoController extends Controller
         }
         //retornando para o javascript
         return response()->json(['cidades' => $campus]);
-        
+
     }
     */
 }
