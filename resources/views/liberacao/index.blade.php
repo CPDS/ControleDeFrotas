@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="{{ asset('css/iziToast.min.css') }}">
 <script src="{{ asset('js/iziToast.min.js') }}"></script>
 <script src="{{asset('js/ScriptsGerais/liberacao.js')}}"></script>
+<script src ="{{ asset('/js/ScriptsGerais/liberacao.js'). '?update=' . str_random(3) }}" type = "text/javascript" ></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
 @section('htmlheader_title')
     Liberacao
 @endsection

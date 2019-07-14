@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="{{ asset('css/iziToast.min.css') }}">
 <script src="{{ asset('js/iziToast.min.js') }}"></script>
 <script src="{{asset('js/ScriptsGerais/viagem.js')}}"></script>
+
 @section('htmlheader_title')
     Viagem
 @endsection

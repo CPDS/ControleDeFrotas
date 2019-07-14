@@ -75,6 +75,21 @@
               </select>
             </div>
 
+            <div class="form-group" style="width: 500px;">
+              <div class="col-md-12" style="width: 500px;">
+                  <strong>Viagens Associadas</strong>
+                  <div class="input-group">
+                      <select style="width: 500px;" name="viagens[]" id="viagens" class="form-control js-example-basic-multiple" style="width:100%" multiple="multiple">
+                        @foreach($viagens as $viagem)
+                        <option value="{{$viagem->id}}">{{$viagem->nome}}</option>
+                        @endforeach
+                      </select>
+                  </div>       
+              </div>
+          </div>     
+
+
+
              <input type="hidden" id="id" name="id">
 
          </div>

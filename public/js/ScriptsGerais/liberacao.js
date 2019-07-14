@@ -122,6 +122,14 @@ $(document).ready(function($) {
         //jQuery('#visualizar-modal').modal('show');
     });
 
+    //select multiplo
+    $('.js-example-basic-multiple').select2({
+        placeholder: "Selecione",
+        allowClear: true,
+        tags: true,
+    });
+
+
     //Deletar
   /*  $(document).on('click', '.btnDeletar', function() {
         alert('voce clicou');

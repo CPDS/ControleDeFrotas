@@ -12,7 +12,8 @@ use App\{
     Veiculo,
     User,
     Motorista,
-    Liberacao
+    Liberacao,
+    Viagem
 };
 
 class LiberacaoController extends Controller
@@ -26,7 +27,8 @@ class LiberacaoController extends Controller
     {
         $veiculos = Veiculo::select('nome_veiculo','id')->where('status','Ativo')->get();
         $motoristas = User::role('Motorista')->where('status','Ativo')->select('name','id')->get();
-        return view('liberacao.index',compact('veiculos','motoristas'));
+        $viagens = Viagem::select('nome','id')->where('status','Ativo')->get();
+        return view('liberacao.index',compact('veiculos','motoristas','viagens'));
     }
 
     /**
