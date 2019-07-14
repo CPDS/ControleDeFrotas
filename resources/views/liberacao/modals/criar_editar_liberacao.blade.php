@@ -16,7 +16,7 @@
         <form id="form" role="form" method="post">
           <div class="row" style="width: 100%">
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
               <strong>Título:</strong>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
@@ -37,6 +37,22 @@
               <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
               <input id="datahora_chegada" class="form-control"  name="datahora_chegada" type="date"> <!-- Campo nào pega hora ainda -->
+            </div>
+            </div>
+
+            <div class="form-group col-md-6">
+              <strong>Hora Saída:</strong>
+              <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
+              <input id="hora_saida" class="form-control"  name="hora_saida" type="time"> <!-- Campo nào pega hora ainda -->
+            </div>
+            </div>
+
+            <div class="form-group col-md-6">
+              <strong>Hora Chegada:</strong>
+              <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span>
+              <input id="hora_chegada" class="form-control"  name="hora_chegada" type="time"> <!-- Campo nào pega hora ainda -->
             </div>
             </div>
 

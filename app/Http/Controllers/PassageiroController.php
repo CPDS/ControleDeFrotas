@@ -44,10 +44,10 @@ class PassageiroController extends Controller
         'instituicao' => 'required|min:3|max:45',
         'observacoes' => 'required|min:3|max:45',
         'fk_solicitacao' => 'required',*/
-        $dados = 
-        "data-id='$passageiros->id' 
-        data-nome_passageiro='$passageiros->nome_passageiro' 
-        data-matricula='$passageiros->matricula' 
+        $dados =
+        "data-id='$passageiros->id'
+        data-nome_passageiro='$passageiros->nome_passageiro'
+        data-matricula='$passageiros->matricula'
         data-status='$passageiros->status'
         data-telefone='$passageiros->telefone'
         data-rg='$passageiros->rg'
@@ -59,9 +59,9 @@ class PassageiroController extends Controller
         ";
         $nomeviagem = $passageiros->viagem->nome;
         //dd($nomeviagem);
-        $dadosVisualizar = 
-        "data-nome_passageiro='$passageiros->nome_passageiro' 
-        data-matricula='$passageiros->matricula' 
+        $dadosVisualizar =
+        "data-nome_passageiro='$passageiros->nome_passageiro'
+        data-matricula='$passageiros->matricula'
         data-status='$passageiros->status'
         data-telefone='$passageiros->telefone'
         data-rg='$passageiros->rg'
@@ -81,14 +81,14 @@ class PassageiroController extends Controller
     public function store(Request $request) {
       //dd($request->all());
         $rules = array(
-              'nome_passageiro' => 'required|min:3|max:45',
+              'nome_passageiro' => 'required|alpha|min:3|max:45',
               'matricula' => 'required|numeric',
               'email' => 'required',
               'telefone' => 'required',
               'rg' => 'required|numeric',
-              'categoria' => 'required|min:3|max:45',
-              'instituicao' => 'required|min:3|max:45',
-              'observacoes' => 'required|min:3|max:45',
+              'categoria' => 'required|alpha|min:3|max:45',
+              'instituicao' => 'required|alpha|min:3|max:45',
+              'observacoes' => 'required|alpha|min:3|max:45',
               'fk_solicitacao' => 'required',
 
         );
@@ -136,14 +136,14 @@ class PassageiroController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'nome_passageiro' => 'required',
-            'matricula' => 'required',
+            'nome_passageiro' => 'required|alpha',
+            'matricula' => 'required|numeric',
             'email' => 'required',
             'telefone' => 'required',
-            'rg' => 'required',
-            'categoria' => 'required',
-            'instituicao' => 'required',
-            'observacoes' => 'required',
+            'rg' => 'required|numeric',
+            'categoria' => 'required|alpha|min:3|max:45',
+            'instituicao' => 'required|alpha|min:3|max:45',
+            'observacoes' => 'required|alpha|min:3|max:45',
             'fk_solicitacao' => 'required',
         );
 

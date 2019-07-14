@@ -75,7 +75,7 @@ class CombustivelController extends Controller
     {
         $rules = array(
             'nome' => 'required|alpha',
-            'valor_litro' => 'required',
+            'valor_litro' => 'required|numeric',
 
         );
 

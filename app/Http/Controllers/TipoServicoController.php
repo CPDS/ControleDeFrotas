@@ -39,7 +39,7 @@ class TipoServicoController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-            'nome_servico' => 'required|min:3|max:45',
+            'nome_servico' => 'required|alpha|min:3|max:45',
         );
         $attributeNames = array(
             'nome_servico' => 'Tipo de Serviço',
@@ -65,7 +65,7 @@ class TipoServicoController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'nome_servico' => 'required',
+            'nome_servico' => 'required|alpha|min:3|max:45',
         );
 
         $validator = Validator::make(Input::all(), $rules);

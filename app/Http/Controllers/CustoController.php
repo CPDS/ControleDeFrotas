@@ -48,7 +48,7 @@ class CustoController extends Controller
               'custo_total_viagem' => 'required|numeric',
               'fk_diario_bordo' => 'required',
               'fk_combustivel' => 'required',
-              
+
         );
         $attributeNames = array(
             'qtd_diaria' => 'Qtd Diárias',
@@ -87,14 +87,14 @@ class CustoController extends Controller
     public function update(Request $request)
     {
         $rules = array(
-            'qtd_diaria' => 'required',
-            'valor_diaria' => 'required',
-            'custo_total_diaria' => 'required',
-            'valor_manutencao' => 'required',
-            'custo_total_viagem' => 'required',
+            'qtd_diaria' => 'required|numeric',
+            'valor_diaria' => 'required|numeric',
+            'custo_total_diaria' => 'required|numeric',
+            'valor_manutencao' => 'required|numeric',
+            'custo_total_viagem' => 'required|numeric',
             'fk_diario_bordo' => 'required',
             'fk_combustivel' => 'required',
-            
+
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -110,7 +110,7 @@ class CustoController extends Controller
             $Custo->custo_total_viagem = $request->custo_total_viagem;
             $Custo->fk_diario_bordo = $request->fk_diario_bordo;
             $Custo->fk_combustivel = $request->fk_combustivel;
-            
+
             $Custo->save();
             //$equipamento->setAttribute('buttons', $this->setDataButtons($equipamento));
             return response()->json($Custo);

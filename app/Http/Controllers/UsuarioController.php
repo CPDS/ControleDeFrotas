@@ -30,17 +30,17 @@ class UsuarioController extends Controller
     {
         $permissions = Permission::all();
         $models = Role::all();
-        return view('usuario.permission',compact('permissions','models'));    
+        return view('usuario.permission',compact('permissions','models'));
     }
 
     public function getPermissions($papel)
     {
         $permissions = ModelHasPermission::where('model_id',$papel)->get();
-        return response()->json(['data' => $permissions ]);    
+        return response()->json(['data' => $permissions ]);
     }
-    
+
     public function createPermissions(Request $request){
-       
+
         ModelHasPermission::where('model_id',$request->fk_model)->delete();
         foreach ($request->permissao as $value) {
             $ModelHasPermission = new ModelHasPermission();
@@ -50,10 +50,10 @@ class UsuarioController extends Controller
             $ModelHasPermission->save();
         }
         return response()->json($ModelHasPermission);
-    } 
+    }
 
-    public function list() {        
-        
+    public function list() {
+
         $usuarios = User::orderBy('created_at', 'desc')->where('status','Ativo')->get();
 
         return Datatables::of($usuarios)
@@ -112,7 +112,7 @@ class UsuarioController extends Controller
 
     public function store(Request $request) {
         $rules = array(
-            'name' => 'required|min:3|max:45',
+            'name' => 'required|alpha|min:3|max:45',
             'email' => 'required',
             'senha' => 'required|same:confirmarsenha',
             'endereco' => 'required|min:3|max:250',
@@ -176,7 +176,7 @@ class UsuarioController extends Controller
 
             //foreach($Usuario->getRoleNames() as $funcao)
             $role = $Usuario->getRoleNames()[0];
-            
+
             $Usuario->removeRole($role);
 
             $Usuario->name = $request->name;
