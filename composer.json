@@ -7,6 +7,9 @@
     "require": {
         "php": ">=7.0.0",
         "acacha/admin-lte-template-laravel": "4.*",
+        "barryvdh/laravel-dompdf": "^0.8.4",
+        "barryvdh/laravel-snappy": "^0.4.4",
+        "dompdf/dompdf": "^0.8.3",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",

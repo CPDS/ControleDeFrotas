@@ -53,6 +53,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/delete', ['as' => 'viagens.delete', 'uses' => 'ViagemController@destroy']); 
     Route::get('/cidade/{estado}',['as' => 'viagem.cidade','uses' => 'ViagemController@selectCidade']);
     Route::get('/reservas/{dados}',['as' => 'viagem.reservas','uses' => 'ViagemController@reservas']);
+    Route::get('/relatorio',['as' => 'viagens.relatorio', 'uses' => 'RelatorioController@viagens']);
 
     });
 

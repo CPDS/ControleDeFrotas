@@ -36,9 +36,9 @@
 		@foreach($viagens as $viagem)
 			<tr>	
         <td class="tg-q19q">{{$viagem->nome}}</td>
-				<td class="tg-q19q">{{$viagem->destino}}</td>
-        <td class="tg-q19q">{{$viagem->veiculo}}</td>
-				<td class="tg-q19q">{{$viagem->rv}}</td>
+				<td class="tg-q19q">{{$viagem->fk_cidade_chegada}}</td>
+        <td class="tg-q19q">{{$viagem->fk_veiculo}}</td>
+				<td class="tg-q19q">{{$viagem->numero_rv}}</td>
 			</tr>			
 		@endforeach
 		</table>

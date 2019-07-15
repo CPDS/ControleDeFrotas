@@ -30,6 +30,9 @@
                         <span>
                           <a class="btn btn-primary btnAdicionarViagems btn-sm"><i class="fa fa-plus"></i>  Cadastrar Viagem</a>
                         </span>
+                        <span>
+                          <a href="{{ url('viagens/relatorio') }}" target="_blank"><i class='fa fa-file-text'></i> <span>Relatório</span></a>
+                        </span>
                         </div>
                         </div>
 
